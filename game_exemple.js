@@ -10,7 +10,6 @@ let player
 function setFirstItem() {
     let i = Math.floor(Math.random() * maxDice)
     let items = [
-        // new Object(name, type, [ability, stamina, gold, meal])
         new Object("épée", "inventory", [0, 0, 0, 0]),
         new Object("casque", "special", [0, 2, 0, 0]),
         new Object("repas", "meal", [0, 0, 0, 2]),
@@ -29,18 +28,17 @@ function setFirstItem() {
 function createPlayer() {
     player = new Player()
 
-    player.setSkill(random_from_list(skillList))
-    player.setSkill(random_from_list(skillList))
-    player.setSkill(random_from_list(skillList))
-    player.setSkill(random_from_list(skillList))
-    player.setSkill(random_from_list(skillList))
+    player.setSkill(randomFromList(skillList))
+    player.setSkill(randomFromList(skillList))
+    player.setSkill(randomFromList(skillList))
+    player.setSkill(randomFromList(skillList))
+    player.setSkill(randomFromList(skillList))
     player.setDefaultStuffBonus()
     setFirstItem()
 
-    if (player.skill.includes("armes")) {player.bestWeapon = random_from_list(weapons)}
-    if (player.skill.includes("puissance")) {player.ability += 2}
-
     player.show()
+
+    console.log(player.bestWeapon)
 }
 
 // Main function

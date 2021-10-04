@@ -14,12 +14,11 @@ class Player {
     }
 
     setSkill(skill) {
-        if (!skillList.includes(skill)) {
-            console.log("ERREUR: Mauvais Skill.")
-            return
-        }
         if (this.skill.length < maxSkill) {
             this.skill.push(skill);
+            this.ability += skill.bonusAbility
+            this.stamina += skill.bonusStamina
+            this.bestWeapon = skill.bonusWeapon
         }
     }
 
@@ -53,7 +52,7 @@ class Player {
         let inventoryList = ""
         let specialList = ""
 
-        for (var i = 0; i != this.skill.length; i++) {abilityList += "<li>" + this.skill[i] + "</li>\n"}
+        for (var i = 0; i != this.skill.length; i++) {abilityList += "<li>" + this.skill[i].name + "</li>\n"}
         for (var j = 0; j != this.inventory.length; j++) {inventoryList += "<li>" + this.inventory[j].name + "</li>"}
         if (this.meal != 0) {inventoryList += "<li> Repas x" + this.meal + "</li>"}
         for (var k = 0; k != this.special.length; k++) {specialList += "<li>" + this.special[k].name + "</li>"}
