@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
 
 body {
     display: flex;
@@ -9,20 +10,26 @@ body {
     overflow: hidden;
     background-color: rgb(40, 42, 61);
     color: white;
+    object-fit:fill;
+    font-family: 'Roboto', sans-serif;
 }
 
+/***********************************/
+/*            Player HUD           */
+/***********************************/
+
 .hero-js-player {
+    z-index: 3;
     font-size: 1.2rem;
     position: fixed;
     display: flex;
     flex-direction: column;
-    font-family: 'Roboto', sans-serif;
 }
 
 .hero-js-stats {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.116);
-    backdrop-filter: blur(10px);
+    background: rgba(128, 128, 128, 0.171);
+    backdrop-filter: blur(30px);
     text-align: center;
     border: solid rgba(255, 255, 255, 0.096) 0.1rem;
     margin-bottom: 1rem;
@@ -37,6 +44,8 @@ body {
 }
 
 .hero-js-stats-body {
+    /* max-height */
+    /* overflow-y scroll */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,9 +72,141 @@ body {
     width: auto;
 }
 
+.hero-js-item-special {color: rgb(166, 235, 126);}
+.hero-js-item-broken {color: rgb(235, 142, 126);}
+
 .hero-js-player-left {left: 0;}
 .hero-js-player-right {right: 0;}
 .hero-js-player-left .hero-js-stats {box-shadow: -0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.185); border-left: none; border-radius: 0 1rem 1rem 0;}
 .hero-js-player-right .hero-js-stats {box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.185); border-right: none; border-radius: 1rem 0 0 1rem;}
 .hero-js-player-left .hero-js-stats-header {border-radius: 0 1rem 0 0;}
 .hero-js-player-right .hero-js-stats-header {border-radius: 1rem 0 0 0;}
+
+/***********************************/
+/*          GAME INFOS HUD         */
+/***********************************/
+
+.hero-js-hud-title {
+    z-index: 3;
+    display: flex;
+    position: fixed;
+    top: 0;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.116);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    border: solid rgba(255, 255, 255, 0.096) 0.1rem;
+    border-radius: 0 0 1rem 1rem;
+    border-top: none;
+}
+
+#hero-js-game-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(28, 29, 43, 0.616);
+    padding: 1rem;
+    border-radius: 0 0 0 1rem;
+}
+
+#hero-js-game-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/***********************************/
+/*            DIALOGUE             */
+/***********************************/
+
+.hero-js-dialog {
+    width: 800px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.hero-js-dialog-img {
+    position: fixed;
+    z-index: 1;
+}
+
+.hero-js-dialog-img img {
+    height: 70vw;
+    max-height: 70vh;
+    filter: drop-shadow(1rem 1rem 1rem black);
+    /* animation: dialog-img 2s ease-in-out infinite; */
+}
+
+@keyframes dialog-img {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.hero-js-dialog-header {
+    background: rgba(128, 128, 128, 0.171);
+    backdrop-filter: blur(30px);
+    border: solid rgba(255, 255, 255, 0.096) 0.1rem;
+    width: 50%;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.hero-js-dialog-body {
+    text-align: justify;
+    background: rgba(28, 29, 43, 0.616);
+    font-size: 1.2rem;
+    border: solid rgba(255, 255, 255, 0.096) 0.1rem;
+    backdrop-filter: blur(30px);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.hero-js-dialog-action {
+    font-style: italic;
+    margin: 1rem;
+    margin-bottom: 0;
+}
+
+.hero-js-dialog-button-zone {
+    margin: 1rem;
+    width: 100%;
+    display: flex;
+    /* background: red; */
+}
+
+.hero-js-dialog-button-zone button {
+    background-color:rgb(40, 42, 61);
+    text-decoration: none;
+    border: none;
+    font-style: inherit;
+    font-size: 1.2rem;
+    width: 100%;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    opacity: 0.8;
+}
+
+.hero-js-dialog-button-zone button:hover {
+    opacity: 1;
+    cursor: pointer;
+}

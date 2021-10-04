@@ -53,11 +53,16 @@ class Player {
         let specialList = ""
 
         for (var i = 0; i != this.skill.length; i++) {abilityList += "<li>" + this.skill[i].name + "</li>\n"}
-        for (var j = 0; j != this.inventory.length; j++) {inventoryList += "<li>" + this.inventory[j].name + "</li>"}
+        for (var j = 0; j != this.inventory.length; j++) {
+            if (this.inventory[j].name == this.bestWeapon || this.inventory[j].state == 1)
+                inventoryList += "<li class='hero-js-item-special'>" + this.inventory[j].name + "</li>"
+            else
+                inventoryList += "<li>" + this.inventory[j].name + "</li>"
+        }
         if (this.meal != 0) {inventoryList += "<li> Repas x" + this.meal + "</li>"}
         for (var k = 0; k != this.special.length; k++) {specialList += "<li>" + this.special[k].name + "</li>"}
 
-        document.body.innerHTML =   '<div class="hero-js-player hero-js-player-left">\
+        document.body.innerHTML +=   '<div class="hero-js-player hero-js-player-left">\
                                         <div class="hero-js-stats">\
                                             <div class="hero-js-stats-header">🗡️ Ability</div>\
                                             <div class="hero-js-stats-body" id="hero-js-ability">' + this.ability + '</div>\

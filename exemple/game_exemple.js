@@ -35,15 +35,16 @@ function createPlayer() {
     player.setSkill(randomFromList(skillList))
     player.setDefaultStuffBonus()
     setFirstItem()
-
-    player.show()
-
-    console.log(player.bestWeapon)
 }
 
 // Main function
 function game() {
+    showTitle()
     createPlayer()
+    if (player.stamina > 0) {
+        setBackground("img/ruine.jpg")
+        player.show() // met à jour tout le hud du joueur
+    }
 }
 
 game()

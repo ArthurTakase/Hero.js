@@ -1,13 +1,17 @@
 /***********************************/
-/*            GAME CONFIG          */
+/*             GAME INFOS          */
 /***********************************/
 
-let maxDice = 9
-let maxSkill = 5
-// let maxGold = 50 // NON CONFIGURE
-// let maxInventory = 8 // NON CONFIGURE
-// let maxWeapon = 2 // NONCONFIGURE
-let weapons = [
+let gameTitle = "🦅 Les Maîtres des Ténèbres 💀" // str
+let currentNumber = 2 // int
+
+/***********************************/
+/*          GAMEPLAY CONFIG        */
+/***********************************/
+
+let maxDice = 9 // int
+let maxSkill = 5 // int
+let weapons = [ // Liste:str
     "poignard",
     "lance",
     "masse",
@@ -19,8 +23,7 @@ let weapons = [
     "baton",
     "glaive"
 ]
-let skillList = [
-    // new Skill(name, [ability, stamina, bestWeapon])
+let skillList = [ // Liste:Skill
     new Skill("camouflage", [0, 0, null]),
     new Skill("chasse", [0, 0, null]),
     new Skill("sixième sens", [0, 0, null]),
@@ -37,16 +40,15 @@ let skillList = [
 /*       DEFAULT PLAYER STATS      */
 /***********************************/
 
-let defaultAbility = 10 + Math.floor(Math.random() * maxDice)
-let defaultStamina = 20 + Math.floor(Math.random() * maxDice)
-let defaultInventory = [
-    // new Object(name, type, [ability, stamina, gold, meal])
+let defaultAbility = 10 + Math.floor(Math.random() * maxDice) // int
+let defaultStamina = 20 + Math.floor(Math.random() * maxDice) // int
+let defaultInventory = [ // Liste:Object
     new Object("tunique", "inventory", [0, 0, 0, 0]),
     new Object("cape", "inventory", [0, 0, 0, 0]),
     new Object("hache", "inventory", [0, 0, 0, 0])
 ]
-let defaultSpecial = [
+let defaultSpecial = [ // Liste:Object
     new Object("carte", "special", [0, 0, 0, 0])
 ]
-let defaultMeal = 1
-let defaultGold = Math.floor(Math.random() * maxDice)
+let defaultMeal = 1 // int
+let defaultGold = Math.floor(Math.random() * maxDice) // int
