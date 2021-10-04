@@ -3,11 +3,11 @@
 /***********************************/
 
 let maxDice = 9
-let maxKai = 5
+let maxSkill = 5
 let maxGold = 50 // NON CONFIGURE
 let maxInventory = 8 // NON CONFIGURE
 let maxWeapon = 2 // NONCONFIGURE
-let kaiList = [
+let skillList = [
     "camouflage",
     "chasse",
     "sixieme sens",
@@ -16,7 +16,7 @@ let kaiList = [
     "armes",
     "bouclier",
     "puissance",
-    "communication animale",
+    "comm. animale",
     "maitrise"
 ]
 let weapons = [
@@ -36,9 +36,9 @@ let weapons = [
 /*       DEFAULT PLAYER STATS      */
 /***********************************/
 
-let defaultAbility = 10
-let defaultStamina = 20
-let defaultInventory = ["tunique", "cape de Seigneur Kaï", "hache"]
+let defaultAbility = 10 + Math.floor(Math.random() * maxDice)
+let defaultStamina = 20 + Math.floor(Math.random() * maxDice)
+let defaultInventory = ["tunique", "cape", "hache"]
 let defaultMeal = 1
 let defaultGold = Math.floor(Math.random() * maxDice)
 let defaultSpecial = ["carte"]

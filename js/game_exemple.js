@@ -6,34 +6,13 @@ console.log("game.js initialisé")
 console.log('-----------------------------')
 
 let player
-console.log(player)
 
 function setFirstItem() {
     let i = Math.floor(Math.random() * maxDice)
-    let tags = [
-        "inventory",
-        "special",
-        "meal",
-        "special",
-        "inventory",
-        "inventory",
-        "inventory",
-        "inventory",
-        "gold",
-        "inventory"
-    ]
-    let items = [
-        "epee",
-        "casque",
-        "2 repas",
-        "cotes de mailles",
-        "masse",
-        "potion de guerison",
-        "baton",
-        "lance",
-        "12 golds",
-        "glaive"
-    ];
+    let tags = ["inventory", "special", "meal", "special", "inventory",
+                "inventory", "inventory", "inventory", "gold", "inventory"]
+    let items = ["epee", "casque", "2 repas", "cotes de mailles", "masse",
+                "potion", "baton", "lance", "12 golds", "glaive"];
 
     if (tags[i] == "inventory") {
         player.addStuff(items[i], "inventory");
@@ -42,9 +21,11 @@ function setFirstItem() {
         switch (items[i]) {
             case "casque":
                 player.stamina += 2;
+                player.maxStamina = player.stamina
                 break;
             case "cotte de mailles":
                 player.stamina += 4;
+                player.maxStamina = player.stamina
                 break;
         }
     } else if (tags[i] == "meal") {
@@ -57,22 +38,22 @@ function setFirstItem() {
 function createPlayer() {
     player = new Player()
 
-    player.setStats()
-    player.setKai(random_from_list(kaiList))
-    player.setKai(random_from_list(kaiList))
-    player.setKai(random_from_list(kaiList))
-    player.setKai(random_from_list(kaiList))
-    player.setKai(random_from_list(kaiList))
+    player.setSkill(random_from_list(skillList))
+    player.setSkill(random_from_list(skillList))
+    player.setSkill(random_from_list(skillList))
+    player.setSkill(random_from_list(skillList))
+    player.setSkill(random_from_list(skillList))
     setFirstItem()
 
-    if (player.kai.includes("armes")) {
-        player.bestWeapon = random_from_list(weapons)
-    }
-    if (player.kai.includes("puissance")) {
-        player.ability += 2
-    }
+    if (player.skill.includes("armes")) {player.bestWeapon = random_from_list(weapons)}
+    if (player.skill.includes("puissance")) {player.ability += 2}
 
-    console.log(player)
+    player.show()
 }
 
-createPlayer()
+// Main function
+function game() {
+    createPlayer()
+}
+
+game()
