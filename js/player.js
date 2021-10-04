@@ -1,5 +1,3 @@
-console.log("player.js initialisé")
-
 class Player {
     constructor() {
         this.ability = defaultAbility; // int
@@ -62,39 +60,39 @@ class Player {
         if (this.meal != 0) {inventoryList += "<li> Repas x" + this.meal + "</li>"}
         for (var k = 0; k != this.special.length; k++) {specialList += "<li>" + this.special[k].name + "</li>"}
 
-        document.body.innerHTML +=   '<div class="hero-js-player hero-js-player-left">\
-                                        <div class="hero-js-stats">\
-                                            <div class="hero-js-stats-header">🗡️ Ability</div>\
-                                            <div class="hero-js-stats-body" id="hero-js-ability">' + this.ability + '</div>\
-                                        </div>\
-                                        <div class="hero-js-stats">\
-                                            <div class="hero-js-stats-header">❤️ Stamina</div>\
-                                            <div class="hero-js-stats-body" id="hero-js-stamina">' + this.stamina + '/' + this.maxStamina + '</div>\
-                                        </div>\
-                                        <div class="hero-js-stats">\
-                                            <div class="hero-js-stats-header">🔮 Skills</div>\
-                                            <div class="hero-js-stats-body" id="hero-js-stamina">\
-                                                <ul id="hero-js-skill">' + abilityList + '</ul>\
-                                            </div>\
-                                        </div>\
-                                    </div>\
-                                    <div class="hero-js-player hero-js-player-right">\
-                                        <div class="hero-js-stats">\
-                                            <div class="hero-js-stats-header">💰 Gold</div>\
-                                            <div class="hero-js-stats-body" id="hero-js-stamina">' + this.gold + '</div>\
-                                        </div>\
-                                        <div class="hero-js-stats">\
-                                            <div class="hero-js-stats-header">🎒 Inventory</div>\
-                                            <div class="hero-js-stats-body" id="hero-js-stamina">\
-                                                <ul id="hero-js-inventory">' + inventoryList + '</ul>\
-                                            </div>\
-                                        </div>\
-                                        <div class="hero-js-stats">\
-                                            <div class="hero-js-stats-header">✨ Special</div>\
-                                            <div class="hero-js-stats-body" id="hero-js-stamina">\
-                                                <ul id="hero-js-special">' + specialList + '</ul>\
-                                            </div>\
-                                        </div>\
-                                    </div>'
+        document.getElementById('hero-js-all').innerHTML += '<div class="hero-js-player hero-js-player-left">\
+                                                                    <div class="hero-js-stats">\
+                                                                        <div class="hero-js-stats-header">🗡️ Ability</div>\
+                                                                        <div class="hero-js-stats-body" id="hero-js-ability">' + this.ability + '</div>\
+                                                                    </div>\
+                                                                    <div class="hero-js-stats">\
+                                                                        <div class="hero-js-stats-header">❤️ Stamina</div>\
+                                                                        <div class="hero-js-stats-body" id="hero-js-stamina">' + this.stamina + '/' + this.maxStamina + '</div>\
+                                                                    </div>\
+                                                                    <div class="hero-js-stats">\
+                                                                        <div class="hero-js-stats-header">🔮 Skills</div>\
+                                                                        <div class="hero-js-stats-body" id="hero-js-stamina">\
+                                                                            <ul id="hero-js-skill">' + abilityList + '</ul>\
+                                                                        </div>\
+                                                                    </div>\
+                                                                </div>\
+                                                                <div class="hero-js-player hero-js-player-right">\
+                                                                    <div class="hero-js-stats">\
+                                                                        <div class="hero-js-stats-header">💰 Gold</div>\
+                                                                        <div class="hero-js-stats-body" id="hero-js-stamina">' + this.gold + '</div>\
+                                                                    </div>\
+                                                                    <div class="hero-js-stats">\
+                                                                        <div class="hero-js-stats-header">🎒 Inventory</div>\
+                                                                        <div class="hero-js-stats-body" id="hero-js-stamina">\
+                                                                            <ul id="hero-js-inventory">' + inventoryList + '</ul>\
+                                                                        </div>\
+                                                                    </div>\
+                                                                    <div class="hero-js-stats">\
+                                                                        <div class="hero-js-stats-header">✨ Special</div>\
+                                                                        <div class="hero-js-stats-body" id="hero-js-stamina">\
+                                                                            <ul id="hero-js-special">' + specialList + '</ul>\
+                                                                        </div>\
+                                                                    </div>\
+                                                                </div>'
     }
 }

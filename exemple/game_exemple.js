@@ -2,9 +2,6 @@
     Ce fichier est un exemple de l'utilisation de Hero.js dans le cadre d'un jeu.
 */
 
-console.log("game.js initialisé")
-console.log('-----------------------------')
-
 let player
 
 function setFirstItem() {
@@ -39,12 +36,9 @@ function createPlayer() {
 
 // Main function
 function game() {
-    showTitle()
+    setDefaultHUD()
     createPlayer()
-    if (player.stamina > 0) {
-        setBackground("img/night_forest.jpg")
-        player.show() // met à jour tout le hud du joueur
-    }
+    dialog[currentNumber].show()
 }
 
 game()

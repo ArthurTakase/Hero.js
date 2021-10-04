@@ -18,6 +18,20 @@ body {
 /*            Player HUD           */
 /***********************************/
 
+.hero-js-default {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* z-index: 1; */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
 .hero-js-player {
     z-index: 3;
     font-size: 1.2rem;
@@ -57,6 +71,7 @@ body {
     list-style: none;
     padding: 0;
     margin: 0;
+    z-index: 100;
 }
 
 .hero-js-stats-body li {
@@ -140,7 +155,7 @@ body {
     height: 70vw;
     max-height: 70vh;
     filter: drop-shadow(1rem 1rem 1rem black);
-    /* animation: dialog-img 2s ease-in-out infinite; */
+    animation: dialog-img 2s ease-in-out infinite;
 }
 
 @keyframes dialog-img {
@@ -169,6 +184,7 @@ body {
 }
 
 .hero-js-dialog-body {
+    width: 95%;
     text-align: justify;
     background: rgba(28, 29, 43, 0.616);
     font-size: 1.2rem;

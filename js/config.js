@@ -3,7 +3,7 @@
 /***********************************/
 
 let gameTitle = "🦅 Les Maîtres des Ténèbres 💀" // str
-let currentNumber = 1 // int
+let currentNumber = 0 // int
 
 /***********************************/
 /*          GAMEPLAY CONFIG        */
@@ -52,3 +52,30 @@ let defaultSpecial = [ // Liste:Object
 ]
 let defaultMeal = 1 // int
 let defaultGold = Math.floor(Math.random() * maxDice) // int
+
+/***********************************/
+/*            DIALOGUES            */
+/***********************************/
+
+let dialog = [
+    new Dialog(
+        "Julien ce fdp",
+        '"Putain, jai cassé mon tel et crevé mon vélo ! Wesh c\'est trop la loose... Je vais devoir me prostituer pour en acheter un autre, ça va durer des années..."',
+        "Choisissez quoi lui répondre",
+        [
+            new Button("Nique ta grand mère sombre pute", 1, null)
+        ],
+        "img/orc.png",
+        "img/night_forest.jpg"
+    ),
+    new Dialog(
+        null,
+        'Suite à votre insulte envers le vénérable Julien ce fdp, il vous a frappé au visage si fort à l\'aide d\'un poisson que vous en êtes mort. C\'est balo...',
+        "Voulez vous recommencer ?",
+        [
+            new Button("Oui", 0, null)
+        ],
+        "img/grave.png",
+        "img/tavern.jpg"
+    )
+]
