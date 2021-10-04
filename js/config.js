@@ -3,7 +3,7 @@
 /***********************************/
 
 let gameTitle = "🦅 Les Maîtres des Ténèbres 💀" // str
-let currentNumber = 2 // int
+let currentNumber = 1 // int
 
 /***********************************/
 /*          GAMEPLAY CONFIG        */

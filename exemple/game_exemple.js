@@ -42,7 +42,7 @@ function game() {
     showTitle()
     createPlayer()
     if (player.stamina > 0) {
-        setBackground("img/ruine.jpg")
+        setBackground("img/night_forest.jpg")
         player.show() // met à jour tout le hud du joueur
     }
 }
