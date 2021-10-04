@@ -2,15 +2,15 @@ console.log("player.js initialisé")
 
 class Player {
     constructor() {
-        this.ability = defaultAbility;
-        this.stamina = defaultStamina;
-        this.maxStamina = defaultStamina;
-        this.skill = [];
-        this.bestWeapon = null;
-        this.inventory = defaultInventory;
-        this.meal = defaultMeal;
-        this.gold = defaultGold;
-        this.special = defaultSpecial;
+        this.ability = defaultAbility; // int
+        this.stamina = defaultStamina; // int
+        this.maxStamina = defaultStamina; // int
+        this.skill = []; // List:Skill
+        this.bestWeapon = null; // str
+        this.inventory = defaultInventory; //List:Object
+        this.meal = defaultMeal; // int
+        this.gold = defaultGold; // int
+        this.special = defaultSpecial; // List:Object
     }
 
     setSkill(skill) {
@@ -59,15 +59,15 @@ class Player {
 
         document.body.innerHTML =   '<div class="hero-js-player hero-js-player-left">\
                                         <div class="hero-js-stats">\
-                                            <div class="hero-js-stats-header">Ability</div>\
+                                            <div class="hero-js-stats-header">🗡️ Ability</div>\
                                             <div class="hero-js-stats-body" id="hero-js-ability">' + this.ability + '</div>\
                                         </div>\
                                         <div class="hero-js-stats">\
-                                            <div class="hero-js-stats-header">Stamina</div>\
+                                            <div class="hero-js-stats-header">❤️ Stamina</div>\
                                             <div class="hero-js-stats-body" id="hero-js-stamina">' + this.stamina + '/' + this.maxStamina + '</div>\
                                         </div>\
                                         <div class="hero-js-stats">\
-                                            <div class="hero-js-stats-header">Skills</div>\
+                                            <div class="hero-js-stats-header">🔮 Skills</div>\
                                             <div class="hero-js-stats-body" id="hero-js-stamina">\
                                                 <ul id="hero-js-skill">' + abilityList + '</ul>\
                                             </div>\
@@ -75,17 +75,17 @@ class Player {
                                     </div>\
                                     <div class="hero-js-player hero-js-player-right">\
                                         <div class="hero-js-stats">\
-                                            <div class="hero-js-stats-header">Gold</div>\
+                                            <div class="hero-js-stats-header">💰 Gold</div>\
                                             <div class="hero-js-stats-body" id="hero-js-stamina">' + this.gold + '</div>\
                                         </div>\
                                         <div class="hero-js-stats">\
-                                            <div class="hero-js-stats-header">Inventory</div>\
+                                            <div class="hero-js-stats-header">🎒 Inventory</div>\
                                             <div class="hero-js-stats-body" id="hero-js-stamina">\
                                                 <ul id="hero-js-inventory">' + inventoryList + '</ul>\
                                             </div>\
                                         </div>\
                                         <div class="hero-js-stats">\
-                                            <div class="hero-js-stats-header">Special</div>\
+                                            <div class="hero-js-stats-header">✨ Special</div>\
                                             <div class="hero-js-stats-body" id="hero-js-stamina">\
                                                 <ul id="hero-js-special">' + specialList + '</ul>\
                                             </div>\

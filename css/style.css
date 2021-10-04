@@ -9,11 +9,10 @@ body {
     overflow: hidden;
     background-color: rgb(40, 42, 61);
     color: white;
-    font-size: 3rem;
 }
 
 .hero-js-player {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -21,7 +20,6 @@ body {
 }
 
 .hero-js-stats {
-    /* height: 8rem; */
     display: inline-block;
     background: rgba(255, 255, 255, 0.116);
     backdrop-filter: blur(10px);
@@ -46,9 +44,23 @@ body {
 }
 
 .hero-js-stats-body ul {
+    text-transform: capitalize;
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+.hero-js-stats-body li {
+    overflow: hidden;
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+    width: 150px;
+}
+
+.hero-js-stats-body li:hover {
+    overflow: visible; 
+    white-space: unset; 
+    width: auto;
 }
 
 .hero-js-player-left {left: 0;}

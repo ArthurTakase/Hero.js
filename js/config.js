@@ -4,9 +4,9 @@
 
 let maxDice = 9
 let maxSkill = 5
-let maxGold = 50 // NON CONFIGURE
-let maxInventory = 8 // NON CONFIGURE
-let maxWeapon = 2 // NONCONFIGURE
+// let maxGold = 50 // NON CONFIGURE
+// let maxInventory = 8 // NON CONFIGURE
+// let maxWeapon = 2 // NONCONFIGURE
 let weapons = [
     "poignard",
     "lance",
