@@ -38,7 +38,13 @@ let weapons = [
 
 let defaultAbility = 10 + Math.floor(Math.random() * maxDice)
 let defaultStamina = 20 + Math.floor(Math.random() * maxDice)
-let defaultInventory = ["tunique", "cape", "hache"]
+let defaultInventory = [
+    new Object("tunique", "inventory", [0, 0, 0, 0]),
+    new Object("cape", "inventory", [0, 0, 0, 0]),
+    new Object("hache", "inventory", [0, 0, 0, 0])
+]
+let defaultSpecial = [
+    new Object("carte", "special", [0, 0, 0, 0])
+]
 let defaultMeal = 1
 let defaultGold = Math.floor(Math.random() * maxDice)
-let defaultSpecial = ["carte"]

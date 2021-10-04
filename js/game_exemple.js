@@ -9,30 +9,21 @@ let player
 
 function setFirstItem() {
     let i = Math.floor(Math.random() * maxDice)
-    let tags = ["inventory", "special", "meal", "special", "inventory",
-                "inventory", "inventory", "inventory", "gold", "inventory"]
-    let items = ["epee", "casque", "2 repas", "cotes de mailles", "masse",
-                "potion", "baton", "lance", "12 golds", "glaive"];
+    let items = [
+        // new Object(name, type, [ability, stamina, gold, meal])
+        new Object("épée", "inventory", [0, 0, 0, 0]),
+        new Object("casque", "special", [0, 2, 0, 0]),
+        new Object("repas", "meal", [0, 0, 0, 2]),
+        new Object("cote de mailles", "special", [0, 4, 0, 0]),
+        new Object("masse", "inventory", [0, 0, 0, 0]),
+        new Object("potion", "inventory", [0, 0, 0, 0]),
+        new Object("baton", "inventory", [0, 0, 0, 0]),
+        new Object("lance", "inventory", [0, 0, 0, 0]),
+        new Object("argent", "gold", [0, 0, 12, 0]),
+        new Object("glaive", "inventory", [0, 0, 0, 0])
+    ]
 
-    if (tags[i] == "inventory") {
-        player.addStuff(items[i], "inventory");
-    } else if (tags[i] == "special") {
-        player.addStuff(items[i], "special");
-        switch (items[i]) {
-            case "casque":
-                player.stamina += 2;
-                player.maxStamina = player.stamina
-                break;
-            case "cotte de mailles":
-                player.stamina += 4;
-                player.maxStamina = player.stamina
-                break;
-        }
-    } else if (tags[i] == "meal") {
-        player.meal += 2;
-    } else {
-        player.gold += 12;
-    }
+    player.addStuff(items[i])
 }
 
 function createPlayer() {
@@ -43,6 +34,7 @@ function createPlayer() {
     player.setSkill(random_from_list(skillList))
     player.setSkill(random_from_list(skillList))
     player.setSkill(random_from_list(skillList))
+    player.setDefaultStuffBonus()
     setFirstItem()
 
     if (player.skill.includes("armes")) {player.bestWeapon = random_from_list(weapons)}
