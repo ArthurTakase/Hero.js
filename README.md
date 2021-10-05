@@ -6,6 +6,10 @@ Hero.js est un projet OpenSource de moteur de jeu en visual Novel.
 
 Pour le moment, le but de Hero.js est de pouvoir retranscrire de manière informatique les "Un Livre dont Vous êtes le Héros", des livres à choix et possédant un système de combat. Un JDR solo en somme.
 
+### Exemple
+
+Un exemple d'utilisation se trouve dans le dossier `exemple` du repo. Vous pouvez aller y jeter un coup d'oeil pour voir comment se fait un jeu à partir de la lib.
+
 ### Documentation
 
 La documentation officielle du projet est disponible [ici](https://icy-wind-398.notion.site/Hero-js-03dc521b26ea4c4fb8d551821cd40092).
