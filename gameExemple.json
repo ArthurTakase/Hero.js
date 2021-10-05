@@ -26,66 +26,81 @@
         [
             {
                 "name": "camouflage",
-                "stats": [0, 0],
-                "function" : null
+                "stats": [0, 0]
             },
             {
                 "name": "chasse",
-                "stats": [0, 0],
-                "function" : null
+                "stats": [0, 0]
             },
             {
                 "name": "sixième sens",
-                "stats": [0, 0],
-                "function" : null
+                "stats": [0, 0]
             },
             {
                 "name": "orientation",
-                "stats": [0, 0],
-                "function" : null
+                "stats": [0, 0]
             },
             {
                 "name": "guerison",
-                "stats": [0, 0],
-                "function" : null
+                "stats": [0, 0]
             },
             {
                 "name": "maître des armes",
-                "stats": [0, 0],
-                "function":
-                {
-                    "arguments": "",
-                    "body": "return 15;"
-                }
+                "stats": [0, 0]
             },
             {
                 "name": "bouclier",
-                "stats": [0, 0],
-                "function" : null
+                "stats": [0, 0]
             },
             {
                 "name": "puissance",
-                "stats": [2, 0],
-                "function" : null
+                "stats": [2, 0]
             },
             {
                 "name": "communication animale",
-                "stats": [0, 0],
-                "function" : null
+                "stats": [0, 0]
             },
             {
                 "name": "maîtrise",
-                "stats": [0, 0],
-                "function" : null
+                "stats": [0, 0]
+            }
+        ],
+        "objectsInventory": [],
+        "objectsSpecial":
+        [
+            {
+                "name": "épée",
+                "type": "special",
+                "data": [2, 0, 0, 0]
+            },
+            {
+                "name": "casque",
+                "type": "special",
+                "data": [0, 2, 0, 0]
+            },
+            {
+                "name": "cote de mailles",
+                "type": "special",
+                "data": [0, 4, 0, 0]
+            },
+            {
+                "name": "bourse de cuir",
+                "type": "special",
+                "data": [0, 0, 12, 0]
+            },
+            {
+                "name": "panier garnis",
+                "type": "special",
+                "data": [0, 0, 0, 2]
             }
         ]
     },
     "player":
     {
-        "ability": 10,
-        "stamina": 20,
+        "ability": "RANDOM,10,DICE",
+        "stamina": "RANDOM,20,DICE",
         "meal": 1,
-        "gold": 5,
+        "gold": "RANDOM,0,DICE",
         "inventory":
         [
             {
@@ -102,7 +117,8 @@
                 "name": "hache",
                 "type": "inventory",
                 "data": [0, 0, 0, 0]
-            }
+            },
+            "RANDOM_IN_CLASS"
         ],
         "special":
         [
@@ -110,13 +126,15 @@
                 "name": "carte",
                 "type": "special",
                 "data": [0, 0, 0, 0]
-            }
+            },
+            "RANDOM_IN_CLASS"
         ],
         "skills":
         [
-            "HEROS-JS-RANDOM-CHOICE",
-            "HEROS-JS-RANDOM-CHOICE",
-            "HEROS-JS-RANDOM-CHOICE",
+            "RANDOM_IN_CLASS",
+            "RANDOM_IN_CLASS",
+            "RANDOM_IN_CLASS",
+            "RANDOM_IN_CLASS",
             "camouflage"
         ]
     },
@@ -129,13 +147,13 @@
             "buttons":
             [
                 {
-                    "text": "Nique ta grand mère sombre pute",
+                    "text": "\"Nique ta grand mère sombre pute\"",
                     "goToIndex": 1,
                     "condition": null
                 },
                 {
-                    "text": "Wala c'est triste",
-                    "goToIndex": 1,
+                    "text": "\"Wala c'est triste\"",
+                    "goToIndex": 2,
                     "condition": null
                 }
             ],
@@ -156,6 +174,21 @@
             ],
             "img": "img/grave.png",
             "background": "img/tavern.jpg"
+        },
+        {
+            "title": null,
+            "body": "Julien est touché par ce que vous lui avez dit et commence à pleurer. Vous dites alors très fort : \"PLEURER C'EST POUR LES PD !\". Puis vous partez en courant comme un lache...",
+            "action": "Voulez-vous recommencer ?",
+            "buttons":
+            [
+                {
+                    "text": "Oui.",
+                    "goToIndex": 0,
+                    "condition": null
+                }
+            ],
+            "img": "img/way.png",
+            "background": "img/forest.jpg"
         }
     ]
 }

@@ -40,23 +40,65 @@ function initGameInfos(json) {
 }
 
 function initGameplay(json) {
-    var currentSkill
+    var temp
     
     weapons = json.gameplay.weapons
 
     // Génération des compétences
     for (s in json.gameplay.skills) {
-        currentSkill = json.gameplay.skills[s]
+        temp = json.gameplay.skills[s]
 
         skillList.push(
             new Skill(
-                currentSkill.name,
-                currentSkill.stats
+                temp.name,
+                temp.stats
             )
         )
+    }
 
-        if (currentSkill.function != null) {
-            console.log("function(" + currentSkill.function.arguments + ") {"+ currentSkill.function.body + "};")
+    // Générations des objets classiques
+    for (i in json.gameplay.objectsInventory) {
+        temp = json.gameplay.objectsInventory[i]
+
+        inventoryList.push(
+            new Object(
+                temp.name,
+                temp.type,
+                temp.data
+            )
+        )
+    }
+
+    // Génération des objets spéciaux
+    for (j in json.gameplay.objectsSpecial) {
+        temp = json.gameplay.objectsSpecial[j]
+
+        specialList.push(
+            new Object(
+                temp.name,
+                temp.type,
+                temp.data
+            )
+        )
+    }
+}
+
+function appendInventory(object, list) {
+    for (i in object) {
+        if (object[i] == "RANDOM_IN_CLASS") {
+            player.addStuff(randomFromList(list))
+        } else if (typeof object[i] === 'string') {
+            temp = getFromName(object[i], list)
+            if(temp != null)
+                player.addStuff(temp)
+        } else {
+            player.addStuff(
+                new Object(
+                    object[i].name,
+                    object[i].type,
+                    object[i].data
+                )
+            )
         }
     }
 }
@@ -71,37 +113,18 @@ function initPlayer(json) {
 
     // Génération du joueur
     player = new Player()
-    player.ability = json.player.ability
-    player.stamina = json.player.stamina
+    player.ability = setInt(json.player.ability)
+    player.stamina = setInt(json.player.stamina)
     player.maxStamina = player.stamina
-    player.meal = json.player.meal
-    player.gold = json.player.gold
+    player.meal = setInt(json.player.meal)
+    player.gold = setInt(json.player.gold)
 
-    // Génération de l'inventaire du joueur
-    for (i in json.player.inventory) {
-        player.addStuff(
-            new Object(
-                json.player.inventory[i].name,
-                json.player.inventory[i].type,
-                json.player.inventory[i].data
-            )
-        )
-    }
-
-    // Génération de l'inventaire spécial du joueur
-    for (j in json.player.special) {
-        player.addStuff(
-            new Object(
-                json.player.special[j].name,
-                json.player.special[j].type,
-                json.player.special[j].data
-            )
-        )
-    }
+    appendInventory(json.player.inventory, inventoryList)
+    appendInventory(json.player.special, specialList)
 
     // Généation des compétences du joueur
     for (k in json.player.skills) {
-        if (json.player.skills[k]== "HEROS-JS-RANDOM-CHOICE") {
+        if (json.player.skills[k] == "RANDOM_IN_CLASS") {
             player.setSkill(randomFromList(skillList))
         } else {
             temp = getFromName(json.player.skills[k], skillList)
@@ -109,8 +132,6 @@ function initPlayer(json) {
                 player.setSkill(temp)
         }
     }
-
-    player.setDefaultStuffBonus()
 }
 
 function initGame(file) {
@@ -122,6 +143,7 @@ function initGame(file) {
         initDialog(json)
         initGameInfos(json)
         initGameplay(json)
+        console.log(inventoryList)
         initPlayer(json)
         setDefaultHUD()
         game(json)

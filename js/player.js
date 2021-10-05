@@ -27,13 +27,6 @@ class Player {
         this.maxStamina = this.stamina
     }
 
-    setDefaultStuffBonus() {
-        for (var i = 0; i != this.inventory.length; i++)
-            this.setStuffBonus(this.inventory[i])
-        for (var j = 0; j != this.special.length; j++)
-            this.setStuffBonus(this.special[j])
-    }
-
     addStuff(object) {
         if (object == null)
             return
