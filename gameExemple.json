@@ -5,7 +5,7 @@
         "startNumber": 0,
         "maxDice": 9,
         "maxSkill": 5,
-        "showTitle": "yes"
+        "showTitle": true
     },
     "gameplay":
     {

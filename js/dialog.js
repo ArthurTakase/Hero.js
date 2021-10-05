@@ -29,7 +29,7 @@ class Dialog {
                                                                 <div class="hero-js-dialog-action">' + this.action + '</div>\
                                                                 <div class="hero-js-dialog-button-zone">' + buttons + '</div>\
                                                             </div>'
-        if (showTitleHUD == "yes")
+        if (showTitleHUD)
             showTitle()
         if (player != null)
             player.show()

@@ -12,7 +12,7 @@ let skillList = []
 let inventoryList = []
 let specialList = []
 let player
-let showTitleHUD = "yes"
+let showTitleHUD = true
 
 /***********************************/
 /*          LIB FUNCTIONS          */

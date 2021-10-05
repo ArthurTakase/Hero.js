@@ -143,7 +143,6 @@ function initGame(file) {
         initDialog(json)
         initGameInfos(json)
         initGameplay(json)
-        console.log(inventoryList)
         initPlayer(json)
         setDefaultHUD()
         game(json)
