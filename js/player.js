@@ -1,14 +1,14 @@
 class Player {
     constructor() {
-        this.ability = defaultAbility; // int
-        this.stamina = defaultStamina; // int
-        this.maxStamina = defaultStamina; // int
-        this.skill = []; // List:Skill
-        this.bestWeapon = null; // str
-        this.inventory = defaultInventory; //List:Object
-        this.meal = defaultMeal; // int
-        this.gold = defaultGold; // int
-        this.special = defaultSpecial; // List:Object
+        this.ability
+        this.stamina
+        this.maxStamina
+        this.skill = []
+        this.bestWeapon = null
+        this.inventory = []
+        this.meal
+        this.gold
+        this.special = []
     }
 
     setSkill(skill) {
@@ -16,7 +16,6 @@ class Player {
             this.skill.push(skill);
             this.ability += skill.bonusAbility
             this.stamina += skill.bonusStamina
-            this.bestWeapon = skill.bonusWeapon
         }
     }
 

@@ -9,7 +9,7 @@ class Button {
 function switchDialog(index, condition) {
     if (condition == null) {
         currentNumber = index
-        dialog[currentNumber].show(player)
+        allDialog[currentNumber].show(player)
         player.show()
         showTitle()
     } else {

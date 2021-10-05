@@ -13,5 +13,6 @@ function setBackground(img) {
 }
 
 function setDefaultHUD() {
+    document.getElementById('hero-js-form').style.display = "none"
     document.body.innerHTML += "<div id='hero-js-all' class='hero-js-default'></div>"
 }
