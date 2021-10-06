@@ -68,42 +68,51 @@ function initGameInfos(json) {
 function initGameplay(json) {
     var temp
 
-    // Génération des compétences
-    for (s in json.gameplay.skills) {
-        temp = json.gameplay.skills[s]
+    if (json.gameplay == null)
+        return
 
-        skillList.push(
-            new Skill(
-                temp.name,
-                temp.stats
+    // Génération des compétences
+    if (json.gameplay.skills) {
+        for (s in json.gameplay.skills) {
+            temp = json.gameplay.skills[s]
+    
+            skillList.push(
+                new Skill(
+                    temp.name,
+                    temp.stats
+                )
             )
-        )
+        }
     }
 
     // Générations des objets classiques
-    for (i in json.gameplay.objectsInventory) {
-        temp = json.gameplay.objectsInventory[i]
-
-        inventoryList.push(
-            new Object(
-                temp.name,
-                temp.type,
-                temp.data
+    if (json.gameplay.objectsInventory) {
+        for (i in json.gameplay.objectsInventory) {
+            temp = json.gameplay.objectsInventory[i]
+    
+            inventoryList.push(
+                new Object(
+                    temp.name,
+                    temp.type,
+                    temp.data
+                )
             )
-        )
+        }
     }
 
     // Génération des objets spéciaux
-    for (j in json.gameplay.objectsSpecial) {
-        temp = json.gameplay.objectsSpecial[j]
-
-        specialList.push(
-            new Object(
-                temp.name,
-                temp.type,
-                temp.data
+    if (json.gameplay.objectsSpecial) {
+        for (j in json.gameplay.objectsSpecial) {
+            temp = json.gameplay.objectsSpecial[j]
+    
+            specialList.push(
+                new Object(
+                    temp.name,
+                    temp.type,
+                    temp.data
+                )
             )
-        )
+        }
     }
 }
 
