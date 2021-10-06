@@ -66,3 +66,10 @@ function setInt(objetValue) {
         return objetValue
     }
 }
+
+function removeFromPlayer(object, list) {
+    for (i in list) {
+        if (list[i].name == object)
+            list.splice(i)
+    }
+}

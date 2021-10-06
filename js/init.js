@@ -2,7 +2,7 @@ function initDialog(json) {
     var currentDialog
     var allButtons = []
     var tempCondition
-    var tempData
+    var tempEffect
 
     for (d in json.dialogs) {
         allButtons = []
@@ -20,12 +20,21 @@ function initDialog(json) {
                 default: tempCondition = null; break
             }
 
+            switch (currentDialog.buttons[b].effect) {
+                case "REMOVE_OBJECT": tempEffect = 1; console.log("REMOVE_OBJECT"); break
+                default: tempEffect = null; break
+            }
+
+            console.log(tempEffect, currentDialog.buttons[b].effectData, tempCondition, currentDialog.buttons[b].conditionData)
+
             allButtons.push(
                 new Button(
                     currentDialog.buttons[b].text,
                     currentDialog.buttons[b].goToIndex,
                     tempCondition,
-                    currentDialog.buttons[b].conditionData
+                    currentDialog.buttons[b].conditionData,
+                    tempEffect,
+                    currentDialog.buttons[b].effectData
                 )
             )
         }

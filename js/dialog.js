@@ -12,6 +12,7 @@ class Dialog {
         var img = ""
         var title = ""
         var buttons = ""
+        var action = ""
 
         setBackground(this.background)
 
@@ -19,15 +20,30 @@ class Dialog {
             img = '<div class="hero-js-dialog-img"><img src="' + this.img + '"></div>'
         if (this.title != null)
             title = '<div class="hero-js-dialog-header">' + this.title + '</div>'
+        if (this.action != null)
+            action = '<div class="hero-js-dialog-action">' + this.action + '</div>'
         for (var i = 0; i != this.buttons.length; i++)
-            buttons += '<button onclick="switchDialog(' + this.buttons[i].goToIndex + ', ' + this.buttons[i].condition + ', ' + i + ', ' + currentNumber + ')">' + this.buttons[i].text + '</button>\n'
+            buttons += '<button onclick="switchDialog(' +
+                        this.buttons[i].goToIndex +
+                        ', ' +
+                        this.buttons[i].condition +
+                        ', ' +
+                        i +
+                        ', ' +
+                        currentNumber +
+                        ', ' +
+                        this.buttons[i].effect +
+                        ', ' +
+                        ')">' +
+                        this.buttons[i].text +
+                        '</button>\n'
 
-        document.getElementById('hero-js-all').innerHTML = img +
+        document.getElementById('hero-js-all').innerHTML =  img +
                                                             '<div class="hero-js-dialog">' +
                                                             title +
-                                                                '<div class="hero-js-dialog-body">' + this.dialog + '</div>\
-                                                                <div class="hero-js-dialog-action">' + this.action + '</div>\
-                                                                <div class="hero-js-dialog-button-zone">' + buttons + '</div>\
+                                                            '<div class="hero-js-dialog-body">' + this.dialog + '</div>'+
+                                                            action +
+                                                            '<div class="hero-js-dialog-button-zone">' + buttons + '</div>\
                                                             </div>'
         if (showTitleHUD)
             showTitle()
