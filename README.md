@@ -29,7 +29,7 @@ Pour le moment, seules les options particulières seront listées. Les options b
 Les données suivantes sont à mettre en plus des autres options d'un bouton.
 #### GOLD
 Vérifie si le joueur a l'argent requis pour passer à la scène suivante.
-```json
+```
 "condition": "GOLD",
 "conditionData":
 [
@@ -40,7 +40,7 @@ Vérifie si le joueur a l'argent requis pour passer à la scène suivante.
 
 #### MEAL
 Vérifie si le joueur a le nombre de repas requis pour passer à la scène suivante.
-```json
+```
 "condition": "MEAL",
 "conditionData":
 [
@@ -51,7 +51,7 @@ Vérifie si le joueur a le nombre de repas requis pour passer à la scène suiva
 
 #### STAMINA
 Vérifie si le joueur a la stamina requise pour passer à la scène suivante.
-```json
+```
 "condition": "STAMINA",
 "conditionData":
 [
@@ -62,7 +62,7 @@ Vérifie si le joueur a la stamina requise pour passer à la scène suivante.
 
 #### ABILITY
 Vérifie si le joueur a l'abilité requise pour passer à la scène suivante.
-```json
+```
 "condition": "ABILITY",
 "conditionData":
 [
@@ -73,7 +73,7 @@ Vérifie si le joueur a l'abilité requise pour passer à la scène suivante.
 
 #### SKILL
 Vérifie si le joueur possède la capacité demandée pour passer à la scène suivante.
-```json
+```
 "condition": "SKILL",
 "conditionData":
 [
@@ -84,7 +84,7 @@ Vérifie si le joueur possède la capacité demandée pour passer à la scène s
 
 #### OBJECT
 Vérifie si le joueur possède l'objet demandé pour passer à la scène suivante.
-```json
+```
 "condition": "OBJECT",
 "conditionData":
 [
@@ -99,7 +99,7 @@ Les données suivantes sont à mettre en plus des autres options d'un bouton. Le
 
 #### REMOVE_OBJECT
 Supprime un objet d'un inventaire du joueur lors du passage à la scène suivante.
-```json
+```
 "effect": "REMOVE_OBJECT",
 "effectData":
 [
