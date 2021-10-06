@@ -20,6 +20,14 @@ function initDialog(json) {
                     tempCondition = 2
                     tempData = [currentDialog.buttons[b].isSup, currentDialog.buttons[b].amount]
                     break
+                case "STAMINA":
+                    tempCondition = 3
+                    tempData = [currentDialog.buttons[b].isSup, currentDialog.buttons[b].amount]
+                    break
+                case "ABILITY":
+                    tempCondition = 4
+                    tempData = [currentDialog.buttons[b].isSup, currentDialog.buttons[b].amount]
+                    break
                 default:
                     tempCondition = null
                     tempData = null
