@@ -28,7 +28,6 @@ function randomFromListUnique(liste, target) {
 
     temp = liste[random]
     while (target.includes(temp)) {
-        console.log(temp)
         random++
         if (random >= liste.length)
             random = 0

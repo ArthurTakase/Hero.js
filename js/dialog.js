@@ -20,7 +20,7 @@ class Dialog {
         if (this.title != null)
             title = '<div class="hero-js-dialog-header">' + this.title + '</div>'
         for (var i = 0; i != this.buttons.length; i++)
-            buttons += '<button onclick="switchDialog(' + this.buttons[i].goToIndex + ', ' + this.buttons[i].condition + ')">' + this.buttons[i].text + '</button>\n'
+            buttons += '<button onclick="switchDialog(' + this.buttons[i].goToIndex + ', ' + this.buttons[i].condition + ', ' + i + ', ' + currentNumber + ')">' + this.buttons[i].text + '</button>\n'
 
         document.getElementById('hero-js-all').innerHTML = img +
                                                             '<div class="hero-js-dialog">' +

@@ -1,6 +1,8 @@
 function initDialog(json) {
     var currentDialog
     var allButtons = []
+    var tempCondition
+    var tempData
 
     for (d in json.dialogs) {
         allButtons = []
@@ -8,11 +10,23 @@ function initDialog(json) {
         
         // Génération des boutons
         for (b in currentDialog.buttons) {
+            // Mettre ici les différentes options des boutons
+            switch (currentDialog.buttons[b].condition) {
+                case "GOLD":
+                    tempCondition = 1
+                    tempData = [currentDialog.buttons[b].isSup, currentDialog.buttons[b].amount]
+                    break
+                default:
+                    tempCondition = null
+                    tempData = null
+            }
+
             allButtons.push(
                 new Button(
                     currentDialog.buttons[b].text,
                     currentDialog.buttons[b].goToIndex,
-                    currentDialog.buttons[b].condition
+                    tempCondition,
+                    tempData
                 )
             )
         }

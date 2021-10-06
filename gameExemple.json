@@ -143,9 +143,11 @@
                     "condition": null
                 },
                 {
-                    "text": "\"Wala c'est triste\"",
+                    "text": "<i>Lui donner 10 Golds<i>",
                     "goToIndex": 2,
-                    "condition": null
+                    "condition": "GOLD",
+                    "isSup": true,
+                    "amount": 10
                 }
             ],
             "img": "img/orc.png",
@@ -153,7 +155,7 @@
         },
         {
             "title": null,
-            "body": "Julien a mal pris votre réponse et vous a assomé avec un poulet congelé qui se trouvait par terre.",
+            "body": "<b>Julien</b> a mal pris votre réponse et vous a assomé avec un poulet congelé qui se trouvait par terre.",
             "action": "Voulez-vous recommencer ?",
             "buttons":
             [
@@ -161,6 +163,13 @@
                     "text": "Oui.",
                     "goToIndex": 0,
                     "condition": null
+                },
+                {
+                    "text": "<i>Faire un don de 10 Golds (car t'es trop gentils)<i>",
+                    "goToIndex": 2,
+                    "condition": "GOLD",
+                    "isSup": true,
+                    "amount": 10
                 }
             ],
             "img": "img/grave.png",
@@ -168,7 +177,7 @@
         },
         {
             "title": null,
-            "body": "Julien est touché par ce que vous lui avez dit et commence à pleurer. Vous dites alors très fort : \"PLEURER C'EST POUR LES PD !\". Puis vous partez en courant comme un lache...",
+            "body": "<b>Julien</b> vous regarde dans les yeux : \"J'suis pas ta pute fdp, d'où tu me donne de l'argent pour que je sois heureux ?!\". C'est ce petit geste qui brisa votre amitié à jamais. RIP.",
             "action": "Voulez-vous recommencer ?",
             "buttons":
             [
