@@ -1,6 +1,8 @@
 function initDialog(json) {
     var currentDialog
     var allButtons = []
+    var tempCondition
+    var tempEffect
 
     for (d in json.dialogs) {
         allButtons = []
@@ -8,11 +10,31 @@ function initDialog(json) {
         
         // Génération des boutons
         for (b in currentDialog.buttons) {
+            switch (currentDialog.buttons[b].condition) {
+                case "GOLD": tempCondition = 1; break
+                case "MEAL": tempCondition = 2; break
+                case "STAMINA": tempCondition = 3; break
+                case "ABILITY": tempCondition = 4; break
+                case "SKILL": tempCondition = 5; break
+                case "OBJECT": tempCondition = 6; break
+                default: tempCondition = null; break
+            }
+
+            switch (currentDialog.buttons[b].effect) {
+                case "REMOVE_OBJECT": tempEffect = 1; console.log("REMOVE_OBJECT"); break
+                default: tempEffect = null; break
+            }
+
+            console.log(tempEffect, currentDialog.buttons[b].effectData, tempCondition, currentDialog.buttons[b].conditionData)
+
             allButtons.push(
                 new Button(
                     currentDialog.buttons[b].text,
                     currentDialog.buttons[b].goToIndex,
-                    currentDialog.buttons[b].condition
+                    tempCondition,
+                    currentDialog.buttons[b].conditionData,
+                    tempEffect,
+                    currentDialog.buttons[b].effectData
                 )
             )
         }
@@ -40,23 +62,78 @@ function initGameInfos(json) {
 }
 
 function initGameplay(json) {
-    var currentSkill
-    
-    weapons = json.gameplay.weapons
+    var temp
+
+    if (json.gameplay == null)
+        return
 
     // Génération des compétences
-    for (s in json.gameplay.skills) {
-        currentSkill = json.gameplay.skills[s]
-
-        skillList.push(
-            new Skill(
-                currentSkill.name,
-                currentSkill.stats
+    if (json.gameplay.skills) {
+        for (s in json.gameplay.skills) {
+            temp = json.gameplay.skills[s]
+    
+            skillList.push(
+                new Skill(
+                    temp.name,
+                    temp.stats
+                )
             )
-        )
+        }
+    }
 
-        if (currentSkill.function != null) {
-            console.log("function(" + currentSkill.function.arguments + ") {"+ currentSkill.function.body + "};")
+    // Générations des objets classiques
+    if (json.gameplay.objectsInventory) {
+        for (i in json.gameplay.objectsInventory) {
+            temp = json.gameplay.objectsInventory[i]
+    
+            inventoryList.push(
+                new Object(
+                    temp.name,
+                    temp.type,
+                    temp.data
+                )
+            )
+        }
+    }
+
+    // Génération des objets spéciaux
+    if (json.gameplay.objectsSpecial) {
+        for (j in json.gameplay.objectsSpecial) {
+            temp = json.gameplay.objectsSpecial[j]
+    
+            specialList.push(
+                new Object(
+                    temp.name,
+                    temp.type,
+                    temp.data
+                )
+            )
+        }
+    }
+}
+
+function appendInventory(object, list, playerData) {
+    var temp
+
+    for (i in object) {
+        if (object[i] == "RANDOM_IN_CLASS") {
+            player.addStuff(randomFromList(list))
+        } else if (object[i] == "RANDOM_IN_CLASS_UNIQUE") {
+            temp = randomFromListUnique(list, playerData)
+            if (temp != null)
+                player.addStuff(temp)
+        } else if (typeof object[i] === 'string') {
+            temp = getFromName(object[i], list)
+            if(temp != null)
+                player.addStuff(temp)
+        } else {
+            player.addStuff(
+                new Object(
+                    object[i].name,
+                    object[i].type,
+                    object[i].data
+                )
+            )
         }
     }
 }
@@ -64,53 +141,34 @@ function initGameplay(json) {
 function initPlayer(json) {
     var temp
 
-    if (json.player == null) {
-        player = null
+    if (json.player == null)
         return
-    }
 
     // Génération du joueur
     player = new Player()
-    player.ability = json.player.ability
-    player.stamina = json.player.stamina
+    player.ability = setInt(json.player.ability)
+    player.stamina = setInt(json.player.stamina)
     player.maxStamina = player.stamina
-    player.meal = json.player.meal
-    player.gold = json.player.gold
+    player.meal = setInt(json.player.meal)
+    player.gold = setInt(json.player.gold)
 
-    // Génération de l'inventaire du joueur
-    for (i in json.player.inventory) {
-        player.addStuff(
-            new Object(
-                json.player.inventory[i].name,
-                json.player.inventory[i].type,
-                json.player.inventory[i].data
-            )
-        )
-    }
-
-    // Génération de l'inventaire spécial du joueur
-    for (j in json.player.special) {
-        player.addStuff(
-            new Object(
-                json.player.special[j].name,
-                json.player.special[j].type,
-                json.player.special[j].data
-            )
-        )
-    }
+    appendInventory(json.player.inventory, inventoryList, player.inventory)
+    appendInventory(json.player.special, specialList, player.special)
 
     // Généation des compétences du joueur
     for (k in json.player.skills) {
-        if (json.player.skills[k]== "HEROS-JS-RANDOM-CHOICE") {
+        if (json.player.skills[k] == "RANDOM_IN_CLASS") {
             player.setSkill(randomFromList(skillList))
+        } else if (json.player.skills[k] == "RANDOM_IN_CLASS_UNIQUE") {
+            temp = randomFromListUnique(skillList, player.skill)
+            if (temp != null)
+                player.setSkill(temp)
         } else {
             temp = getFromName(json.player.skills[k], skillList)
             if(temp != null)
                 player.setSkill(temp)
         }
     }
-
-    player.setDefaultStuffBonus()
 }
 
 function initGame(file) {
@@ -124,7 +182,7 @@ function initGame(file) {
         initGameplay(json)
         initPlayer(json)
         setDefaultHUD()
-        game(json)
+        allDialog[currentNumber].show()
     };
     reader.readAsText(file);
 }

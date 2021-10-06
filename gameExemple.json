@@ -1,123 +1,67 @@
 {
     "gameInfos":
     {
-        "title": "🦅 Les Maîtres des Ténèbres 💀",
+        "title": "Julien est triste",
         "startNumber": 0,
         "maxDice": 9,
         "maxSkill": 5,
-        "showTitle": "yes"
+        "showTitle": true
     },
     "gameplay":
     {
-        "weapons":
-        [
-            "poignard",
-            "lance",
-            "masse",
-            "sabre",
-            "marteau",
-            "epee",
-            "hache",
-            "epee",
-            "baton",
-            "glaive"
-        ],
         "skills":
         [
-            {
-                "name": "camouflage",
-                "stats": [0, 0],
-                "function" : null
-            },
-            {
-                "name": "chasse",
-                "stats": [0, 0],
-                "function" : null
-            },
-            {
-                "name": "sixième sens",
-                "stats": [0, 0],
-                "function" : null
-            },
-            {
-                "name": "orientation",
-                "stats": [0, 0],
-                "function" : null
-            },
-            {
-                "name": "guerison",
-                "stats": [0, 0],
-                "function" : null
-            },
-            {
-                "name": "maître des armes",
-                "stats": [0, 0],
-                "function":
-                {
-                    "arguments": "",
-                    "body": "return 15;"
-                }
-            },
-            {
-                "name": "bouclier",
-                "stats": [0, 0],
-                "function" : null
-            },
-            {
-                "name": "puissance",
-                "stats": [2, 0],
-                "function" : null
-            },
-            {
-                "name": "communication animale",
-                "stats": [0, 0],
-                "function" : null
-            },
-            {
-                "name": "maîtrise",
-                "stats": [0, 0],
-                "function" : null
-            }
+            {"name": "camouflage", "stats": [0, 0]},
+            {"name": "chasse", "stats": [0, 0]},
+            {"name": "sixième sens", "stats": [0, 0]},
+            {"name": "orientation", "stats": [0, 0]},
+            {"name": "guerison", "stats": [0, 0]},
+            {"name": "maître des armes", "stats": [0, 0]},
+            {"name": "bouclier", "stats": [0, 0]},
+            {"name": "puissance", "stats": [2, 0]},
+            {"name": "communication animale", "stats": [0, 0]},
+            {"name": "maîtrise", "stats": [0, 0]}
+        ],
+        "objectsInventory": [
+            {"name": "tunique", "type": "inventory", "data": [0, 0, 0, 0]},
+            {"name": "cape de Seigneur Kaï", "type": "inventory", "data": [0, 0, 0, 0]},
+            {"name": "hache", "type": "inventory", "data": [0, 0, 0, 0]},
+            {"name": "gameboy", "type": "inventory", "data": [0, 0, 0, 0]}
+        ],
+        "objectsSpecial":
+        [
+            {"name": "épée", "type": "special", "data": [2, 0, 0, 0]},
+            {"name": "casque", "type": "special", "data": [0, 2, 0, 0]},
+            {"name": "cote de mailles", "type": "special", "data": [0, 4, 0, 0]},
+            {"name": "bourse de cuir", "type": "special", "data": [0, 0, 12, 0]},
+            {"name": "panier garnis", "type": "special", "data": [0, 0, 0, 2]},
+            {"name": "carte", "type": "special", "data": [0, 0, 0, 0]}
         ]
     },
     "player":
     {
-        "ability": 10,
-        "stamina": 20,
+        "ability": "RANDOM,10,DICE",
+        "stamina": "RANDOM,20,DICE",
         "meal": 1,
-        "gold": 5,
+        "gold": "RANDOM,0,DICE",
         "inventory":
         [
-            {
-                "name": "tunique",
-                "type": "inventory",
-                "data": [0, 0, 0, 0]
-            },
-            {
-                "name": "cape de Seigneur Kaï",
-                "type": "inventory",
-                "data": [0, 0, 0, 0]
-            },
-            {
-                "name": "hache",
-                "type": "inventory",
-                "data": [0, 0, 0, 0]
-            }
+            "RANDOM_IN_CLASS_UNIQUE",
+            "RANDOM_IN_CLASS_UNIQUE",
+            "RANDOM_IN_CLASS_UNIQUE",
+            "RANDOM_IN_CLASS_UNIQUE"
         ],
         "special":
         [
-            {
-                "name": "carte",
-                "type": "special",
-                "data": [0, 0, 0, 0]
-            }
+            "RANDOM_IN_CLASS_UNIQUE"
         ],
         "skills":
         [
-            "HEROS-JS-RANDOM-CHOICE",
-            "HEROS-JS-RANDOM-CHOICE",
-            "HEROS-JS-RANDOM-CHOICE",
-            "camouflage"
+            "RANDOM_IN_CLASS_UNIQUE",
+            "RANDOM_IN_CLASS_UNIQUE",
+            "RANDOM_IN_CLASS_UNIQUE",
+            "RANDOM_IN_CLASS_UNIQUE",
+            "RANDOM_IN_CLASS_UNIQUE"
         ]
     },
     "dialogs":
@@ -129,33 +73,41 @@
             "buttons":
             [
                 {
-                    "text": "Nique ta grand mère sombre pute",
-                    "goToIndex": 1,
-                    "condition": null
+                    "text": "<i>L'instulter en lui disant qu'il est maaaaauvaaaais Jaaaackkkk</i>",
+                    "goToIndex": 1
                 },
                 {
-                    "text": "Wala c'est triste",
-                    "goToIndex": 1,
-                    "condition": null
+                    "text": "<i>Lui donner votre <b>GameBoy</b><i>",
+                    "goToIndex": 3,
+                    "condition": "OBJECT",
+                    "conditionData": [true, "inventory", "gameboy"],
+                    "effect": "REMOVE_OBJECT",
+                    "effectData": ["inventory", "gameboy"]
+                },
+                {
+                    "text": "<i>Utiliser <b>Sixième Sens</b> pour savoir quoi faire</i>",
+                    "goToIndex": 2,
+                    "condition": "SKILL",
+                    "conditionData": [true, "sixième sens"]
                 }
             ],
-            "img": "img/orc.png",
-            "background": "img/night_forest.jpg"
+            "img": "img/isaac.png",
+            "background": "img/house.jpg"
         },
         {
-            "title": null,
-            "body": "Julien a mal pris votre réponse et vous a assomé avec un poulet congelé qui se trouvait par terre.",
-            "action": "Voulez-vous recommencer ?",
-            "buttons":
-            [
-                {
-                    "text": "Oui.",
-                    "goToIndex": 0,
-                    "condition": null
-                }
-            ],
+            "body": "<b>Julien</b> a mal pris votre réponse et vous a assomé avec un poulet congelé qui se trouvait par terre.",
             "img": "img/grave.png",
-            "background": "img/tavern.jpg"
+            "background": "img/house.jpg"
+        },
+        {
+            "body": "Vous tendez un kebab à <b>Julien</b>, ce dernier vous regarde dans les yeux : \"Merci tu es mon héros, j'adore les kebabs\". Puis vous vous envolez à dos de dragon.",
+            "img": "img/dragon.png",
+            "background": "img/city.jpg"
+        },
+        {
+            "body": "Vous donnez votre GameBoy à <b>Julien</b>. \"Merci, mais j'suis pro Sony. Vive Ratchet & Clank !\".",
+            "img": "img/ratchet.png",
+            "background": "img/playstation.jpg"
         }
     ]
 }

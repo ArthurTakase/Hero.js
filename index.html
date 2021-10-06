@@ -4,7 +4,6 @@
         <title>Heros.js</title>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="css/heros.css">
-        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <!-- lib -->
@@ -20,14 +19,13 @@
         <script src="js/player.js"></script>
         <!-- Fonctions -->
         <script src="js/hud.js"></script>
-        <script src="js/game.js"></script>
 
         <!-- Formulaire de lancement du jeu -->
         <!-- Disparait une fois un fichier chargé -->
         <div id="hero-js-form">
             <h1 class="title">Hero.js</h1>
             <label class="custom-file-input-label" for="hero-js-form-json">Charger un fichier</label>
-            <input class="custom-file-input" type="file" id="hero-js-form-json" accept=".json" onchange="initGame(this.files[0])">
+            <input class="custom-file-input" type="file" id="hero-js-form-json" accept=".json,.hero" onchange="initGame(this.files[0])">
             <p>
                 Participez au développement de Heros.js sur <a href="https://github.com/ArthurTakase/Heros.js">Github</a> !<br>
                 Plus d'informations <a href="https://icy-wind-398.notion.site/Hero-js-03dc521b26ea4c4fb8d551821cd40092">ici</a>.
@@ -36,6 +34,9 @@
             <img src="img/orc.png" class="hero-js-2">
         </div>
         <!-- Numéro de version -->
-        <p class="version">Version 0.0.4-SNAPSHOT</p>
+        <p class="version">
+            FEAT: add documentation in README.md<br>
+            <u>Version: </u>0.0.16-06.10.2021
+        </p>
     </body>
 </html>
