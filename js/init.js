@@ -16,6 +16,10 @@ function initDialog(json) {
                     tempCondition = 1
                     tempData = [currentDialog.buttons[b].isSup, currentDialog.buttons[b].amount]
                     break
+                case "MEAL":
+                    tempCondition = 2
+                    tempData = [currentDialog.buttons[b].isSup, currentDialog.buttons[b].amount]
+                    break
                 default:
                     tempCondition = null
                     tempData = null

@@ -9,19 +9,27 @@ class Button {
 
 function checkCondition(condition, indexBtn, oldIndexDialog) {
     // 1 -> GOLD [isSup, amount]
+    // 2 -> MEAL [isSup, amount]
     // null -> Rien
     var data = allDialog[oldIndexDialog].buttons[indexBtn].data
 
-    if (condition == 1) {
-        if (data[0] && player.gold >= data[1])
-            return true
-        if (!data[0] && player.gold <= data[1])
-            return true
-        console.log("false")
-        return false
-    } else {
-        console.log("Conditions non conformes.")
-        return false
+    console.log(data)
+
+    switch (condition) {
+        case 1: // GOLD
+            if (data[0] && player.gold >= data[1])
+                return true
+            if (!data[0] && player.gold <= data[1])
+                return true
+            return false
+        case 2: // MEAL
+            if (data[0] && player.meal >= data[1])
+                return true
+            if (!data[0] && player.meal <= data[1])
+                return true
+            return false
+        default:
+            return false
     }
 }
 

@@ -143,11 +143,11 @@
                     "condition": null
                 },
                 {
-                    "text": "<i>Lui donner 10 Golds<i>",
+                    "text": "<i>Lui donner 1 Kebab<i>",
                     "goToIndex": 2,
-                    "condition": "GOLD",
+                    "condition": "MEAL",
                     "isSup": true,
-                    "amount": 10
+                    "amount": 1
                 }
             ],
             "img": "img/orc.png",
@@ -177,7 +177,7 @@
         },
         {
             "title": null,
-            "body": "<b>Julien</b> vous regarde dans les yeux : \"J'suis pas ta pute fdp, d'où tu me donne de l'argent pour que je sois heureux ?!\". C'est ce petit geste qui brisa votre amitié à jamais. RIP.",
+            "body": "<b>Julien</b> vous regarde dans les yeux : \"Merci tu es mon héros, j'adore les kebabs\". Puis vous vous envolez sur votre dragon.",
             "action": "Voulez-vous recommencer ?",
             "buttons":
             [
