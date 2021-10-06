@@ -67,6 +67,11 @@
                 "name": "hache",
                 "type": "inventory",
                 "data": [0, 0, 0, 0]
+            },
+            {
+                "name": "gameboy",
+                "type": "inventory",
+                "data": [0, 0, 0, 0]
             }
         ],
         "objectsSpecial":
@@ -113,7 +118,8 @@
         [
             "tunique",
             "cape de Seigneur Kaï",
-            "hache"
+            "hache",
+            "RANDOM_IN_CLASS_UNIQUE"
         ],
         "special":
         [
@@ -142,18 +148,24 @@
                     "goToIndex": 1
                 },
                 {
-                    "text": "<i>Lui donner 1 Kebab<i>",
-                    "goToIndex": 2,
-                    "condition": "MEAL",
-                    "isSup": true,
-                    "amount": 1
+                    "text": "<i>Lui donner votre <b>GameBoy</b><i>",
+                    "goToIndex": 3,
+                    "condition": "OBJECT",
+                    "conditionData": [
+                        true,
+                        "inventory",
+                        "gameboy"
+                    ]
                 },
                 {
-                    "text": "<i>Utiliser votre <b>sixième sens</b> pour savoir quoi faire</i>",
+                    "text": "<i>Utiliser <b>Sixième Sens</b> pour savoir quoi faire</i>",
                     "goToIndex": 2,
                     "condition": "SKILL",
-                    "type": "sixième sens",
-                    "isHere": true
+                    "conditionData":
+                    [
+                        true,
+                        "sixième sens"
+                    ]
                 }
             ],
             "img": "img/isaac.png",
@@ -173,8 +185,11 @@
                     "text": "<i>Faire un don de 10 Golds (car t'es trop gentils)<i>",
                     "goToIndex": 2,
                     "condition": "GOLD",
-                    "isSup": true,
-                    "amount": 10
+                    "conditionData":
+                    [
+                        true,
+                        10
+                    ]
                 }
             ],
             "img": "img/grave.png",
@@ -193,6 +208,20 @@
             ],
             "img": "img/dragon.png",
             "background": "img/city.jpg"
+        },
+        {
+            "title": null,
+            "body": "Vous donnez votre GameBoy à <b>Julien</b>. \"Merci, mais j'suis pro Sony. Vive Ratchet & Clank !\".",
+            "action": "Voulez-vous recommencer ?",
+            "buttons":
+            [
+                {
+                    "text": "Oui.",
+                    "goToIndex": 0
+                }
+            ],
+            "img": "img/ratchet.png",
+            "background": "img/playstation.jpg"
         }
     ]
 }

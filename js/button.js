@@ -13,9 +13,11 @@ function checkCondition(condition, indexBtn, oldIndexDialog) {
     // 3 -> STAMINA [isSup, amount]
     // 4 -> ABILITY [isSup, amount]
     // 5 -> SKILL [isHere, type]
+    // 6 -> OBJECT [isHere, type, name]
     // null -> Rien
     var data = allDialog[oldIndexDialog].buttons[indexBtn].data
     var temp
+    var temp2
 
     console.log(data)
 
@@ -38,6 +40,13 @@ function checkCondition(condition, indexBtn, oldIndexDialog) {
             return false
         case 5: // SKILL
             temp = getFromName(data[1], player.skill)
+            if (data[0] && temp != null) {return true}
+            if (!data[0] && temp == null) {return true}
+            return false
+        case 6:
+            if (data[1] == "inventory") {temp2 = player.inventory}
+            else {temp2 = player.special}
+            temp = getFromName(data[2], temp2)
             if (data[0] && temp != null) {return true}
             if (!data[0] && temp == null) {return true}
             return false

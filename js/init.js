@@ -10,32 +10,14 @@ function initDialog(json) {
         
         // Génération des boutons
         for (b in currentDialog.buttons) {
-            // Mettre ici les différentes options des boutons
             switch (currentDialog.buttons[b].condition) {
-                case "GOLD":
-                    tempCondition = 1
-                    tempData = [currentDialog.buttons[b].isSup, currentDialog.buttons[b].amount]
-                    break
-                case "MEAL":
-                    tempCondition = 2
-                    tempData = [currentDialog.buttons[b].isSup, currentDialog.buttons[b].amount]
-                    break
-                case "STAMINA":
-                    tempCondition = 3
-                    tempData = [currentDialog.buttons[b].isSup, currentDialog.buttons[b].amount]
-                    break
-                case "ABILITY":
-                    tempCondition = 4
-                    tempData = [currentDialog.buttons[b].isSup, currentDialog.buttons[b].amount]
-                    break
-                case "SKILL":
-                    tempCondition = 5
-                    tempData = [currentDialog.buttons[b].isHere, currentDialog.buttons[b].type]
-                    break
-                default:
-                    tempCondition = null
-                    tempData = null
-                    break
+                case "GOLD": tempCondition = 1; break
+                case "MEAL": tempCondition = 2; break
+                case "STAMINA": tempCondition = 3; break
+                case "ABILITY": tempCondition = 4; break
+                case "SKILL": tempCondition = 5; break
+                case "OBJECT": tempCondition = 6; break
+                default: tempCondition = null; break
             }
 
             allButtons.push(
@@ -43,7 +25,7 @@ function initDialog(json) {
                     currentDialog.buttons[b].text,
                     currentDialog.buttons[b].goToIndex,
                     tempCondition,
-                    tempData
+                    currentDialog.buttons[b].conditionData
                 )
             )
         }
@@ -191,7 +173,7 @@ function initGame(file) {
         initGameplay(json)
         initPlayer(json)
         setDefaultHUD()
-        game(json)
+        allDialog[currentNumber].show()
     };
     reader.readAsText(file);
 }
