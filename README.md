@@ -98,7 +98,7 @@ Vérifie si le joueur possède l'objet demandé pour passer à la scène suivant
 Les données suivantes sont à mettre en plus des autres options d'un bouton. Les effets ne se déclenchent que si les conditions d'un bouton sont validées.
 
 #### REMOVE_OBJECT
-Supprime un objet d'un inventaire du joueur lors du passage à la scène suivante.
+Supprime un objet d'un inventaire du joueur lors du passage à la scène suivante. Supprime également ses effets sur le joueur.
 ```
 "effect": "REMOVE_OBJECT",
 "effectData":

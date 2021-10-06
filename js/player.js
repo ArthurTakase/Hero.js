@@ -27,6 +27,14 @@ class Player {
         this.maxStamina = this.stamina
     }
 
+    removeStuffBonus(object) {
+        this.ability -= object.bonusAbility
+        this.stamina -= object.bonusStamina
+        this.gold -= object.bonusGold
+        this.meal -= object.bonusMeal
+        this.maxStamina = this.stamina
+    }
+
     addStuff(object) {
         if (object == null)
             return

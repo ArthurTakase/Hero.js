@@ -21,11 +21,9 @@ function initDialog(json) {
             }
 
             switch (currentDialog.buttons[b].effect) {
-                case "REMOVE_OBJECT": tempEffect = 1; console.log("REMOVE_OBJECT"); break
+                case "REMOVE_OBJECT": tempEffect = 1; break
                 default: tempEffect = null; break
             }
-
-            console.log(tempEffect, currentDialog.buttons[b].effectData, tempCondition, currentDialog.buttons[b].conditionData)
 
             allButtons.push(
                 new Button(

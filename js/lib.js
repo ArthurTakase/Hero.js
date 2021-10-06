@@ -69,7 +69,9 @@ function setInt(objetValue) {
 
 function removeFromPlayer(object, list) {
     for (i in list) {
-        if (list[i].name == object)
+        if (list[i].name == object) {
+            player.removeStuffBonus(list[i])
             list.splice(i)
+        }
     }
 }

@@ -65,7 +65,6 @@ function setEffect(effect, indexBtn, oldIndexDialog) {
 }
 
 function switchDialog(indexDialog, condition, indexBtn, oldIndexDialog, effect) {
-    console.log(allDialog[oldIndexDialog].buttons[indexBtn])
     if (condition == null) {
         currentNumber = indexDialog
         setEffect(effect, indexBtn, oldIndexDialog)

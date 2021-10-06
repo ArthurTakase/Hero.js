@@ -300,12 +300,12 @@ body {
 }
 
 .hero-js-dialog-button-zone button {
+    flex-grow: 1;
     background-color:rgb(40, 42, 61);
     text-decoration: none;
     border: none;
     font-style: inherit;
     font-size: 1.2rem;
-    width: 100%;
     color: white;
     padding: 0.5rem;
     border-radius: 0.5rem;
