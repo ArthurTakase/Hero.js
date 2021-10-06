@@ -74,7 +74,9 @@
             [
                 {
                     "text": "<i>L'instulter en lui disant qu'il est maaaaauvaaaais Jaaaackkkk</i>",
-                    "goToIndex": 1
+                    "goToIndex": 1,
+                    "effect": "ADD_OBJECT",
+                    "effectData": ["inventory", {"name": "poulet congelé couvert de sang", "type": "inventory", "data": [-10, 0, 0, 0]}]
                 },
                 {
                     "text": "<i>Lui donner votre <b>GameBoy</b><i>",
@@ -95,7 +97,7 @@
             "background": "img/house.jpg"
         },
         {
-            "body": "<b>Julien</b> a mal pris votre réponse et vous a assomé avec un poulet congelé qui se trouvait par terre.",
+            "body": "<b>Julien</b> a mal pris votre réponse et vous a assomé avec un poulet congelé qui se trouvait par terre. <i>Poulet ajouté à votre inventaire.</i>",
             "img": "img/grave.png",
             "background": "img/house.jpg"
         },

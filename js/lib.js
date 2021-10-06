@@ -75,3 +75,27 @@ function removeFromPlayer(object, list) {
         }
     }
 }
+
+function newObject(object, list, playerData) {
+    var temp
+
+    if (object == "RANDOM_IN_CLASS") {
+        player.addStuff(randomFromList(list))
+    } else if (object == "RANDOM_IN_CLASS_UNIQUE") {
+        temp = randomFromListUnique(list, playerData)
+        if (temp != null)
+            player.addStuff(temp)
+    } else if (typeof object === 'string') {
+        temp = getFromName(object, list)
+        if(temp != null)
+            player.addStuff(temp)
+    } else {
+        player.addStuff(
+            new Object(
+                object.name,
+                object.type,
+                object.data
+            )
+        )
+    }
+}

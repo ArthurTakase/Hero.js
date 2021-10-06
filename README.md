@@ -10,8 +10,7 @@ En effet, tous les codes importants se trouvent dans le moteur, les utilisateurs
 
 ## Exemple
 
-Un exemple d'utilisation de Hero.js se trouve dans les fichiers `gameExemple.hero` et `gameExemple.json`.
-Les deux fichiers sont identiques, le format .hero est juste présent pour éviter que les gens tentent d'ouvrir le fichier pour le modifier (même si c'est toujours possible, ça reste un fichier texte).
+Un exemple d'utilisation de Hero.js se trouve dans le fichier `gameExemple.json`.
 
 ## Documentation
 
@@ -105,5 +104,16 @@ Supprime un objet d'un inventaire du joueur lors du passage à la scène suivant
 [
 	"inventory", // "special" -> type d'inventaire à fouiller
 	"gameboy", // item à supprimer
+]
+```
+
+#### ADD_OBJECT
+Ajoute un objet dans l'un des inventaires du joueur lors du passage à la scène suivante. Ajoute également ses effets sur le joueur. Utilisation des mots clefs autorisée.
+```
+"effect": "REMOVE_OBJECT",
+"effectData":
+[
+	"inventory", // "special" -> inventaire à remplir
+	"gameboy", // item à ajouter
 ]
 ```

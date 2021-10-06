@@ -48,6 +48,7 @@ function checkCondition(condition, indexBtn, oldIndexDialog) {
 }
 
 function setEffect(effect, indexBtn, oldIndexDialog) {
+    console.log(allDialog[oldIndexDialog].buttons[indexBtn])
     var data = allDialog[oldIndexDialog].buttons[indexBtn].effectData
     var temp
 
@@ -58,6 +59,10 @@ function setEffect(effect, indexBtn, oldIndexDialog) {
             if (data[0] == "inventory") {temp = player.inventory}
             else {temp = player.special}
             removeFromPlayer(data[1], temp)
+            break
+        case 2: // ADD_OBJECT [inventaire, object]
+            if (data[0] == "inventory") {newObject(data[1], inventoryList, player.inventory)}
+            else {newObject(data[1], specialList, player.special)}
             break
         default:
             break

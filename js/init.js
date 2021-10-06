@@ -22,6 +22,7 @@ function initDialog(json) {
 
             switch (currentDialog.buttons[b].effect) {
                 case "REMOVE_OBJECT": tempEffect = 1; break
+                case "ADD_OBJECT": tempEffect = 2; break
                 default: tempEffect = null; break
             }
 
@@ -110,31 +111,12 @@ function initGameplay(json) {
     }
 }
 
-function appendInventory(object, list, playerData) {
-    var temp
+// function appendInventory(object, list, playerData) {
+//     var temp
 
-    for (i in object) {
-        if (object[i] == "RANDOM_IN_CLASS") {
-            player.addStuff(randomFromList(list))
-        } else if (object[i] == "RANDOM_IN_CLASS_UNIQUE") {
-            temp = randomFromListUnique(list, playerData)
-            if (temp != null)
-                player.addStuff(temp)
-        } else if (typeof object[i] === 'string') {
-            temp = getFromName(object[i], list)
-            if(temp != null)
-                player.addStuff(temp)
-        } else {
-            player.addStuff(
-                new Object(
-                    object[i].name,
-                    object[i].type,
-                    object[i].data
-                )
-            )
-        }
-    }
-}
+//     for (i in object)
+//         newObject(object[i], list, playerData)
+// }
 
 function initPlayer(json) {
     var temp
@@ -150,8 +132,12 @@ function initPlayer(json) {
     player.meal = setInt(json.player.meal)
     player.gold = setInt(json.player.gold)
 
-    appendInventory(json.player.inventory, inventoryList, player.inventory)
-    appendInventory(json.player.special, specialList, player.special)
+    // appendInventory(json.player.inventory, inventoryList, player.inventory)
+    for (i in json.player.inventory)
+        newObject(json.player.inventory[i], inventoryList, player.inventory)
+    for (j in json.player.special)
+        newObject(json.player.special[j], specialList, player.special)
+    // appendInventory(json.player.special, specialList, player.special)
 
     // Généation des compétences du joueur
     for (k in json.player.skills) {
