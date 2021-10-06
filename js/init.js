@@ -28,9 +28,14 @@ function initDialog(json) {
                     tempCondition = 4
                     tempData = [currentDialog.buttons[b].isSup, currentDialog.buttons[b].amount]
                     break
+                case "SKILL":
+                    tempCondition = 5
+                    tempData = [currentDialog.buttons[b].isHere, currentDialog.buttons[b].type]
+                    break
                 default:
                     tempCondition = null
                     tempData = null
+                    break
             }
 
             allButtons.push(
@@ -145,10 +150,8 @@ function appendInventory(object, list, playerData) {
 function initPlayer(json) {
     var temp
 
-    if (json.player == null) {
-        player = null
+    if (json.player == null)
         return
-    }
 
     // Génération du joueur
     player = new Player()

@@ -10,7 +10,7 @@ let allDialog = []
 let skillList = []
 let inventoryList = []
 let specialList = []
-let player
+let player = null
 let showTitleHUD = true
 
 /***********************************/
@@ -36,7 +36,6 @@ function randomFromListUnique(liste, target) {
         temp = liste[random]
     } 
     return temp
-    // return liste[Math.floor(Math.random()*liste.length)]
 }
 
 function getFromName(item, list) {

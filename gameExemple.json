@@ -1,7 +1,7 @@
 {
     "gameInfos":
     {
-        "title": "🦅 Les Maîtres des Ténèbres 💀",
+        "title": "Julien est triste",
         "startNumber": 0,
         "maxDice": 9,
         "maxSkill": 5,
@@ -138,9 +138,8 @@
             "buttons":
             [
                 {
-                    "text": "\"Nique ta grand mère sombre pute\"",
-                    "goToIndex": 1,
-                    "condition": null
+                    "text": "<i>L'instulter en lui disant qu'il est maaaaauvaaaais Jaaaackkkk</i>",
+                    "goToIndex": 1
                 },
                 {
                     "text": "<i>Lui donner 1 Kebab<i>",
@@ -148,10 +147,17 @@
                     "condition": "MEAL",
                     "isSup": true,
                     "amount": 1
+                },
+                {
+                    "text": "<i>Utiliser votre <b>sixième sens</b> pour savoir quoi faire</i>",
+                    "goToIndex": 2,
+                    "condition": "SKILL",
+                    "type": "sixième sens",
+                    "isHere": true
                 }
             ],
-            "img": "img/orc.png",
-            "background": "img/night_forest.jpg"
+            "img": "img/isaac.png",
+            "background": "img/house.jpg"
         },
         {
             "title": null,
@@ -161,8 +167,7 @@
             [
                 {
                     "text": "Oui.",
-                    "goToIndex": 0,
-                    "condition": null
+                    "goToIndex": 0
                 },
                 {
                     "text": "<i>Faire un don de 10 Golds (car t'es trop gentils)<i>",
@@ -173,22 +178,21 @@
                 }
             ],
             "img": "img/grave.png",
-            "background": "img/tavern.jpg"
+            "background": "img/house.jpg"
         },
         {
             "title": null,
-            "body": "<b>Julien</b> vous regarde dans les yeux : \"Merci tu es mon héros, j'adore les kebabs\". Puis vous vous envolez sur votre dragon.",
+            "body": "Vous tendez un kebab à <b>Julien</b>, ce dernier vous regarde dans les yeux : \"Merci tu es mon héros, j'adore les kebabs\". Puis vous vous envolez à dos de dragon.",
             "action": "Voulez-vous recommencer ?",
             "buttons":
             [
                 {
                     "text": "Oui.",
-                    "goToIndex": 0,
-                    "condition": null
+                    "goToIndex": 0
                 }
             ],
-            "img": "img/way.png",
-            "background": "img/forest.jpg"
+            "img": "img/dragon.png",
+            "background": "img/city.jpg"
         }
     ]
 }

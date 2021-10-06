@@ -289,13 +289,14 @@ body {
     font-style: italic;
     margin: 1rem;
     margin-bottom: 0;
+    filter: drop-shadow(0 1px 1px black);
 }
 
 .hero-js-dialog-button-zone {
     margin: 1rem;
     width: 100%;
+    height: 100%;
     display: flex;
-    /* background: red; */
 }
 
 .hero-js-dialog-button-zone button {
