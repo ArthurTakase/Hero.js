@@ -7,7 +7,6 @@ let currentNumber
 let maxDice
 let maxSkill
 let allDialog = []
-let weapons = []
 let skillList = []
 let inventoryList = []
 let specialList = []
@@ -20,6 +19,25 @@ let showTitleHUD = true
 
 function randomFromList(liste) {
     return liste[Math.floor(Math.random()*liste.length)]
+}
+
+function randomFromListUnique(liste, target) {
+    var temp
+    var random = Math.floor(Math.random() * liste.length)
+    var origin = random
+
+    temp = liste[random]
+    while (target.includes(temp)) {
+        console.log(temp)
+        random++
+        if (random >= liste.length)
+            random = 0
+        if (random == origin)
+            return null
+        temp = liste[random]
+    } 
+    return temp
+    // return liste[Math.floor(Math.random()*liste.length)]
 }
 
 function getFromName(item, list) {

@@ -9,19 +9,6 @@
     },
     "gameplay":
     {
-        "weapons":
-        [
-            "poignard",
-            "lance",
-            "masse",
-            "sabre",
-            "marteau",
-            "epee",
-            "hache",
-            "epee",
-            "baton",
-            "glaive"
-        ],
         "skills":
         [
             {
@@ -65,7 +52,23 @@
                 "stats": [0, 0]
             }
         ],
-        "objectsInventory": [],
+        "objectsInventory": [
+            {
+                "name": "tunique",
+                "type": "inventory",
+                "data": [0, 0, 0, 0]
+            },
+            {
+                "name": "cape de Seigneur Kaï",
+                "type": "inventory",
+                "data": [0, 0, 0, 0]
+            },
+            {
+                "name": "hache",
+                "type": "inventory",
+                "data": [0, 0, 0, 0]
+            }
+        ],
         "objectsSpecial":
         [
             {
@@ -92,6 +95,11 @@
                 "name": "panier garnis",
                 "type": "special",
                 "data": [0, 0, 0, 2]
+            },
+            {
+                "name": "carte",
+                "type": "special",
+                "data": [0, 0, 0, 0]
             }
         ]
     },
@@ -103,39 +111,22 @@
         "gold": "RANDOM,0,DICE",
         "inventory":
         [
-            {
-                "name": "tunique",
-                "type": "inventory",
-                "data": [0, 0, 0, 0]
-            },
-            {
-                "name": "cape de Seigneur Kaï",
-                "type": "inventory",
-                "data": [0, 0, 0, 0]
-            },
-            {
-                "name": "hache",
-                "type": "inventory",
-                "data": [0, 0, 0, 0]
-            },
-            "RANDOM_IN_CLASS"
+            "tunique",
+            "cape de Seigneur Kaï",
+            "hache"
         ],
         "special":
         [
-            {
-                "name": "carte",
-                "type": "special",
-                "data": [0, 0, 0, 0]
-            },
-            "RANDOM_IN_CLASS"
+            "carte",
+            "RANDOM_IN_CLASS_UNIQUE"
         ],
         "skills":
         [
-            "RANDOM_IN_CLASS",
-            "RANDOM_IN_CLASS",
-            "RANDOM_IN_CLASS",
-            "RANDOM_IN_CLASS",
-            "camouflage"
+            "RANDOM_IN_CLASS_UNIQUE",
+            "RANDOM_IN_CLASS_UNIQUE",
+            "RANDOM_IN_CLASS_UNIQUE",
+            "RANDOM_IN_CLASS_UNIQUE",
+            "RANDOM_IN_CLASS_UNIQUE"
         ]
     },
     "dialogs":

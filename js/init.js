@@ -41,8 +41,6 @@ function initGameInfos(json) {
 
 function initGameplay(json) {
     var temp
-    
-    weapons = json.gameplay.weapons
 
     // Génération des compétences
     for (s in json.gameplay.skills) {
@@ -83,10 +81,16 @@ function initGameplay(json) {
     }
 }
 
-function appendInventory(object, list) {
+function appendInventory(object, list, playerData) {
+    var temp
+
     for (i in object) {
         if (object[i] == "RANDOM_IN_CLASS") {
             player.addStuff(randomFromList(list))
+        } else if (object[i] == "RANDOM_IN_CLASS_UNIQUE") {
+            temp = randomFromListUnique(list, playerData)
+            if (temp != null)
+                player.addStuff(temp)
         } else if (typeof object[i] === 'string') {
             temp = getFromName(object[i], list)
             if(temp != null)
@@ -119,13 +123,17 @@ function initPlayer(json) {
     player.meal = setInt(json.player.meal)
     player.gold = setInt(json.player.gold)
 
-    appendInventory(json.player.inventory, inventoryList)
-    appendInventory(json.player.special, specialList)
+    appendInventory(json.player.inventory, inventoryList, player.inventory)
+    appendInventory(json.player.special, specialList, player.special)
 
     // Généation des compétences du joueur
     for (k in json.player.skills) {
         if (json.player.skills[k] == "RANDOM_IN_CLASS") {
             player.setSkill(randomFromList(skillList))
+        } else if (json.player.skills[k] == "RANDOM_IN_CLASS_UNIQUE") {
+            temp = randomFromListUnique(skillList, player.skill)
+            if (temp != null)
+                player.setSkill(temp)
         } else {
             temp = getFromName(json.player.skills[k], skillList)
             if(temp != null)
