@@ -30,8 +30,8 @@ Un exemple d'utilisation de Hero.js se trouve dans le fichier `gameExemple.json`
 "name": "nom de la compétence",
 "stats":
 [
-	0, // bonus ability
-	0 // bonus stamina
+  0, // bonus ability
+  0 // bonus stamina
 ]
 ```
 
@@ -42,10 +42,10 @@ Un exemple d'utilisation de Hero.js se trouve dans le fichier `gameExemple.json`
 "type": "inventory", // "special", type d'inventaire de destination
 "data":
 [
-	0, // bonus ability
-	0, // bonus stamina
-	0, // bonus gold
-	0 // bonus meal
+  0, // bonus ability
+  0, // bonus stamina
+  0, // bonus gold
+  0 // bonus meal
 ]
 ```
 
@@ -68,7 +68,7 @@ Les textes générés sont adaptés en HTML, les balises de formatage sont donc 
 "action": "Choisissez quoi lui répondre",
 "buttons":
 [
-	// objet Button
+  // objet Button
 ],
 "img": "img/isaac.png", // OPTIONNEL, image au milieu de l'écran
 "background": "img/house.jpg" // image de fond
@@ -85,16 +85,16 @@ Si `player` est initialisé à `null`, alors la partie n'aura pas l'HUD correspo
 "gold": "RANDOM,0,20", // Gold de base du joueur
 "inventory": // Inventaire de base du joueur
 [
-	"gameboy",
-	"RANDOM_IN_CLASS_UNIQUE"
+  "gameboy",
+  "RANDOM_IN_CLASS_UNIQUE"
 ],
 "special":
 [
-	"RANDOM_IN_CLASS_UNIQUE"
+  "RANDOM_IN_CLASS_UNIQUE"
 ],
 "skills": // Compétences de base du joueur.
 [
-	"RANDOM_IN_CLASS"
+  "RANDOM_IN_CLASS"
 ]
 ```
 
@@ -117,11 +117,11 @@ Si `player` est initialisé à `null`, alors la partie n'aura pas l'HUD correspo
 ```
 "skills": // Liste des compétences du jeu
 [
-	{"name": "camouflage", "stats": [0, 0]} // Skill, voir plus haut dans les Classes
+  {"name": "camouflage", "stats": [0, 0]} // objet Skill
 ],
 "objectsInventory":
 [
-	{"name": "gameboy", "type": "inventory", "data": [0, 0, 0, 0]} // Object, voir plus haut dans les Classes
+  {"name": "gameboy", "type": "inventory", "data": [0, 0, 0, 0]} // objet Object
 ],
 "objectsSpecial": []
 ```
@@ -132,8 +132,8 @@ Si `player` est initialisé à `null`, alors la partie n'aura pas l'HUD correspo
 
 ```
 [
-	// objet DIALOG,
-	// objet DIALOG
+  // objet DIALOG,
+  // objet DIALOG
 ]
 ```
 
@@ -145,8 +145,8 @@ Vérifie si le joueur a l'argent requis pour passer à la scène suivante.
 "condition": "GOLD",
 "conditionData":
 [
-	true, // false -> vérifier supériorité
-	10 // -> Valeur barrière
+  true, // false -> vérifier supériorité
+  10 // -> Valeur barrière
 ]
 ```
 
@@ -156,8 +156,8 @@ Vérifie si le joueur a le nombre de repas requis pour passer à la scène suiva
 "condition": "MEAL",
 "conditionData":
 [
-	true, // false -> vérifier supériorité
-	10 // -> Valeur barrière
+  true, // false -> vérifier supériorité
+  10 // -> Valeur barrière
 ]
 ```
 
@@ -167,8 +167,8 @@ Vérifie si le joueur a la stamina requise pour passer à la scène suivante.
 "condition": "STAMINA",
 "conditionData":
 [
-	true, // false -> vérifier supériorité
-	10 // -> Valeur barrière
+  true, // false -> vérifier supériorité
+  10 // -> Valeur barrière
 ]
 ```
 
@@ -178,8 +178,8 @@ Vérifie si le joueur a l'abilité requise pour passer à la scène suivante.
 "condition": "ABILITY",
 "conditionData":
 [
-	true, // false -> vérifier supériorité
-	10 // -> Valeur barrière
+  true, // false -> vérifier supériorité
+  10 // -> Valeur barrière
 ]
 ```
 
@@ -189,8 +189,8 @@ Vérifie si le joueur possède la capacité demandée pour passer à la scène s
 "condition": "SKILL",
 "conditionData":
 [
-	true, // false -> est présent dans les compétences
-	"sixième sens" // -> nom du skill à chercher
+  true, // false -> est présent dans les compétences
+  "sixième sens" // -> nom du skill à chercher
 ]
 ```
 
@@ -215,8 +215,8 @@ Supprime un objet d'un inventaire du joueur lors du passage à la scène suivant
 "effect": "REMOVE_OBJECT",
 "effectData":
 [
-	"inventory", // "special" -> type d'inventaire à fouiller
-	"gameboy", // item à supprimer
+  "inventory", // "special" -> type d'inventaire à fouiller
+  "gameboy", // item à supprimer
 ]
 ```
 
@@ -226,7 +226,7 @@ Ajoute un objet dans l'un des inventaires du joueur lors du passage à la scène
 "effect": "REMOVE_OBJECT",
 "effectData":
 [
-	"inventory", // "special" -> inventaire à remplir
-	"gameboy", // item à ajouter
+  "inventory", // "special" -> inventaire à remplir
+  "gameboy", // item à ajouter
 ]
 ```
