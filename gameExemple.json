@@ -96,7 +96,6 @@
         },
         {
             "body": "<b>Julien</b> a mal pris votre réponse et vous a assomé avec un poulet congelé qui se trouvait par terre.",
-            "action": "C'est la fin de l'histoire !",
             "img": "img/grave.png",
             "background": "img/house.jpg"
         },
@@ -107,7 +106,6 @@
         },
         {
             "body": "Vous donnez votre GameBoy à <b>Julien</b>. \"Merci, mais j'suis pro Sony. Vive Ratchet & Clank !\".",
-            "action": "C'est la fin de l'histoire !",
             "img": "img/ratchet.png",
             "background": "img/playstation.jpg"
         }
