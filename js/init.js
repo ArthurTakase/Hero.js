@@ -10,6 +10,7 @@ function initDialog(json) {
         
         // Génération des boutons
         for (b in currentDialog.buttons) {
+            // Conditions des boutons
             switch (currentDialog.buttons[b].condition) {
                 case "GOLD": tempCondition = 1; break
                 case "MEAL": tempCondition = 2; break
@@ -20,12 +21,15 @@ function initDialog(json) {
                 default: tempCondition = null; break
             }
 
+            // Effets des boutons
             switch (currentDialog.buttons[b].effect) {
                 case "REMOVE_OBJECT": tempEffect = 1; break
                 case "ADD_OBJECT": tempEffect = 2; break
                 default: tempEffect = null; break
             }
 
+
+            // Création du bouton
             allButtons.push(
                 new Button(
                     currentDialog.buttons[b].text,
@@ -70,13 +74,7 @@ function initGameplay(json) {
     if (json.gameplay.skills) {
         for (s in json.gameplay.skills) {
             temp = json.gameplay.skills[s]
-    
-            skillList.push(
-                new Skill(
-                    temp.name,
-                    temp.stats
-                )
-            )
+            skillList.push(new Skill(temp.name, temp.stats))
         }
     }
 
@@ -84,14 +82,7 @@ function initGameplay(json) {
     if (json.gameplay.objectsInventory) {
         for (i in json.gameplay.objectsInventory) {
             temp = json.gameplay.objectsInventory[i]
-    
-            inventoryList.push(
-                new Object(
-                    temp.name,
-                    temp.type,
-                    temp.data
-                )
-            )
+            inventoryList.push(new Object(temp.name, temp.type, temp.data))
         }
     }
 
@@ -99,24 +90,10 @@ function initGameplay(json) {
     if (json.gameplay.objectsSpecial) {
         for (j in json.gameplay.objectsSpecial) {
             temp = json.gameplay.objectsSpecial[j]
-    
-            specialList.push(
-                new Object(
-                    temp.name,
-                    temp.type,
-                    temp.data
-                )
-            )
+            specialList.push(new Object(temp.name, temp.type, temp.data))
         }
     }
 }
-
-// function appendInventory(object, list, playerData) {
-//     var temp
-
-//     for (i in object)
-//         newObject(object[i], list, playerData)
-// }
 
 function initPlayer(json) {
     var temp
@@ -132,12 +109,10 @@ function initPlayer(json) {
     player.meal = setInt(json.player.meal)
     player.gold = setInt(json.player.gold)
 
-    // appendInventory(json.player.inventory, inventoryList, player.inventory)
     for (i in json.player.inventory)
         newObject(json.player.inventory[i], inventoryList, player.inventory)
     for (j in json.player.special)
         newObject(json.player.special[j], specialList, player.special)
-    // appendInventory(json.player.special, specialList, player.special)
 
     // Généation des compétences du joueur
     for (k in json.player.skills) {

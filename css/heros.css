@@ -295,12 +295,11 @@ body {
 .hero-js-dialog-button-zone {
     margin: 1rem;
     width: 100%;
-    height: 100%;
     display: flex;
 }
 
 .hero-js-dialog-button-zone button {
-    flex-grow: 1;
+    flex: 1;
     background-color:rgb(40, 42, 61);
     text-decoration: none;
     border: none;

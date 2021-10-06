@@ -79,7 +79,7 @@
                     "effectData": ["inventory", {"name": "poulet congelé couvert de sang", "type": "inventory", "data": [-10, 0, 0, 0]}]
                 },
                 {
-                    "text": "<i>Lui donner votre <b>GameBoy</b><i>",
+                    "text": "<i>Lui donner votre <b>GameBoy</b></i>",
                     "goToIndex": 3,
                     "condition": "OBJECT",
                     "conditionData": [true, "inventory", "gameboy"],
@@ -91,6 +91,12 @@
                     "goToIndex": 2,
                     "condition": "SKILL",
                     "conditionData": [true, "sixième sens"]
+                },
+                {
+                    "text": "<i>Lui jeter x golds au visage</i>",
+                    "goToIndex": 1,
+                    "condition": "GOLD",
+                    "conditionData": [true, "RANDOM,0,5"]
                 }
             ],
             "img": "img/isaac.png",

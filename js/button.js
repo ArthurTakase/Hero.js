@@ -15,20 +15,24 @@ function checkCondition(condition, indexBtn, oldIndexDialog) {
 
     switch (condition) {
         case 1: // GOLD [isSup, amount]
-            if (data[0] && player.gold >= data[1]) {return true}
-            if (!data[0] && player.gold <= data[1]) {return true}
+            temp = setInt(data[1])
+            if (data[0] && player.gold >= temp) {return true}
+            if (!data[0] && player.gold <= temp) {return true}
             return false
         case 2: // MEAL [isSup, amount]
-            if (data[0] && player.meal >= data[1]) {return true}
-            if (!data[0] && player.meal <= data[1]) {return true}
+            temp = setInt(data[1])
+            if (data[0] && player.meal >= temp) {return true}
+            if (!data[0] && player.meal <= temp) {return true}
             return false
         case 3: // STAMINA [isSup, amount]
-            if (data[0] && player.stamina >= data[1]) {return true}
-            if (!data[0] && player.stamina <= data[1]) {return true}
+            temp = setInt(data[1])
+            if (data[0] && player.stamina >= temp) {return true}
+            if (!data[0] && player.stamina <= temp) {return true}
             return false
         case 4: // ABILITY [isSup, amount]
-            if (data[0] && player.ability >= data[1]) {return true}
-            if (!data[0] && player.ability <= data[1]) {return true}
+            temp = setInt(data[1])
+            if (data[0] && player.ability >= temp) {return true}
+            if (!data[0] && player.ability <= temp) {return true}
             return false
         case 5: // SKILL [isHere, type]
             temp = getFromName(data[1], player.skill)
