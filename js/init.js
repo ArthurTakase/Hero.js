@@ -33,6 +33,7 @@ function initDialog(json) {
                 case "ADD_STAMINA": tempEffect = 8; break
                 case "REMOVE_ABILITY": tempEffect = 9; break
                 case "ADD_ABILITY": tempEffect = 10; break
+                case "HEAL": tempEffect = 11; break
                 default: tempEffect = null; break
             }
 

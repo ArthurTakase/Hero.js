@@ -46,8 +46,7 @@ function checkCondition(condition, indexBtn, oldIndexDialog) {
             if (data[0] && temp != null) {return true}
             if (!data[0] && temp == null) {return true}
             return false
-        default:
-            return false
+        default: return false
     }
 }
 
@@ -55,10 +54,6 @@ function setEffect(effect, indexBtn, oldIndexDialog) {
     // console.log(allDialog[oldIndexDialog].buttons[indexBtn])
     var data = allDialog[oldIndexDialog].buttons[indexBtn].effectData
     var temp
-
-    console.log(effect)
-
-    // console.log(data)
 
     switch (effect) {
         case 1: // REMOVE_OBJECT [inventaire, object]
@@ -78,8 +73,12 @@ function setEffect(effect, indexBtn, oldIndexDialog) {
         case 8: player.stamina += setInt(data[0]); break
         case 9: player.ability -= setInt(data[0]); break
         case 10: player.ability += setInt(data[0]); break
-        default:
+        case 11:
+            player.stamina += setInt(data[0])
+            if (player.stamina > player.maxStamina)
+                player.stamina = player.maxStamina
             break
+        default: break
     }
 }
 
