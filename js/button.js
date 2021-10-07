@@ -74,6 +74,10 @@ function setEffect(effect, indexBtn, oldIndexDialog) {
         case 4: player.gold += setInt(data[0]); break
         case 5: player.meal -= setInt(data[0]); break
         case 6: player.meal += setInt(data[0]); break
+        case 7: player.stamina -= setInt(data[0]); break
+        case 8: player.stamina += setInt(data[0]); break
+        case 9: player.ability -= setInt(data[0]); break
+        case 10: player.ability += setInt(data[0]); break
         default:
             break
     }
