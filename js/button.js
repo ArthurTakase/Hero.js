@@ -68,6 +68,8 @@ function setEffect(effect, indexBtn, oldIndexDialog) {
             if (data[0] == "inventory") {newObject(data[1], inventoryList, player.inventory)}
             else {newObject(data[1], specialList, player.special)}
             break
+        case 3: // REMOVE_GOLD [amount]
+            player.gold -= setInt(data[0]); break
         default:
             break
     }

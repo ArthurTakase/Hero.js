@@ -25,6 +25,7 @@ function initDialog(json) {
             switch (currentDialog.buttons[b].effect) {
                 case "REMOVE_OBJECT": tempEffect = 1; break
                 case "ADD_OBJECT": tempEffect = 2; break
+                case "REMOVE_GOLD": tempEffect = 3; break
                 default: tempEffect = null; break
             }
 

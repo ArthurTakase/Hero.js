@@ -104,7 +104,7 @@
                     "condition": "GOLD",
                     "conditionData": [true, 3],
                     "effect": "REMOVE_GOLD",
-                    "effectData": [10]
+                    "effectData": [3]
                 }
             ],
             "img": "img/isaac.png",
