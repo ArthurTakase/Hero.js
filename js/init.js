@@ -34,6 +34,7 @@ function initDialog(json) {
                 case "REMOVE_ABILITY": tempEffect = 9; break
                 case "ADD_ABILITY": tempEffect = 10; break
                 case "HEAL": tempEffect = 11; break
+                case "HURT": tempEffect = 12; break
                 default: tempEffect = null; break
             }
 

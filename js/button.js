@@ -53,7 +53,7 @@ function checkCondition(condition, indexBtn, oldIndexDialog) {
 function setEffect(effect, indexBtn, oldIndexDialog) {
     // console.log(allDialog[oldIndexDialog].buttons[indexBtn])
     var data = allDialog[oldIndexDialog].buttons[indexBtn].effectData
-    var temp
+    var temp, temp2
 
     switch (effect) {
         case 1: // REMOVE_OBJECT [inventaire, object]
@@ -69,14 +69,23 @@ function setEffect(effect, indexBtn, oldIndexDialog) {
         case 4: player.gold += setInt(data[0]); break
         case 5: player.meal -= setInt(data[0]); break
         case 6: player.meal += setInt(data[0]); break
-        case 7: player.stamina -= setInt(data[0]); break
-        case 8: player.stamina += setInt(data[0]); break
+        case 7:
+            player.maxStamina -= setInt(data[0])
+            if (player.stamina > player.maxStamina)
+                player.stamina = player.maxStamina
+            break
+        case 8: player.maxStamina += setInt(data[0]); break
         case 9: player.ability -= setInt(data[0]); break
         case 10: player.ability += setInt(data[0]); break
         case 11:
             player.stamina += setInt(data[0])
             if (player.stamina > player.maxStamina)
                 player.stamina = player.maxStamina
+            break
+        case 12:
+            player.stamina += setInt(data[0])
+            if (player.stamina < 0)
+                player.stamina = 0
             break
         default: break
     }
@@ -86,10 +95,12 @@ function switchDialog(indexDialog, condition, indexBtn, oldIndexDialog, effect) 
     if (condition == null) {
         currentNumber = indexDialog
         setEffect(effect, indexBtn, oldIndexDialog)
+        // si le joueur est mort, l'amener à son onglet de mort
         allDialog[currentNumber].show(player)
     } else if (checkCondition(condition, indexBtn, oldIndexDialog)){
         currentNumber = indexDialog
         setEffect(effect, indexBtn, oldIndexDialog)
+        // si le joueur est mort, l'amener à son onglet de mort
         allDialog[currentNumber].show(player)
     }
 }
