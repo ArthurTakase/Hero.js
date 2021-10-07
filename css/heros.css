@@ -13,6 +13,10 @@ body {
     color: white;
     object-fit:fill;
     font-family: 'Roboto', sans-serif;
+    background: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .version {
@@ -23,6 +27,7 @@ body {
     margin: 0.5rem;
     color: white;
     text-align: right;
+    font-size: 0.8rem;
 }
 
 #hero-js-form {
@@ -35,27 +40,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-}
-
-#hero-js-form img {
-    /* width: 300px; */
-    position: fixed;
-    z-index: -1;
-    animation: dialog-img 3s ease-in-out infinite;
-}
-
-.hero-js-1 {
-    filter: drop-shadow(1rem 1rem 1rem black);
-    width: 500px;
-    bottom: -5rem;
-    right: -10rem;
-}
-
-.hero-js-2 {
-    filter: drop-shadow(-1rem 1rem 1rem black);
-    width: 500px;
-    bottom: -10rem;
-    left: -10rem;
+    background: rgba(0, 0, 0, 0.445);
 }
 
 #hero-js-form p {
@@ -63,28 +48,44 @@ body {
     position: fixed;
     bottom: 0;
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.486);
+    color: rgb(255, 255, 255);
     opacity: 0.8;
 }
 
 #hero-js-form a {
     text-decoration: none;
     opacity: 1;
-    color: white;
+    color: rgb(132, 167, 196);
+    text-decoration: underline;
 }
 
 #hero-js-form h1 {
+    font-size: 9rem;
+    font-family: 'Bebas Neue', cursive;
+    margin: 0;
+    filter: drop-shadow(1px 1px 0 black);
+}
+
+.title {
     position: fixed;
     top: 20%;
-    font-size: 4rem;
-    font-family: 'Bebas Neue', cursive;
-    animation: title-animation 2s infinite ease-in-out;
+    animation: title-animation 5s infinite ease-in-out;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes title-animation {
-    0% {transform: scale(1);}
-    50% {transform: scale(1.1);}
-    100% {transform: scale(1);}
+    0% {transform: translateY(0px);}
+    50% {transform: translateY(10px);}
+    100% {transform: translateY(0px);}
+}
+
+.hero-js-subtitle {
+    font-size: .8rem;
+    transform: translateY(-25px);
 }
 
 .custom-file-input {
@@ -92,17 +93,26 @@ body {
 }
 
 .custom-file-input-label {
+    position: fixed;
     border: solid;
     padding: 1rem;
     border-radius: 0.5rem;
     box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.342);
     transition-duration: 0.2s;
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.11);
+    background: rgba(255, 255, 255, 0.21);
+    top: 70%;
 }
 
 .custom-file-input-label:hover {
-    transform: scale(1.02);
+    /* transform: scale(1.02); */
+    animation: button-animation 1.5s infinite ease-in-out;
+}
+
+@keyframes button-animation {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.1);}
+    100% {transform: scale(1);}
 }
 
 /***********************************/

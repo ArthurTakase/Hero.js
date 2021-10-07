@@ -65,7 +65,7 @@ Les textes générés sont adaptés en HTML, les balises de formatage sont donc 
 ```
 "title": "Nom du personnage", // OPTIONNEL
 "body": "Corps du dialogue",
-"action": "Choisissez quoi lui répondre",
+"action": "Choisissez quoi lui répondre", // OPTIONNEL
 "buttons":
 [
   // objet Button

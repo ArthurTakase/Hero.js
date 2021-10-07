@@ -23,20 +23,32 @@
         <!-- Formulaire de lancement du jeu -->
         <!-- Disparait une fois un fichier chargé -->
         <div id="hero-js-form">
-            <h1 class="title">Hero.js</h1>
-            <label class="custom-file-input-label" for="hero-js-form-json">Charger un fichier</label>
+            <div class="title">
+                <h1>Hero.js</h1>
+                <span class="hero-js-subtitle">Et si vous deveniez un créateur ?</span>
+            </div>
+            <label class="custom-file-input-label" for="hero-js-form-json">Charger un jeu (.hero/.json)</label>
             <input class="custom-file-input" type="file" id="hero-js-form-json" accept=".json,.hero" onchange="initGame(this.files[0])">
             <p>
                 Participez au développement de Heros.js sur <a href="https://github.com/ArthurTakase/Heros.js">Github</a> !<br>
-                Plus d'informations <a href="https://icy-wind-398.notion.site/Hero-js-03dc521b26ea4c4fb8d551821cd40092">ici</a>.
             </p>
-            <img src="img/goblin.png" class="hero-js-1">
-            <img src="img/orc.png" class="hero-js-2">
         </div>
         <!-- Numéro de version -->
         <p class="version">
-            FEAT: add random in button condition & full documentation<br>
-            <u>Version: </u>0.0.19-07.10.2021
+            STYLE: change index.html style<br>
+            <u>Version: </u>0.0.20-07.10.2021
         </p>
+
+        <script>
+            var imgs = [
+                "img/city.jpg",
+                "img/donjon.jpg",
+                "img/forest.jpg",
+                "img/night_forest.jpg",
+                "img/ruine.jpg",
+                "img/tavern.jpg"
+            ]
+            setBackground(randomFromList(imgs))
+        </script>
     </body>
 </html>
