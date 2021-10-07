@@ -100,10 +100,10 @@
                 },
                 {
                     "text": "<i>Lui jeter 3 golds au visage</i>",
-                    "goToIndex": 1,
+                    "goToIndex": 4,
                     "condition": "GOLD",
                     "conditionData": [true, 3],
-                    "effect": "REMOVE_GOLD",
+                    "effect": "ADD_GOLD",
                     "effectData": [3]
                 }
             ],
@@ -124,6 +124,11 @@
             "body": "Vous donnez votre GameBoy à <b>Julien</b>. \"Merci, mais j'suis pro Sony. Vive Ratchet & Clank !\".",
             "img": "img/ratchet.png",
             "background": "img/playstation.jpg"
+        },
+        {
+            "body": "Surpris, <b>Julien</b> vous regarde fixement, puis sors quelque chose de sa poche. \"Tiens, avec les interets ça fait 6 golds\". <i>+3 Golds (bha oui, réfléchis, t'en a lancé 3)</i>",
+            "img": "img/picsou.png",
+            "background": "img/money.jpg"
         }
     ]
 }

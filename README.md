@@ -18,9 +18,9 @@ Un exemple d'utilisation de Hero.js se trouve dans le fichier `gameExemple.json`
 
 | |Description|Fonctionne sur|
 |-|-----------|--------------|
-|`RANDOM,min,max`|Donne un int aléatoire entre 0 et max en ajoutant min. Si max est égal à `DICE`, alors la valeur maximale du random sera celle renseignée pour `maxDice`.|`player.ability`, `player.stamina`, `player.meal`, `player.gold`, `conditionData.GOLD`, `conditionData.MEAL`, `conditionData.STAMINA`, `conditionData.ABILITY`|
-|`RANDOM_IN_CLASS`|Donne un élément au hasard dans la liste d'Objets de son type initialisés en début de partie.|`Skills Liste`, `Inventory Liste`, `Special Liste`|
-|`RANDOM_IN_CLASS_UNIQUE`|Donne un élément au hasard dans la liste d'Objets de son type initialisé en début de partie. L'item donné est forcement différent de ceux de l'inventaire actuel du joueur.|`Skills Liste`, `Inventory Liste`, `Special Liste`|
+|`RANDOM,min,max`|Donne un int aléatoire entre 0 et max en ajoutant min. Si max est égal à `DICE`, alors la valeur maximale du random sera celle renseignée pour `maxDice`. `RANDOM,10,7` donnera un resultat entre 10 et 17.|`player.ability`, `player.stamina`, `player.meal`, `player.gold`, `conditionData.GOLD.amount`, `conditionData.MEAL.amount`, `conditionData.STAMINA.amount`, `conditionData.ABILITY.amount`, `effectData.REMOVE_GOLD.amount`, `objectData.ADD_GOLD.amount`|
+|`RANDOM_IN_CLASS`|Donne un élément au hasard dans la liste d'Objets de son type initialisée en début de partie.|`Skills Liste`, `Inventory Liste`, `Special Liste`, `effectData.REMOVE_OBJECT.object`, `effectData.ADD_OBJECT.object`|
+|`RANDOM_IN_CLASS_UNIQUE`|Donne un élément au hasard dans la liste d'Objets de son type initialisée en début de partie. L'item donné est forcement différent de ceux de l'inventaire actuel du joueur.|`Skills Liste`, `Inventory Liste`, `Special Liste`, `effectData.ADD_OBJECT.object`|
 
 ## CLASSES
 
@@ -234,5 +234,25 @@ Ajoute un objet dans l'un des inventaires du joueur lors du passage à la scène
 [
   "inventory", // "special" -> inventaire à remplir
   "gameboy", // item à ajouter
+]
+```
+
+#### REMOVE_GOLD
+
+```
+"effect": "REMOVE_GOLD",
+"effectData":
+[
+    10 // montant à supprimer
+]
+```
+
+#### ADD_GOLD
+
+```
+"effect": "ADD_GOLD",
+"effectData":
+[
+    10 // montant à ajouter
 ]
 ```

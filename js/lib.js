@@ -75,12 +75,26 @@ function setInt(objetValue) {
 }
 
 function removeFromPlayer(object, list) {
-    for (i in list) {
-        if (list[i].name == object) {
-            player.removeStuffBonus(list[i])
-            list.splice(i)
+    var temp
+
+    console.log(list)
+    
+    if (object == "RANDOM_IN_CLASS") {
+        temp = Math.floor(Math.random() * list.length)
+        console.log(list[temp])
+        player.removeStuffBonus(list[temp])
+        list.splice(temp, 1)
+    } else {
+        console.log("else")
+        for (i in list) {
+            if (list[i].name == object) {
+                player.removeStuffBonus(list[i])
+                list.splice(i, 1)
+                break
+            }
         }
     }
+    console.log(list)
 }
 
 function newObject(object, list, playerData) {

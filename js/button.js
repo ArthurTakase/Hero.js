@@ -70,6 +70,8 @@ function setEffect(effect, indexBtn, oldIndexDialog) {
             break
         case 3: // REMOVE_GOLD [amount]
             player.gold -= setInt(data[0]); break
+        case 4: // ADD_GOLD [amount]
+            player.gold += setInt(data[0]); break
         default:
             break
     }
