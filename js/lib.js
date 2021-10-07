@@ -11,7 +11,14 @@ let skillList = []
 let inventoryList = []
 let specialList = []
 let player = null
+// Affichage
 let showTitleHUD = true
+let showPlayerAbility = true
+let showPlayerStamina = true
+let showPlayerSkills = true
+let showPlayerGold = true
+let showPlayerInventory = true
+let showPlayerSpecial = true
 
 /***********************************/
 /*          LIB FUNCTIONS          */

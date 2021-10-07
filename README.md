@@ -108,7 +108,13 @@ Si `player` est initialisé à `null`, alors la partie n'aura pas l'HUD correspo
 "startNumber": 0, // Premier dialogue à afficher
 "maxDice": 9, // Valeur maximale pour les lancés de dés
 "maxSkills": 0, // Nombre max de compétences pour le joueur
-"showTitle": false // OPTIONNEL, permet de choisir si le titre est affiché en jeu
+"showTitle": false, // OPTIONNEL
+"showPlayerAbility": false, // OPTIONNEL
+"showPlayerStamina": false, // OPTIONNEL
+"showPlayerSkills": false, // OPTIONNEL
+"showPlayerGold": false, // OPTIONNEL
+"showPlayerInventory": false, // OPTIONNEL
+"showPlayerSpecial": false // OPTIONNEL
 ```
 
 #### gameplay

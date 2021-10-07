@@ -5,7 +5,13 @@
         "startNumber": 0,
         "maxDice": 9,
         "maxSkill": 5,
-        "showTitle": true
+        "showTitle": true,
+        "showPlayerAbility": false,
+        "showPlayerStamina": false,
+        "showPlayerSkills": true,
+        "showPlayerGold": true,
+        "showPlayerInventory": true,
+        "showPlayerSpecial": false
     },
     "gameplay":
     {
@@ -93,10 +99,12 @@
                     "conditionData": [true, "sixième sens"]
                 },
                 {
-                    "text": "<i>Lui jeter x golds au visage</i>",
+                    "text": "<i>Lui jeter 3 golds au visage</i>",
                     "goToIndex": 1,
                     "condition": "GOLD",
-                    "conditionData": [true, "RANDOM,0,5"]
+                    "conditionData": [true, 3],
+                    "effect": "REMOVE_GOLD",
+                    "effectData": [10]
                 }
             ],
             "img": "img/isaac.png",

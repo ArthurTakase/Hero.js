@@ -62,6 +62,12 @@ function initGameInfos(json) {
     maxDice = json.gameInfos.maxDice
     maxSkill = json.gameInfos.maxSkill
     showTitleHUD = json.gameInfos.showTitle
+    showPlayerAbility = json.gameInfos.showPlayerAbility
+    showPlayerStamina = json.gameInfos.showPlayerStamina
+    showPlayerSkills = json.gameInfos.showPlayerSkills
+    showPlayerGold = json.gameInfos.showPlayerGold
+    showPlayerInventory = json.gameInfos.showPlayerInventory
+    showPlayerSpecial = json.gameInfos.showPlayerSpecial
 }
 
 function initGameplay(json) {
