@@ -52,11 +52,13 @@ function checkCondition(condition, indexBtn, oldIndexDialog) {
 }
 
 function setEffect(effect, indexBtn, oldIndexDialog) {
-    console.log(allDialog[oldIndexDialog].buttons[indexBtn])
+    // console.log(allDialog[oldIndexDialog].buttons[indexBtn])
     var data = allDialog[oldIndexDialog].buttons[indexBtn].effectData
     var temp
 
-    console.log(data)
+    console.log(effect)
+
+    // console.log(data)
 
     switch (effect) {
         case 1: // REMOVE_OBJECT [inventaire, object]
@@ -68,10 +70,10 @@ function setEffect(effect, indexBtn, oldIndexDialog) {
             if (data[0] == "inventory") {newObject(data[1], inventoryList, player.inventory)}
             else {newObject(data[1], specialList, player.special)}
             break
-        case 3: // REMOVE_GOLD [amount]
-            player.gold -= setInt(data[0]); break
-        case 4: // ADD_GOLD [amount]
-            player.gold += setInt(data[0]); break
+        case 3: player.gold -= setInt(data[0]); break
+        case 4: player.gold += setInt(data[0]); break
+        case 5: player.meal -= setInt(data[0]); break
+        case 6: player.meal += setInt(data[0]); break
         default:
             break
     }

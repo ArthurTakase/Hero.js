@@ -27,6 +27,8 @@ function initDialog(json) {
                 case "ADD_OBJECT": tempEffect = 2; break
                 case "REMOVE_GOLD": tempEffect = 3; break
                 case "ADD_GOLD": tempEffect = 4; break
+                case "REMOVE_MEAL": tempEffect = 5; break
+                case "ADD_MEAL": tempEffect = 6; break
                 default: tempEffect = null; break
             }
 

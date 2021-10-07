@@ -67,7 +67,7 @@
             "RANDOM_IN_CLASS_UNIQUE",
             "RANDOM_IN_CLASS_UNIQUE",
             "RANDOM_IN_CLASS_UNIQUE",
-            "RANDOM_IN_CLASS_UNIQUE"
+            "sixième sens"
         ]
     },
     "dialogs":
@@ -96,7 +96,9 @@
                     "text": "<i>Utiliser <b>Sixième Sens</b> pour savoir quoi faire</i>",
                     "goToIndex": 2,
                     "condition": "SKILL",
-                    "conditionData": [true, "sixième sens"]
+                    "conditionData": [true, "sixième sens"],
+                    "effect": "REMOVE_MEAL",
+                    "effectData": [1]
                 },
                 {
                     "text": "<i>Lui jeter 3 golds au visage</i>",
