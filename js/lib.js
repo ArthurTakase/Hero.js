@@ -11,7 +11,14 @@ let skillList = []
 let inventoryList = []
 let specialList = []
 let player = null
+// Affichage
 let showTitleHUD = true
+let showPlayerAbility = true
+let showPlayerStamina = true
+let showPlayerSkills = true
+let showPlayerGold = true
+let showPlayerInventory = true
+let showPlayerSpecial = true
 
 /***********************************/
 /*          LIB FUNCTIONS          */
@@ -68,8 +75,48 @@ function setInt(objetValue) {
 }
 
 function removeFromPlayer(object, list) {
-    for (i in list) {
-        if (list[i].name == object)
-            list.splice(i)
+    var temp
+
+    console.log(list)
+    
+    if (object == "RANDOM_IN_CLASS") {
+        temp = Math.floor(Math.random() * list.length)
+        console.log(list[temp])
+        player.removeStuffBonus(list[temp])
+        list.splice(temp, 1)
+    } else {
+        console.log("else")
+        for (i in list) {
+            if (list[i].name == object) {
+                player.removeStuffBonus(list[i])
+                list.splice(i, 1)
+                break
+            }
+        }
+    }
+    console.log(list)
+}
+
+function newObject(object, list, playerData) {
+    var temp
+
+    if (object == "RANDOM_IN_CLASS") {
+        player.addStuff(randomFromList(list))
+    } else if (object == "RANDOM_IN_CLASS_UNIQUE") {
+        temp = randomFromListUnique(list, playerData)
+        if (temp != null)
+            player.addStuff(temp)
+    } else if (typeof object === 'string') {
+        temp = getFromName(object, list)
+        if(temp != null)
+            player.addStuff(temp)
+    } else {
+        player.addStuff(
+            new Object(
+                object.name,
+                object.type,
+                object.data
+            )
+        )
     }
 }

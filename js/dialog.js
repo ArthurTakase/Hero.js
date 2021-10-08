@@ -11,7 +11,7 @@ class Dialog {
     show() {
         var img = ""
         var title = ""
-        var buttons = ""
+        var buttons = "<!-- goToIndex, condition, indexBtn, currentNumber, effect, text -->"
         var action = ""
 
         setBackground(this.background)
@@ -33,7 +33,6 @@ class Dialog {
                         currentNumber +
                         ', ' +
                         this.buttons[i].effect +
-                        ', ' +
                         ')">' +
                         this.buttons[i].text +
                         '</button>\n'

@@ -5,7 +5,13 @@
         "startNumber": 0,
         "maxDice": 9,
         "maxSkill": 5,
-        "showTitle": true
+        "showTitle": true,
+        "showPlayerAbility": false,
+        "showPlayerStamina": false,
+        "showPlayerSkills": true,
+        "showPlayerGold": true,
+        "showPlayerInventory": true,
+        "showPlayerSpecial": false
     },
     "gameplay":
     {
@@ -61,7 +67,7 @@
             "RANDOM_IN_CLASS_UNIQUE",
             "RANDOM_IN_CLASS_UNIQUE",
             "RANDOM_IN_CLASS_UNIQUE",
-            "RANDOM_IN_CLASS_UNIQUE"
+            "sixième sens"
         ]
     },
     "dialogs":
@@ -74,10 +80,12 @@
             [
                 {
                     "text": "<i>L'instulter en lui disant qu'il est maaaaauvaaaais Jaaaackkkk</i>",
-                    "goToIndex": 1
+                    "goToIndex": 1,
+                    "effect": "ADD_OBJECT",
+                    "effectData": ["inventory", {"name": "poulet congelé couvert de sang", "type": "inventory", "data": [-10, 0, 0, 0]}]
                 },
                 {
-                    "text": "<i>Lui donner votre <b>GameBoy</b><i>",
+                    "text": "<i>Lui donner votre <b>GameBoy</b></i>",
                     "goToIndex": 3,
                     "condition": "OBJECT",
                     "conditionData": [true, "inventory", "gameboy"],
@@ -88,14 +96,24 @@
                     "text": "<i>Utiliser <b>Sixième Sens</b> pour savoir quoi faire</i>",
                     "goToIndex": 2,
                     "condition": "SKILL",
-                    "conditionData": [true, "sixième sens"]
+                    "conditionData": [true, "sixième sens"],
+                    "effect": "REMOVE_MEAL",
+                    "effectData": [1]
+                },
+                {
+                    "text": "<i>Lui jeter 3 golds au visage</i>",
+                    "goToIndex": 4,
+                    "condition": "GOLD",
+                    "conditionData": [true, 3],
+                    "effect": "ADD_GOLD",
+                    "effectData": [3]
                 }
             ],
             "img": "img/isaac.png",
             "background": "img/house.jpg"
         },
         {
-            "body": "<b>Julien</b> a mal pris votre réponse et vous a assomé avec un poulet congelé qui se trouvait par terre.",
+            "body": "<b>Julien</b> a mal pris votre réponse et vous a assomé avec un poulet congelé qui se trouvait par terre. <i>Poulet ajouté à votre inventaire.</i>",
             "img": "img/grave.png",
             "background": "img/house.jpg"
         },
@@ -108,6 +126,11 @@
             "body": "Vous donnez votre GameBoy à <b>Julien</b>. \"Merci, mais j'suis pro Sony. Vive Ratchet & Clank !\".",
             "img": "img/ratchet.png",
             "background": "img/playstation.jpg"
+        },
+        {
+            "body": "Surpris, <b>Julien</b> vous regarde fixement, puis sors quelque chose de sa poche. \"Tiens, avec les interets ça fait 6 golds\". <i>+3 Golds (bha oui, réfléchis, t'en a lancé 3)</i>",
+            "img": "img/picsou.png",
+            "background": "img/money.jpg"
         }
     ]
 }
