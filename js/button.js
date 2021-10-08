@@ -95,6 +95,7 @@ function setEffect(effect, indexBtn, oldIndexDialog) {
             if (player.stamina < 0)
                 player.stamina = 0
             break
+        case 13: restart(); break
         default: break
     }
 }

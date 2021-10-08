@@ -2,6 +2,7 @@
 /*            VARIABLES            */
 /***********************************/
 
+let defaultJSON = null
 let gameTitle
 let currentNumber
 let maxDice
@@ -119,4 +120,25 @@ function newObject(object, list, playerData) {
             )
         )
     }
+}
+
+function restart() {
+    allDialog = []
+    skillList = []
+    inventoryList = []
+    specialList = []
+    player = null
+    showTitleHUD = true
+    showPlayerAbility = true
+    showPlayerStamina = true
+    showPlayerSkills = true
+    showPlayerGold = true
+    showPlayerInventory = true
+    showPlayerSpecial = true
+    
+    initDialog(defaultJSON)
+    initGameInfos(defaultJSON)
+    initGameplay(defaultJSON)
+    initPlayer(defaultJSON)
+    allDialog[currentNumber].show()
 }

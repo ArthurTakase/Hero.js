@@ -35,6 +35,7 @@ function initDialog(json) {
                 case "ADD_ABILITY": tempEffect = 10; break
                 case "HEAL": tempEffect = 11; break
                 case "HURT": tempEffect = 12; break
+                case "RESTART": tempEffect = 13; break
                 default: tempEffect = null; break
             }
 
@@ -147,15 +148,13 @@ function initPlayer(json) {
 }
 
 function initGame(file) {
-    let json = ""
-
     var reader = new FileReader();
     reader.onload = function(evt) {
-        json = JSON.parse(evt.target.result)
-        initDialog(json)
-        initGameInfos(json)
-        initGameplay(json)
-        initPlayer(json)
+        defaultJSON = JSON.parse(evt.target.result)
+        initDialog(defaultJSON)
+        initGameInfos(defaultJSON)
+        initGameplay(defaultJSON)
+        initPlayer(defaultJSON)
         setDefaultHUD()
         allDialog[currentNumber].show()
     };
