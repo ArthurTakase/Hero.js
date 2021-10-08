@@ -4,14 +4,7 @@
         "title": "Julien est triste",
         "startNumber": 0,
         "maxDice": 9,
-        "maxSkill": 5,
-        "showTitle": true,
-        "showPlayerAbility": false,
-        "showPlayerStamina": false,
-        "showPlayerSkills": true,
-        "showPlayerGold": true,
-        "showPlayerInventory": true,
-        "showPlayerSpecial": false
+        "maxSkill": 5
     },
     "gameplay":
     {
@@ -49,33 +42,21 @@
         "ability": "RANDOM,10,DICE",
         "stamina": "RANDOM,20,DICE",
         "meal": 1,
-        "gold": "RANDOM,0,DICE",
+        "gold": 0,
         "inventory":
         [
             "RANDOM_IN_CLASS_UNIQUE",
-            "RANDOM_IN_CLASS_UNIQUE",
-            "RANDOM_IN_CLASS_UNIQUE",
             "RANDOM_IN_CLASS_UNIQUE"
         ],
-        "special":
-        [
-            "RANDOM_IN_CLASS_UNIQUE"
-        ],
-        "skills":
-        [
-            "RANDOM_IN_CLASS_UNIQUE",
-            "RANDOM_IN_CLASS_UNIQUE",
-            "RANDOM_IN_CLASS_UNIQUE",
-            "RANDOM_IN_CLASS_UNIQUE",
-            "sixième sens"
-        ]
+        "special": [],
+        "skills": []
     },
     "dialogs":
     [
         {
-            "title": "Julien ce FDP",
-            "body": "\"Putain j'ai cassé mon vélo, nsm...\"",
-            "action": "Choisissez quoi lui répondre",
+            "title": "Grunlack",
+            "body": "\"Putain j'ai cassé mon vélo...\"",
+            "action": "Que voulez-vous faire ?",
             "buttons":
             [
                 {
@@ -101,7 +82,7 @@
                     "effectData": [1]
                 },
                 {
-                    "text": "<i>Lui jeter 3 golds au visage</i>",
+                    "text": "<i>Lui jeter 🎲 golds au visage</i>",
                     "goToIndex": 4,
                     "condition": "GOLD",
                     "conditionData": [true, 3],

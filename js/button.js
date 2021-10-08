@@ -9,11 +9,19 @@ class Button {
     }
 }
 
-function checkCondition(condition, indexBtn, oldIndexDialog) {
+function checkCondition(condition, indexBtn, oldIndexDialog, type) {
     var data = allDialog[oldIndexDialog].buttons[indexBtn].conditionData
     var temp, temp2
 
+    // Verification si le bouton est un random (change l'affichage du bouton en rouge si impossible)
+    if (type == "load" && data != null) {
+        for (var i = 0; i != data.length; i++) {
+            try {if (data[i].startsWith("RANDOM")) {return true}} catch (e) {}
+        }
+    }
+
     switch (condition) {
+        case null: return true; break
         case 1: // GOLD [isSup, amount]
             temp = setInt(data[1])
             if (data[0] && player.gold >= temp) {return true}
@@ -92,12 +100,7 @@ function setEffect(effect, indexBtn, oldIndexDialog) {
 }
 
 function switchDialog(indexDialog, condition, indexBtn, oldIndexDialog, effect) {
-    if (condition == null) {
-        currentNumber = indexDialog
-        setEffect(effect, indexBtn, oldIndexDialog)
-        // si le joueur est mort, l'amener à son onglet de mort
-        allDialog[currentNumber].show(player)
-    } else if (checkCondition(condition, indexBtn, oldIndexDialog)){
+    if (checkCondition(condition, indexBtn, oldIndexDialog, "test")){
         currentNumber = indexDialog
         setEffect(effect, indexBtn, oldIndexDialog)
         // si le joueur est mort, l'amener à son onglet de mort

@@ -22,20 +22,25 @@ class Dialog {
             title = '<div class="hero-js-dialog-header">' + this.title + '</div>'
         if (this.action != null)
             action = '<div class="hero-js-dialog-action">' + this.action + '</div>'
-        for (var i = 0; i != this.buttons.length; i++)
-            buttons += '<button onclick="switchDialog(' +
-                        this.buttons[i].goToIndex +
-                        ', ' +
-                        this.buttons[i].condition +
-                        ', ' +
-                        i +
-                        ', ' +
-                        currentNumber +
-                        ', ' +
-                        this.buttons[i].effect +
-                        ')">' +
-                        this.buttons[i].text +
-                        '</button>\n'
+        for (var i = 0; i != this.buttons.length; i++) {
+            if (!checkCondition(this.buttons[i].condition, i, currentNumber, "load")) {
+                buttons += '<button class="hero-js-button hero-js-not-activate">🔒</button>\n'
+            } else {
+                buttons += '<button class="hero-js-button hero-js-activate"onclick="switchDialog(' +
+                            this.buttons[i].goToIndex +
+                            ', ' +
+                            this.buttons[i].condition +
+                            ', ' +
+                            i +
+                            ', ' +
+                            currentNumber +
+                            ', ' +
+                            this.buttons[i].effect +
+                            ')">' +
+                            this.buttons[i].text +
+                            '</button>\n'
+            }
+        }
 
         document.getElementById('hero-js-all').innerHTML =  img +
                                                             '<div class="hero-js-dialog">' +

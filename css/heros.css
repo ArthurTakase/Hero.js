@@ -308,9 +308,8 @@ body {
     display: flex;
 }
 
-.hero-js-dialog-button-zone button {
+.hero-js-button {
     flex: 1;
-    background-color:rgb(40, 42, 61);
     text-decoration: none;
     border: none;
     font-style: inherit;
@@ -320,10 +319,21 @@ body {
     border-radius: 0.5rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-    opacity: 0.8;
 }
 
-.hero-js-dialog-button-zone button:hover {
+.hero-js-activate {
+    opacity: 0.9;
+    background-color:rgb(40, 42, 61);
+}
+
+.hero-js-not-activate {
+    opacity: 0.3;
+    background-color: rgba(255, 0, 0, 1);
+    cursor: not-allowed;
+    transform: rotate(5deg);
+}
+
+.hero-js-activate:hover {
     opacity: 1;
     cursor: pointer;
 }
