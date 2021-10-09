@@ -337,3 +337,31 @@ body {
     opacity: 1;
     cursor: pointer;
 }
+
+/***********************************/
+/*         DIALOGUE OPTIONS         */
+/***********************************/
+
+.subtext {
+    /* font-size: 80%; */
+    color: rgba(189, 189, 189, 0.5);
+    font-style: italic;
+}
+
+.item {
+    font-weight: bold;
+    font-style: normal;
+    color: rgb(126, 199, 108);
+}
+
+.amount {
+    font-style: italic;
+    font-weight: bold;
+    color: rgb(248, 248, 152);
+}
+
+.skill {
+    font-weight: bold;
+    font-style: normal;
+    color: rgb(108, 108, 199);
+}

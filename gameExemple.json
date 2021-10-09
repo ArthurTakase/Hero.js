@@ -76,7 +76,7 @@
                     "effectData": ["inventory", {"name": "poulet congelé couvert de sang", "type": "inventory", "data": [-10, 0, 0, 0]}]
                 },
                 {
-                    "text": "<i>Lui donner votre <b>GameBoy</b></i>",
+                    "text": "<i>Lui donner votre <span class='item'>GameBoy</span></i>",
                     "goToIndex": 3,
                     "condition": "OBJECT",
                     "conditionData": [true, "inventory", "gameboy"],
@@ -84,7 +84,7 @@
                     "effectData": ["inventory", "gameboy"]
                 },
                 {
-                    "text": "<i>Utiliser <b>Sixième Sens</b> pour savoir quoi faire</i>",
+                    "text": "<i>Utiliser <span class='skill'>Sixième Sens</span> pour savoir quoi faire</i>",
                     "goToIndex": 2,
                     "condition": "SKILL",
                     "conditionData": [true, "sixième sens"],
@@ -92,7 +92,7 @@
                     "effectData": [1]
                 },
                 {
-                    "text": "<i>Lui jeter 3 golds au visage</i>",
+                    "text": "<i>Lui jeter <span class='amount'>3 golds</span> au visage</i>",
                     "goToIndex": 4,
                     "condition": "GOLD",
                     "conditionData": [true, 3],
@@ -104,7 +104,7 @@
             "background": "img/house.jpg"
         },
         {
-            "body": "<b>Julien</b> a mal pris votre réponse et vous a assomé avec un poulet congelé qui se trouvait par terre. <i>Poulet ajouté à votre inventaire.</i>",
+            "body": "<b>Julien</b> a mal pris votre réponse et vous a assomé avec un poulet congelé qui se trouvait par terre. <span class='subtext'>Poulet ajouté à votre inventaire.</span></i>",
             "img": "img/grave.png",
             "background": "img/house.jpg",
             "buttons": [{"text": "Recommencer", "goToIndex": 0, "effect": "RESTART"}]
