@@ -39,7 +39,6 @@ function initDialog(json) {
                 default: tempEffect = null; break
             }
 
-
             // Création du bouton
             allButtons.push(
                 new Button(
@@ -48,7 +47,8 @@ function initDialog(json) {
                     tempCondition,
                     currentDialog.buttons[b].conditionData,
                     tempEffect,
-                    currentDialog.buttons[b].effectData
+                    currentDialog.buttons[b].effectData,
+                    currentDialog.buttons[b].notification
                 )
             )
         }

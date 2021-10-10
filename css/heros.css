@@ -60,7 +60,7 @@ body {
 }
 
 #hero-js-form h1 {
-    font-size: 9rem;
+    font-size: 11rem;
     font-family: 'Bebas Neue', cursive;
     margin: 0;
     filter: drop-shadow(1px 1px 0 black);
@@ -102,6 +102,7 @@ body {
     cursor: pointer;
     background: rgba(255, 255, 255, 0.21);
     top: 70%;
+    backdrop-filter: blur(20px);
 }
 
 .custom-file-input-label:hover {
@@ -339,7 +340,7 @@ body {
 }
 
 /***********************************/
-/*         DIALOGUE OPTIONS         */
+/*         DIALOGUE OPTIONS        */
 /***********************************/
 
 .subtext {
@@ -364,4 +365,50 @@ body {
     font-weight: bold;
     font-style: normal;
     color: rgb(108, 108, 199);
+}
+
+/***********************************/
+/*           NOTIFICATION          */
+/***********************************/
+
+#hero-js-notification {
+    position: fixed;
+    left: 0;
+    top: -120px;
+    display: flex;
+    color: black;
+    margin: 5px;
+    border-radius: 1rem;
+    backdrop-filter: blur(30px);
+    flex-direction: column;
+    animation: notification-animation 4s linear;
+    background: rgba(128, 128, 128, 0.171);
+    font-size: 1.2rem;
+}
+
+.notif-title {
+    border-radius: 1rem 1rem 0 0;
+    /* background: rgba(255, 255, 255, 0.774); */
+    background : rgba(28, 29, 43, 0.616);
+    backdrop-filter: blur(50px);
+    padding-left: 1rem;
+    padding-right: 2rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    color: rgb(255, 255, 255);
+}
+
+.notif-body {
+    margin: 1rem;
+    display: inline-block;
+    height: 25px;
+    color: white;
+    margin-right: 1.5rem;
+}
+
+@keyframes notification-animation {
+    0% {transform: translateY(0px); display: flex;}
+    8% {transform: translateY(120px); display: flex;}
+    92% {transform: translateY(120px); display: flex;}
+    100% {transform: translateY(0px); display: none;}
 }

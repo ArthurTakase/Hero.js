@@ -77,16 +77,12 @@ function setInt(objetValue) {
 
 function removeFromPlayer(object, list) {
     var temp
-
-    console.log(list)
     
     if (object == "RANDOM_IN_CLASS") {
         temp = Math.floor(Math.random() * list.length)
-        console.log(list[temp])
         player.removeStuffBonus(list[temp])
         list.splice(temp, 1)
     } else {
-        console.log("else")
         for (i in list) {
             if (list[i].name == object) {
                 player.removeStuffBonus(list[i])
@@ -95,12 +91,11 @@ function removeFromPlayer(object, list) {
             }
         }
     }
-    console.log(list)
 }
 
 function newObject(object, list, playerData) {
     var temp
-
+    
     if (object == "RANDOM_IN_CLASS") {
         player.addStuff(randomFromList(list))
     } else if (object == "RANDOM_IN_CLASS_UNIQUE") {
@@ -141,4 +136,10 @@ function restart() {
     initGameplay(defaultJSON)
     initPlayer(defaultJSON)
     allDialog[currentNumber].show()
+}
+
+function getObjectName(object) {
+    if (typeof object == 'string')
+        return object
+    return object.name
 }

@@ -1,11 +1,12 @@
 class Button {
-    constructor(text, goToIndex, condition, conditionData, effect, effectData) {
-        this.text = text // str
-        this.goToIndex = goToIndex // int
-        this.condition = condition // int
-        this.conditionData = conditionData// Liste
-        this.effect = effect // int
-        this.effectData = effectData // Liste
+    constructor(text, goToIndex, condition, conditionData, effect, effectData, notif) {
+        this.text = text
+        this.goToIndex = goToIndex
+        this.condition = condition
+        this.conditionData = conditionData
+        this.effect = effect
+        this.effectData = effectData
+        this.notif = notif
     }
 }
 
@@ -59,7 +60,6 @@ function checkCondition(condition, indexBtn, oldIndexDialog, type) {
 }
 
 function setEffect(effect, indexBtn, oldIndexDialog) {
-    // console.log(allDialog[oldIndexDialog].buttons[indexBtn])
     var data = allDialog[oldIndexDialog].buttons[indexBtn].effectData
     var temp, temp2
 
@@ -68,43 +68,75 @@ function setEffect(effect, indexBtn, oldIndexDialog) {
             if (data[0] == "inventory") {temp = player.inventory}
             else {temp = player.special}
             removeFromPlayer(data[1], temp)
-            break
+            return data[1]
         case 2: // ADD_OBJECT [inventaire, object]
             if (data[0] == "inventory") {newObject(data[1], inventoryList, player.inventory)}
             else {newObject(data[1], specialList, player.special)}
-            break
-        case 3: player.gold -= setInt(data[0]); break
-        case 4: player.gold += setInt(data[0]); break
-        case 5: player.meal -= setInt(data[0]); break
-        case 6: player.meal += setInt(data[0]); break
+            return data[1]
+        case 3: temp2 = setInt(data[0]); player.gold -= temp2; return temp2
+        case 4: temp2 = setInt(data[0]); player.gold += temp2; return temp2
+        case 5: temp2 = setInt(data[0]); player.meal -= temp2; return temp2
+        case 6: temp2 = setInt(data[0]); player.meal += temp2; return temp2
         case 7:
-            player.maxStamina -= setInt(data[0])
+            temp2 = setInt(data[0])
+            player.maxStamina -= temp2
             if (player.stamina > player.maxStamina)
                 player.stamina = player.maxStamina
-            break
-        case 8: player.maxStamina += setInt(data[0]); break
-        case 9: player.ability -= setInt(data[0]); break
-        case 10: player.ability += setInt(data[0]); break
+            return temp2
+        case 8: temp2 = setInt(data[0]); player.maxStamina += temp2; return temp2
+        case 9: temp2 = setInt(data[0]); player.ability -= temp2; return temp2
+        case 10: temp2 = setInt(data[0]); player.ability += temp2; return temp2
         case 11:
-            player.stamina += setInt(data[0])
+            temp2 = setInt(data[0])
+            player.stamina += temp2
             if (player.stamina > player.maxStamina)
                 player.stamina = player.maxStamina
-            break
+            return temp2
         case 12:
-            player.stamina += setInt(data[0])
+            temp2 = setInt(data[0])
+            player.stamina += temp2
             if (player.stamina < 0)
                 player.stamina = 0
-            break
+            return temp2
         case 13: restart(); break
         default: break
     }
+    return null
 }
 
-function switchDialog(indexDialog, condition, indexBtn, oldIndexDialog, effect) {
-    if (checkCondition(condition, indexBtn, oldIndexDialog, "test")){
+function setNotif(notif, effect, data) {
+    if (notif == 'false')
+        return
+
+    var notifHTML = '<div id="hero-js-notification">\
+                            <div class="notif-title">ℹ️ Notification</div><div class="notif-body">'
+    if (notif == 'undefined') {
+        switch (effect) {
+            case 1: notifHTML += getObjectName(data) + " retiré de votre inventaire.</p></div>"; break
+            case 2: notifHTML += getObjectName(data) + " ajouté à votre inventaire.</p></div>"; break
+            case 3: notifHTML += "-" + data + " gold(s).</div></div>"; break
+            case 4: notifHTML += "+" + data + " gold(s).</div></div>"; break
+            case 5: notifHTML += "-" + data + " meal(s).</div></div>"; break
+            case 6: notifHTML += "+" + data + " meal(s).</div></div>"; break
+            case 7: notifHTML += "-" + data + " stamina.</div></div>"; break
+            case 8: notifHTML += "+" + data + " stamina.</div></div>"; break
+            case 9: notifHTML += "-" + data + " ability.</div></div>"; break
+            case 10: notifHTML += "+" + data + " ability.</div></div>"; break
+            default : return 
+        }
+    } else
+        notifHTML += notif  + '</div></div>'
+    document.getElementById('hero-js-all').innerHTML += notifHTML
+}
+
+function switchDialog(indexDialog, condition, indexBtn, oldIndexDialog, effect, notif) {
+    var temp
+
+    if (checkCondition(condition, indexBtn, oldIndexDialog, "test")) {
         currentNumber = indexDialog
-        setEffect(effect, indexBtn, oldIndexDialog)
+        temp = setEffect(effect, indexBtn, oldIndexDialog)
         // si le joueur est mort, l'amener à son onglet de mort
         allDialog[currentNumber].show(player)
+        setNotif(notif, effect, temp)
     }
 }

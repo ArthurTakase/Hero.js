@@ -4,7 +4,8 @@
         "title": "Julien est triste",
         "startNumber": 0,
         "maxDice": 9,
-        "maxSkill": 5
+        "maxSkill": 5,
+        "showTitle": true
     },
     "gameplay":
     {
@@ -73,7 +74,7 @@
                     "text": "<i>L'instulter en lui disant qu'il est maaaaauvaaaais Jaaaackkkk</i>",
                     "goToIndex": 1,
                     "effect": "ADD_OBJECT",
-                    "effectData": ["inventory", {"name": "poulet congelé couvert de sang", "type": "inventory", "data": [-10, 0, 0, 0]}]
+                    "effectData": ["inventory", {"name": "poulet congelé couvert de sang", "type": "inventory", "data": [0, 0, 0, 0]}]
                 },
                 {
                     "text": "<i>Lui donner votre <span class='item'>GameBoy</span></i>",
@@ -88,8 +89,7 @@
                     "goToIndex": 2,
                     "condition": "SKILL",
                     "conditionData": [true, "sixième sens"],
-                    "effect": "REMOVE_MEAL",
-                    "effectData": [1]
+                    "notification": "🏆 La plus belle fin."
                 },
                 {
                     "text": "<i>Lui jeter <span class='amount'>3 golds</span> au visage</i>",
@@ -97,35 +97,38 @@
                     "condition": "GOLD",
                     "conditionData": [true, 3],
                     "effect": "ADD_GOLD",
-                    "effectData": [3]
+                    "effectData": [3],
+                    "notification": "+6 gold(s)"
                 }
             ],
             "img": "img/isaac.png",
             "background": "img/house.jpg"
         },
         {
-            "body": "<b>Julien</b> a mal pris votre réponse et vous a assomé avec un poulet congelé qui se trouvait par terre. <span class='subtext'>Poulet ajouté à votre inventaire.</span></i>",
+            "body": "<b>Julien</b> a mal pris votre réponse et vous a assomé avec un poulet congelé qui se trouvait par terre.</i>",
             "img": "img/grave.png",
             "background": "img/house.jpg",
-            "buttons": [{"text": "Recommencer", "goToIndex": 0, "effect": "RESTART"}]
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "effect": "RESTART", "notification": false}]
         },
         {
             "body": "Vous tendez un kebab à <b>Julien</b>, ce dernier vous regarde dans les yeux : \"Merci tu es mon héros, j'adore les kebabs\". Puis vous vous envolez à dos de dragon.",
             "img": "img/dragon.png",
             "background": "img/city.jpg",
-            "buttons": [{"text": "Recommencer", "goToIndex": 0, "effect": "RESTART"}]
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "effect": "RESTART", "notification": false}]
         },
         {
             "body": "Vous donnez votre GameBoy à <b>Julien</b>. \"Merci, mais j'suis pro Sony. Vive Ratchet & Clank !\".",
             "img": "img/ratchet.png",
             "background": "img/playstation.jpg",
-            "buttons": [{"text": "Recommencer", "goToIndex": 0, "effect": "RESTART"}]
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "effect": "RESTART", "notification": false}],
+            "notification": false
         },
         {
-            "body": "Surpris, <b>Julien</b> vous regarde fixement, puis sors quelque chose de sa poche. \"Tiens, avec les interets ça fait 6 golds\". <i>+3 Golds (bha oui, réfléchis, t'en a lancé 3)</i>",
+            "body": "Surpris, <b>Julien</b> vous regarde fixement, puis sors quelque chose de sa poche. \"Tiens, avec les interets ça fait 6 golds\".",
             "img": "img/picsou.png",
             "background": "img/money.jpg",
-            "buttons": [{"text": "Recommencer", "goToIndex": 0, "effect": "RESTART"}]
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "effect": "RESTART", "notification": false}],
+            "notification": false
         }
     ]
 }

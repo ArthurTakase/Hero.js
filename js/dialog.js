@@ -36,7 +36,9 @@ class Dialog {
                             currentNumber +
                             ', ' +
                             this.buttons[i].effect +
-                            ')">' +
+                            ',\'' +
+                            this.buttons[i].notif +
+                            '\')">' +
                             this.buttons[i].text +
                             '</button>\n'
             }
