@@ -134,6 +134,10 @@ body {
     left: 0;
 }
 
+#hero-js-more {
+    display: none;
+}
+
 .hero-js-player {
     z-index: 3;
     font-size: 1.2rem;
@@ -160,8 +164,6 @@ body {
 }
 
 .hero-js-stats-body {
-    /* max-height */
-    /* overflow-y scroll */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -261,15 +263,9 @@ body {
 }
 
 @keyframes dialog-img {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
+    0% {transform: translateY(0px);}
+    50% {transform: translateY(-5px);}
+    100% {transform: translateY(0px);}
 }
 
 .hero-js-dialog-header {
@@ -384,6 +380,7 @@ body {
     animation: notification-animation 4s linear;
     background: rgba(128, 128, 128, 0.171);
     font-size: 1.2rem;
+    z-index: 100;
 }
 
 .notif-title {

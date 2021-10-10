@@ -111,10 +111,17 @@ class Player {
         document.getElementById('hero-js-all').innerHTML += '<div class="hero-js-player hero-js-player-left">' +
                                                                 playerAbility +
                                                                 playerStamina +
-                                                                playerSkill +
-                                                            '</div>\
-                                                            <div class="hero-js-player hero-js-player-right">' +
                                                                 playerGold +
+                                                            '</div>\
+                                                            <div id="hero-js-more">+\
+                                                                <div class="hero-js-player hero-js-player-right">' +
+                                                                    playerSkill +
+                                                                    playerInventory +
+                                                                    playerSpecial +
+                                                                '</div>\
+                                                            </div>\
+                                                            <div class="hero-js-player hero-js-player-right">' +
+                                                                playerSkill +
                                                                 playerInventory +
                                                                 playerSpecial +
                                                             '</div>'

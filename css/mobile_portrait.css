@@ -1,0 +1,97 @@
+.version {display: none;}
+.hero-js-subtitle {display: none;}
+.hero-js-dialog-header {font-size: 2.5rem;}
+.hero-js-dialog-body {font-size: 2.5rem;}
+.hero-js-dialog-action {display: none;}
+.hero-js-dialog-button-zone {overflow-x: scroll;}
+.hero-js-hud-title {display: none;}
+.hero-js-not-activate {transform: rotate(0deg);}
+.notif-body {height: auto;}
+
+#hero-js-form h1 {
+    font-size: 20rem;
+    animation: title-animation 5s infinite ease-in-out;
+}
+
+#hero-js-form p {
+    font-size: 2.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin: 4rem;
+}
+
+.custom-file-input-label {
+    font-size: 3rem;
+    border-radius: 1rem;
+}
+
+.hero-js-dialog {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    bottom: 7.3rem;
+}
+
+.hero-js-dialog-img img {
+    height: 100vw;
+    max-height: 100vh;
+    transform: translateY(-60px);
+    animation: none;
+    animation: dialog-portable 2s ease-in-out infinite;
+}
+
+@keyframes dialog-portable {
+    0% {transform: translateY(-60px);}
+    50% {transform: translateY(-65px);}
+    100% {transform: translateY(-60px);}
+}
+
+.hero-js-button {
+    min-width: 40%;
+    font-size: 2.5rem;
+    padding: 1rem;
+    border-radius: 1.5rem;
+}
+
+#hero-js-notification {
+    left: auto;
+    font-size: 2.5rem;
+    top: -500px;
+    animation: notification-portait 5s linear;
+}
+
+@keyframes notification-portait {
+    0% {transform: translateY(0px); display: flex;}
+    8% {transform: translateY(580px); display: flex;}
+    92% {transform: translateY(580px); display: flex;}
+    100% {transform: translateY(0px); display: none;}
+}
+
+.hero-js-player-left {position: fixed; left: auto; bottom: 0;}
+.hero-js-player-right {right: auto; top: 0;}
+.hero-js-player-left .hero-js-stats-header {border-radius: 1rem;}
+.hero-js-player-right .hero-js-stats-header {border-radius: 0 0 1rem 1rem;}
+.hero-js-stats-body li {width: 270px;}
+.hero-js-player-right .hero-js-stats-body {display: none;}
+.hero-js-player-right:hover .hero-js-stats-body {display: flex;}
+
+.hero-js-player-left .hero-js-stats {border-radius: 1rem;}
+.hero-js-player-right .hero-js-stats {border-top: none; border-radius: 1rem;}
+
+.hero-js-player {
+    z-index: 3;
+    font-size: 2.5rem;
+    flex-direction: row;
+}
+
+.hero-js-stats {
+    width: 31vw;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 1rem;
+}
+
+#hero-js-more {
+    display: none;
+}
