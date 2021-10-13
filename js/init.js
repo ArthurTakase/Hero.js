@@ -36,6 +36,7 @@ function initDialog(json) {
                 case "HEAL": tempEffect = 11; break
                 case "HURT": tempEffect = 12; break
                 case "RESTART": tempEffect = 13; break
+                case "FIGHT": tempEffect = 14; break
                 default: tempEffect = null; break
             }
 
@@ -79,6 +80,7 @@ function initGameInfos(json) {
     showPlayerGold = json.gameInfos.showPlayerGold
     showPlayerInventory = json.gameInfos.showPlayerInventory
     showPlayerSpecial = json.gameInfos.showPlayerSpecial
+    defeatNumber = json.gameInfos.defeatNumber
 }
 
 function initGameplay(json) {
@@ -110,6 +112,9 @@ function initGameplay(json) {
             specialList.push(new Object(temp.name, temp.type, temp.data))
         }
     }
+
+    fightTable = json.gameplay.fightTable
+    fightLimite = Math.floor(fightTable.length / 2)
 }
 
 function initPlayer(json) {

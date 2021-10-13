@@ -3,7 +3,8 @@
     {
         "title": "Julien est triste",
         "startNumber": 0,
-        "maxDice": 9,
+        "defeatNumber": 5,
+        "maxDice": 8,
         "maxSkill": 5,
         "showTitle": true
     },
@@ -22,7 +23,8 @@
             {"name": "communication animale", "stats": [0, 0]},
             {"name": "maîtrise", "stats": [0, 0]}
         ],
-        "objectsInventory": [
+        "objectsInventory":
+        [
             {"name": "tunique", "type": "inventory", "data": [0, 0, 0, 0]},
             {"name": "cape de Seigneur Kaï", "type": "inventory", "data": [0, 0, 0, 0]},
             {"name": "hache", "type": "inventory", "data": [0, 0, 0, 0]},
@@ -36,6 +38,24 @@
             {"name": "bourse de cuir", "type": "special", "data": [0, 0, 12, 0]},
             {"name": "panier garnis", "type": "special", "data": [0, 0, 0, 2]},
             {"name": "carte", "type": "special", "data": [0, 0, 0, 0]}
+        ],
+        "fightTable":
+        [
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]]
         ]
     },
     "player":
@@ -71,10 +91,19 @@
             "buttons":
             [
                 {
-                    "text": "<i>L'instulter en lui disant qu'il est maaaaauvaaaais Jaaaackkkk</i>",
+                    "text": "<i>Le frapper très fort pour lancer un combat</i>",
                     "goToIndex": 1,
-                    "effect": "ADD_OBJECT",
-                    "effectData": ["inventory", {"name": "poulet congelé couvert de sang", "type": "inventory", "data": [0, 0, 0, 0]}]
+                    "effect": "FIGHT",
+                    "effectData":
+                    [
+                        15,
+                        "RANDOM,10, 10",
+                        [0, 50, 150, 0],
+                        1.2,
+                        "img/isaac_2.png",
+                        "img/donjon.jpg",
+                        "Julien démoniaque des enfers"
+                    ]
                 },
                 {
                     "text": "<i>Lui donner votre <span class='item'>GameBoy</span></i>",
@@ -105,8 +134,8 @@
             "background": "img/house.jpg"
         },
         {
-            "body": "<b>Julien</b> a mal pris votre réponse et vous a assomé avec un poulet congelé qui se trouvait par terre.</i>",
-            "img": "img/grave.png",
+            "body": "Grace à votre force et votre courage, vous avez vaincu <b>Julien</b> et avez ramené la paix dans le monde. Bien joué Billy !",
+            "img": "img/bob.png",
             "background": "img/house.jpg",
             "buttons": [{"text": "Recommencer", "goToIndex": 0, "effect": "RESTART", "notification": false}]
         },
@@ -129,6 +158,12 @@
             "background": "img/money.jpg",
             "buttons": [{"text": "Recommencer", "goToIndex": 0, "effect": "RESTART", "notification": false}],
             "notification": false
+        },
+        {
+            "body": "Malheureusement, cette histoire aura eu raison de vous...",
+            "img": "img/grave.png",
+            "background": "img/graveyard.jpg",
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "effect": "RESTART", "notification": false}]
         }
     ]
 }

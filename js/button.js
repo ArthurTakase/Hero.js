@@ -59,10 +59,11 @@ function checkCondition(condition, indexBtn, oldIndexDialog, type) {
     }
 }
 
-function setEffect(effect, indexBtn, oldIndexDialog) {
-    var data = allDialog[oldIndexDialog].buttons[indexBtn].effectData
+function setEffect(effect, indexBtn, oldIndexDialog, data) {
     var temp, temp2
-
+    if (data == null)
+        data = allDialog[oldIndexDialog].buttons[indexBtn].effectData
+    
     switch (effect) {
         case 1: // REMOVE_OBJECT [inventaire, object]
             if (data[0] == "inventory") {temp = player.inventory}
@@ -99,6 +100,7 @@ function setEffect(effect, indexBtn, oldIndexDialog) {
                 player.stamina = 0
             return temp2
         case 13: restart(); break
+        case 14: launchFight(data); return "FIGHT"
         default: break
     }
     return null
@@ -122,7 +124,7 @@ function setNotif(notif, effect, data) {
             case 8: notifHTML += "+" + data + " stamina.</div></div>"; break
             case 9: notifHTML += "-" + data + " ability.</div></div>"; break
             case 10: notifHTML += "+" + data + " ability.</div></div>"; break
-            default : return 
+            default : return
         }
     } else
         notifHTML += notif  + '</div></div>'
@@ -134,9 +136,10 @@ function switchDialog(indexDialog, condition, indexBtn, oldIndexDialog, effect, 
 
     if (checkCondition(condition, indexBtn, oldIndexDialog, "test")) {
         currentNumber = indexDialog
-        temp = setEffect(effect, indexBtn, oldIndexDialog)
-        // si le joueur est mort, l'amener à son onglet de mort
-        allDialog[currentNumber].show(player)
-        setNotif(notif, effect, temp)
+        temp = setEffect(effect, indexBtn, oldIndexDialog, null)
+        if (temp != "FIGHT") {
+            allDialog[currentNumber].show(player)
+            setNotif(notif, effect, temp)
+        }
     }
 }

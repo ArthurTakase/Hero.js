@@ -253,13 +253,17 @@ body {
 .hero-js-dialog-img {
     position: fixed;
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: dialog-img 2s ease-in-out infinite;
 }
 
 .hero-js-dialog-img img {
     height: 70vw;
     max-height: 70vh;
     filter: drop-shadow(1rem 1rem 1rem black);
-    animation: dialog-img 2s ease-in-out infinite;
+    /* animation: dialog-img 2s ease-in-out infinite; */
 }
 
 @keyframes dialog-img {
@@ -327,7 +331,7 @@ body {
     opacity: 0.3;
     background-color: rgba(255, 0, 0, 1);
     cursor: not-allowed;
-    transform: rotate(5deg);
+    transform: rotate(2deg);
 }
 
 .hero-js-activate:hover {
@@ -408,4 +412,19 @@ body {
     8% {transform: translateY(120px); display: flex;}
     92% {transform: translateY(120px); display: flex;}
     100% {transform: translateY(0px); display: none;}
+}
+
+/***********************************/
+/*              FIGHT              */
+/***********************************/
+
+#fight-stats {
+    position: absolute;
+    top: -30px;
+    background: rgba(128, 128, 128, 0.301);
+    padding: 1rem;
+    border-radius: 1rem;
+    border: solid rgba(179, 179, 179, 0.5) 0.1rem;
+    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.281);
+    backdrop-filter: blur(20px);
 }

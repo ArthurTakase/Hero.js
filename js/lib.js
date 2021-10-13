@@ -5,13 +5,17 @@
 let defaultJSON = null
 let gameTitle
 let currentNumber
+let defeatNumber
 let maxDice
 let maxSkill
 let allDialog = []
 let skillList = []
 let inventoryList = []
 let specialList = []
+let fightTable = []
+let fightLimite
 let player = null
+let fight = null
 // Affichage
 let showTitleHUD = true
 let showPlayerAbility = true
@@ -64,9 +68,9 @@ function setInt(objetValue) {
         if (objetValue.startsWith("RANDOM")) {
             var value = objetValue.split(',')
             if (value[2] == "DICE") {
-                return randomInRange(parseInt(value[1]), maxDice)
+                return randomInRange(parseInt(value[1]), maxDice + 1)
             } else {
-                return randomInRange(parseInt(value[1]), parseInt(value[2]))
+                return randomInRange(parseInt(value[1]), parseInt(value[2]) + 1)
             }
         }
         return -1

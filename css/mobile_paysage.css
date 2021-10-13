@@ -1,4 +1,5 @@
 @media only screen and (max-height: 400px) {
+    .hero-js-not-activate {transform: rotate(0deg);}
     .version {display: none;}
     .hero-js-subtitle {display: none;}
     .hero-js-dialog-header {font-size: 1.2rem;}
@@ -38,7 +39,6 @@
 
     .hero-js-dialog-img img {
         transform: translateY(-60px);
-        animation: none;
         animation: dialog-portable 2s ease-in-out infinite;
     }
     
