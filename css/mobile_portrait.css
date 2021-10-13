@@ -75,9 +75,9 @@
 .hero-js-stats-body li {width: 270px;}
 .hero-js-player-right .hero-js-stats-body {display: none;}
 .hero-js-player-right:hover .hero-js-stats-body {display: flex;}
-
 .hero-js-player-left .hero-js-stats {border-radius: 1rem;}
 .hero-js-player-right .hero-js-stats {border-top: none; border-radius: 1rem;}
+#fight-mode {display: none;}
 
 .hero-js-player {
     z-index: 3;
@@ -94,4 +94,21 @@
 
 #hero-js-more {
     display: none;
+}
+
+#dice {
+    zoom: 1.5;
+    z-index: 1000;
+    top: 110px;
+    left: auto;
+}
+
+@keyframes shake-anime {}
+@keyframes victory-anime {}
+
+#fight-stats {
+    background: rgba(128, 128, 128, 0.301);
+    font-size: 2.5rem;
+    padding: 2rem;
+    top: -50px;
 }

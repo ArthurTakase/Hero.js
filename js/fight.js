@@ -29,6 +29,7 @@ class Fight {
         setBackground(this.background)
         document.getElementById('hero-js-all').innerHTML = img +
                                                         '<div class="hero-js-dialog">' +
+                                                        '<div id="fight-mode">🔴 FIGHT MODE</div>' +
                                                         diceElem +
                                                         title +
                                                         '<div class="hero-js-dialog-button-zone">' + buttons + '</div>\

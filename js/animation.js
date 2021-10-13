@@ -12,7 +12,7 @@ function anime(anime) {
                 div.style.animation = 'defeat-anime 1s ease-in-out'
                 break
             case "shake":
-                div.style.animation = 'shake-anime 0.3s linear'
+                div.style.animation = 'shake-anime 0.5s linear'
                 dice.style.animation = 'dice-roll-anime 0.3s linear'
                 break
             default:

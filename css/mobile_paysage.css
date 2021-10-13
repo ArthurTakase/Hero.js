@@ -19,6 +19,7 @@
     .hero-js-player-right {width: auto;}
     #hero-js-more:hover .hero-js-player-right .hero-js-stats,
     #hero-js-more:hover .hero-js-player-right .hero-js-stats {width: 200px; display: block;}
+    #fight-mode {display: none;}
     
     #hero-js-more {
         display: flex;
@@ -53,5 +54,24 @@
         top: 0;
         right: 0;
         flex-direction: row;
+    }
+
+    #dice {
+        /* zoom: 1.5; */
+        z-index: 1000;
+        top: auto;
+        bottom: 45%;
+        left: auto;
+        right: 4rem;
+    }
+    
+    @keyframes shake-anime {}
+    @keyframes victory-anime {}
+    
+    #fight-stats {
+        background: rgba(128, 128, 128, 0.301);
+        font-size: 1.2rem;
+        /* padding: 2rem; */
+        top: 250px;
     }
 }

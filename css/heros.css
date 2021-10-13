@@ -22,7 +22,7 @@ body {
 .version {
     z-index: 100;
     position: fixed;
-    top: 0;
+    bottom: 0;
     right: 0;
     margin: 0.5rem;
     color: white;
@@ -427,6 +427,21 @@ body {
     border: solid rgba(179, 179, 179, 0.5) 0.1rem;
     box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.281);
     backdrop-filter: blur(20px);
+    font-size: 1.2rem;
+}
+
+#fight-mode {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: rgb(199, 35, 35);
+    animation: fight-mode-anime 3s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+@keyframes fight-mode-anime {
+    50% {opacity: 1; transform: scale(1.01);}
 }
 
 /***********************************/
@@ -434,11 +449,11 @@ body {
 /***********************************/
 
 @keyframes shake-anime {
-    0% {transform: translateX(-10px);}
-    20% {transform: translateX(10px);}
-    40% {transform: translateX(-10px);}
+    59% {transform: translateX(0px);}
     60% {transform: translateX(10px);}
-    80% {transform: translateX(-10px);}
+    70% {transform: translateX(-10px);}
+    80% {transform: translateX(10px);}
+    90% {transform: translateX(-10px);}
     100% {transform: translateX(10px);}
 }
 
@@ -458,8 +473,8 @@ body {
 
 #dice {
     z-index: 500;
-    height: 50px;
-    width: 50px;
+    height: 5rem;
+    width: 5rem;
     position: fixed;
     top: 30px;
     left: 30px;
@@ -494,9 +509,9 @@ body {
     align-items: center;
 }
 
-#face-top {transform: rotateX(90deg) translateZ(25px);}
-#face-front {transform: translateZ(25px);}
-#face-right {transform: rotateY(90deg) translateZ(25px);}
-#face-back {transform: translateZ(-25px);}
-#face-left {transform: rotateY(90deg) translateZ(-25px);}
-#face-bottom {transform: rotateX(90deg) translateZ(-25px);}
+#face-top {transform: rotateX(90deg) translateZ(2.5rem); background: #c4c4c4;}
+#face-front {transform: translateZ(2.5rem);}
+#face-right {transform: rotateY(90deg) translateZ(2.5rem); background: #c4c4c4;}
+#face-back {transform: translateZ(-2.5rem); background: #c4c4c4;}
+#face-left {transform: rotateY(90deg) translateZ(-2.5rem); background: #c4c4c4;}
+#face-bottom {transform: rotateX(90deg) translateZ(-2.5rem); background: #979797;}
