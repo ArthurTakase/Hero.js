@@ -428,3 +428,75 @@ body {
     box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.281);
     backdrop-filter: blur(20px);
 }
+
+/***********************************/
+/*           ANIMATIONS            */
+/***********************************/
+
+@keyframes shake-anime {
+    0% {transform: translateX(-10px);}
+    20% {transform: translateX(10px);}
+    40% {transform: translateX(-10px);}
+    60% {transform: translateX(10px);}
+    80% {transform: translateX(-10px);}
+    100% {transform: translateX(10px);}
+}
+
+@keyframes defeat-anime {
+    0% {opacity: 0%;}
+    100% {opacity: 100%;}
+}
+
+@keyframes victory-anime {
+    0% {transform: translateY(20px);}
+    100% {transform: translateY(0px);}
+}
+
+/***********************************/
+/*              DICE               */
+/***********************************/
+
+#dice {
+    z-index: 500;
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+
+    transform-style: preserve-3d;
+    transform: rotate3d(-0.5, -0.5, -0.5, -20deg);
+    animation: dice-roll-anime 0.3 linear;
+    /* transform: rotate3d(-0.5, -0.5, -0.5, 20deg); */
+}
+
+@keyframes dice-roll-anime {
+    50% {transform: rotate3d(-0.5, -0.5, -0.5, 360deg);}
+}
+
+.face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid rgb(0, 0, 0);
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#face-top {transform: rotateX(90deg) translateZ(25px);}
+#face-front {transform: translateZ(25px);}
+#face-right {transform: rotateY(90deg) translateZ(25px);}
+#face-back {transform: translateZ(-25px);}
+#face-left {transform: rotateY(90deg) translateZ(-25px);}
+#face-bottom {transform: rotateX(90deg) translateZ(-25px);}

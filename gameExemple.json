@@ -99,7 +99,7 @@
                         15,
                         "RANDOM,10, 10",
                         [0, 50, 150, 0],
-                        1.2,
+                        1,
                         "img/isaac_2.png",
                         "img/donjon.jpg",
                         "Julien démoniaque des enfers"
