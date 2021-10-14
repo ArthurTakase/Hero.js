@@ -35,8 +35,7 @@ function initDialog(json) {
                 case "ADD_ABILITY": tempEffect = 10; break
                 case "HEAL": tempEffect = 11; break
                 case "HURT": tempEffect = 12; break
-                case "RESTART": tempEffect = 13; break
-                case "FIGHT": tempEffect = 14; break
+                case "FIGHT": tempEffect = 13; break
                 default: tempEffect = null; break
             }
 
@@ -70,7 +69,11 @@ function initDialog(json) {
 
 function initGameInfos(json) {
     gameTitle = json.gameInfos.title
-    currentNumber = json.gameInfos.startNumber
+    if (json.gameInfos.currentNumber == undefined)
+        currentNumber = json.gameInfos.startNumber
+    else
+        currentNumber = json.gameInfos.currentNumber
+    beginNumber = json.gameInfos.startNumber
     maxDice = json.gameInfos.maxDice
     maxSkill = json.gameInfos.maxSkill
     showTitleHUD = json.gameInfos.showTitle
@@ -127,7 +130,10 @@ function initPlayer(json) {
     player = new Player()
     player.ability = setInt(json.player.ability)
     player.stamina = setInt(json.player.stamina)
-    player.maxStamina = player.stamina
+    if (json.player.maxStamina != undefined)
+        player.maxStamina = json.player.maxStamina
+    else
+        player.maxStamina = player.stamina
     player.meal = setInt(json.player.meal)
     player.gold = setInt(json.player.gold)
 

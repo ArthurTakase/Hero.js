@@ -21,18 +21,19 @@ class Player {
 
     setStuffBonus(object) {
         this.ability += object.bonusAbility
-        this.stamina += object.bonusStamina
+        this.maxStamina += object.bonusStamina
         this.gold += object.bonusGold
         this.meal += object.bonusMeal
-        this.maxStamina = this.stamina
+        this.stamina += object.bonusStamina
+        if (this.stamina > this.maxStamina) {this.stamina = this.maxStamina}
     }
 
     removeStuffBonus(object) {
         this.ability -= object.bonusAbility
-        this.stamina -= object.bonusStamina
+        this.maxStamina -= object.bonusStamina
         this.gold -= object.bonusGold
         this.meal -= object.bonusMeal
-        this.maxStamina = this.stamina
+        this.stamina -= object.bonusStamina
     }
 
     addStuff(object) {

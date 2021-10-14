@@ -15,7 +15,7 @@ class Fight {
         <div id="fight-stats">🗡️' + this.ability + '  ❤️' + this.stamina + '  ⭐️' + this.zoneEffect + '</div>\
         </div>'
         var buttons = '<button class="hero-js-button hero-js-activate" onclick="attack()">Attaquer</button>\n'
-        buttons += '<button class="hero-js-button hero-js-not-activate">Fuir</button>\n'
+        // buttons += '<button class="hero-js-button hero-js-not-activate">Fuir</button>\n'
         var title = '<div class="hero-js-dialog-header">' + this.title + '</div>'
         
         var diceElem = '<div id="dice">\

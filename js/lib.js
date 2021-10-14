@@ -4,6 +4,7 @@
 
 let defaultJSON = null
 let gameTitle
+let beginNumber
 let currentNumber
 let defeatNumber
 let maxDice
@@ -139,7 +140,7 @@ function restart() {
     initGameInfos(defaultJSON)
     initGameplay(defaultJSON)
     initPlayer(defaultJSON)
-    allDialog[currentNumber].show()
+    allDialog[beginNumber].show()
 }
 
 function getObjectName(object) {

@@ -515,3 +515,23 @@ body {
 #face-back {transform: translateZ(-2.5rem); background: #c4c4c4;}
 #face-left {transform: rotateY(90deg) translateZ(-2.5rem); background: #c4c4c4;}
 #face-bottom {transform: rotateX(90deg) translateZ(-2.5rem); background: #979797;}
+
+.hero-js-save {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    font-size: 2rem;
+    margin: 0.5rem;
+    padding: 0;
+    transition-duration: 0.3s;
+    background: transparent;
+    border: none;
+    opacity: 0.4;
+}
+
+.hero-js-save:hover {
+    transform: scale(1.1) rotate(-5deg);
+    opacity: 1;
+    cursor: pointer;
+}

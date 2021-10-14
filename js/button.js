@@ -99,8 +99,7 @@ function setEffect(effect, indexBtn, oldIndexDialog, data) {
             if (player.stamina < 0)
                 player.stamina = 0
             return temp2
-        case 13: restart(); break
-        case 14: launchFight(data); return "FIGHT"
+        case 13: launchFight(data); return "FIGHT"
         default: break
     }
     return null

@@ -48,9 +48,7 @@
             [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
             [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
             [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
-            
             [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
-            
             [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
             [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
             [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
@@ -100,7 +98,7 @@
                     [
                         15,
                         "RANDOM,10, 10",
-                        [0, 50, 150, 0],
+                        [0, 0, 0, 0],
                         1,
                         "img/isaac_2.png",
                         "img/donjon.jpg",
@@ -139,33 +137,33 @@
             "body": "Grace à votre force et votre courage, vous avez vaincu <b>Julien</b> et avez ramené la paix dans le monde. Bien joué Billy !",
             "img": "img/bob.png",
             "background": "img/house.jpg",
-            "buttons": [{"text": "Recommencer", "goToIndex": 0, "effect": "RESTART", "notification": false}]
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false}]
         },
         {
             "body": "Vous tendez un kebab à <b>Julien</b>, ce dernier vous regarde dans les yeux : \"Merci tu es mon héros, j'adore les kebabs\". Puis vous vous envolez à dos de dragon.",
             "img": "img/dragon.png",
             "background": "img/city.jpg",
-            "buttons": [{"text": "Recommencer", "goToIndex": 0, "effect": "RESTART", "notification": false}]
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false}]
         },
         {
             "body": "Vous donnez votre GameBoy à <b>Julien</b>. \"Merci, mais j'suis pro Sony. Vive Ratchet & Clank !\".",
             "img": "img/ratchet.png",
             "background": "img/playstation.jpg",
-            "buttons": [{"text": "Recommencer", "goToIndex": 0, "effect": "RESTART", "notification": false}],
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false}],
             "notification": false
         },
         {
             "body": "Surpris, <b>Julien</b> vous regarde fixement, puis sors quelque chose de sa poche. \"Tiens, avec les interets ça fait 6 golds\".",
             "img": "img/picsou.png",
             "background": "img/money.jpg",
-            "buttons": [{"text": "Recommencer", "goToIndex": 0, "effect": "RESTART", "notification": false}],
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false}],
             "notification": false
         },
         {
             "body": "Malheureusement, cette histoire aura eu raison de vous...",
             "img": "img/grave.png",
             "background": "img/graveyard.jpg",
-            "buttons": [{"text": "Recommencer", "goToIndex": 0, "effect": "RESTART", "notification": false}]
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false}]
         }
     ]
 }
