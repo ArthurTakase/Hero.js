@@ -25,6 +25,12 @@ let showPlayerSkills = true
 let showPlayerGold = true
 let showPlayerInventory = true
 let showPlayerSpecial = true
+// Audio
+let sound_hurt = null
+let sound_victory = null
+let sound_defeat = null
+let music = null
+let music_fight = null
 
 /***********************************/
 /*          LIB FUNCTIONS          */

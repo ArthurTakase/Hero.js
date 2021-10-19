@@ -61,7 +61,8 @@ function initDialog(json) {
                 currentDialog.action,
                 allButtons,
                 currentDialog.img,
-                currentDialog.background
+                currentDialog.background,
+                currentDialog.music
             )
         )
     }
@@ -158,6 +159,13 @@ function initPlayer(json) {
     }
 }
 
+function initSound(json) {
+    sound_hurt = new Sound(json.music.sound_hurt)
+    sound_victory = new Sound(json.music.sound_victory)
+    sound_defeat = new Sound(json.music.sound_defeat)
+    music_fight = new Music(json.music.music_fight)
+}
+
 function initGame(file) {
     var reader = new FileReader();
     reader.onload = function(evt) {
@@ -166,6 +174,7 @@ function initGame(file) {
         initGameInfos(defaultJSON)
         initGameplay(defaultJSON)
         initPlayer(defaultJSON)
+        initSound(defaultJSON)
         setDefaultHUD()
         allDialog[currentNumber].show()
     };

@@ -82,12 +82,20 @@
             "RANDOM_IN_CLASS_UNIQUE"
         ]
     },
+    "music":
+    {
+        "sound_hurt": "sound/sound1.mp3",
+        "sound_victory": null,
+        "sound_defeat": null,
+        "music_fight": "sound/music2.mp3"
+    },
     "dialogs":
     [
         {
             "title": "Grunlack",
             "body": "\"Putain j'ai cassé mon vélo...\"",
             "action": "Que voulez-vous faire ?",
+            "music": "sound/music1.mp3",
             "buttons":
             [
                 {
@@ -135,18 +143,21 @@
         },
         {
             "body": "Grace à votre force et votre courage, vous avez vaincu <b>Julien</b> et avez ramené la paix dans le monde. Bien joué Billy !",
+            "music": "sound/music1.mp3",
             "img": "img/bob.png",
             "background": "img/house.jpg",
             "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false}]
         },
         {
             "body": "Vous tendez un kebab à <b>Julien</b>, ce dernier vous regarde dans les yeux : \"Merci tu es mon héros, j'adore les kebabs\". Puis vous vous envolez à dos de dragon.",
+            "music": "sound/music1.mp3",
             "img": "img/dragon.png",
             "background": "img/city.jpg",
             "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false}]
         },
         {
             "body": "Vous donnez votre GameBoy à <b>Julien</b>. \"Merci, mais j'suis pro Sony. Vive Ratchet & Clank !\".",
+            "music": "sound/music1.mp3",
             "img": "img/ratchet.png",
             "background": "img/playstation.jpg",
             "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false}],
@@ -154,6 +165,7 @@
         },
         {
             "body": "Surpris, <b>Julien</b> vous regarde fixement, puis sors quelque chose de sa poche. \"Tiens, avec les interets ça fait 6 golds\".",
+            "music": "sound/music1.mp3",
             "img": "img/picsou.png",
             "background": "img/money.jpg",
             "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false}],
@@ -162,8 +174,7 @@
         {
             "body": "Malheureusement, cette histoire aura eu raison de vous...",
             "img": "img/grave.png",
-            "background": "img/graveyard.jpg",
-            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false}]
+            "background": "img/graveyard.jpg"
         }
     ]
 }

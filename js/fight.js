@@ -46,6 +46,9 @@ class Fight {
             setEffect(6, null, null, [this.reward[3]])
             allDialog[currentNumber].show(player)
             anime("victory")
+            sound_victory.play()
+            if (music) {music.play()}
+            if (music_fight) {music_fight.stop()}
             return true
         }
         if (player.stamina <= 0 || this.quotient < 0 - fightLimite) {
@@ -58,6 +61,7 @@ class Fight {
             showPlayerSpecial = false
             allDialog[defeatNumber].show(player)
             anime("defeat")
+            sound_defeat.play()
             return true
         }
     }
@@ -68,19 +72,23 @@ function launchFight(data) {
     fight = new Fight(data)
     if (fight.checkVictory()) {return}
     fight.show("N.C.")
+    if (music) {music.stop()}
+    if (music_fight) {music_fight.play()}
 }
 
 function attack() {
     if (fight.checkVictory()) {return}
     
     var dice = randomInRange(0, maxDice)
-
     var data = fightTable[fight.quotient + fightLimite][dice]
     fight.stamina -= Math.floor(data[0] * fight.zoneEffect)
-    player.stamina -= data[1]
     
     if (fight.checkVictory()) {return}
     
+    player.stamina -= data[1]
     anime("shake")
+    sound_hurt.play()
     fight.show(dice)
+
+    if (fight.checkVictory()) {return}
 }
