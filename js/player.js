@@ -21,18 +21,19 @@ class Player {
 
     setStuffBonus(object) {
         this.ability += object.bonusAbility
-        this.stamina += object.bonusStamina
+        this.maxStamina += object.bonusStamina
         this.gold += object.bonusGold
         this.meal += object.bonusMeal
-        this.maxStamina = this.stamina
+        this.stamina += object.bonusStamina
+        if (this.stamina > this.maxStamina) {this.stamina = this.maxStamina}
     }
 
     removeStuffBonus(object) {
         this.ability -= object.bonusAbility
-        this.stamina -= object.bonusStamina
+        this.maxStamina -= object.bonusStamina
         this.gold -= object.bonusGold
         this.meal -= object.bonusMeal
-        this.maxStamina = this.stamina
+        this.stamina -= object.bonusStamina
     }
 
     addStuff(object) {
@@ -111,10 +112,17 @@ class Player {
         document.getElementById('hero-js-all').innerHTML += '<div class="hero-js-player hero-js-player-left">' +
                                                                 playerAbility +
                                                                 playerStamina +
-                                                                playerSkill +
-                                                            '</div>\
-                                                            <div class="hero-js-player hero-js-player-right">' +
                                                                 playerGold +
+                                                            '</div>\
+                                                            <div id="hero-js-more">+\
+                                                                <div class="hero-js-player hero-js-player-right">' +
+                                                                    playerSkill +
+                                                                    playerInventory +
+                                                                    playerSpecial +
+                                                                '</div>\
+                                                            </div>\
+                                                            <div class="hero-js-player hero-js-player-right">' +
+                                                                playerSkill +
                                                                 playerInventory +
                                                                 playerSpecial +
                                                             '</div>'

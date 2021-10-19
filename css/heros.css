@@ -22,7 +22,7 @@ body {
 .version {
     z-index: 100;
     position: fixed;
-    top: 0;
+    bottom: 0;
     right: 0;
     margin: 0.5rem;
     color: white;
@@ -60,7 +60,7 @@ body {
 }
 
 #hero-js-form h1 {
-    font-size: 9rem;
+    font-size: 11rem;
     font-family: 'Bebas Neue', cursive;
     margin: 0;
     filter: drop-shadow(1px 1px 0 black);
@@ -102,6 +102,7 @@ body {
     cursor: pointer;
     background: rgba(255, 255, 255, 0.21);
     top: 70%;
+    backdrop-filter: blur(20px);
 }
 
 .custom-file-input-label:hover {
@@ -133,6 +134,10 @@ body {
     left: 0;
 }
 
+#hero-js-more {
+    display: none;
+}
+
 .hero-js-player {
     z-index: 3;
     font-size: 1.2rem;
@@ -159,8 +164,6 @@ body {
 }
 
 .hero-js-stats-body {
-    /* max-height */
-    /* overflow-y scroll */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -250,25 +253,23 @@ body {
 .hero-js-dialog-img {
     position: fixed;
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: dialog-img 2s ease-in-out infinite;
 }
 
 .hero-js-dialog-img img {
     height: 70vw;
     max-height: 70vh;
     filter: drop-shadow(1rem 1rem 1rem black);
-    animation: dialog-img 2s ease-in-out infinite;
+    /* animation: dialog-img 2s ease-in-out infinite; */
 }
 
 @keyframes dialog-img {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
+    0% {transform: translateY(0px);}
+    50% {transform: translateY(-5px);}
+    100% {transform: translateY(0px);}
 }
 
 .hero-js-dialog-header {
@@ -308,9 +309,8 @@ body {
     display: flex;
 }
 
-.hero-js-dialog-button-zone button {
+.hero-js-button {
     flex: 1;
-    background-color:rgb(40, 42, 61);
     text-decoration: none;
     border: none;
     font-style: inherit;
@@ -320,10 +320,218 @@ body {
     border-radius: 0.5rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-    opacity: 0.8;
 }
 
-.hero-js-dialog-button-zone button:hover {
+.hero-js-activate {
+    opacity: 0.9;
+    background-color:rgb(40, 42, 61);
+}
+
+.hero-js-not-activate {
+    opacity: 0.3;
+    background-color: rgba(255, 0, 0, 1);
+    cursor: not-allowed;
+    transform: rotate(2deg);
+}
+
+.hero-js-activate:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+/***********************************/
+/*         DIALOGUE OPTIONS        */
+/***********************************/
+
+.subtext {
+    /* font-size: 80%; */
+    color: rgba(189, 189, 189, 0.5);
+    font-style: italic;
+}
+
+.item {
+    font-weight: bold;
+    font-style: normal;
+    color: rgb(126, 199, 108);
+}
+
+.amount {
+    font-style: italic;
+    font-weight: bold;
+    color: rgb(248, 248, 152);
+}
+
+.skill {
+    font-weight: bold;
+    font-style: normal;
+    color: rgb(108, 108, 199);
+}
+
+/***********************************/
+/*           NOTIFICATION          */
+/***********************************/
+
+#hero-js-notification {
+    position: fixed;
+    left: 0;
+    top: -120px;
+    display: flex;
+    color: black;
+    margin: 5px;
+    border-radius: 1rem;
+    backdrop-filter: blur(30px);
+    flex-direction: column;
+    animation: notification-animation 4s linear;
+    background: rgba(128, 128, 128, 0.171);
+    font-size: 1.2rem;
+    z-index: 100;
+}
+
+.notif-title {
+    border-radius: 1rem 1rem 0 0;
+    /* background: rgba(255, 255, 255, 0.774); */
+    background : rgba(28, 29, 43, 0.616);
+    backdrop-filter: blur(50px);
+    padding-left: 1rem;
+    padding-right: 2rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    color: rgb(255, 255, 255);
+}
+
+.notif-body {
+    margin: 1rem;
+    display: inline-block;
+    height: 25px;
+    color: white;
+    margin-right: 1.5rem;
+}
+
+@keyframes notification-animation {
+    0% {transform: translateY(0px); display: flex;}
+    8% {transform: translateY(120px); display: flex;}
+    92% {transform: translateY(120px); display: flex;}
+    100% {transform: translateY(0px); display: none;}
+}
+
+/***********************************/
+/*              FIGHT              */
+/***********************************/
+
+#fight-stats {
+    position: absolute;
+    top: -30px;
+    background: rgba(128, 128, 128, 0.301);
+    padding: 1rem;
+    border-radius: 1rem;
+    border: solid rgba(179, 179, 179, 0.5) 0.1rem;
+    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.281);
+    backdrop-filter: blur(20px);
+    font-size: 1.2rem;
+}
+
+#fight-mode {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: rgb(199, 35, 35);
+    animation: fight-mode-anime 3s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+@keyframes fight-mode-anime {
+    50% {opacity: 1; transform: scale(1.01);}
+}
+
+/***********************************/
+/*           ANIMATIONS            */
+/***********************************/
+
+@keyframes shake-anime {
+    59% {transform: translateX(0px);}
+    60% {transform: translateX(10px);}
+    70% {transform: translateX(-10px);}
+    80% {transform: translateX(10px);}
+    90% {transform: translateX(-10px);}
+    100% {transform: translateX(10px);}
+}
+
+@keyframes defeat-anime {
+    0% {opacity: 0%;}
+    100% {opacity: 100%;}
+}
+
+@keyframes victory-anime {
+    0% {transform: translateY(20px);}
+    100% {transform: translateY(0px);}
+}
+
+/***********************************/
+/*              DICE               */
+/***********************************/
+
+#dice {
+    z-index: 500;
+    height: 5rem;
+    width: 5rem;
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+
+    transform-style: preserve-3d;
+    transform: rotate3d(-0.5, -0.5, -0.5, -20deg);
+    animation: dice-roll-anime 0.3 linear;
+    /* transform: rotate3d(-0.5, -0.5, -0.5, 20deg); */
+}
+
+@keyframes dice-roll-anime {
+    50% {transform: rotate3d(-0.5, -0.5, -0.5, 360deg);}
+}
+
+.face {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid rgb(0, 0, 0);
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#face-top {transform: rotateX(90deg) translateZ(2.5rem); background: #c4c4c4;}
+#face-front {transform: translateZ(2.5rem);}
+#face-right {transform: rotateY(90deg) translateZ(2.5rem); background: #c4c4c4;}
+#face-back {transform: translateZ(-2.5rem); background: #c4c4c4;}
+#face-left {transform: rotateY(90deg) translateZ(-2.5rem); background: #c4c4c4;}
+#face-bottom {transform: rotateX(90deg) translateZ(-2.5rem); background: #979797;}
+
+.hero-js-save {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    font-size: 2rem;
+    margin: 0.5rem;
+    padding: 0;
+    transition-duration: 0.3s;
+    background: transparent;
+    border: none;
+    opacity: 0.4;
+}
+
+.hero-js-save:hover {
+    transform: scale(1.1) rotate(-5deg);
     opacity: 1;
     cursor: pointer;
 }

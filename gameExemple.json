@@ -3,15 +3,10 @@
     {
         "title": "Julien est triste",
         "startNumber": 0,
-        "maxDice": 9,
+        "defeatNumber": 5,
+        "maxDice": 8,
         "maxSkill": 5,
-        "showTitle": true,
-        "showPlayerAbility": false,
-        "showPlayerStamina": false,
-        "showPlayerSkills": true,
-        "showPlayerGold": true,
-        "showPlayerInventory": true,
-        "showPlayerSpecial": false
+        "showTitle": true
     },
     "gameplay":
     {
@@ -28,7 +23,8 @@
             {"name": "communication animale", "stats": [0, 0]},
             {"name": "maîtrise", "stats": [0, 0]}
         ],
-        "objectsInventory": [
+        "objectsInventory":
+        [
             {"name": "tunique", "type": "inventory", "data": [0, 0, 0, 0]},
             {"name": "cape de Seigneur Kaï", "type": "inventory", "data": [0, 0, 0, 0]},
             {"name": "hache", "type": "inventory", "data": [0, 0, 0, 0]},
@@ -42,6 +38,24 @@
             {"name": "bourse de cuir", "type": "special", "data": [0, 0, 12, 0]},
             {"name": "panier garnis", "type": "special", "data": [0, 0, 0, 2]},
             {"name": "carte", "type": "special", "data": [0, 0, 0, 0]}
+        ],
+        "fightTable":
+        [
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [6, 6], [7, 7], [8, 8], [9, 9]]
         ]
     },
     "player":
@@ -49,11 +63,9 @@
         "ability": "RANDOM,10,DICE",
         "stamina": "RANDOM,20,DICE",
         "meal": 1,
-        "gold": "RANDOM,0,DICE",
+        "gold": "RANDOM,0,5",
         "inventory":
         [
-            "RANDOM_IN_CLASS_UNIQUE",
-            "RANDOM_IN_CLASS_UNIQUE",
             "RANDOM_IN_CLASS_UNIQUE",
             "RANDOM_IN_CLASS_UNIQUE"
         ],
@@ -67,25 +79,42 @@
             "RANDOM_IN_CLASS_UNIQUE",
             "RANDOM_IN_CLASS_UNIQUE",
             "RANDOM_IN_CLASS_UNIQUE",
-            "sixième sens"
+            "RANDOM_IN_CLASS_UNIQUE"
         ]
+    },
+    "music":
+    {
+        "sound_hurt": "sound/sound1.mp3",
+        "sound_victory": null,
+        "sound_defeat": null,
+        "music_fight": "sound/music2.mp3"
     },
     "dialogs":
     [
         {
-            "title": "Julien ce FDP",
-            "body": "\"Putain j'ai cassé mon vélo, nsm...\"",
-            "action": "Choisissez quoi lui répondre",
+            "title": "Grunlack",
+            "body": "\"Putain j'ai cassé mon vélo...\"",
+            "action": "Que voulez-vous faire ?",
+            "music": "sound/music1.mp3",
             "buttons":
             [
                 {
-                    "text": "<i>L'instulter en lui disant qu'il est maaaaauvaaaais Jaaaackkkk</i>",
+                    "text": "<i>Le frapper très fort pour lancer un combat</i>",
                     "goToIndex": 1,
-                    "effect": "ADD_OBJECT",
-                    "effectData": ["inventory", {"name": "poulet congelé couvert de sang", "type": "inventory", "data": [-10, 0, 0, 0]}]
+                    "effect": "FIGHT",
+                    "effectData":
+                    [
+                        15,
+                        "RANDOM,10, 10",
+                        [0, 0, 0, 0],
+                        1,
+                        "img/isaac_2.png",
+                        "img/donjon.jpg",
+                        "Julien démoniaque des enfers"
+                    ]
                 },
                 {
-                    "text": "<i>Lui donner votre <b>GameBoy</b></i>",
+                    "text": "<i>Lui donner votre <span class='item'>GameBoy</span></i>",
                     "goToIndex": 3,
                     "condition": "OBJECT",
                     "conditionData": [true, "inventory", "gameboy"],
@@ -93,44 +122,59 @@
                     "effectData": ["inventory", "gameboy"]
                 },
                 {
-                    "text": "<i>Utiliser <b>Sixième Sens</b> pour savoir quoi faire</i>",
+                    "text": "<i>Utiliser <span class='skill'>Sixième Sens</span> pour savoir quoi faire</i>",
                     "goToIndex": 2,
                     "condition": "SKILL",
                     "conditionData": [true, "sixième sens"],
-                    "effect": "REMOVE_MEAL",
-                    "effectData": [1]
+                    "notification": "🏆 La plus belle fin."
                 },
                 {
-                    "text": "<i>Lui jeter 3 golds au visage</i>",
+                    "text": "<i>Lui jeter <span class='amount'>3 golds</span> au visage</i>",
                     "goToIndex": 4,
                     "condition": "GOLD",
                     "conditionData": [true, 3],
                     "effect": "ADD_GOLD",
-                    "effectData": [3]
+                    "effectData": [3],
+                    "notification": "+6 gold(s)"
                 }
             ],
             "img": "img/isaac.png",
             "background": "img/house.jpg"
         },
         {
-            "body": "<b>Julien</b> a mal pris votre réponse et vous a assomé avec un poulet congelé qui se trouvait par terre. <i>Poulet ajouté à votre inventaire.</i>",
-            "img": "img/grave.png",
-            "background": "img/house.jpg"
+            "body": "Grace à votre force et votre courage, vous avez vaincu <b>Julien</b> et avez ramené la paix dans le monde. Bien joué Billy !",
+            "music": "sound/music1.mp3",
+            "img": "img/bob.png",
+            "background": "img/house.jpg",
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false}]
         },
         {
             "body": "Vous tendez un kebab à <b>Julien</b>, ce dernier vous regarde dans les yeux : \"Merci tu es mon héros, j'adore les kebabs\". Puis vous vous envolez à dos de dragon.",
+            "music": "sound/music1.mp3",
             "img": "img/dragon.png",
-            "background": "img/city.jpg"
+            "background": "img/city.jpg",
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false}]
         },
         {
             "body": "Vous donnez votre GameBoy à <b>Julien</b>. \"Merci, mais j'suis pro Sony. Vive Ratchet & Clank !\".",
+            "music": "sound/music1.mp3",
             "img": "img/ratchet.png",
-            "background": "img/playstation.jpg"
+            "background": "img/playstation.jpg",
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false}],
+            "notification": false
         },
         {
-            "body": "Surpris, <b>Julien</b> vous regarde fixement, puis sors quelque chose de sa poche. \"Tiens, avec les interets ça fait 6 golds\". <i>+3 Golds (bha oui, réfléchis, t'en a lancé 3)</i>",
+            "body": "Surpris, <b>Julien</b> vous regarde fixement, puis sors quelque chose de sa poche. \"Tiens, avec les interets ça fait 6 golds\".",
+            "music": "sound/music1.mp3",
             "img": "img/picsou.png",
-            "background": "img/money.jpg"
+            "background": "img/money.jpg",
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false}],
+            "notification": false
+        },
+        {
+            "body": "Malheureusement, cette histoire aura eu raison de vous...",
+            "img": "img/grave.png",
+            "background": "img/graveyard.jpg"
         }
     ]
 }

@@ -35,9 +35,9 @@ function initDialog(json) {
                 case "ADD_ABILITY": tempEffect = 10; break
                 case "HEAL": tempEffect = 11; break
                 case "HURT": tempEffect = 12; break
+                case "FIGHT": tempEffect = 13; break
                 default: tempEffect = null; break
             }
-
 
             // Création du bouton
             allButtons.push(
@@ -47,7 +47,8 @@ function initDialog(json) {
                     tempCondition,
                     currentDialog.buttons[b].conditionData,
                     tempEffect,
-                    currentDialog.buttons[b].effectData
+                    currentDialog.buttons[b].effectData,
+                    currentDialog.buttons[b].notification
                 )
             )
         }
@@ -60,7 +61,8 @@ function initDialog(json) {
                 currentDialog.action,
                 allButtons,
                 currentDialog.img,
-                currentDialog.background
+                currentDialog.background,
+                currentDialog.music
             )
         )
     }
@@ -68,7 +70,11 @@ function initDialog(json) {
 
 function initGameInfos(json) {
     gameTitle = json.gameInfos.title
-    currentNumber = json.gameInfos.startNumber
+    if (json.gameInfos.currentNumber == undefined)
+        currentNumber = json.gameInfos.startNumber
+    else
+        currentNumber = json.gameInfos.currentNumber
+    beginNumber = json.gameInfos.startNumber
     maxDice = json.gameInfos.maxDice
     maxSkill = json.gameInfos.maxSkill
     showTitleHUD = json.gameInfos.showTitle
@@ -78,6 +84,7 @@ function initGameInfos(json) {
     showPlayerGold = json.gameInfos.showPlayerGold
     showPlayerInventory = json.gameInfos.showPlayerInventory
     showPlayerSpecial = json.gameInfos.showPlayerSpecial
+    defeatNumber = json.gameInfos.defeatNumber
 }
 
 function initGameplay(json) {
@@ -109,6 +116,9 @@ function initGameplay(json) {
             specialList.push(new Object(temp.name, temp.type, temp.data))
         }
     }
+
+    fightTable = json.gameplay.fightTable
+    fightLimite = Math.floor(fightTable.length / 2)
 }
 
 function initPlayer(json) {
@@ -121,7 +131,10 @@ function initPlayer(json) {
     player = new Player()
     player.ability = setInt(json.player.ability)
     player.stamina = setInt(json.player.stamina)
-    player.maxStamina = player.stamina
+    if (json.player.maxStamina != undefined)
+        player.maxStamina = json.player.maxStamina
+    else
+        player.maxStamina = player.stamina
     player.meal = setInt(json.player.meal)
     player.gold = setInt(json.player.gold)
 
@@ -146,16 +159,22 @@ function initPlayer(json) {
     }
 }
 
-function initGame(file) {
-    let json = ""
+function initSound(json) {
+    sound_hurt = new Sound(json.music.sound_hurt)
+    sound_victory = new Sound(json.music.sound_victory)
+    sound_defeat = new Sound(json.music.sound_defeat)
+    music_fight = new Music(json.music.music_fight)
+}
 
+function initGame(file) {
     var reader = new FileReader();
     reader.onload = function(evt) {
-        json = JSON.parse(evt.target.result)
-        initDialog(json)
-        initGameInfos(json)
-        initGameplay(json)
-        initPlayer(json)
+        defaultJSON = JSON.parse(evt.target.result)
+        initDialog(defaultJSON)
+        initGameInfos(defaultJSON)
+        initGameplay(defaultJSON)
+        initPlayer(defaultJSON)
+        initSound(defaultJSON)
         setDefaultHUD()
         allDialog[currentNumber].show()
     };

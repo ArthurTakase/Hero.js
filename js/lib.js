@@ -2,15 +2,21 @@
 /*            VARIABLES            */
 /***********************************/
 
+let defaultJSON = null
 let gameTitle
+let beginNumber
 let currentNumber
+let defeatNumber
 let maxDice
 let maxSkill
 let allDialog = []
 let skillList = []
 let inventoryList = []
 let specialList = []
+let fightTable = []
+let fightLimite
 let player = null
+let fight = null
 // Affichage
 let showTitleHUD = true
 let showPlayerAbility = true
@@ -19,6 +25,12 @@ let showPlayerSkills = true
 let showPlayerGold = true
 let showPlayerInventory = true
 let showPlayerSpecial = true
+// Audio
+let sound_hurt = null
+let sound_victory = null
+let sound_defeat = null
+let music = null
+let music_fight = null
 
 /***********************************/
 /*          LIB FUNCTIONS          */
@@ -63,9 +75,9 @@ function setInt(objetValue) {
         if (objetValue.startsWith("RANDOM")) {
             var value = objetValue.split(',')
             if (value[2] == "DICE") {
-                return randomInRange(parseInt(value[1]), maxDice)
+                return randomInRange(parseInt(value[1]), maxDice + 1)
             } else {
-                return randomInRange(parseInt(value[1]), parseInt(value[2]))
+                return randomInRange(parseInt(value[1]), parseInt(value[2]) + 1)
             }
         }
         return -1
@@ -76,16 +88,12 @@ function setInt(objetValue) {
 
 function removeFromPlayer(object, list) {
     var temp
-
-    console.log(list)
     
     if (object == "RANDOM_IN_CLASS") {
         temp = Math.floor(Math.random() * list.length)
-        console.log(list[temp])
         player.removeStuffBonus(list[temp])
         list.splice(temp, 1)
     } else {
-        console.log("else")
         for (i in list) {
             if (list[i].name == object) {
                 player.removeStuffBonus(list[i])
@@ -94,12 +102,11 @@ function removeFromPlayer(object, list) {
             }
         }
     }
-    console.log(list)
 }
 
 function newObject(object, list, playerData) {
     var temp
-
+    
     if (object == "RANDOM_IN_CLASS") {
         player.addStuff(randomFromList(list))
     } else if (object == "RANDOM_IN_CLASS_UNIQUE") {
@@ -118,5 +125,41 @@ function newObject(object, list, playerData) {
                 object.data
             )
         )
+    }
+}
+
+function restart() {
+    allDialog = []
+    skillList = []
+    inventoryList = []
+    specialList = []
+    player = null
+    showTitleHUD = true
+    showPlayerAbility = true
+    showPlayerStamina = true
+    showPlayerSkills = true
+    showPlayerGold = true
+    showPlayerInventory = true
+    showPlayerSpecial = true
+    
+    initDialog(defaultJSON)
+    initGameInfos(defaultJSON)
+    initGameplay(defaultJSON)
+    initPlayer(defaultJSON)
+    allDialog[beginNumber].show()
+}
+
+function getObjectName(object) {
+    if (typeof object == 'string')
+        return object
+    return object.name
+}
+
+function wait(milliseconds){
+    var start = new Date().getTime();
+    var end = 0;
+
+    while((end - start) < milliseconds){
+        end = new Date().getTime();
     }
 }

@@ -1,0 +1,77 @@
+@media only screen and (max-height: 400px) {
+    .hero-js-not-activate {transform: rotate(0deg);}
+    .version {display: none;}
+    .hero-js-subtitle {display: none;}
+    .hero-js-dialog-header {font-size: 1.2rem;}
+    .hero-js-dialog-body {font-size: 1.1rem;}
+    .hero-js-dialog-action {display: none;}
+    .hero-js-dialog-header {display: none;}
+    .hero-js-button {font-size: 1.1rem;}
+    .hero-js-hud-title {display: none;}
+    #hero-js-notification {left: auto;}
+    .hero-js-stats-body li {width: 180px;}
+    .hero-js-player-right .hero-js-stats-header {border-radius: 1rem;}
+    .hero-js-player-left .hero-js-stats-header {border-radius: 0 1rem 0 0;}
+    .hero-js-player-right .hero-js-stats {border-radius: 1rem; margin-left: 0.2rem; margin-right: 0.2rem;}
+    .hero-js-dialog {width: 700px; font-size: 1.1rem;}
+    .hero-js-player-left {font-size: 1.1rem; width: 100px;}
+    .hero-js-player-right .hero-js-stats {display: none;}
+    .hero-js-player-right {width: auto;}
+    #hero-js-more:hover .hero-js-player-right .hero-js-stats,
+    #hero-js-more:hover .hero-js-player-right .hero-js-stats {width: 200px; display: block;}
+    #fight-mode {display: none;}
+    
+    #hero-js-more {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        margin: 0.5rem;
+        width: 50px;
+        height: 50px;
+        background-color: rgba(28, 29, 43, 0.616);
+        border: solid rgba(255, 255, 255, 0.096) 0.1rem;
+        border-radius: 1rem;
+        z-index: 100;
+        position: fixed;
+        top: 0;
+        right: 0;
+    }
+
+    .hero-js-dialog-img img {
+        transform: translateY(-60px);
+        animation: dialog-portable 2s ease-in-out infinite;
+    }
+    
+    @keyframes dialog-portable {
+        0% {transform: translateY(-60px);}
+        50% {transform: translateY(-65px);}
+        100% {transform: translateY(-60px);}
+    }
+
+    .hero-js-player-right {
+        position: fixed;
+        top: 0;
+        right: 0;
+        flex-direction: row;
+    }
+
+    #dice {
+        /* zoom: 1.5; */
+        z-index: 1000;
+        top: auto;
+        bottom: 45%;
+        left: auto;
+        right: 4rem;
+    }
+    
+    @keyframes shake-anime {}
+    @keyframes victory-anime {}
+    
+    #fight-stats {
+        background: rgba(128, 128, 128, 0.301);
+        font-size: 1.2rem;
+        /* padding: 2rem; */
+        top: 250px;
+    }
+}
