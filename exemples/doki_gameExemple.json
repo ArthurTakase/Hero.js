@@ -1,0 +1,121 @@
+{
+    "gameInfos":
+    {
+        "title": "Doki Doki Gaming Club",
+        "startNumber": 0,
+        "maxDice": 0,
+        "maxSkill": 0,
+        "showTitle": false,
+        "showPlayerAbility": false,
+        "showPlayerStamina": false,
+        "showPlayerSkills": false,
+        "showPlayerGold": false,
+        "showPlayerInventory": false,
+        "showPlayerSpecial": false
+    },
+    "color":
+    [
+        ["dialogBody", "#F4A0C9"],
+        ["dialogBodyText", "white"],
+        ["button", "#F1DEE5E5"],
+        ["buttonText", "#FFA7C6"],
+        ["dialogHeader", "#F4E0E9E5"],
+        ["dialogHeaderBorder", "#FFA7C6"],
+        ["dialogHeaderText", "#FFA7C6"]
+    ],
+    "dialogs":
+    [
+        {
+            "body": "<i>Mince, je vais être en retard !</i>",
+            "buttons": [{"text": "➡", "goToIndex": 1}],
+            "music": "https://audio.jukehost.co.uk/OrqEzqHoqRx5Aj5mJnxiqE30kx2prkQy",
+            "background": "https://media.discordapp.net/attachments/900364136918188052/900376411905355817/Train_Day.png?width=720&height=405"
+        },
+        {
+            "body": "<i>Il faut vite que j'arrive dans la salle avant qu'elle n'arrive, sinon ça va mal se terminer !</i>",
+            "buttons": [{"text": "➡", "goToIndex": 2}],
+            "music": "https://audio.jukehost.co.uk/OrqEzqHoqRx5Aj5mJnxiqE30kx2prkQy",
+            "background": "https://media.discordapp.net/attachments/900364136918188052/900376531501711420/School_Hallway_Day.png?width=720&height=405"
+        },
+        {
+            "title": "Monika",
+            "body": "\"Alors comme ça on arrive en retard ?\"",
+            "buttons": [{"text": "➡", "goToIndex": 3}],
+            "music": "https://audio.jukehost.co.uk/OrqEzqHoqRx5Aj5mJnxiqE30kx2prkQy",
+            "img": "https://media.discordapp.net/attachments/900364136918188052/900376564859039754/monika_stand_neutral.png?width=683&height=683",
+            "background": "https://media.discordapp.net/attachments/900364136918188052/900376374450221126/Classroom_Day.png?width=720&height=405"
+        },
+        {
+            "body": "\"Je te jure que j'ai pas fait exprès, toujours des soucis de tram quand il faut pas...\"",
+            "buttons": [{"text": "➡", "goToIndex": 4}],
+            "music": "https://audio.jukehost.co.uk/OrqEzqHoqRx5Aj5mJnxiqE30kx2prkQy",
+            "img": "https://media.discordapp.net/attachments/900364136918188052/900376564859039754/monika_stand_neutral.png?width=683&height=683",
+            "background": "https://media.discordapp.net/attachments/900364136918188052/900376374450221126/Classroom_Day.png?width=720&height=405"
+        },
+        {
+            "title": "Monika",
+            "body": "\"Ne te cherche pas d'excuses idiot !\"",
+            "buttons": [{"text": "➡", "goToIndex": 5}],
+            "music": "https://audio.jukehost.co.uk/OrqEzqHoqRx5Aj5mJnxiqE30kx2prkQy",
+            "img": "https://media.discordapp.net/attachments/900364136918188052/900376563688808458/monika_side_angry.png?width=683&height=683",
+            "background": "https://media.discordapp.net/attachments/900364136918188052/900376374450221126/Classroom_Day.png?width=720&height=405"
+        },
+        {
+            "title": "Monika",
+            "body": "\"Bon, c'est pas très grave... Tu viens ?\"",
+            "buttons": [{"text": "➡", "goToIndex": 6}],
+            "music": "https://audio.jukehost.co.uk/OrqEzqHoqRx5Aj5mJnxiqE30kx2prkQy",
+            "img": "https://media.discordapp.net/attachments/900364136918188052/900376558068445194/monika_finger_happy.png?width=683&height=683",
+            "background": "https://media.discordapp.net/attachments/900364136918188052/900376374450221126/Classroom_Day.png?width=720&height=405"
+        },
+        {
+            "body": "<i>Sans que j'ai le temps de trop comprendre ce qu'il se passe, nous étions déjà dans le tram</i>",
+            "buttons": [{"text": "➡", "goToIndex": 7}],
+            "music": "https://audio.jukehost.co.uk/OrqEzqHoqRx5Aj5mJnxiqE30kx2prkQy",
+            "background": "https://media.discordapp.net/attachments/900364136918188052/900376411905355817/Train_Day.png?width=720&height=405"
+        },
+        {
+            "title": "Monika",
+            "body": "\"C'est ici qu'on descend !\"",
+            "buttons": [{"text": "➡", "goToIndex": 8}],
+            "music": "https://audio.jukehost.co.uk/OrqEzqHoqRx5Aj5mJnxiqE30kx2prkQy",
+            "img" : "https://media.discordapp.net/attachments/900364136918188052/900376564859039754/monika_stand_neutral.png?width=683&height=683",
+            "background": "https://media.discordapp.net/attachments/900364136918188052/900376411905355817/Train_Day.png?width=720&height=405"
+        },
+        {
+            "title": "Monika",
+            "body": "\"Bienvenue chez moi ! Installe toi sur le canapé je vais nous chercher à boire.\"",
+            "buttons": [{"text": "➡", "goToIndex": 9}],
+            "music": "https://audio.jukehost.co.uk/OrqEzqHoqRx5Aj5mJnxiqE30kx2prkQy",
+            "img" : "https://media.discordapp.net/attachments/900364136918188052/900376558068445194/monika_finger_happy.png?width=683&height=683",
+            "background": "https://media.discordapp.net/attachments/900364136918188052/900376525688426506/Livingroom_Day.png?width=720&height=405"
+        },
+        {
+            "body": "<i>Je ne suis pas certain de comprendre ce qu'il se passe ici... Pourquoi elle m'a ammené chez elle ?</i>",
+            "buttons": [{"text": "➡", "goToIndex": 10}],
+            "music": "https://audio.jukehost.co.uk/OrqEzqHoqRx5Aj5mJnxiqE30kx2prkQy",
+            "background": "https://media.discordapp.net/attachments/900364136918188052/900376525688426506/Livingroom_Day.png?width=720&height=405"
+        },
+        {
+            "body": "<i>Hein ? Il se passe quoi là ?</i>",
+            "buttons": [{"text": "➡", "goToIndex": 11}],
+            "music": "https://audio.jukehost.co.uk/aw3HPNR4InYk6cYUfG7BdlImB5wWNNb9",
+            "background": "https://media.discordapp.net/attachments/900364136918188052/900376521859039242/Livingroom_Dark.png?width=720&height=405"
+        },
+        {
+            "body": "\"MONIKA ?!\"",
+            "buttons": [{"text": "➡", "goToIndex": 12}],
+            "music": "https://audio.jukehost.co.uk/aw3HPNR4InYk6cYUfG7BdlImB5wWNNb9",
+            "background": "https://media.discordapp.net/attachments/900364136918188052/900376521859039242/Livingroom_Dark.png?width=720&height=405"
+        },
+        {
+            "title": "ꪑꪮꪀ꠸ᛕꪖ",
+            "body": "\"Mo..ni...ka...N'est plus....ici....\"",
+            "buttons": [{"text": "➡", "goToIndex": 0}],
+            "music": "https://audio.jukehost.co.uk/aw3HPNR4InYk6cYUfG7BdlImB5wWNNb9",
+            "img": "https://media.discordapp.net/attachments/900364136918188052/900376560274661386/monika_glitch.png?width=433&height=683",
+            "background": "https://media.discordapp.net/attachments/900364136918188052/900376521859039242/Livingroom_Dark.png?width=720&height=405"
+        }
+
+    ]
+}

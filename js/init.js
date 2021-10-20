@@ -160,6 +160,8 @@ function initPlayer(json) {
 }
 
 function initSound(json) {
+    if (json.music == undefined) {return}
+
     sound_hurt = new Sound(json.music.hurt)
     sound_victory = new Sound(json.music.victory)
     sound_defeat = new Sound(json.music.defeat)
