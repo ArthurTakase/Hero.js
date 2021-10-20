@@ -27,7 +27,10 @@ class Music {
     }
 
     switch(src) {
-        if (this.src == src) {return}
+        if (this.src == src) {
+            if (!isPlaying(this.music)) {this.play()}
+            else {return}
+        }
         this.stop()
         this.src = src
         this.music.src = src

@@ -162,3 +162,7 @@ function setColor(json) {
         root.setProperty('--' + json.color[elem][0] + 'Color', json.color[elem][1])
     }
 }
+
+function isPlaying(audelem) {
+    return !audelem.paused;
+}

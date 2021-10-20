@@ -15,6 +15,7 @@
         <script src="js/animation.js"></script>
         <script src="js/hud.js"></script>
         <script src="js/save.js"></script>
+        <script src="js/url.js"></script>
         <!-- Objets -->
         <script src="js/button.js"></script>
         <script src="js/dialog.js"></script>
@@ -40,8 +41,8 @@
             </p>
             <!-- Numéro de version -->
             <p class="version" style="text-align: right;">
-                FIX: fix save error when player == null<br>
-                <u>Version: </u>0.0.39-20.10.2021
+                FEAT: Start game from URL<br>
+                <u>Version: </u>0.0.40-20.10.2021
             </p>
         </div>
 
@@ -53,6 +54,7 @@
                 "https://zupimages.net/up/21/42/ut8j.png"
             ]
             setBackground(randomFromList(imgs))
+            checkStart()
         </script>
     </body>
 </html>
