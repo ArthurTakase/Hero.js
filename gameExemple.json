@@ -84,11 +84,19 @@
     },
     "music":
     {
-        "sound_hurt": "sound/sound1.mp3",
-        "sound_victory": null,
-        "sound_defeat": null,
-        "music_fight": "sound/music2.mp3"
+        "Hurt": "sound/sound1.mp3",
+        "Victory": null,
+        "Defeat": null,
+        "Fight": "sound/music2.mp3"
     },
+    "color": [
+        ["hud", "red"],
+        ["hudBorder", "blue"],
+        ["hudText", "pink"],
+        ["buttonDisable", "orange"],
+        ["button", "cyan"],
+        ["buttonText", "red"]
+    ],
     "dialogs":
     [
         {
