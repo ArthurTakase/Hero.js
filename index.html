@@ -3,6 +3,7 @@
     <head>
         <title>Heros.js</title>
         <meta charset="utf-8"/>
+        <link rel="stylesheet" href="css/color.css">
         <link rel="stylesheet" href="css/heros.css">
         <link rel="stylesheet" media="(orientation:portrait)" href="css/mobile_portrait.css">
         <link rel="stylesheet" media="(orientation:landscape)" href="css/mobile_paysage.css">
@@ -37,22 +38,19 @@
             <p>
                 Participez au développement de Heros.js sur <a href="https://github.com/ArthurTakase/Heros.js">Github</a> !<br>
             </p>
+            <!-- Numéro de version -->
+            <p class="version" style="text-align: right;">
+                STYLE: edit game exemples<br>
+                <u>Version: </u>0.0.38-20.10.2021
+            </p>
         </div>
-        <!-- Numéro de version -->
-        <p class="version">
-            FEAT: background music & sound effect<br>
-            <u>Version: </u>0.0.36-19.10.2021
-        </p>
 
         <script>
             var imgs = [
-                "img/city.jpg",
-                "img/donjon.jpg",
-                "img/forest.jpg",
-                "img/night_forest.jpg",
-                "img/ruine.jpg",
-                "img/tavern.jpg",
-                "img/money.jpg"
+                "https://zupimages.net/up/21/42/ios8.png",
+                "https://zupimages.net/up/21/42/xxmz.png",
+                "https://zupimages.net/up/21/42/0l8e.png",
+                "https://zupimages.net/up/21/42/ut8j.png"
             ]
             setBackground(randomFromList(imgs))
         </script>

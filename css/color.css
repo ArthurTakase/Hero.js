@@ -1,0 +1,39 @@
+:root {
+    --hudColor: rgba(255, 255, 255, 0.116);
+    --hudBorderColor: rgba(255, 255, 255, 0.096);
+    --hudTextColor: white;
+
+    --hudTitleColor: rgba(28, 29, 43, 0.616);
+    --hudTitleTextColor: white;
+    
+    --statsColor: rgba(128, 128, 128, 0.171);
+    --statsBorderColor: rgba(255, 255, 255, 0.096);
+    --statsTextColor: white;
+
+    --statsHeaderColor: rgba(28, 29, 43, 0.616);
+    --statsHeaderTextColor: white;
+
+    --dialogHeaderColor: rgba(128, 128, 128, 0.371);
+    --dialogHeaderBorderColor: rgba(255, 255, 255, 0.096);
+    --dialogHeaderTextColor: white;
+
+    --dialogBodyColor: rgba(28, 29, 43, 0.616);
+    --dialogBodyBorderColor: rgba(255, 255, 255, 0.096);
+    --dialogBodyTextColor: white;
+
+    --buttonColor: rgb(40, 42, 61);
+    --buttonTextColor: white;
+
+    --buttonDisableColor: rgba(255, 0, 0, 1);
+    --buttonDisableTextColor: white;
+
+    --notificationBodyColor: rgba(128, 128, 128, 0.171);
+    --notificationBodyTextColor: white;
+
+    --notificationHeaderColor: rgba(28, 29, 43, 0.616);
+    --notificationHeaderTextColor: white;
+
+    --fightHudInfosColor: rgba(128, 128, 128, 0.301);
+    --fightHudInfosBorderColor: rgba(179, 179, 179, 0.5);
+    --fightHudInfosTextColor: white;
+}

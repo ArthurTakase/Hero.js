@@ -148,11 +148,12 @@ body {
 
 .hero-js-stats {
     display: inline-block;
-    background: rgba(128, 128, 128, 0.171);
+    background: var(--statsColor);
     backdrop-filter: blur(30px);
     text-align: center;
-    border: solid rgba(255, 255, 255, 0.096) 0.1rem;
+    border: solid var(--statsBorderColor) 0.1rem;
     margin-bottom: 1rem;
+    color: var(--statsTextColor)
 }
 
 .hero-js-stats-header {
@@ -160,7 +161,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(28, 29, 43, 0.616);
+    background: var(--statsHeaderColor);
+    color: var(--statsHeaderTextColor)
 }
 
 .hero-js-stats-body {
@@ -211,19 +213,21 @@ body {
     position: fixed;
     top: 0;
     font-size: 1.2rem;
-    background: rgba(255, 255, 255, 0.116);
+    background: var(--hudColor);
     backdrop-filter: blur(10px);
     text-align: center;
-    border: solid rgba(255, 255, 255, 0.096) 0.1rem;
+    border: solid var(--hudBorderColor) 0.1rem;
     border-radius: 0 0 1rem 1rem;
     border-top: none;
+    color: var(--hudTextColor)
 }
 
 #hero-js-game-title {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(28, 29, 43, 0.616);
+    background: var(--hudTitleColor);
+    color: var(--hudTitleTextColor);
     padding: 1rem;
     border-radius: 0 0 0 1rem;
 }
@@ -262,7 +266,7 @@ body {
 .hero-js-dialog-img img {
     height: 70vw;
     max-height: 70vh;
-    filter: drop-shadow(1rem 1rem 1rem black);
+    filter: drop-shadow(1rem 1rem 1rem rgba(0, 0, 0, 0.288));
     /* animation: dialog-img 2s ease-in-out infinite; */
 }
 
@@ -273,9 +277,9 @@ body {
 }
 
 .hero-js-dialog-header {
-    background: rgba(128, 128, 128, 0.171);
+    background: var(--dialogHeaderColor);
     backdrop-filter: blur(30px);
-    border: solid rgba(255, 255, 255, 0.096) 0.1rem;
+    border: solid var(--dialogHeaderBorderColor) 0.1rem;
     width: 50%;
     border-radius: 1rem;
     padding: 0.5rem;
@@ -283,17 +287,19 @@ body {
     margin-bottom: 0.5rem;
     font-size: 1.5rem;
     font-weight: bold;
+    color: var(--dialogHeaderTextColor);
 }
 
 .hero-js-dialog-body {
     width: 95%;
     text-align: justify;
-    background: rgba(28, 29, 43, 0.616);
+    background: var(--dialogBodyColor);
     font-size: 1.2rem;
-    border: solid rgba(255, 255, 255, 0.096) 0.1rem;
+    border: solid var(--dialogBodyBorderColor) 0.1rem;
     backdrop-filter: blur(30px);
     padding: 1rem;
     border-radius: 1rem;
+    color: var(--dialogBodyTextColor);
 }
 
 .hero-js-dialog-action {
@@ -324,12 +330,14 @@ body {
 
 .hero-js-activate {
     opacity: 0.9;
-    background-color:rgb(40, 42, 61);
+    background-color: var(--buttonColor);
+    color: var(--buttonTextColor);
 }
 
 .hero-js-not-activate {
     opacity: 0.3;
-    background-color: rgba(255, 0, 0, 1);
+    background-color: var(--buttonDisableColor);
+    color: var(--buttonDisabletextColor);
     cursor: not-allowed;
     transform: rotate(2deg);
 }
@@ -376,13 +384,12 @@ body {
     left: 0;
     top: -120px;
     display: flex;
-    color: black;
     margin: 5px;
     border-radius: 1rem;
     backdrop-filter: blur(30px);
     flex-direction: column;
     animation: notification-animation 4s linear;
-    background: rgba(128, 128, 128, 0.171);
+    background: var(--notificationBodyColor);
     font-size: 1.2rem;
     z-index: 100;
 }
@@ -390,20 +397,20 @@ body {
 .notif-title {
     border-radius: 1rem 1rem 0 0;
     /* background: rgba(255, 255, 255, 0.774); */
-    background : rgba(28, 29, 43, 0.616);
+    background: var(--notificationHeaderColor);
     backdrop-filter: blur(50px);
     padding-left: 1rem;
     padding-right: 2rem;
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
-    color: rgb(255, 255, 255);
+    color: var(--notificationHeaderTextColor);
 }
 
 .notif-body {
     margin: 1rem;
     display: inline-block;
     height: 25px;
-    color: white;
+    color: var(--notificationBodyTextColor);
     margin-right: 1.5rem;
 }
 
@@ -421,13 +428,14 @@ body {
 #fight-stats {
     position: absolute;
     top: -30px;
-    background: rgba(128, 128, 128, 0.301);
+    background: var(--fightHudInfosColor);
     padding: 1rem;
     border-radius: 1rem;
-    border: solid rgba(179, 179, 179, 0.5) 0.1rem;
+    border: solid var(--fightHudInfosBorderColor) 0.1rem;
     box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.281);
     backdrop-filter: blur(20px);
     font-size: 1.2rem;
+    color: var(--fightHudInfosTextColor)
 }
 
 #fight-mode {

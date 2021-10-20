@@ -163,3 +163,11 @@ function wait(milliseconds){
         end = new Date().getTime();
     }
 }
+
+function setColor(json) {
+    const root = document.documentElement.style
+
+    for (elem in json.color) {
+        root.setProperty('--' + json.color[elem][0] + 'Color', json.color[elem][1])
+    }
+}

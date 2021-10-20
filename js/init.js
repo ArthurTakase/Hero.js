@@ -160,10 +160,12 @@ function initPlayer(json) {
 }
 
 function initSound(json) {
-    sound_hurt = new Sound(json.music.sound_hurt)
-    sound_victory = new Sound(json.music.sound_victory)
-    sound_defeat = new Sound(json.music.sound_defeat)
-    music_fight = new Music(json.music.music_fight)
+    if (json.music == undefined) {return}
+
+    sound_hurt = new Sound(json.music.hurt)
+    sound_victory = new Sound(json.music.victory)
+    sound_defeat = new Sound(json.music.defeat)
+    music_fight = new Music(json.music.fight)
 }
 
 function initGame(file) {
@@ -175,6 +177,7 @@ function initGame(file) {
         initGameplay(defaultJSON)
         initPlayer(defaultJSON)
         initSound(defaultJSON)
+        setColor(defaultJSON)
         setDefaultHUD()
         allDialog[currentNumber].show()
     };
