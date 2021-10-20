@@ -15,11 +15,11 @@
     },
     "color":
     [
-        ["dialogBody", "#F4A0C9"],
+        ["dialogBody", "#F4A0C9D5"],
         ["dialogBodyText", "white"],
-        ["button", "#F1DEE5E5"],
+        ["button", "#F1DEE5D5"],
         ["buttonText", "#FFA7C6"],
-        ["dialogHeader", "#F4E0E9E5"],
+        ["dialogHeader", "#F4E0E9D5"],
         ["dialogHeaderBorder", "#FFA7C6"],
         ["dialogHeaderText", "#FFA7C6"]
     ],

@@ -155,15 +155,6 @@ function getObjectName(object) {
     return object.name
 }
 
-function wait(milliseconds){
-    var start = new Date().getTime();
-    var end = 0;
-
-    while((end - start) < milliseconds){
-        end = new Date().getTime();
-    }
-}
-
 function setColor(json) {
     const root = document.documentElement.style
 
