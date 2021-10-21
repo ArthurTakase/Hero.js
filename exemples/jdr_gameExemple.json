@@ -146,35 +146,34 @@
             "music": "https://audio.jukehost.co.uk/Qd0gsYoiPloBytbHp5l5IkqD7U9aOLQy",
             "img": "https://media.discordapp.net/attachments/900364110548574268/900364310113550376/bob.png",
             "background": "https://media.discordapp.net/attachments/900364110548574268/900364260822118470/house.jpg?width=720&height=398",
-            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false}]
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false, "effect": "RESTART"}]
         },
         {
             "body": "Vous tendez un kebab à <b>Julien</b>, ce dernier vous regarde dans les yeux : \"Merci tu es mon héros, j'adore les kebabs\". Puis vous vous envolez à dos de dragon.",
             "music": "https://audio.jukehost.co.uk/Qd0gsYoiPloBytbHp5l5IkqD7U9aOLQy",
             "img": "https://media.discordapp.net/attachments/900364110548574268/900364287095226378/dragon.png",
             "background": "https://media.discordapp.net/attachments/900364110548574268/900364278513684540/city.jpg?width=720&height=405",
-            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false}]
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false, "effect": "RESTART"}]
         },
         {
             "body": "Vous donnez votre GameBoy à <b>Julien</b>. \"Merci, mais j'suis pro Sony. Vive Ratchet & Clank !\".",
             "music": "https://audio.jukehost.co.uk/Qd0gsYoiPloBytbHp5l5IkqD7U9aOLQy",
             "img": "https://media.discordapp.net/attachments/900364110548574268/900364223476027492/ratchet.png",
             "background": "https://media.discordapp.net/attachments/900364110548574268/900364219025883136/playstation.jpg?width=720&height=270",
-            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false}],
-            "notification": false
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false, "effect": "RESTART"}]
         },
         {
             "body": "Surpris, <b>Julien</b> vous regarde fixement, puis sors quelque chose de sa poche. \"Tiens, avec les interets ça fait 6 golds\".",
             "music": "https://audio.jukehost.co.uk/Qd0gsYoiPloBytbHp5l5IkqD7U9aOLQy",
             "img": "https://media.discordapp.net/attachments/900364110548574268/900364215481667636/picsou.png",
             "background": "https://media.discordapp.net/attachments/900364110548574268/900364272788455425/money.jpg?width=720&height=477",
-            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false}],
-            "notification": false
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false, "effect": "RESTART"}]
         },
         {
             "body": "Malheureusement, cette histoire aura eu raison de vous...",
             "img": "https://media.discordapp.net/attachments/900364110548574268/900364253129744384/grave.png?width=720&height=449",
-            "background": "https://media.discordapp.net/attachments/900364110548574268/900364256501981224/graveyard.jpg?width=720&height=405"
+            "background": "https://media.discordapp.net/attachments/900364110548574268/900364256501981224/graveyard.jpg?width=720&height=405",
+            "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false, "effect": "RESTART"}]
         }
     ]
 }

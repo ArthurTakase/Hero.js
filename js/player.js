@@ -12,6 +12,7 @@ class Player {
     }
 
     setSkill(skill) {
+        if (skill == null) {return}
         if (this.skill.length < maxSkill) {
             this.skill.push(skill);
             this.ability += skill.bonusAbility

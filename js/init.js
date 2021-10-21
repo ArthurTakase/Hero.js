@@ -36,6 +36,7 @@ function initDialog(json) {
                 case "HEAL": tempEffect = 11; break
                 case "HURT": tempEffect = 12; break
                 case "FIGHT": tempEffect = 13; break
+                case "RESTART": tempEffect = 14; break
                 default: tempEffect = null; break
             }
 
@@ -70,11 +71,7 @@ function initDialog(json) {
 
 function initGameInfos(json) {
     gameTitle = json.gameInfos.title
-    if (json.gameInfos.currentNumber == undefined)
-        currentNumber = json.gameInfos.startNumber
-    else
-        currentNumber = json.gameInfos.currentNumber
-    beginNumber = json.gameInfos.startNumber
+    currentNumber = json.gameInfos.startNumber
     maxDice = json.gameInfos.maxDice
     maxSkill = json.gameInfos.maxSkill
     showTitleHUD = json.gameInfos.showTitle
@@ -148,13 +145,9 @@ function initPlayer(json) {
         if (json.player.skills[k] == "RANDOM_IN_CLASS") {
             player.setSkill(randomFromList(skillList))
         } else if (json.player.skills[k] == "RANDOM_IN_CLASS_UNIQUE") {
-            temp = randomFromListUnique(skillList, player.skill)
-            if (temp != null)
-                player.setSkill(temp)
+            player.setSkill(randomFromListUnique(skillList, player.skill))
         } else {
-            temp = getFromName(json.player.skills[k], skillList)
-            if(temp != null)
-                player.setSkill(temp)
+            player.setSkill(getFromName(json.player.skills[k], skillList))
         }
     }
 }
@@ -178,6 +171,7 @@ function initGame(file) {
         initPlayer(defaultJSON)
         initSound(defaultJSON)
         setColor(defaultJSON)
+        reloadSave(defaultJSON)
         setDefaultHUD()
         allDialog[currentNumber].show()
     };

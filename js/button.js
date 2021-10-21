@@ -100,6 +100,7 @@ function setEffect(effect, indexBtn, oldIndexDialog, data) {
                 player.stamina = 0
             return temp2
         case 13: launchFight(data); return "FIGHT"
+        case 14: restart(); return
         default: break
     }
     return null

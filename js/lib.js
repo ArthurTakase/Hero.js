@@ -141,12 +141,12 @@ function restart() {
     showPlayerGold = true
     showPlayerInventory = true
     showPlayerSpecial = true
-    
+
     initDialog(defaultJSON)
     initGameInfos(defaultJSON)
     initGameplay(defaultJSON)
     initPlayer(defaultJSON)
-    allDialog[beginNumber].show()
+    allDialog[defaultJSON.gameInfos.startNumber].show()
 }
 
 function getObjectName(object) {
