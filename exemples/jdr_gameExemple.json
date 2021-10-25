@@ -1,7 +1,7 @@
 {
     "gameInfos":
     {
-        "title": "Julien est triste",
+        "title": "Michel est triste",
         "startNumber": 0,
         "defeatNumber": 5,
         "maxDice": 8,
@@ -84,10 +84,10 @@
     },
     "music":
     {
-        "hurt": "https://audio.jukehost.co.uk/fZUhDf9ZO5AdBTXs4Vnwi9nihVf8LhiY",
+        "hurt": ["https://audio.jukehost.co.uk/fZUhDf9ZO5AdBTXs4Vnwi9nihVf8LhiY", 0.5],
         "victory": null,
         "defeat": null,
-        "fight": "https://audio.jukehost.co.uk/FVCyPO5yiVzAzdJUJELgxQ8hoqfOmCPg"
+        "fight": ["https://audio.jukehost.co.uk/FVCyPO5yiVzAzdJUJELgxQ8hoqfOmCPg", 0.5]
     },
     "dialogs":
     [
@@ -95,7 +95,7 @@
             "title": "Grunlack",
             "body": "\"Putain j'ai cassé mon vélo...\"",
             "action": "Que voulez-vous faire ?",
-            "music": "https://audio.jukehost.co.uk/Qd0gsYoiPloBytbHp5l5IkqD7U9aOLQy",
+            "music": ["https://audio.jukehost.co.uk/Qd0gsYoiPloBytbHp5l5IkqD7U9aOLQy", 0.6],
             "buttons":
             [
                 {
@@ -110,7 +110,7 @@
                         1,
                         "https://media.discordapp.net/attachments/900364110548574268/900364268292149248/isaac_2.png?width=720&height=615",
                         "https://media.discordapp.net/attachments/900364110548574268/900364281386778644/donjon.jpg?width=720&height=405",
-                        "Julien démoniaque des enfers"
+                        "Michel démoniaque des enfers"
                     ]
                 },
                 {
@@ -142,29 +142,29 @@
             "background": "https://media.discordapp.net/attachments/900364110548574268/900364260822118470/house.jpg?width=720&height=398"
         },
         {
-            "body": "Grace à votre force et votre courage, vous avez vaincu <b>Julien</b> et avez ramené la paix dans le monde. Bien joué Billy !",
-            "music": "https://audio.jukehost.co.uk/Qd0gsYoiPloBytbHp5l5IkqD7U9aOLQy",
+            "body": "Grace à votre force et votre courage, vous avez vaincu <b>Michel</b> et avez ramené la paix dans le monde. Bien joué Billy !",
+            "music": ["https://audio.jukehost.co.uk/Qd0gsYoiPloBytbHp5l5IkqD7U9aOLQy", 0.6],
             "img": "https://media.discordapp.net/attachments/900364110548574268/900364310113550376/bob.png",
             "background": "https://media.discordapp.net/attachments/900364110548574268/900364260822118470/house.jpg?width=720&height=398",
             "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false, "effect": "RESTART"}]
         },
         {
-            "body": "Vous tendez un kebab à <b>Julien</b>, ce dernier vous regarde dans les yeux : \"Merci tu es mon héros, j'adore les kebabs\". Puis vous vous envolez à dos de dragon.",
-            "music": "https://audio.jukehost.co.uk/Qd0gsYoiPloBytbHp5l5IkqD7U9aOLQy",
+            "body": "Vous tendez un kebab à <b>Michel</b>, ce dernier vous regarde dans les yeux : \"Merci tu es mon héros, j'adore les kebabs\". Puis vous vous envolez à dos de dragon.",
+            "music": ["https://audio.jukehost.co.uk/Qd0gsYoiPloBytbHp5l5IkqD7U9aOLQy", 0.6],
             "img": "https://media.discordapp.net/attachments/900364110548574268/900364287095226378/dragon.png",
             "background": "https://media.discordapp.net/attachments/900364110548574268/900364278513684540/city.jpg?width=720&height=405",
             "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false, "effect": "RESTART"}]
         },
         {
-            "body": "Vous donnez votre GameBoy à <b>Julien</b>. \"Merci, mais j'suis pro Sony. Vive Ratchet & Clank !\".",
-            "music": "https://audio.jukehost.co.uk/Qd0gsYoiPloBytbHp5l5IkqD7U9aOLQy",
+            "body": "Vous donnez votre GameBoy à <b>Michel</b>. \"Merci, mais j'suis pro Sony. Vive Ratchet & Clank !\".",
+            "music": ["https://audio.jukehost.co.uk/Qd0gsYoiPloBytbHp5l5IkqD7U9aOLQy", 0.6],
             "img": "https://media.discordapp.net/attachments/900364110548574268/900364223476027492/ratchet.png",
             "background": "https://media.discordapp.net/attachments/900364110548574268/900364219025883136/playstation.jpg?width=720&height=270",
             "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false, "effect": "RESTART"}]
         },
         {
-            "body": "Surpris, <b>Julien</b> vous regarde fixement, puis sors quelque chose de sa poche. \"Tiens, avec les interets ça fait 6 golds\".",
-            "music": "https://audio.jukehost.co.uk/Qd0gsYoiPloBytbHp5l5IkqD7U9aOLQy",
+            "body": "Surpris, <b>Michel</b> vous regarde fixement, puis sors quelque chose de sa poche. \"Tiens, avec les interets ça fait 6 golds\".",
+            "music": ["https://audio.jukehost.co.uk/Qd0gsYoiPloBytbHp5l5IkqD7U9aOLQy", 0.6],
             "img": "https://media.discordapp.net/attachments/900364110548574268/900364215481667636/picsou.png",
             "background": "https://media.discordapp.net/attachments/900364110548574268/900364272788455425/money.jpg?width=720&height=477",
             "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false, "effect": "RESTART"}]

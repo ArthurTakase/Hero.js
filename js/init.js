@@ -49,7 +49,8 @@ function initDialog(json) {
                     currentDialog.buttons[b].conditionData,
                     tempEffect,
                     currentDialog.buttons[b].effectData,
-                    currentDialog.buttons[b].notification
+                    currentDialog.buttons[b].notification,
+                    new Sound(currentDialog.buttons[b].sound)
                 )
             )
         }

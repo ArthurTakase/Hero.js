@@ -1,5 +1,5 @@
 class Button {
-    constructor(text, goToIndex, condition, conditionData, effect, effectData, notif) {
+    constructor(text, goToIndex, condition, conditionData, effect, effectData, notif, sound) {
         this.text = text
         this.goToIndex = goToIndex
         this.condition = condition
@@ -7,6 +7,7 @@ class Button {
         this.effect = effect
         this.effectData = effectData
         this.notif = notif
+        this.sound = sound
     }
 }
 
@@ -137,6 +138,8 @@ function switchDialog(indexDialog, condition, indexBtn, oldIndexDialog, effect, 
     if (checkCondition(condition, indexBtn, oldIndexDialog, "test")) {
         currentNumber = indexDialog
         temp = setEffect(effect, indexBtn, oldIndexDialog, null)
+        allDialog[oldIndexDialog].buttons[indexBtn].sound.play()
+        // console.log(allDialog[oldIndexDialog].buttons[indexBtn].sound)
         if (temp != "FIGHT") {
             allDialog[currentNumber].show(player)
             setNotif(notif, effect, temp)
