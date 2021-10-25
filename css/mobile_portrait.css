@@ -112,3 +112,12 @@
     padding: 2rem;
     top: -50px;
 }
+
+.hero-js-save {
+    bottom: auto;
+    top: 5rem;
+    left: auto;
+    right: 1rem;
+    z-index: 1;
+    font-size: 4rem;
+}

@@ -75,3 +75,11 @@
         top: 250px;
     }
 }
+
+.hero-js-save {
+    bottom: auto;
+    top: 0;
+    left: 0;
+    right: auto;
+    z-index: 1;
+}
