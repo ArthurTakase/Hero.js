@@ -52,7 +52,6 @@ class Dialog {
                                                             action +
                                                             '<div class="hero-js-dialog-button-zone">' + buttons + '</div>\
                                                             </div>'
-        if (showTitleHUD) {showTitle()}
         if (player != null) {player.show()}
 
         if (music == undefined) {music = new Music(this.music); music.play()}

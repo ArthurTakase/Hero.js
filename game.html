@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Heros.js</title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="css/color.css">
+        <link rel="stylesheet" href="css/heros.css">
+        <link rel="stylesheet" media="(orientation:portrait)" href="css/mobile_portrait.css">
+        <link rel="stylesheet" media="(orientation:landscape)" href="css/mobile_paysage.css">
+    </head>
+    <body>
+        <!-- lib -->
+        <script src="js/lib.js"></script>
+        <script src="js/fight.js"></script>
+        <script src="js/animation.js"></script>
+        <script src="js/hud.js"></script>
+        <script src="js/save.js"></script>
+        <script src="js/url.js"></script>
+        <!-- Objets -->
+        <script src="js/button.js"></script>
+        <script src="js/dialog.js"></script>
+        <script src="js/object.js"></script>
+        <script src="js/skill.js"></script>
+        <script src="js/player.js"></script>
+        <script src="js/sound.js"></script>
+        <script src="js/music.js"></script>
+        <!-- Configuration de la partie -->
+        <script src="js/init.js"></script>
+
+        <!-- Formulaire de lancement du jeu -->
+        <!-- Disparait une fois un fichier chargé -->
+        <div id="hero-js-form">
+            <div class="title">
+                <h1>Hero.js</h1>
+                <span class="hero-js-subtitle">Et si vous deveniez un créateur ?</span>
+            </div>
+            <label class="custom-file-input-label" for="hero-js-form-json">Charger un jeu (.hero/.json)</label>
+            <input class="custom-file-input" type="file" id="hero-js-form-json" accept=".json,.hero" onchange="initGame(this.files[0])">
+            <p>
+                Participez au développement de Heros.js sur <a href="https://github.com/ArthurTakase/Heros.js">Github</a> !<br>
+            </p>
+            <!-- Numéro de version -->
+            <p class="version" style="text-align: right;">
+                FEAT: RESTART & new save method<br>
+                <u>Version: </u>0.0.41-21.10.2021
+            </p>
+        </div>
+
+        <script>
+            var imgs = [
+                "https://zupimages.net/up/21/42/ios8.png",
+                "https://zupimages.net/up/21/42/xxmz.png",
+                "https://zupimages.net/up/21/42/0l8e.png",
+                "https://zupimages.net/up/21/42/ut8j.png"
+            ]
+            setBackground(randomFromList(imgs))
+            checkStart()
+        </script>
+    </body>
+</html>

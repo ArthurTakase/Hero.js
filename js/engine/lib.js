@@ -18,7 +18,6 @@ let fightLimite
 let player = null
 let fight = null
 // Affichage
-let showTitleHUD = true
 let showPlayerAbility = true
 let showPlayerStamina = true
 let showPlayerSkills = true
@@ -134,7 +133,6 @@ function restart() {
     inventoryList = []
     specialList = []
     player = null
-    showTitleHUD = true
     showPlayerAbility = true
     showPlayerStamina = true
     showPlayerSkills = true
@@ -166,3 +164,7 @@ function setColor(json) {
 function isPlaying(audelem) {
     return !audelem.paused;
 }
+
+function isMobile() {
+    return ((window.innerWidth <= 768) || (window.innerHeight <= 768));
+  }

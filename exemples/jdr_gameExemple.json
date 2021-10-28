@@ -5,8 +5,7 @@
         "startNumber": 0,
         "defeatNumber": 5,
         "maxDice": 8,
-        "maxSkill": 5,
-        "showTitle": true
+        "maxSkill": 5
     },
     "gameplay":
     {
@@ -92,7 +91,7 @@
     "dialogs":
     [
         {
-            "title": "Grunlack",
+            "title": "Michel",
             "body": "\"Putain j'ai cassé mon vélo...\"",
             "action": "Que voulez-vous faire ?",
             "music": ["https://audio.jukehost.co.uk/Qd0gsYoiPloBytbHp5l5IkqD7U9aOLQy", 0.6],
@@ -139,13 +138,13 @@
                 }
             ],
             "img": "https://media.discordapp.net/attachments/900364110548574268/900364264747974666/isaac.png",
-            "background": "https://media.discordapp.net/attachments/900364110548574268/900364260822118470/house.jpg?width=720&height=398"
+            "background": "https://media.discordapp.net/attachments/900364136918188052/900376525688426506/Livingroom_Day.png?width=720&height=405"
         },
         {
             "body": "Grace à votre force et votre courage, vous avez vaincu <b>Michel</b> et avez ramené la paix dans le monde. Bien joué Billy !",
             "music": ["https://audio.jukehost.co.uk/Qd0gsYoiPloBytbHp5l5IkqD7U9aOLQy", 0.6],
             "img": "https://media.discordapp.net/attachments/900364110548574268/900364310113550376/bob.png",
-            "background": "https://media.discordapp.net/attachments/900364110548574268/900364260822118470/house.jpg?width=720&height=398",
+            "background": "https://media.discordapp.net/attachments/900364136918188052/900376525688426506/Livingroom_Day.png?width=720&height=405",
             "buttons": [{"text": "Recommencer", "goToIndex": 0, "notification": false, "effect": "RESTART"}]
         },
         {

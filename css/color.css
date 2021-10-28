@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
 :root {
     --hudColor: rgba(255, 255, 255, 0.116);
     --hudBorderColor: rgba(255, 255, 255, 0.096);
@@ -13,27 +15,43 @@
     --statsHeaderColor: rgba(28, 29, 43, 0.616);
     --statsHeaderTextColor: white;
 
-    --dialogHeaderColor: rgba(128, 128, 128, 0.371);
+    --dialogHeaderColor: rgba(161, 161, 161, 0.397);
     --dialogHeaderBorderColor: rgba(255, 255, 255, 0.096);
     --dialogHeaderTextColor: white;
 
-    --dialogBodyColor: rgba(28, 29, 43, 0.616);
-    --dialogBodyBorderColor: rgba(255, 255, 255, 0.096);
+    --dialogBodyColor: #40444be1;
+    --dialogBodyBorderColor: none;
     --dialogBodyTextColor: white;
 
-    --buttonColor: rgb(40, 42, 61);
+    --buttonColor: #32353b;
     --buttonTextColor: white;
 
-    --buttonDisableColor: rgba(255, 0, 0, 1);
+    --buttonDisableColor: #40444b;
     --buttonDisableTextColor: white;
 
-    --notificationBodyColor: rgba(128, 128, 128, 0.171);
+    --notificationBodyColor: #40444ba4;
     --notificationBodyTextColor: white;
 
-    --notificationHeaderColor: rgba(28, 29, 43, 0.616);
-    --notificationHeaderTextColor: white;
+    --notificationHeaderColor: #32353b;
+    --notificationHeaderTextColor: #c6c4c9;
 
-    --fightHudInfosColor: rgba(128, 128, 128, 0.301);
+    --fightHudInfosColor: rgba(161, 161, 161, 0.397);
     --fightHudInfosBorderColor: rgba(179, 179, 179, 0.5);
     --fightHudInfosTextColor: white;
+
+    --navbarTextColor: #c6c4c9;
+    --navbarDropdownColor: #40444b;
+    --navbarColor: #32353b;
+
+    --specialObjectTextColor: #FCA4A6;
+
+    --body-font: 'Poppins', sans-serif;
+    --nav-width: 250px;
+
+    --first-color: #FCA4A6;
+    --first-color-dark: #C1576A;
+    --first-color-darken: #A83E51;
+    --white-color: #FCF8F8;
+    --big-font-size: 2.5rem;
+    --normal-font-size: .938rem;
 }

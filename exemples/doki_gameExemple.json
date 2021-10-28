@@ -5,7 +5,6 @@
         "startNumber": 0,
         "maxDice": 0,
         "maxSkill": 0,
-        "showTitle": false,
         "showPlayerAbility": false,
         "showPlayerStamina": false,
         "showPlayerSkills": false,
@@ -21,7 +20,9 @@
         ["buttonText", "#FFA7C6"],
         ["dialogHeader", "#F4E0E9D5"],
         ["dialogHeaderBorder", "#FFA7C6"],
-        ["dialogHeaderText", "#FFA7C6"]
+        ["dialogHeaderText", "#FFA7C6"],
+        ["navbarText", "#FFA7C6"],
+        ["navbar", "transparent"]
     ],
     "dialogs":
     [

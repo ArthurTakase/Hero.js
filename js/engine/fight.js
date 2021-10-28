@@ -14,7 +14,7 @@ class Fight {
         var img = '<div class="hero-js-dialog-img"><img src="' + this.img + '">\
         <div id="fight-stats">🗡️' + this.ability + '  ❤️' + this.stamina + '  ⭐️' + this.zoneEffect + '</div>\
         </div>'
-        var buttons = '<button class="hero-js-button hero-js-activate" onclick="attack()">Attaquer</button>\n'
+        var buttons = '<button class="hero-js-button hero-js-activate" onclick="attack()">Attack</button>\n'
         // buttons += '<button class="hero-js-button hero-js-not-activate">Fuir</button>\n'
         var title = '<div class="hero-js-dialog-header">' + this.title + '</div>'
         
@@ -29,12 +29,10 @@ class Fight {
         setBackground(this.background)
         document.getElementById('hero-js-all').innerHTML = img +
                                                         '<div class="hero-js-dialog">' +
-                                                        '<div id="fight-mode">🔴 FIGHT MODE</div>' +
                                                         diceElem +
                                                         title +
                                                         '<div class="hero-js-dialog-button-zone">' + buttons + '</div>\
                                                         </div>'
-        if (showTitleHUD) {showTitle()}
         if (player != null) {player.show()}
     }
 
@@ -52,7 +50,6 @@ class Fight {
             return true
         }
         if (player.stamina <= 0 || this.quotient < 0 - fightLimite) {
-            showTitleHUD = false
             showPlayerAbility = false
             showPlayerStamina = false
             showPlayerSkills = false
