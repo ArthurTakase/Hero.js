@@ -5,15 +5,15 @@ function anime(anime) {
     
     setTimeout(function() {
         switch (anime) {
-            case "victory":
+            case "jump":
                 div.style.animation = 'victory-anime 0.3s ease-in-out'
                 break
-            case "defeat":
+            case "fadeIn":
                 div.style.animation = 'defeat-anime 1s ease-in-out'
                 break
             case "shake":
                 div.style.animation = 'shake-anime 0.5s linear'
-                dice.style.animation = 'dice-roll-anime 0.3s linear'
+                try {dice.style.animation = 'dice-roll-anime 0.3s linear'} catch(e) {}
                 break
             default:
                 break

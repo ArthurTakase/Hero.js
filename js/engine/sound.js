@@ -11,12 +11,14 @@ class Sound {
         this.sound.setAttribute("controls", "none")
         this.sound.style.display = "none"
         this.sound.volume = data[1]
-        document.body.appendChild(this.sound)
+        this.sound.classList.add("sound")
+        document.getElementById("hero-js-all").appendChild(this.sound)
     }
 
     play() {
         if (this.exist)
             this.sound.play()
+        
     }
 
     stop() {

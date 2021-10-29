@@ -64,7 +64,8 @@ function initDialog(json) {
                 allButtons,
                 currentDialog.img,
                 currentDialog.background,
-                currentDialog.music
+                currentDialog.music,
+                currentDialog.animation
             )
         )
     }
@@ -115,12 +116,10 @@ function initGameplay(json) {
     }
 
     fightTable = json.gameplay.fightTable
-    fightLimite = Math.floor(fightTable.length / 2)
+    if (fightTable != null && fightTable != undefined) {fightLimite = Math.floor(fightTable.length / 2)}
 }
 
 function initPlayer(json) {
-    var temp
-
     if (json.player == null)
         return
 

@@ -14,15 +14,15 @@
     },
     "color":
     [
-        ["dialogBody", "#F4A0C9D5"],
-        ["dialogBodyText", "white"],
-        ["button", "#F1DEE5D5"],
-        ["buttonText", "#FFA7C6"],
-        ["dialogHeader", "#F4E0E9D5"],
-        ["dialogHeaderBorder", "#FFA7C6"],
-        ["dialogHeaderText", "#FFA7C6"],
-        ["navbarText", "#FFA7C6"],
-        ["navbar", "transparent"]
+        ["dialogBodyColor", "#F4A0C9D5"],
+        ["dialogBodyTextColor", "white"],
+        ["buttonColor", "#F1DEE5D5"],
+        ["buttonTextColor", "#FFA7C6"],
+        ["dialogHeaderColor", "#F4E0E9D5"],
+        ["dialogHeaderBorderColor", "#FFA7C6"],
+        ["dialogHeaderTextColor", "#FFA7C6"],
+        ["navbarTextColor", "#FFA7C6"],
+        ["navbarColor", "transparent"]
     ],
     "dialogs":
     [

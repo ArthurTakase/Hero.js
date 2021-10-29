@@ -43,7 +43,7 @@ class Fight {
             setEffect(4, null, null, [this.reward[2]])
             setEffect(6, null, null, [this.reward[3]])
             allDialog[currentNumber].show(player)
-            anime("victory")
+            anime("jump")
             sound_victory.play()
             if (music) {music.play()}
             if (music_fight) {music_fight.stop()}
@@ -57,7 +57,7 @@ class Fight {
             showPlayerInventory = false
             showPlayerSpecial = false
             allDialog[defeatNumber].show(player)
-            anime("defeat")
+            anime("fadeIn")
             sound_defeat.play()
             return true
         }
