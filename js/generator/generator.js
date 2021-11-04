@@ -38,6 +38,17 @@ function music() {
     return json
 }
 
+function gameplay() {
+    var json = {}
+
+    json.skills = skillsList
+    json.objectsInventory = objectsList
+
+    // Comment je fais pour la fightTable là ? C'est compliqué...
+
+    return json
+}
+
 function checkJSON(json) {
     if (json.gameInfos.title == "") {return "Error: No title"}
     if (json.gameInfos.startNumber == "") {return "Error: No Start Number"}
@@ -51,6 +62,7 @@ function submit() {
 
     json.gameInfos = gameInfos()
     json.music = music()
+    json.gameplay = gameplay()
 
     var check = checkJSON(json)
 

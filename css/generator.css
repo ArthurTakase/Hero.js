@@ -7,6 +7,8 @@ h2 {padding: 0; margin: .5rem 0;}
     justify-content: center;
     align-items: center;
     padding: .5rem;
+    width: 100%;
+    padding-bottom: 1rem;
 }
 
 body {
@@ -25,7 +27,7 @@ input {
     border: none;
     background-color: #40434b;
     color: white;
-    width: 60%;
+    width: 95%;
     font-size: 1rem;
 }
 
@@ -58,6 +60,9 @@ input::placeholder {
 
 .data {
     display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .data input {
@@ -65,6 +70,61 @@ input::placeholder {
     margin-right: .5rem;
 }
 
+.music .data input {
+    width: 100%;
+    justify-content: space-between;
+}
+
+.music .data input:first-child{
+    flex: 3;
+}
+
+.music .data input:last-child {
+    flex: 1;
+}
+
 #return {
     margin: 1rem;
 }
+
+.datalist {
+    background: #35393f;
+    border-radius: .5rem;
+    margin: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.datalist h2 {
+    padding-top: .7rem;
+    font-size: 1.2rem;
+    /* border: solid; */
+}
+
+.dataAdd {
+    /* border: solid; */
+    display: flex;
+    margin-right: .5rem;
+    margin-left: .5rem;
+    width: 100%;
+}
+
+.add {
+    border: none;
+    color: white;
+    background: none;
+    font-size: 1.5rem;
+}
+
+.add:hover {
+    cursor: pointer;
+}
+
+table {width: 100%; border-radius: .5rem;}
+tr, td, th {width: 33%;}
+td, th {padding: .2rem;}
+.tableHeader {background: #2f2f36;}
+.tableHeader th:first-child {border-radius: .5rem 0 0 0;}
+.tableHeader th:last-child {border-radius: 0 .5rem 0 0;}
