@@ -10,8 +10,16 @@ En effet, tous les codes importants se trouvent dans le moteur, les utilisateurs
 
 * [Documentation](https://github.com/ArthurTakase/Heros.js/wiki)
 * [RoadMap](https://github.com/ArthurTakase/Heros.js/projects/1)
-* [Images de fond](https://noranekogames.itch.io/yumebackground)
-* [Pour héberger vos sons](jukehost.co.uk)
-* [Pour héberger vos images](https://www.zupimages.net/) (ou discord)
+* [Pour héberger vos sons](https://jukehost.co.uk/)
+* [Pour héberger vos images](https://www.zupimages.net/) (Discord est aussi une bonne solution)
 
 > N'hésitez pas à participer au developpement du projet !
+
+### TODO
+- [ ] Nouvelle interface mobile
+- [ ] Mettre à jour l'interface des dialogues pour correspondre à la nouvelle navbar
+- [ ] Terminer mini histoire Danganronpa
+- [ ] Mettre à jour la doc
+- [ ] Donner une couleur specifique aux objets spéciaux
+- [ ] Clean des éléments useless des fichiers css
+- [ ] Essayer de compiler l'app pour android

@@ -1,0 +1,154 @@
+{
+    "gameInfos":
+    {
+        "title": "Dégageronpa",
+        "startNumber": 1,
+        "defeatNumber": 0,
+        "maxDice": 4,
+        "maxSkill": 1,
+        "showPlayerGold": false
+    },
+    "gameplay":
+    {
+        "skills":
+        [
+            {"name": "crochetage", "stats": [0, 0]},
+            {"name": "boxeur", "stats": [5, 2]}
+        ],
+        "objectsInventory":
+        [
+            {"name": "vieille clef", "type": "inventory", "data": [0, 0, 0, 0]}
+        ],
+        "objectsSpecial":
+        [
+            {"name": "sac à dos", "type": "special", "data": [0, 0, 0, 0]},
+            {"name": "ordinateur portable", "type": "special", "data": [0, 0, 0, 0]}
+        ],
+        "fightTable":
+        [
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]],
+            [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]]
+        ]
+    },
+    "player":
+    {
+        "ability": 10,
+        "stamina": 20,
+        "meal": 0,
+        "gold": 0,
+        "inventory": [],
+        "special": ["sac à dos", "ordinateur portable"],
+        "skills": ["RANDOM_IN_CLASS_UNIQUE"]
+    },
+    "music":
+    {
+        "hurt": null,
+        "victory": null,
+        "defeat": null,
+        "fight": ["https://audio.jukehost.co.uk/3j6Z3fIODx1Mmlybgx5YZz8i0zHGYbow", 0.5]
+    },
+    "dialogs":
+    [
+        {
+            "body": "L'école aura eu raison de vous...",
+            "music": ["https://audio.jukehost.co.uk/O3GI9TuRTmOauxeNkNVRUzgtEHQYI9Oe", 1],
+            "buttons": [{"text": "<i class='bx bx-revision'></i>", "goToIndex": 1, "effect": "RESTART"}],
+            "background": "https://media.discordapp.net/attachments/900427317644509185/900427921091596368/bg104.png?width=720&height=405"
+        },
+        {
+            "body": "\"Enfin une belle journée qui commence !\"",
+            "music": ["https://audio.jukehost.co.uk/kHu5MuAViuTduULyl4iy0DdZnoqt8tnJ", 1],
+            "buttons": [{"text": "<i class='bx bx-skip-next' ></i>", "goToIndex": 2, "sound": ["https://audio.jukehost.co.uk/lrN78ErFjkANEab6ulsEYS6Qs7Kfgc6L", 0.2]}],
+            "background": "https://media.discordapp.net/attachments/900427317644509185/900428011541782560/bg000.png?width=720&height=408"
+        },
+        {
+            "body": "<i>Evidemment je rigole, y'a rien de beau à être au lycée...</i>",
+            "music": ["https://audio.jukehost.co.uk/kHu5MuAViuTduULyl4iy0DdZnoqt8tnJ", 1],
+            "buttons": [{"text": "<i class='bx bx-skip-next' ></i>", "goToIndex": 3, "sound": ["https://audio.jukehost.co.uk/lrN78ErFjkANEab6ulsEYS6Qs7Kfgc6L", 0.2]}],
+            "background": "https://media.discordapp.net/attachments/900427317644509185/900428011541782560/bg000.png?width=720&height=408"
+        },
+        {
+            "title": "Gonta",
+            "body": "\"Salut mec ! Tu vas bien ?\"",
+            "music": ["https://audio.jukehost.co.uk/kHu5MuAViuTduULyl4iy0DdZnoqt8tnJ", 1],
+            "buttons": [{"text": "<i class='bx bx-skip-next' ></i>", "goToIndex": 4}],
+            "background": "https://media.discordapp.net/attachments/900427317644509185/900428011541782560/bg000.png?width=720&height=408",
+            "img": "https://media.discordapp.net/attachments/900427317644509185/900462642735501312/Gonta_3.png"
+        },
+        {
+            "body": "\"Yo Gonta ! Bon on y va ?\"",
+            "music": ["https://audio.jukehost.co.uk/kHu5MuAViuTduULyl4iy0DdZnoqt8tnJ", 1],
+            "buttons": [{"text": "<i class='bx bx-skip-next' ></i>", "goToIndex": 5}],
+            "background": "https://media.discordapp.net/attachments/900427317644509185/900428011541782560/bg000.png?width=720&height=408",
+            "img": "https://media.discordapp.net/attachments/900427317644509185/900462642735501312/Gonta_3.png"
+        },
+        {
+            "title": "Gonta",
+            "body": "\"Attend, regarde ce que j'ai trouvé sur le chemin.\" <span class='subtext'>Il vous montrer une petite boite fermée à clef.</span> \"Tu veux pas qu'on essaye de l'ouvrir ?\"",
+            "music": ["https://audio.jukehost.co.uk/kHu5MuAViuTduULyl4iy0DdZnoqt8tnJ", 1],
+            "buttons":
+            [
+                {"text": "\"Franchement balec frere\"", "goToIndex": 6},
+                {"text": "<i>Prendre la boite et commencer à l'examiner</i>", "goToIndex": 7}
+            ],
+            "background": "https://media.discordapp.net/attachments/900427317644509185/900428011541782560/bg000.png?width=720&height=408",
+            "img": "https://media.discordapp.net/attachments/900427317644509185/900462642735501312/Gonta_3.png"
+        },
+        {
+            "body": "\"Comme tu voudras, c'est dommage...\"",
+            "music": ["https://audio.jukehost.co.uk/kHu5MuAViuTduULyl4iy0DdZnoqt8tnJ", 1],
+            "buttons": [{"text": "<i class='bx bx-revision'></i>", "goToIndex": 1, "effect": "RESTART"}],
+            "background": "https://media.discordapp.net/attachments/900427317644509185/900428011541782560/bg000.png?width=720&height=408",
+            "img": "https://media.discordapp.net/attachments/900427317644509185/900468493122695228/Gonta_11.png"
+        },
+        {
+            "body": "Ca ne ressemble pas vraiment à une boite...",
+            "music": ["https://audio.jukehost.co.uk/kHu5MuAViuTduULyl4iy0DdZnoqt8tnJ", 1],
+            "buttons": [{"text": "<i class='bx bx-skip-next' ></i>", "goToIndex": 8}],
+            "background": "https://media.discordapp.net/attachments/900427317644509185/900428011541782560/bg000.png?width=720&height=408",
+            "img": "https://media.discordapp.net/attachments/900427317644509185/900469379593035837/Psyche-Lock.png"
+        },
+        {
+            "body": "Voyons voir ce qu'on peut faire pour l'ouvrir.",
+            "actions": "Choisissez une manière d'ouvrir la boite.",
+            "music": ["https://audio.jukehost.co.uk/kHu5MuAViuTduULyl4iy0DdZnoqt8tnJ", 1],
+            "buttons":
+            [
+                {"text": "La lancer au sol", "goToIndex": 9, "condition": "SKILL", "conditionData": [true, "boxeur"], "effect": "ADD_OBJECT", "effectData": ["inventory", "vieille clef"]},
+                {"text": "Crocheter la serure", "goToIndex": 9, "condition": "SKILL", "conditionData": [true, "crochetage"], "effect": "ADD_OBJECT", "effectData": ["inventory", "vieille clef"]},
+                {"text": "\"Finalement j'ai plus envie\"", "goToIndex": 6}
+            ],
+            "background": "https://media.discordapp.net/attachments/900427317644509185/900428011541782560/bg000.png?width=720&height=408",
+            "img": "https://media.discordapp.net/attachments/900427317644509185/900469379593035837/Psyche-Lock.png"
+        },
+        {
+            "title": "Gonta",
+            "body": "\"Faut te calmer mec, t'vais pas besoin de faire ça !\"",
+            "music": ["https://audio.jukehost.co.uk/kHu5MuAViuTduULyl4iy0DdZnoqt8tnJ", 1],
+            "buttons": [{"text": "<i class='bx bx-skip-next' ></i>", "goToIndex": 10}],
+            "background": "https://media.discordapp.net/attachments/900427317644509185/900428011541782560/bg000.png?width=720&height=408",
+            "img": "https://media.discordapp.net/attachments/900427317644509185/900472698214432818/Gonta_12.png"
+        },
+        {
+            "title": "Gonta",
+            "body": "\"Finalement c'était juste une clef dedans.\" <span class='subtext'>Il regarde l'objet avec attention.</span> \"Mais c'est pas le logo de notre école ça ? Il faut aller fouiller les salles cette aprem !\"",
+            "music": ["https://audio.jukehost.co.uk/kHu5MuAViuTduULyl4iy0DdZnoqt8tnJ", 1],
+            "buttons": [{"text": "<i class='bx bx-skip-next' ></i>", "goToIndex": 11}],
+            "background": "https://media.discordapp.net/attachments/900427317644509185/900428011541782560/bg000.png?width=720&height=408",
+            "img": "https://media.discordapp.net/attachments/900427317644509185/900462642735501312/Gonta_3.png"
+        },
+        {
+            "body": "Bon, il est 17h, il serait temps d'aller fouiller le batiment. Gonta ne devrait pas trop tarder à quitter son cours.",
+            "music": ["https://audio.jukehost.co.uk/m4xDlgrVCe5iPm9BjDvUBJVN1CKhTnvY", 1],
+            "buttons": [{"text": "<i class='bx bx-skip-next' ></i>", "goToIndex": 12}],
+            "background": "https://media.discordapp.net/attachments/900427317644509185/900477233259495504/bg002.png?width=720&height=408"
+        }
+    ]
+}

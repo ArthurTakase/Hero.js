@@ -2,120 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background-color: rgb(40, 42, 61);
-    color: white;
-    object-fit:fill;
-    font-family: 'Roboto', sans-serif;
-    background: black;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-.version {
-    z-index: 100;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    margin: 0.5rem;
-    color: white;
-    text-align: right;
-    font-size: 0.8rem;
-}
-
-#hero-js-form {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background: rgba(0, 0, 0, 0.445);
-}
-
-#hero-js-form p {
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    font-size: 0.8rem;
-    color: rgb(255, 255, 255);
-    opacity: 0.8;
-}
-
-#hero-js-form a {
-    text-decoration: none;
-    opacity: 1;
-    color: rgb(132, 167, 196);
-    text-decoration: underline;
-}
-
-#hero-js-form h1 {
-    font-size: 11rem;
-    font-family: 'Bebas Neue', cursive;
-    margin: 0;
-    filter: drop-shadow(1px 1px 0 black);
-}
-
-.title {
-    position: fixed;
-    top: 20%;
-    animation: title-animation 5s infinite ease-in-out;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-@keyframes title-animation {
-    0% {transform: translateY(0px);}
-    50% {transform: translateY(10px);}
-    100% {transform: translateY(0px);}
-}
-
-.hero-js-subtitle {
-    font-size: .8rem;
-    transform: translateY(-25px);
-}
-
-.custom-file-input {
-    visibility: hidden;
-}
-
-.custom-file-input-label {
-    position: fixed;
-    border: solid;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.342);
-    transition-duration: 0.2s;
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.21);
-    top: 70%;
-    backdrop-filter: blur(20px);
-}
-
-.custom-file-input-label:hover {
-    /* transform: scale(1.02); */
-    animation: button-animation 1.5s infinite ease-in-out;
-}
-
-@keyframes button-animation {
-    0% {transform: scale(1);}
-    50% {transform: scale(1.1);}
-    100% {transform: scale(1);}
-}
-
 /***********************************/
 /*            Player HUD           */
 /***********************************/
@@ -244,7 +130,7 @@ body {
 /***********************************/
 
 .hero-js-dialog {
-    width: 800px;
+    width: 100%;
     position: fixed;
     bottom: 0;
     display: flex;
@@ -264,10 +150,12 @@ body {
 }
 
 .hero-js-dialog-img img {
-    height: 70vw;
-    max-height: 70vh;
+    height: 95vw;
+    max-height: 80vh;
+    width: 100%;
+    object-fit: contain;
     filter: drop-shadow(1rem 1rem 1rem rgba(0, 0, 0, 0.288));
-    /* animation: dialog-img 2s ease-in-out infinite; */
+    transform: translateY(-30px);
 }
 
 @keyframes dialog-img {
@@ -280,12 +168,14 @@ body {
     background: var(--dialogHeaderColor);
     backdrop-filter: blur(30px);
     border: solid var(--dialogHeaderBorderColor) 0.1rem;
-    width: 50%;
-    border-radius: 1rem;
-    padding: 0.5rem;
+    min-width: 50%;
+    border-radius: .3rem;
+    padding: 0.2rem;
+    padding-right: .5rem;
+    padding-left: .5rem;
     text-align: center;
     margin-bottom: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: bold;
     color: var(--dialogHeaderTextColor);
 }
@@ -294,11 +184,11 @@ body {
     width: 95%;
     text-align: justify;
     background: var(--dialogBodyColor);
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     border: solid var(--dialogBodyBorderColor) 0.1rem;
     backdrop-filter: blur(30px);
     padding: 1rem;
-    border-radius: 1rem;
+    border-radius: .3rem;
     color: var(--dialogBodyTextColor);
 }
 
@@ -307,12 +197,14 @@ body {
     margin: 1rem;
     margin-bottom: 0;
     filter: drop-shadow(0 1px 1px black);
+    display: none;
 }
 
 .hero-js-dialog-button-zone {
-    margin: 1rem;
-    width: 100%;
+    margin: 0.5rem;
+    width: 97%;
     display: flex;
+    overflow-x: scroll;
 }
 
 .hero-js-button {
@@ -320,12 +212,13 @@ body {
     text-decoration: none;
     border: none;
     font-style: inherit;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     color: white;
     padding: 0.5rem;
-    border-radius: 0.5rem;
+    border-radius: 0.3rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+    min-width: 40%;
 }
 
 .hero-js-activate {
@@ -339,7 +232,6 @@ body {
     background-color: var(--buttonDisableColor);
     color: var(--buttonDisabletextColor);
     cursor: not-allowed;
-    transform: rotate(2deg);
 }
 
 .hero-js-activate:hover {
@@ -381,37 +273,34 @@ body {
 
 #hero-js-notification {
     position: fixed;
-    left: 0;
     top: -120px;
     display: flex;
-    margin: 5px;
-    border-radius: 1rem;
+    border-radius: 0 0 .5rem .5rem;
     backdrop-filter: blur(30px);
     flex-direction: column;
     animation: notification-animation 4s linear;
     background: var(--notificationBodyColor);
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     z-index: 100;
 }
 
 .notif-title {
-    border-radius: 1rem 1rem 0 0;
-    /* background: rgba(255, 255, 255, 0.774); */
     background: var(--notificationHeaderColor);
     backdrop-filter: blur(50px);
     padding-left: 1rem;
     padding-right: 2rem;
-    padding-top: 0.7rem;
-    padding-bottom: 0.7rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
     color: var(--notificationHeaderTextColor);
 }
 
 .notif-body {
-    margin: 1rem;
+    margin-top: .4rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
     display: inline-block;
     height: 25px;
     color: var(--notificationBodyTextColor);
-    margin-right: 1.5rem;
 }
 
 @keyframes notification-animation {
@@ -430,26 +319,12 @@ body {
     top: -30px;
     background: var(--fightHudInfosColor);
     padding: 1rem;
-    border-radius: 1rem;
+    border-radius: .3rem;
     border: solid var(--fightHudInfosBorderColor) 0.1rem;
     box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.281);
     backdrop-filter: blur(20px);
     font-size: 1.2rem;
-    color: var(--fightHudInfosTextColor)
-}
-
-#fight-mode {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    font-size: 2rem;
-    color: rgb(199, 35, 35);
-    animation: fight-mode-anime 3s ease-in-out infinite;
-    opacity: 0.6;
-}
-
-@keyframes fight-mode-anime {
-    50% {opacity: 1; transform: scale(1.01);}
+    color: var(--fightHudInfosTextColor);
 }
 
 /***********************************/
@@ -481,22 +356,29 @@ body {
 
 #dice {
     z-index: 500;
-    height: 5rem;
-    width: 5rem;
+    height: 3rem;
+    width: 3rem;
     position: fixed;
-    top: 30px;
-    left: 30px;
+    left: 1rem;
+    top: 1rem;
     border-radius: 0.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1rem;
 
     transform-style: preserve-3d;
     transform: rotate3d(-0.5, -0.5, -0.5, -20deg);
     animation: dice-roll-anime 0.3 linear;
-    /* transform: rotate3d(-0.5, -0.5, -0.5, 20deg); */
+}
+
+@media screen and (min-width: 768px) and (min-height: 768px) {
+    #dice {
+        top: 20px;
+        left: 68px;
+        zoom: 1.5;
+    }
 }
 
 @keyframes dice-roll-anime {
@@ -517,29 +399,136 @@ body {
     align-items: center;
 }
 
-#face-top {transform: rotateX(90deg) translateZ(2.5rem); background: #c4c4c4;}
-#face-front {transform: translateZ(2.5rem);}
-#face-right {transform: rotateY(90deg) translateZ(2.5rem); background: #c4c4c4;}
-#face-back {transform: translateZ(-2.5rem); background: #c4c4c4;}
-#face-left {transform: rotateY(90deg) translateZ(-2.5rem); background: #c4c4c4;}
-#face-bottom {transform: rotateX(90deg) translateZ(-2.5rem); background: #979797;}
+#face-top {transform: rotateX(90deg) translateZ(1.5rem); background: #c4c4c4;}
+#face-front {transform: translateZ(1.5rem);}
+#face-right {transform: rotateY(90deg) translateZ(1.5rem); background: #c4c4c4;}
+#face-back {transform: translateZ(-1.5rem); background: #c4c4c4;}
+#face-left {transform: rotateY(90deg) translateZ(-1.5rem); background: #c4c4c4;}
+#face-bottom {transform: rotateX(90deg) translateZ(-1.5rem); background: #979797;}
 
-.hero-js-save {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 10;
-    font-size: 2rem;
-    margin: 0.5rem;
-    padding: 0;
-    transition-duration: 0.3s;
-    background: transparent;
-    border: none;
-    opacity: 0.4;
-}
+/*===========================================================*/
 
-.hero-js-save:hover {
-    transform: scale(1.1) rotate(-5deg);
-    opacity: 1;
-    cursor: pointer;
+/* Interface pc */
+@media screen and (min-width: 768px) and (min-height: 768px) {
+    #hero-js-notification {
+        left: 68px;
+        border-radius: 0 0 .5rem 0;
+        font-size: 1.2rem;
+    }
+
+    .notif-title {
+        padding-left: 1rem;
+        padding-right: 2rem;
+        padding-top: 0.7rem;
+        padding-bottom: 0.7rem;
+    }
+    
+    .notif-body {
+        margin: 1rem;
+    }
+
+    .hero-js-dialog {
+        width: 800px;
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 2;
+    }
+    
+    .hero-js-dialog-img {
+        position: fixed;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: dialog-img 2s ease-in-out infinite;
+    }
+    
+    .hero-js-dialog-img img {
+        height: 80vw;
+        max-height: 80vh;
+        filter: drop-shadow(1rem 1rem 1rem rgba(0, 0, 0, 0.288));
+    }
+    
+    @keyframes dialog-img {
+        0% {transform: translateY(0px);}
+        50% {transform: translateY(-5px);}
+        100% {transform: translateY(0px);}
+    }
+    
+    .hero-js-dialog-header {
+        background: var(--dialogHeaderColor);
+        backdrop-filter: blur(30px);
+        border: solid var(--dialogHeaderBorderColor) 0.1rem;
+        width: 50%;
+        border-radius: .3rem;
+        padding: 0.5rem;
+        text-align: center;
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: var(--dialogHeaderTextColor);
+    }
+    
+    .hero-js-dialog-body {
+        width: 95%;
+        text-align: justify;
+        background: var(--dialogBodyColor);
+        font-size: 1rem;
+        border: solid var(--dialogBodyBorderColor) 0.1rem;
+        backdrop-filter: blur(30px);
+        padding: 1rem;
+        border-radius: .3rem;
+        color: var(--dialogBodyTextColor);
+    }
+    
+    .hero-js-dialog-action {
+        display: flex;
+        font-style: italic;
+        margin: 1rem;
+        margin-bottom: 0;
+        filter: drop-shadow(0 1px 1px black);
+    }
+    
+    .hero-js-dialog-button-zone {
+        margin: 1rem;
+        width: 97%;
+        display: flex;
+        overflow-x: unset;
+    }
+    
+    .hero-js-button {
+        flex: 1;
+        text-decoration: none;
+        border: none;
+        font-style: inherit;
+        font-size: 1rem;
+        color: white;
+        padding: 0.5rem;
+        border-radius: 0.3rem;
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        min-width: unset;
+    }
+    
+    .hero-js-activate {
+        opacity: 0.9;
+        background-color: var(--buttonColor);
+        color: var(--buttonTextColor);
+    }
+    
+    .hero-js-not-activate {
+        opacity: 0.3;
+        background-color: var(--buttonDisableColor);
+        color: var(--buttonDisabletextColor);
+        cursor: not-allowed;
+    }
+    
+    .hero-js-activate:hover {
+        opacity: 1;
+        cursor: pointer;
+    }
 }

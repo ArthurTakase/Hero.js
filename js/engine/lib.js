@@ -18,7 +18,6 @@ let fightLimite
 let player = null
 let fight = null
 // Affichage
-let showTitleHUD = true
 let showPlayerAbility = true
 let showPlayerStamina = true
 let showPlayerSkills = true
@@ -134,19 +133,18 @@ function restart() {
     inventoryList = []
     specialList = []
     player = null
-    showTitleHUD = true
     showPlayerAbility = true
     showPlayerStamina = true
     showPlayerSkills = true
     showPlayerGold = true
     showPlayerInventory = true
     showPlayerSpecial = true
-    
+
     initDialog(defaultJSON)
     initGameInfos(defaultJSON)
     initGameplay(defaultJSON)
     initPlayer(defaultJSON)
-    allDialog[beginNumber].show()
+    allDialog[defaultJSON.gameInfos.startNumber].show()
 }
 
 function getObjectName(object) {
@@ -155,19 +153,18 @@ function getObjectName(object) {
     return object.name
 }
 
-function wait(milliseconds){
-    var start = new Date().getTime();
-    var end = 0;
-
-    while((end - start) < milliseconds){
-        end = new Date().getTime();
-    }
-}
-
 function setColor(json) {
     const root = document.documentElement.style
 
     for (elem in json.color) {
-        root.setProperty('--' + json.color[elem][0] + 'Color', json.color[elem][1])
+        root.setProperty('--' + json.color[elem][0], json.color[elem][1])
     }
 }
+
+function isPlaying(audelem) {
+    return !audelem.paused;
+}
+
+function isMobile() {
+    return ((window.innerWidth <= 768) || (window.innerHeight <= 768));
+  }

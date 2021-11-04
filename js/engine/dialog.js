@@ -1,12 +1,13 @@
 class Dialog {
-    constructor(title, dialog, action, buttons, img, background, music) {
+    constructor(title, dialog, action, buttons, img, background, music, animation) {
         this.title = title  // str
         this.dialog = dialog //str
         this.action = action // str
         this.buttons = buttons // Liste:str
         this.img = img // str
         this.background = background // str
-        this.music = music
+        this.music = music // [str, float]
+        this.animation = animation // str
     }
 
     show() {
@@ -52,7 +53,6 @@ class Dialog {
                                                             action +
                                                             '<div class="hero-js-dialog-button-zone">' + buttons + '</div>\
                                                             </div>'
-        if (showTitleHUD) {showTitle()}
         if (player != null) {player.show()}
 
         if (music == undefined) {music = new Music(this.music); music.play()}

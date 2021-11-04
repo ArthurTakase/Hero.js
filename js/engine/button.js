@@ -1,5 +1,5 @@
 class Button {
-    constructor(text, goToIndex, condition, conditionData, effect, effectData, notif) {
+    constructor(text, goToIndex, condition, conditionData, effect, effectData, notif, sound) {
         this.text = text
         this.goToIndex = goToIndex
         this.condition = condition
@@ -7,6 +7,7 @@ class Button {
         this.effect = effect
         this.effectData = effectData
         this.notif = notif
+        this.sound = sound
     }
 }
 
@@ -100,6 +101,7 @@ function setEffect(effect, indexBtn, oldIndexDialog, data) {
                 player.stamina = 0
             return temp2
         case 13: launchFight(data); return "FIGHT"
+        case 14: restart(); return
         default: break
     }
     return null
@@ -110,11 +112,11 @@ function setNotif(notif, effect, data) {
         return
 
     var notifHTML = '<div id="hero-js-notification">\
-                            <div class="notif-title">ℹ️ Notification</div><div class="notif-body">'
+                            <div class="notif-title"><i class="bx bx-info-circle"></i> Infos</div><div class="notif-body">'
     if (notif == 'undefined') {
         switch (effect) {
-            case 1: notifHTML += getObjectName(data) + " retiré de votre inventaire.</p></div>"; break
-            case 2: notifHTML += getObjectName(data) + " ajouté à votre inventaire.</p></div>"; break
+            case 1: notifHTML += "Remove " + getObjectName(data) + "</p></div>"; break
+            case 2: notifHTML += "Add " + getObjectName(data) + "</p></div>"; break
             case 3: notifHTML += "-" + data + " gold(s).</div></div>"; break
             case 4: notifHTML += "+" + data + " gold(s).</div></div>"; break
             case 5: notifHTML += "-" + data + " meal(s).</div></div>"; break
@@ -134,11 +136,15 @@ function switchDialog(indexDialog, condition, indexBtn, oldIndexDialog, effect, 
     var temp
 
     if (checkCondition(condition, indexBtn, oldIndexDialog, "test")) {
-        currentNumber = indexDialog
+        if (indexDialog == null || indexDialog == undefined) {currentNumber += 1}
+        else {currentNumber = indexDialog}
         temp = setEffect(effect, indexBtn, oldIndexDialog, null)
+        allDialog[oldIndexDialog].buttons[indexBtn].sound.play()
+        // console.log(allDialog[oldIndexDialog].buttons[indexBtn].sound)
         if (temp != "FIGHT") {
             allDialog[currentNumber].show(player)
             setNotif(notif, effect, temp)
+            anime(allDialog[currentNumber].animation)
         }
     }
 }

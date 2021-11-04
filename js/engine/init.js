@@ -36,6 +36,7 @@ function initDialog(json) {
                 case "HEAL": tempEffect = 11; break
                 case "HURT": tempEffect = 12; break
                 case "FIGHT": tempEffect = 13; break
+                case "RESTART": tempEffect = 14; break
                 default: tempEffect = null; break
             }
 
@@ -48,7 +49,8 @@ function initDialog(json) {
                     currentDialog.buttons[b].conditionData,
                     tempEffect,
                     currentDialog.buttons[b].effectData,
-                    currentDialog.buttons[b].notification
+                    currentDialog.buttons[b].notification,
+                    new Sound(currentDialog.buttons[b].sound)
                 )
             )
         }
@@ -62,7 +64,8 @@ function initDialog(json) {
                 allButtons,
                 currentDialog.img,
                 currentDialog.background,
-                currentDialog.music
+                currentDialog.music,
+                currentDialog.animation
             )
         )
     }
@@ -70,14 +73,9 @@ function initDialog(json) {
 
 function initGameInfos(json) {
     gameTitle = json.gameInfos.title
-    if (json.gameInfos.currentNumber == undefined)
-        currentNumber = json.gameInfos.startNumber
-    else
-        currentNumber = json.gameInfos.currentNumber
-    beginNumber = json.gameInfos.startNumber
+    currentNumber = json.gameInfos.startNumber
     maxDice = json.gameInfos.maxDice
     maxSkill = json.gameInfos.maxSkill
-    showTitleHUD = json.gameInfos.showTitle
     showPlayerAbility = json.gameInfos.showPlayerAbility
     showPlayerStamina = json.gameInfos.showPlayerStamina
     showPlayerSkills = json.gameInfos.showPlayerSkills
@@ -118,12 +116,10 @@ function initGameplay(json) {
     }
 
     fightTable = json.gameplay.fightTable
-    fightLimite = Math.floor(fightTable.length / 2)
+    if (fightTable != null && fightTable != undefined) {fightLimite = Math.floor(fightTable.length / 2)}
 }
 
 function initPlayer(json) {
-    var temp
-
     if (json.player == null)
         return
 
@@ -148,13 +144,9 @@ function initPlayer(json) {
         if (json.player.skills[k] == "RANDOM_IN_CLASS") {
             player.setSkill(randomFromList(skillList))
         } else if (json.player.skills[k] == "RANDOM_IN_CLASS_UNIQUE") {
-            temp = randomFromListUnique(skillList, player.skill)
-            if (temp != null)
-                player.setSkill(temp)
+            player.setSkill(randomFromListUnique(skillList, player.skill))
         } else {
-            temp = getFromName(json.player.skills[k], skillList)
-            if(temp != null)
-                player.setSkill(temp)
+            player.setSkill(getFromName(json.player.skills[k], skillList))
         }
     }
 }
@@ -178,6 +170,7 @@ function initGame(file) {
         initPlayer(defaultJSON)
         initSound(defaultJSON)
         setColor(defaultJSON)
+        reloadSave(defaultJSON)
         setDefaultHUD()
         allDialog[currentNumber].show()
     };
