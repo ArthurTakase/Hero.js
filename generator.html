@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <!-- <script src="https://kit.fontawesome.com/f4ace78f68.js" crossorigin="anonymous"></script> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+        <link rel="stylesheet" href="css/generator.css">
+        <link rel="stylesheet" href="css/collapse.css">
+        <link rel="icon" type="image/png" href="img/icon.png" />
+        <title>Hero.js | Generator</title>
+    </head>
+
+    <body>
+        <!--
+        Gameinfos
+            "title": "Nom du jeu",          // Titre du jeu
+            "startNumber": 1,               // Premier dialogue à afficher
+            "defeatNumber": 0,              // Numéro du dialogue de mort par défaut
+            "maxDice": 8,                   // Valeur maximale pour les lancés de dés
+            "maxSkills": 0,                 // Nombre max de compétences pour le joueur
+            "showPlayerAbility": false,     // OPTIONNEL
+            "showPlayerStamina": false,     // OPTIONNEL
+            "showPlayerSkills": false,      // OPTIONNEL
+            "showPlayerGold": false,        // OPTIONNEL
+            "showPlayerInventory": false,   // OPTIONNEL
+        
+        -->
+        <!--  -->
+
+        <h1>Heros.js Generator</h1>
+
+        <button type="button" class="collapsible">GameInfos</button>
+        <div class="content">
+        <div class="dataform">
+            
+            <input type="text" name="title" id="title" placeholder="Game Title" title="Game title" required>
+            <input type="number" name="startNumber" id="startNumber" placeholder="First Dialog" title="First Dialog" required>
+            <input type="number" name="defeatNumber" id="defeatNumber" placeholder="Defeat Dialog" title="Defeat Dialog" required>
+            <input type="number" name="maxDice" id="maxDice" placeholder="Max Dice" title="Max Dice" required>
+            <input type="number" name="maxSkills" id="maxSkills" placeholder="Max Skills" title="Max Skills" required>
+            
+            <br>
+            <div class="data">
+                <input type="checkbox" name="showPlayerStamina" id="showPlayerStamina" required checked>
+                <label for="showPlayerStamina">Show Stamina</label>
+            </div>
+
+            <div class="data">
+                <input type="checkbox" name="showPlayerAbility" id="showPlayerAbility" required checked>
+                <label for="showPlayerAbility">Show Ability</label>
+            </div>
+            
+            <div class="data">
+                <input type="checkbox" name="showPlayerSkills" id="showPlayerSkills" required checked>
+                <label for="showPlayerSkills">Show Skills</label>
+            </div>
+            
+            <div class="data">
+                <input type="checkbox" name="showPlayerGold" id="showPlayerGold" required checked>
+                <label for="showPlayerGold">Show Gold</label>
+            </div>
+            
+            <div class="data">
+                <input type="checkbox" name="showPlayerInventory" id="showPlayerInventory" required checked>
+                <label for="showPlayerInventory">Show Inventory</label>
+            </div>
+        </div>
+        </div>
+        
+        <!-- <button type="button" class="collapsible">GamePlay</button>
+        <div class="content">
+            <p>Lorem ipsum...</p>
+        </div> -->
+
+        <!-- <button type="button" class="collapsible">Color</button>
+        <div class="content">
+            <p>Lorem ipsum...</p>
+        </div> -->
+
+        <!-- <button type="button" class="collapsible">Player</button>
+        <div class="content">
+            <p>Lorem ipsum...</p>
+        </div> -->
+
+        <button type="button" class="collapsible">Music</button>
+        <div class="content">
+        <div class="dataform">
+
+            <div class="data">
+                <input type="url" name="hurt" id="hurt" placeholder="Hurt Sound (not required)" title="Hurt Sound">
+                <input type="range" id="volumeHurt" name="volumeHurt" min="0" max="100" step="1" title="Hurt Volume">
+            </div>
+
+            <div class="data">
+                <input type="url" name="victory" id="victory" placeholder="Victory Sound (not required)" title="Victory Sound">
+                <input type="range" id="volumeVictory" name="volumeVictory" min="0" max="100" step="1" title="Victory Volume">
+            </div>
+
+            <div class="data">
+                <input type="url" name="defeat" id="defeat" placeholder="Defeat Sound (not required)" title="Defeat Sound">
+                <input type="range" id="volumeDefeat" name="volumeDefeat" min="0" max="100" step="1" title="Defeat Volume">
+            </div>
+
+            <div class="data">
+                <input type="url" name="fight" id="fight" placeholder="Fight Music (not required)" title="Fight Music">
+                <input type="range" id="volumeFight" name="volumeFight" min="0" max="100" step="1" title="Fight Volume">
+            </div>
+
+        </div>
+        </div>
+
+        <!-- <button type="button" class="collapsible">Dialogs</button>
+        <div class="content">
+            <p>Lorem ipsum...</p>
+        </div> -->
+
+        <button id="submit" onclick="submit()">Generate</button>
+
+        <div id="return"></div>
+
+        <script src="js/generator/export.js"></script>
+        <script src="js/generator/generator.js"></script>
+        <script src="js/generator/collapse.js"></script>
+    </body>
+
+</html>
