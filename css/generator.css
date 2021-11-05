@@ -1,5 +1,9 @@
 h2 {padding: 0; margin: .5rem 0;}
-* {font-family: 'Poppins', sans-serif;}
+* {
+    font-family: 'Poppins', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
 
 .dataform {
     display: flex;
@@ -9,6 +13,7 @@ h2 {padding: 0; margin: .5rem 0;}
     padding: .5rem;
     width: 100%;
     padding-bottom: 1rem;
+    margin-top: 5rem;
 }
 
 body {

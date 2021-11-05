@@ -1,5 +1,6 @@
 let skillsList = []
 let objectsList = []
+let specialList = []
 
 function addSkill() {
     var skillName = document.getElementById('skillName').value
@@ -28,9 +29,55 @@ function addSkill() {
     document.getElementById('skillAbility').value = ""
     document.getElementById('skillStamina').value = ""
 
+    document.getElementById('skillName').focus()
+
     // Ajouter dans les listes pour le joueur et les conditions, etc...
 }
 
 function addObject() {
-    console.log("ajout d'un item")
+
+    const liste = document.getElementById('objectList')
+    var objectName = document.getElementById('objectName')
+    var objectType = document.getElementById('objectType')
+    var objectAbility = document.getElementById('itemAbility')
+    var objectStamina = document.getElementById('itemStamina')
+    var objectGold = document.getElementById('itemGold')
+    var objectMeal = document.getElementById('itemMeal')
+    var json = {}
+
+    json.name = objectName.value
+    json.type = objectType.value
+    json.data = [
+        parseInt(objectAbility.value),
+        parseInt(objectStamina.value),
+        parseInt(objectGold.value),
+        parseInt(objectMeal.value)
+    ]
+
+    
+    if (objectsList.length == 0 && specialList.length == 0) {
+        liste.style.background = '#40424b'
+        liste.style.margin = '1rem'
+        liste.innerHTML += '<tr class="tableHeader"><th>Name</th><th>Type</th><th>Ability</th><th>Stamina</th><th>Gold</th><th>Meal</th></tr>'
+    }
+    
+    if (json.type == "special") {specialList.push(json)}
+    else if (json.type == "inventory") {objectsList.push(json)}
+
+    liste.innerHTML += '<tr><td>' + objectName.value + '</td><td>' +
+                        objectType.value + '</td><td>' +
+                        objectAbility.value + '</td><td>' +
+                        objectStamina.value + '</td><td>' +
+                        objectGold.value + '</td><td>' +
+                        objectMeal.value     + '</td></tr>'
+    
+    // Reset des valeurs de l'input
+    objectAbility.value = ""
+    objectGold.value = ""
+    objectMeal.value = ""
+    objectName.value = ""
+    objectStamina.value = ""
+    objectType.value = ""
+
+    objectName.focus()
 }

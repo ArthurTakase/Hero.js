@@ -15,11 +15,4 @@ En effet, tous les codes importants se trouvent dans le moteur, les utilisateurs
 
 > N'hésitez pas à participer au developpement du projet !
 
-### TODO
-- [ ] Nouvelle interface mobile
-- [ ] Mettre à jour l'interface des dialogues pour correspondre à la nouvelle navbar
-- [ ] Terminer mini histoire Danganronpa
-- [ ] Mettre à jour la doc
-- [ ] Donner une couleur specifique aux objets spéciaux
-- [ ] Clean des éléments useless des fichiers css
-- [ ] Essayer de compiler l'app pour android
+https://github.com/magjac/d3-graphviz#creating-a-graphviz-renderer

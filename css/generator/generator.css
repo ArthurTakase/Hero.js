@@ -1,0 +1,136 @@
+body {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    /* height: 100%; */
+    flex-direction: column;
+    overflow-x: hidden;
+    background: #36383f;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+#return {
+    position: fixed;
+    bottom: .5rem;
+    z-index: 10;
+}
+
+/* ===== SECTIONS ===== */
+
+.section {
+    /* margin-top: 15rem; */
+    display: none;
+    transition: max-height 0.3s ease-out;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.section:first-child {
+    display: flex;
+}
+
+/* ===== SCROLL BAR ===== */
+
+::-webkit-scrollbar {width: 10px;}
+::-webkit-scrollbar-track {background: #36383f;}
+::-webkit-scrollbar-thumb {background: #1d1d22; border-radius: .5rem;}
+::-webkit-scrollbar-thumb:hover {background: #202225;}
+
+/* ===== FORM ===== */
+
+.dataform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border: saddlebrown solid; */
+    width: 80%;
+}
+
+.data {
+    display: flex;
+    margin: .2rem;
+}
+
+.data input {
+    width: auto;
+}
+
+input {
+    margin: .2rem;
+    background-color: #40434b;
+    width: 100%;
+    padding: .5rem;
+    border-radius: .5rem;
+    border: none;
+    font-size: 1rem;
+    color: white;
+}
+
+input::placeholder {
+    color: #878b96;
+    font-size: .9rem;
+}
+
+.music {
+    /* border: solid; */
+}
+
+.music .data {
+    width: 100%;
+}
+
+.music .data input {
+    width: 100%;
+}
+
+.music .data input:first-child {
+    flex: 4;
+    margin-right: 1.5rem;
+}
+
+.music .data input:last-child {
+    flex: 1;
+}
+
+/* ===== DATA LIST ===== */
+
+.datalist {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* border: saddlebrown solid; */
+}
+
+.dataAdd {
+    display: flex;
+    width: 100%;
+}
+
+.add {
+    border: none;
+    color: white;
+    background: none;
+    font-size: 1.5rem;
+}
+
+.add:hover {
+    cursor: pointer;
+}
+
+table {width: 100%; border-radius: .5rem;}
+tr, td, th {text-align: center;}
+td, th {padding: .2rem;}
+.tableHeader {background: #2f2f36;}
+.tableHeader th:first-child {border-radius: .5rem 0 0 0;}
+.tableHeader th:last-child {border-radius: 0 .5rem 0 0;}
+
+#skillsList td {width: 33%;}
+#objectList td {width: 16.6%;}

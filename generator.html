@@ -6,166 +6,212 @@
         <!-- <script src="https://kit.fontawesome.com/f4ace78f68.js" crossorigin="anonymous"></script> -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-        <link rel="stylesheet" href="css/generator.css">
-        <link rel="stylesheet" href="css/collapse.css">
+        <!-- <link rel="stylesheet" href="css/generator.css"> -->
+        <!-- <link rel="stylesheet" href="css/collapse.css"> -->
+        <link rel="stylesheet" href="css/generator/navbar.css">
+        <link rel="stylesheet" href="css/generator/generator.css">
         <link rel="icon" type="image/png" href="img/icon.png" />
         <title>Hero.js | Generator</title>
     </head>
 
     <body>
-        <!--
-        Gameinfos
-            "title": "Nom du jeu",          // Titre du jeu
-            "startNumber": 1,               // Premier dialogue à afficher
-            "defeatNumber": 0,              // Numéro du dialogue de mort par défaut
-            "maxDice": 8,                   // Valeur maximale pour les lancés de dés
-            "maxSkills": 0,                 // Nombre max de compétences pour le joueur
-            "showPlayerAbility": false,     // OPTIONNEL
-            "showPlayerStamina": false,     // OPTIONNEL
-            "showPlayerSkills": false,      // OPTIONNEL
-            "showPlayerGold": false,        // OPTIONNEL
-            "showPlayerInventory": false,   // OPTIONNEL
-        
-        -->
-        <!--  -->
 
-        <h1>Heros.js Generator</h1>
+        <!-- ===== NAVBAR ===== -->
+        <nav>
 
-        <button type="button" class="collapsible">GameInfos</button>
-        <div class="content">
-        <div class="dataform">
-            
-            <input type="text" name="title" id="title" placeholder="Game Title" title="Game title" required>
-            <input type="number" name="startNumber" id="startNumber" placeholder="First Dialog" title="First Dialog" required>
-            <input type="number" name="defeatNumber" id="defeatNumber" placeholder="Defeat Dialog" title="Defeat Dialog" required>
-            <input type="number" name="maxDice" id="maxDice" placeholder="Max Dice" title="Max Dice" required>
-            <input type="number" name="maxSkills" id="maxSkills" placeholder="Max Skills" title="Max Skills" required>
-            
-            <br>
-            <div class="data">
-                <input type="checkbox" name="showPlayerStamina" id="showPlayerStamina" required checked>
-                <label for="showPlayerStamina">Show Stamina</label>
-            </div>
+            <ul class="nav-list">
+                <li class="nav-item">Heros.js Generator</li>
+                <li class="nav-item" id="gameInfosBtn" tabindex="0" onclick="show('gameInfos')">Infos</li>
+                <li class="nav-item" id="dataBtn" tabindex="0" onclick="show('data')">Data</li>
+                <li class="nav-item" id="musicBtn" tabindex="0" onclick="show('music')">Music</li>
+                <li class="nav-item wip" id="playerBtn" tabindex="0">Player</li>
+                <li class="nav-item wip" id="dialogBtn" tabindex="0">Dialogs</li>
+                <li class="nav-item item-other wip" tabindex="0" title="Dialog Map"><i class='bx bx-sitemap' ></i></li>
+                <li class="nav-item item-other wip" tabindex="0" title="Import"><i class='bx bx-import' ></i></li>
+                <li class="nav-item item-other" tabindex="0" title="Save (CTRL + S)" onclick="submit()"><i class='bx bx-save'></i></li>
+                <!-- <li class="nav-item" tabindex="0"></li> -->
+            </ul>
 
-            <div class="data">
-                <input type="checkbox" name="showPlayerAbility" id="showPlayerAbility" required checked>
-                <label for="showPlayerAbility">Show Ability</label>
-            </div>
-            
-            <div class="data">
-                <input type="checkbox" name="showPlayerSkills" id="showPlayerSkills" required checked>
-                <label for="showPlayerSkills">Show Skills</label>
-            </div>
-            
-            <div class="data">
-                <input type="checkbox" name="showPlayerGold" id="showPlayerGold" required checked>
-                <label for="showPlayerGold">Show Gold</label>
-            </div>
-            
-            <div class="data">
-                <input type="checkbox" name="showPlayerInventory" id="showPlayerInventory" required checked>
-                <label for="showPlayerInventory">Show Inventory</label>
-            </div>
-        </div>
-        </div>
-        
-        <!-- "gameplay":
-    {
-        "skills":
-        [
-            {"name": "camouflage", "stats": [0, 0]},
-        ],
-        "objectsInventory":
-        [
-            {"name": "tunique", "type": "inventory", "data": [0, 0, 0, 0]},
-        ],
-        "objectsSpecial":
-        [
-            {"name": "épée", "type": "special", "data": [2, 0, 0, 0]},
-        ]
-    }, -->
+        </nav>
 
-        <button type="button" class="collapsible">GamePlay</button>
-        <div class="content">
-            <div class="datalist">
-                <h2>Skills</h2>
-                <div class="dataAdd">
-                    <input type="text" name="skillName" id="skillName" placeholder="Skill Name" title="Skill Name" required>
-                    <input type="number" name="skillAbility" id="skillAbility" placeholder="Ability" title="Ability" required>
-                    <input type="number" name="skillStamina" id="skillStamina" placeholder="Stamina" title="Stamina" required>
-                    <button class="add" onclick="addSkill()"><i class='bx bx-check' ></i></button>
+        <!-- ===== GAMEINFOS ===== -->
+        <section id="gameInfos" class="section">
+
+            <div class="dataform">
+
+                <h2>Infos</h2>
+            
+                <input type="text" name="title" id="title" placeholder="Game Title" title="Game title" required>
+                <input type="number" name="startNumber" id="startNumber" placeholder="First Dialog" title="First Dialog" required>
+                <input type="number" name="defeatNumber" id="defeatNumber" placeholder="Defeat Dialog" title="Defeat Dialog" required>
+                <input type="number" name="maxDice" id="maxDice" placeholder="Max Dice" title="Max Dice" required>
+                <input type="number" name="maxSkills" id="maxSkills" placeholder="Max Skills" title="Max Skills" required>
+                
+                <br>
+
+                <h2>Display</h2>
+
+                <div class="data">
+                    <input type="checkbox" name="showPlayerStamina" id="showPlayerStamina" required checked>
+                    <label for="showPlayerStamina">Show Stamina</label>
                 </div>
-                <table id="skillsList"></table>
-            </div>
-            <!-- <div class="datalist">
-                <h2>Objects</h2>
-                <div class="dataAdd">
-                    <input type="text" name="objectName" id="objectName" placeholder="Object Name" title="Object Name" required>
-                    <input type="list" name="objectType" id="objectType" list="objectTypeList" placeholder="Object Type">
-                    <datalist id="objectTypeList">
-                        <option>inventory</option>
-                        <option>special</option>
-                    </datalist>
-                    <input type="number" name="itemAbility" id="itemAbility" placeholder="Ability" title="Ability" required>
-                    <input type="number" name="itemStamina" id="itemStamina" placeholder="Stamina" title="Stamina" required>
-                    <input type="number" name="itemGold" id="itemGold" placeholder="Gold" title="Gold" required>
-                    <input type="number" name="itemMeal" id="itemMeal" placeholder="Meal" title="Meal" required>
-                    <button class="add" onclick="addObject()"><i class='bx bx-check' ></i></button>
+    
+                <div class="data">
+                    <input type="checkbox" name="showPlayerAbility" id="showPlayerAbility" required checked>
+                    <label for="showPlayerAbility">Show Ability</label>
+                </div>
+                
+                <div class="data">
+                    <input type="checkbox" name="showPlayerSkills" id="showPlayerSkills" required checked>
+                    <label for="showPlayerSkills">Show Skills</label>
+                </div>
+                
+                <div class="data">
+                    <input type="checkbox" name="showPlayerGold" id="showPlayerGold" required checked>
+                    <label for="showPlayerGold">Show Gold</label>
+                </div>
+                
+                <div class="data">
+                    <input type="checkbox" name="showPlayerInventory" id="showPlayerInventory" required checked>
+                    <label for="showPlayerInventory">Show Inventory</label>
                 </div>
 
-            </div> -->
-        </div>
+                <!-- <h2>Colors</h2>
+                <div class="datalist">
+                    <h2>Objects</h2>
+                    <div class="dataAdd">
+                        <input type="list" name="ColorElem" id="ColorElem" list="ElementColorList" placeholder="Element">
+                        <datalist id="ElementColorList">
+                            <option>Truc 1</option>
+                            <option>Truc 2</option>
+                        </datalist>
+                        <input type="color" name="ColorColor" id="ColorColor" title="Element Color">
+                        <button class="add" onclick="addColor()"><i class='bx bx-check' ></i></button>
+                    </div>
+                </div> -->
+            </div>
 
-        <!-- <button type="button" class="collapsible">Color</button>
-        <div class="content">
-            <p>Lorem ipsum...</p>
-        </div> -->
+        </section>
+
+        <!-- ===== DATA ===== -->
+        <!-- Tout mettre dedans (objets, images, sons, skills) -->
+        <section id="data" class="section">
+
+
+            <!--
+                "gameplay":
+                {
+                    "skills":
+                    [
+                        {"name": "camouflage", "stats": [0, 0]},
+                    ],
+                    "objectsInventory":
+                    [
+                        {"name": "tunique", "type": "inventory", "data": [0, 0, 0, 0]},
+                    ],
+                    "objectsSpecial":
+                    [
+                        {"name": "épée", "type": "special", "data": [2, 0, 0, 0]},
+                    ]
+                }
+            -->
+
+
+            <div class="dataform">
+
+                <div class="datalist">
+                    <h2>Skills</h2>
+                    <div class="dataAdd">
+                        <input type="text" name="skillName" id="skillName" placeholder="Skill Name" title="Skill Name" required>
+                        <input type="number" name="skillAbility" id="skillAbility" placeholder="Ability" title="Ability" required>
+                        <input type="number" name="skillStamina" id="skillStamina" placeholder="Stamina" title="Stamina" required>
+                        <button class="add" onclick="addSkill()"><i class='bx bx-check' ></i></button>
+                    </div>
+                    <table id="skillsList"></table>
+                </div>
+                
+                <div class="datalist">
+                    <h2>Objects</h2>
+                    <div class="dataAdd">
+                        <input type="text" name="objectName" id="objectName" placeholder="Object Name" title="Object Name" required>
+                        <input type="list" name="objectType" id="objectType" list="objectTypeList" placeholder="Object Type">
+                        <datalist id="objectTypeList">
+                            <option>inventory</option>
+                            <option>special</option>
+                        </datalist>
+                        <input type="number" name="itemAbility" id="itemAbility" placeholder="Ability" title="Ability" required>
+                        <input type="number" name="itemStamina" id="itemStamina" placeholder="Stamina" title="Stamina" required>
+                        <input type="number" name="itemGold" id="itemGold" placeholder="Gold" title="Gold" required>
+                        <input type="number" name="itemMeal" id="itemMeal" placeholder="Meal" title="Meal" required>
+                        <button class="add" onclick="addObject()"><i class='bx bx-check' ></i></button>
+                    </div>
+                    <table id="objectList"></table>
+                </div>
+                
+            </div>
+
+        </section>
+        
+        <!-- ===== MUSIC ===== -->
+        <section id="music" class="section">
+
+            <div class="dataform music">
+
+                <h2>Music & Sound</h2>
+
+                <div class="data">
+                    <input type="URL" name="hurt" id="hurt" placeholder="Hurt Sound URL (not required)" title="Hurt Sound">
+                    <input type="range" id="volumeHurt" name="volumeHurt" min="0" max="100" step="1" title="Hurt Volume">
+                </div>
+    
+                <div class="data">
+                    <input type="URL" name="victory" id="victory" placeholder="Victory Sound URL (not required)" title="Victory Sound">
+                    <input type="range" id="volumeVictory" name="volumeVictory" min="0" max="100" step="1" title="Victory Volume">
+                </div>
+    
+                <div class="data">
+                    <input type="URL" name="defeat" id="defeat" placeholder="Defeat Sound URL (not required)" title="Defeat Sound">
+                    <input type="range" id="volumeDefeat" name="volumeDefeat" min="0" max="100" step="1" title="Defeat Volume">
+                </div>
+    
+                <div class="data">
+                    <input type="URL" name="fight" id="fight" placeholder="Fight Music URL (not required)" title="Fight Music">
+                    <input type="range" id="volumeFight" name="volumeFight" min="0" max="100" step="1" title="Fight Volume">
+                </div>
+    
+            </div>
+
+        </section>
+
 
         <!-- <button type="button" class="collapsible">Player</button>
         <div class="content">
             <p>Lorem ipsum...</p>
         </div> -->
 
-        <button type="button" class="collapsible">Music</button>
-        <div class="content">
-        <div class="dataform music">
-
-            <div class="data">
-                <input type="URL" name="hurt" id="hurt" placeholder="Hurt Sound URL (not required)" title="Hurt Sound">
-                <input type="range" id="volumeHurt" name="volumeHurt" min="0" max="100" step="1" title="Hurt Volume">
-            </div>
-
-            <div class="data">
-                <input type="URL" name="victory" id="victory" placeholder="Victory Sound URL (not required)" title="Victory Sound">
-                <input type="range" id="volumeVictory" name="volumeVictory" min="0" max="100" step="1" title="Victory Volume">
-            </div>
-
-            <div class="data">
-                <input type="URL" name="defeat" id="defeat" placeholder="Defeat Sound URL (not required)" title="Defeat Sound">
-                <input type="range" id="volumeDefeat" name="volumeDefeat" min="0" max="100" step="1" title="Defeat Volume">
-            </div>
-
-            <div class="data">
-                <input type="URL" name="fight" id="fight" placeholder="Fight Music URL (not required)" title="Fight Music">
-                <input type="range" id="volumeFight" name="volumeFight" min="0" max="100" step="1" title="Fight Volume">
-            </div>
-
-        </div>
-        </div>
-
         <!-- <button type="button" class="collapsible">Dialogs</button>
         <div class="content">
             <p>Lorem ipsum...</p>
         </div> -->
 
-        <button id="submit" onclick="submit()">Generate</button>
-
         <div id="return"></div>
 
+        <script src="js/generator/show.js"></script>
         <script src="js/generator/export.js"></script>
         <script src="js/generator/append.js"></script>
         <script src="js/generator/generator.js"></script>
-        <script src="js/generator/collapse.js"></script>
+        <!-- <script src="js/lib/graphviz.js"></script> -->
+        <script>
+            show('gameInfos')
+
+            document.addEventListener("keydown", function(e) {
+                if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode == 83) {
+                    e.preventDefault();
+                    submit()
+                }
+            }, false);
+
+        </script>
     </body>
 
 </html>
