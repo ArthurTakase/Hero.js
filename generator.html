@@ -43,9 +43,9 @@
             
                 <input type="text" name="title" id="title" placeholder="Game Title" title="Game title" required>
                 <input type="number" name="startNumber" id="startNumber" placeholder="First Dialog" title="First Dialog" required>
-                <input type="number" name="defeatNumber" id="defeatNumber" placeholder="Defeat Dialog" title="Defeat Dialog" required>
-                <input type="number" name="maxDice" id="maxDice" placeholder="Max Dice" title="Max Dice" required>
-                <input type="number" name="maxSkills" id="maxSkills" placeholder="Max Skills" title="Max Skills" required>
+                <input type="number" name="defeatNumber" id="defeatNumber" placeholder="Defeat Dialog (not required)" title="Defeat Dialog (not required)" required>
+                <input type="number" name="maxDice" id="maxDice" placeholder="Max Dice (not required)" title="Max Dice (not required)" required>
+                <input type="number" name="maxSkills" id="maxSkills" placeholder="Max Skills (not required)" title="Max Skills (not required)" required>
                 
                 <br>
 
@@ -76,46 +76,61 @@
                     <label for="showPlayerInventory">Show Inventory</label>
                 </div>
 
-                <!-- <h2>Colors</h2>
+                <h2>Colors</h2>
+
                 <div class="datalist">
-                    <h2>Objects</h2>
                     <div class="dataAdd">
-                        <input type="list" name="ColorElem" id="ColorElem" list="ElementColorList" placeholder="Element">
-                        <datalist id="ElementColorList">
-                            <option>Truc 1</option>
-                            <option>Truc 2</option>
-                        </datalist>
-                        <input type="color" name="ColorColor" id="ColorColor" title="Element Color">
+                        <select name="ColorElem" id="ColorElem">
+                            <option>hudColor</option>
+                            <option>hudBoderColor</option>
+                            <option>hudTextColor</option>
+                            <option>hudTitleColor</option>
+                            <option>hudTitleTextColor</option>
+                            <option>statsColor</option>
+                            <option>statsBorderColor</option>
+                            <option>statsTextColor</option>
+                            <option>statsHeaderColor</option>
+                            <option>statsHeaderTextColor</option>
+                            <option>dialogHeaderColor</option>
+                            <option>dialogHeaderBorderColor</option>
+                            <option>dialogHeaderTextColor</option>
+                            <option>dialogBodyColor</option>
+                            <option>dialogBodyBorderColor</option>
+                            <option>dialogBodyTextColor</option>
+                            <option>buttonColor</option>
+                            <option>buttonTextColor</option>
+                            <option>buttonDisableColor</option>
+                            <option>buttondisableTextColor</option>
+                            <option>notificationBodyColor</option>
+                            <option>notificationBodyTextColor</option>
+                            <option>notificationHeaderColor</option>
+                            <option>notificationHeaderTextColor</option>
+                            <option>fightHudInfosColor</option>
+                            <option>fightHudInfosBorderColor</option>
+                            <option>fightHudInfosTextColor</option>
+                            <option>navbarTextColor</option>
+                            <option>navbarDropdownColor</option>
+                            <option>navbarColor</option>
+                            <option>specialObjectTextColor</option>
+                            <option>first-color</option>
+                            <option>first-color-dark</option>
+                            <option>first-color-darken</option>
+                            <option>white-color</option>
+                          </select>
+                        <input class="color" type="color" name="ColorColor" id="ColorColor" title="Element Color">
                         <button class="add" onclick="addColor()"><i class='bx bx-check' ></i></button>
                     </div>
-                </div> -->
+                    <table id="colorList"></table>
+                </div>
+
             </div>
 
         </section>
 
         <!-- ===== DATA ===== -->
         <!-- Tout mettre dedans (objets, images, sons, skills) -->
+        <!-- Voir comment j'peux me dermerder avec la fight table -->
         <section id="data" class="section">
-
-
-            <!--
-                "gameplay":
-                {
-                    "skills":
-                    [
-                        {"name": "camouflage", "stats": [0, 0]},
-                    ],
-                    "objectsInventory":
-                    [
-                        {"name": "tunique", "type": "inventory", "data": [0, 0, 0, 0]},
-                    ],
-                    "objectsSpecial":
-                    [
-                        {"name": "épée", "type": "special", "data": [2, 0, 0, 0]},
-                    ]
-                }
-            -->
-
 
             <div class="dataform">
 
@@ -134,11 +149,10 @@
                     <h2>Objects</h2>
                     <div class="dataAdd">
                         <input type="text" name="objectName" id="objectName" placeholder="Object Name" title="Object Name" required>
-                        <input type="list" name="objectType" id="objectType" list="objectTypeList" placeholder="Object Type">
-                        <datalist id="objectTypeList">
+                        <select name="objectType" id="objectType" list="objectTypeList" placeholder="Object Type">
                             <option>inventory</option>
                             <option>special</option>
-                        </datalist>
+                          </select>
                         <input type="number" name="itemAbility" id="itemAbility" placeholder="Ability" title="Ability" required>
                         <input type="number" name="itemStamina" id="itemStamina" placeholder="Stamina" title="Stamina" required>
                         <input type="number" name="itemGold" id="itemGold" placeholder="Gold" title="Gold" required>
@@ -182,7 +196,6 @@
             </div>
 
         </section>
-
 
         <!-- <button type="button" class="collapsible">Player</button>
         <div class="content">

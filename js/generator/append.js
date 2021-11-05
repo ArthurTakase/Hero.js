@@ -1,6 +1,7 @@
 let skillsList = []
 let objectsList = []
 let specialList = []
+let colorList = []
 
 function addSkill() {
     var skillName = document.getElementById('skillName').value
@@ -45,6 +46,9 @@ function addObject() {
     var objectMeal = document.getElementById('itemMeal')
     var json = {}
 
+    if (objectAbility.value == "" || objectGold.value == "" || objectStamina.value == "" ||
+        objectMeal.value == "" || objectName.value == "") {return}
+
     json.name = objectName.value
     json.type = objectType.value
     json.data = [
@@ -77,7 +81,25 @@ function addObject() {
     objectMeal.value = ""
     objectName.value = ""
     objectStamina.value = ""
-    objectType.value = ""
+    // objectType.value = ""
 
     objectName.focus()
+}
+
+function addColor() {
+    const liste = document.getElementById('colorList')
+    var elem = document.getElementById('ColorElem')
+    var color = document.getElementById('ColorColor')
+
+    if (elem.value == "") {return}
+
+    colorList.push([elem.value, color.value])
+
+    if (colorList.length == 1) {
+        liste.style.background = '#40424b'
+        liste.style.margin = '1rem'
+        liste.innerHTML += '<tr class="tableHeader"><th>Element</th><th>Color</th></tr>'
+    }
+
+    liste.innerHTML += '<tr><td>' + elem.value + '</td><td style="background:' + color.value + ';"></td></tr>'
 }

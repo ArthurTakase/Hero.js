@@ -15,7 +15,7 @@ body {
 
 #return {
     position: fixed;
-    bottom: .5rem;
+    top: 1.2rem;
     z-index: 10;
 }
 
@@ -61,7 +61,14 @@ body {
     width: auto;
 }
 
-input {
+.color {
+    width: 20%;
+    height: 2rem;
+    padding: .2rem;
+    /* border-radius: 1rem; */
+}
+
+input, select {
     margin: .2rem;
     background-color: #40434b;
     width: 100%;
@@ -75,10 +82,6 @@ input {
 input::placeholder {
     color: #878b96;
     font-size: .9rem;
-}
-
-.music {
-    /* border: solid; */
 }
 
 .music .data {
@@ -134,3 +137,4 @@ td, th {padding: .2rem;}
 
 #skillsList td {width: 33%;}
 #objectList td {width: 16.6%;}
+#colorList td {width: 50%;}

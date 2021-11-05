@@ -34,8 +34,6 @@ function reloadSave(json) {
     }
 
     currentNumber = json.save.currentNumber
-
-    console.log("ceci est un reload")
 }
 
 function save() {

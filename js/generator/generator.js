@@ -52,7 +52,9 @@ function gameplay() {
 
 function checkJSON(json) {
     if (json.gameInfos.title == "") {return "Error: No title (gameInfos.title)"}
-    if (json.gameInfos.startNumber == "") {return "Error: No Start Number (gameInfos.startNumber)"}
+    if (json.gameInfos.startNumber == null ||
+        json.gameInfos.startNumber == NaN ||
+        json.gameInfos.startNumber == undefined) {return "Error: No Start Number (gameInfos.startNumber)"}
 
     return true
 }
@@ -64,6 +66,7 @@ function submit() {
     json.gameInfos = gameInfos()
     json.music = music()
     json.gameplay = gameplay()
+    if (colorList.length != 0) {json.color = colorList}
 
     var check = checkJSON(json)
 
