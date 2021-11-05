@@ -7,7 +7,7 @@ function gameInfos() {
     json.maxDice = parseInt(document.getElementById("maxDice").value)
     json.maxSkills = parseInt(document.getElementById("maxSkills").value)
     json.showPlayerAbility = document.getElementById("showPlayerAbility").value == "on" ? true : false
-    json.showPlayerStmina = document.getElementById("showPlayerStamina").value == "on" ? true : false
+    json.showPlayerStamina = document.getElementById("showPlayerStamina").value == "on" ? true : false
     json.showPlayerSkills = document.getElementById("showPlayerSkills").value == "on" ? true : false
     json.showPlayerGold = document.getElementById("showPlayerGold").value == "on" ? true : false
     json.showPlayerInventory = document.getElementById("showPlayerInventory").value == "on" ? true : false
@@ -57,6 +57,31 @@ function data() {
     return json
 }
 
+function player() {
+    var json = {}
+    var special = []
+    var inv = []
+
+    json.ability = parseInt(document.getElementById('playerAbility').value)
+    json.stamina = parseInt(document.getElementById('playerStamina').value)
+    json.meal = parseInt(document.getElementById('playerMeal').value)
+    json.gold = parseInt(document.getElementById('playerGold').value)
+
+    json.skills = playerSkills
+
+    for (elem in playerInventory) {
+        for (i in objectsList)
+            if (objectsList[i].name == playerInventory[elem]) {inv.push(playerInventory[elem]); break}
+        for (j in specialList)
+            if (specialList[j].name == playerInventory[elem]) {special.push(playerInventory[elem]); break}
+    }
+
+    json.inventory = inv
+    json.special = special
+
+    return json
+}
+
 function checkJSON(json) {
     if (json.gameInfos.title == "") {return "Error: No title"}
     if (json.gameInfos.startNumber == null ||
@@ -74,11 +99,10 @@ function submit() {
     json.gameInfos = gameInfos()
     json.music = music()
     json.gameplay = gameplay()
+    json.player = player()
     if (colorList.length != 0) {json.color = colorList}
 
     var check = checkJSON(json)
-
-    // var check = "Error: No Start Number (<u>gameInfos.startNumber</u>)"
 
     if (check == true) {
         exportJSON(json)

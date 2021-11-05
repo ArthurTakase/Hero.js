@@ -24,7 +24,7 @@
                 <li class="nav-item" id="gameInfosBtn" tabindex="0" onclick="show('gameInfos')">Infos</li>
                 <li class="nav-item" id="dataBtn" tabindex="0" onclick="show('data')">Data</li>
                 <li class="nav-item" id="musicBtn" tabindex="0" onclick="show('music')">JDR</li>
-                <li class="nav-item wip" id="playerBtn" tabindex="0">Player</li>
+                <li class="nav-item" id="playerBtn" tabindex="0" onclick="show('player')">Player</li>
                 <li class="nav-item wip" id="dialogBtn" tabindex="0">Dialogs</li>
                 <li class="nav-item item-other wip" tabindex="0" title="Dialog Map"><i class='bx bx-sitemap' ></i></li>
                 <li class="nav-item item-other wip" tabindex="0" title="Import"><i class='bx bx-import' ></i></li>
@@ -219,15 +219,22 @@
 
         </section>
 
-        <!-- <button type="button" class="collapsible">Player</button>
-        <div class="content">
-            <p>Lorem ipsum...</p>
-        </div> -->
+        <section id="player" class="section">
 
-        <!-- <button type="button" class="collapsible">Dialogs</button>
-        <div class="content">
-            <p>Lorem ipsum...</p>
-        </div> -->
+            <!-- 
+
+            "player":
+            {
+                "inventory": [],
+                "special": [],
+                "skills": []
+            }
+             -->
+
+            <button onclick="generatePlayer()" class="big-btn">Create new Player</button>
+
+
+        </section>
 
         <div id="return"></div>
 

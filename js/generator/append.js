@@ -4,6 +4,8 @@ let specialList = []
 let colorList = []
 let pictureJSON = {}
 let soundJSON = {}
+let playerSkills = []
+let playerInventory = []
 
 function addSkill() {
     var skillName = document.getElementById('skillName').value
@@ -33,6 +35,8 @@ function addSkill() {
     document.getElementById('skillStamina').value = ""
 
     document.getElementById('skillName').focus()
+
+    try {document.getElementById('playerSkillsList').innerHTML += "<option>" + json.name + "</option>"} catch(e) {}
 
     // Ajouter dans les listes pour le joueur et les conditions, etc...
 }
@@ -85,6 +89,8 @@ function addObject() {
     objectStamina.value = ""
 
     objectName.focus()
+
+    try {document.getElementById('playerInventoryList').innerHTML += "<option>" + json.name + "</option>"} catch(e) {}
 }
 
 function addColor() {
@@ -159,4 +165,85 @@ function addSound() {
     soundName.focus()
 
     console.log(soundName.value, soundURL.value, soundVolume.value)
+}
+
+function generatePlayer() {
+    const section = document.getElementById('player')
+
+    var skillsListOption = ""
+    for (skill in skillsList) {skillsListOption += "<option>" + skillsList[skill].name + "</option>"}
+
+    var objectListOption = ""
+    for (object in specialList) {objectListOption += "<option>" + specialList[object].name + "</option>"}
+    for (object in objectsList) {objectListOption += "<option>" + objectsList[object].name + "</option>"}
+
+    section.innerHTML = '<div class="dataform">\
+                        <h2>Stats</h2>\
+                        <input type="number" name="playerAbility" id="playerAbility" placeholder="Player Ability" title="Player Ability" required>\
+                        <input type="number" name="playerStamina" id="playerStamina" placeholder="Player Stamina" title="Player Stamina" required>\
+                        <input type="number" name="playerMeal" id="playerMeal" placeholder="Meal" title="Meal" required>\
+                        <input type="number" name="playerGold" id="playerGold" placeholder="Gold" title="Gold" required>\
+                        <div class="datalist">\
+                            <h2>Skills</h2>\
+                            <div class="dataAdd">\
+                                <select name="playerSkillsList" id="playerSkillsList">' +
+                                   skillsListOption +
+                                '</select>\
+                                <button class="add" onclick="addPlayerSkill()"><i class="bx bx-check" ></i></button>\
+                            </div>\
+                            <table id="playerSkillsListTable"></table>\
+                        </div>\
+                        <div class="datalist">\
+                            <h2>Inventory</h2>\
+                            <div class="dataAdd">\
+                                <select name="playerInventoryList" id="playerInventoryList">' +
+                                   objectListOption +
+                                '</select>\
+                                <button class="add" onclick="addPlayerInventory()"><i class="bx bx-check" ></i></button>\
+                            </div>\
+                            <table id="playerInventoryListTable"></table>\
+                        </div>\
+                    </div>'
+}
+
+function addPlayerSkill() {
+    var skill = document.getElementById('playerSkillsList')
+    const liste = document.getElementById('playerSkillsListTable')
+
+    if (skill.value == "") {return}
+
+    playerSkills.push(skill.value)
+
+    if (playerSkills.length == 1) {
+        liste.style.background = '#40424b'
+        liste.style.margin = '1rem'
+        liste.innerHTML += '<tr class="tableHeader"><th>Name</th></tr>'
+    }
+
+    liste.innerHTML += '<tr><td>' +
+                        skill.value +
+                        '</td></tr>'
+
+    skill.focus()
+}
+
+function addPlayerInventory() {
+    var item = document.getElementById('playerInventoryList')
+    const liste = document.getElementById('playerInventoryListTable')
+
+    if (item.value == "") {return}
+
+    playerInventory.push(item.value)
+
+    if (playerInventory.length == 1) {
+        liste.style.background = '#40424b'
+        liste.style.margin = '1rem'
+        liste.innerHTML += '<tr class="tableHeader"><th>Name</th></tr>'
+    }
+
+    liste.innerHTML += '<tr><td>' +
+                        item.value +
+                        '</td></tr>'
+
+    item.focus()
 }
