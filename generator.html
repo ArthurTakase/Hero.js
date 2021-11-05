@@ -23,7 +23,7 @@
                 <li class="nav-item">Heros.js Generator</li>
                 <li class="nav-item" id="gameInfosBtn" tabindex="0" onclick="show('gameInfos')">Infos</li>
                 <li class="nav-item" id="dataBtn" tabindex="0" onclick="show('data')">Data</li>
-                <li class="nav-item" id="musicBtn" tabindex="0" onclick="show('music')">Music</li>
+                <li class="nav-item" id="musicBtn" tabindex="0" onclick="show('music')">JDR</li>
                 <li class="nav-item wip" id="playerBtn" tabindex="0">Player</li>
                 <li class="nav-item wip" id="dialogBtn" tabindex="0">Dialogs</li>
                 <li class="nav-item item-other wip" tabindex="0" title="Dialog Map"><i class='bx bx-sitemap' ></i></li>
@@ -161,12 +161,34 @@
                     </div>
                     <table id="objectList"></table>
                 </div>
+
+                <div class="datalist">
+                    <h2>Pictures</h2>
+                    <div class="dataAdd">
+                        <input type="text" name="pictureName" id="pictureName" placeholder="Picture Name" title="Picture Name" required>
+                        <input type="url" name="pictureURL" id="pictureURL" placeholder="Picture URL" title="Picture URL" required>
+                        <button class="add" onclick="addPicture()"><i class='bx bx-check' ></i></button>
+                    </div>
+                    <table id="pictureList"></table>
+                </div>
                 
+                <div class="datalist">
+                    <h2>Music & Sounds</h2>
+                    <div class="dataAdd music">
+                        <input type="text" name="soundName" id="soundName" placeholder="Sound name" title="Sound Name">
+                        <input type="URL" name="soundURL" id="soundURL" placeholder="Sound URL" title="Sound URL">
+                        <input type="range" id="soundVolume" name="soundVolume" min="0" max="100" step="1" title="Sound Volume">
+                        <button class="add" onclick="addSound()"><i class='bx bx-check' ></i></button>
+                    </div>
+                    <table id="soundList"></table>
+                </div>
+
             </div>
 
         </section>
         
-        <!-- ===== MUSIC ===== -->
+        <!-- ===== JDR ===== -->
+        <!-- Y mettre tout ce qui touche à l'aspect JDR (fight table ici par exemple) -->
         <section id="music" class="section">
 
             <div class="dataform music">

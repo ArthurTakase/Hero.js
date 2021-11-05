@@ -53,7 +53,8 @@ nav {
 }
 
 .wip {
-    color: rgb(170, 28, 28);
+    /* color: rgb(170, 28, 28); */
+    opacity: 0.1;
 }
 
 .wip:hover {

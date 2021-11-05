@@ -45,16 +45,23 @@ function gameplay() {
     json.objectsInventory = objectsList
     json.objectsSpecial = specialList
 
-    // Comment je fais pour la fightTable là ? C'est compliqué...
+    return json
+}
+
+function data() {
+    var json = {}
+
+    json.picture = pictureJSON
+    json.sound = soundJSON
 
     return json
 }
 
 function checkJSON(json) {
-    if (json.gameInfos.title == "") {return "Error: No title (gameInfos.title)"}
+    if (json.gameInfos.title == "") {return "Error: No title"}
     if (json.gameInfos.startNumber == null ||
         json.gameInfos.startNumber == NaN ||
-        json.gameInfos.startNumber == undefined) {return "Error: No Start Number (gameInfos.startNumber)"}
+        json.gameInfos.startNumber == undefined) {return "Error: No Start Number"}
 
     return true
 }
@@ -63,6 +70,7 @@ function submit() {
     var json = {}
     const returnDiv = document.getElementById("return")
 
+    json.data = data()
     json.gameInfos = gameInfos()
     json.music = music()
     json.gameplay = gameplay()

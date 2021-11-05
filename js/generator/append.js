@@ -2,6 +2,8 @@ let skillsList = []
 let objectsList = []
 let specialList = []
 let colorList = []
+let pictureJSON = {}
+let soundJSON = {}
 
 function addSkill() {
     var skillName = document.getElementById('skillName').value
@@ -81,7 +83,6 @@ function addObject() {
     objectMeal.value = ""
     objectName.value = ""
     objectStamina.value = ""
-    // objectType.value = ""
 
     objectName.focus()
 }
@@ -102,4 +103,60 @@ function addColor() {
     }
 
     liste.innerHTML += '<tr><td>' + elem.value + '</td><td style="background:' + color.value + ';"></td></tr>'
+}
+
+function addPicture() {
+    const liste = document.getElementById('pictureList')    
+    var pictureName = document.getElementById('pictureName')
+    var pictureURL = document.getElementById('pictureURL')
+
+    if (pictureName.value == "" || pictureURL == "") {return}
+
+    if (Object.keys(pictureJSON).length == 0) {
+        liste.style.background = '#40424b'
+        liste.style.margin = '1rem'
+        liste.innerHTML += '<tr class="tableHeader"><th>Name</th><th>Preview</th></tr>'
+    }
+    
+    liste.innerHTML += '<tr><td>' + pictureName.value + '</td><td><img src="' + pictureURL.value + '"></td></tr>'
+    
+    pictureJSON[pictureName.value] = pictureURL.value
+
+    pictureName.value = ""
+    pictureURL.value = ""
+
+    pictureName.focus()
+}
+
+function addSound() {
+
+    const liste = document.getElementById('soundList')
+    var soundName = document.getElementById('soundName')
+    var soundURL = document.getElementById('soundURL')
+    var soundVolume = document.getElementById('soundVolume')
+
+    if (soundName.value == "" || soundURL.value == "" || soundVolume.value == "") {return}
+
+    if (Object.keys(soundJSON).length == 0) {
+        liste.style.background = '#40424b'
+        liste.style.margin = '1rem'
+        liste.innerHTML += '<tr class="tableHeader"><th>Name</th><th>Preview</th><th>Volume</th></tr>'
+    }
+    
+    liste.innerHTML += '<tr><td>' +
+                        soundName.value +
+                        '</td><td><audio controls src="' +
+                        soundURL.value +
+                        '"></audio></td><td>' +
+                        parseInt(soundVolume.value) / 100
+                        + '</td></tr>'
+
+    
+    soundName.value = ""
+    soundURL.value = ""
+    soundVolume.value = 50
+
+    soundName.focus()
+
+    console.log(soundName.value, soundURL.value, soundVolume.value)
 }
