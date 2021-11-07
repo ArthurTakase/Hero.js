@@ -68,20 +68,24 @@ body {
     /* border-radius: 1rem; */
 }
 
-input, select {
+input, select, textarea {
     margin: .2rem;
     background-color: #40434b;
     width: 100%;
+    flex: 1;
     padding: .5rem;
     border-radius: .5rem;
     border: none;
     font-size: 1rem;
     color: white;
+    font-family: 'Poppins', sans-serif;
 }
 
-input::placeholder {
+input::placeholder,
+textarea::placeholder {
     color: #878b96;
     font-size: .9rem;
+    font-family: 'Poppins', sans-serif;
 }
 
 .music .data {
@@ -128,6 +132,30 @@ input::placeholder {
     cursor: pointer;
 }
 
+.dialogList {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialogList select {
+    width: 100%;
+    /* padding: 0; */
+    /* margin: 0; */
+}
+
+/* .dialogList input,
+.dialogList textarea {
+    width: 50%;
+} */
+
+#dialogBody {
+    resize: vertical;
+    /* height: 7rem; */
+    width: 100%;
+    /* margin: 0; */
+}
+
 .dataAdd.music input {flex: 2;}
 .dataAdd.music input[type='range'] {flex: 1; margin-left: 1rem;}
 
@@ -143,6 +171,13 @@ td, th {padding: .2rem;}
 #colorList td {width: 50%;}
 #pictureList td {width: 50%; overflow: hidden;}
 #soundList td {width: 33%;}
+
+#dialogList td {width: 25%; max-width: 22vw; text-overflow: ellipsis; overflow: hidden;}
+#dialogList td:first-child {width: 5%;}
+
+#optionsList td {width: 80%;}
+#optionsList td:first-child {width: 10%;}
+#optionsList td:last-child {width: 10%;}
 
 #pictureList img {
     height: 8rem;
@@ -163,4 +198,110 @@ td, th {padding: .2rem;}
 .big-btn:hover {
     transform: scale(1.02);
     cursor: pointer;
+}
+
+.grid-4 {
+    display: flex;
+    width: 100%;
+    margin-top: .5rem;
+}
+
+.grid-4 select {
+    flex: 1;
+    width: 25%;
+}
+
+.grid-2 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 1rem; */
+}
+
+.grid-2 .add {
+    width: 50%;
+    background: #40424b;
+    border-radius: .5rem;
+    padding: .4rem;
+    font-size: 1rem;
+}
+
+.grid-2 .add:first-child {
+    margin-right: .25rem;
+}
+
+.grid-2 .add:last-child {
+    margin-left: .25rem;
+}
+
+#optionConditionZone,
+#optionEffectZone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+#optionConditionZone input,
+#optionEffectZone input,
+#optionConditionZone select,
+#optionEffectZone select {
+    width: 100%;
+    flex: 1;
+}
+
+#optionConditionZone .data,
+#optionEffectZone .data {
+    width: auto;
+    text-align: center;
+    justify-content: center;
+    /* margin-left: 1rem; */
+    /* border: solid; */
+}
+
+#optionConditionZone .data input,
+#optionEffectZone .data input {
+    /* border: solid; */
+    /* margin: 0; */
+    padding: 0;
+    flex: 1;
+}
+
+#optionConditionZone .data label,
+#optionEffectZone .data label {
+    width: 8rem;
+    /* border: solid; */
+    flex: 3;
+}
+
+.dialogOption {
+    width: 97%;
+    background: #20222544;
+    padding: 1rem;
+    border-radius: .7rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0.7rem;
+}
+
+.dialogOption .add {
+    width: 10%;
+    background: #40424b;
+    border-radius: .5rem;
+    padding: .5rem;
+    font-size: 1rem;
+    margin: 0.2rem;
+    margin-top: 0.5rem;
+}
+
+.option-grid-2 input:first-child {
+    flex: 1;
+}
+
+.option-grid-2 input:last-child {
+    flex: 20;
 }

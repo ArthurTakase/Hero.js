@@ -97,10 +97,11 @@ function submit() {
 
     json.data = data()
     json.gameInfos = gameInfos()
-    json.music = music()
+    // json.music = music()
     json.gameplay = gameplay()
-    json.player = player()
+    if (isPlayer) {json.player = player()}
     if (colorList.length != 0) {json.color = colorList}
+    json.dialogs = dialogList
 
     var check = checkJSON(json)
 

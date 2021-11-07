@@ -23,12 +23,15 @@
                 <li class="nav-item">Heros.js Generator</li>
                 <li class="nav-item" id="gameInfosBtn" tabindex="0" onclick="show('gameInfos')">Infos</li>
                 <li class="nav-item" id="dataBtn" tabindex="0" onclick="show('data')">Data</li>
-                <li class="nav-item" id="musicBtn" tabindex="0" onclick="show('music')">JDR</li>
+                <!-- <li class="nav-item" id="musicBtn" tabindex="0" onclick="show('music')">JDR</li> -->
+                <li class="nav-item wip" id="musicBtn" tabindex="0">JDR</li>
                 <li class="nav-item" id="playerBtn" tabindex="0" onclick="show('player')">Player</li>
-                <li class="nav-item wip" id="dialogBtn" tabindex="0">Dialogs</li>
+                <li class="nav-item" id="dialogsBtn" tabindex="0" onclick="show('dialogs')">Dialogs</li>
+                <li class="nav-item" id="listBtn" tabindex="0" title="Dialog List" onclick="show('list')"><i class='bx bx-list-ol' ></i></li>
                 <li class="nav-item item-other wip" tabindex="0" title="Dialog Map"><i class='bx bx-sitemap' ></i></li>
                 <li class="nav-item item-other wip" tabindex="0" title="Import"><i class='bx bx-import' ></i></li>
                 <li class="nav-item item-other" tabindex="0" title="Save (CTRL + S)" onclick="submit()"><i class='bx bx-save'></i></li>
+                <li class="nav-item item-other wip" tabindex="0" title="News"><i class='bx bx-news' ></i></li>
                 <!-- <li class="nav-item" tabindex="0"></li> -->
             </ul>
 
@@ -128,8 +131,6 @@
         </section>
 
         <!-- ===== DATA ===== -->
-        <!-- Tout mettre dedans (objets, images, sons, skills) -->
-        <!-- Voir comment j'peux me dermerder avec la fight table -->
         <section id="data" class="section">
 
             <div class="dataform">
@@ -219,20 +220,102 @@
 
         </section>
 
+        <!-- ===== PLAYER ===== -->
         <section id="player" class="section">
-
-            <!-- 
-
-            "player":
-            {
-                "inventory": [],
-                "special": [],
-                "skills": []
-            }
-             -->
-
             <button onclick="generatePlayer()" class="big-btn">Create new Player</button>
+        </section>
 
+        <!-- ===== DIALOGS ===== -->
+        <section id="dialogs" class="section">
+
+            <div class="dataform">
+                <div class="datalist">
+                    <!-- <h2>Dialogs</h2> -->
+                    <div class="dataAdd dialogList">
+
+                        <h2>Body</h2>
+                        <input type="text" name="dialogID" id="dialogID" placeholder="Dialog ID" title="Dialog ID" value="0">
+                        <input type="text" name="dialogTitle" id="dialogTitle" placeholder="Dialog title (not required)" title="Dialog title (not required)">
+                        <textarea rows="5" name="dialogBody" id="dialogBody" placeholder="Dialog body" title="Dialog body"></textarea>
+                        <input type="text" name="dialogAction" id="dialogAction" placeholder="Dialog action (not required)" title="Dialog action (not required)">
+
+                        <h2>Data</h2>
+                        <div class="grid-4">
+                            <select name="dialogMusic" id="dialogMusic">
+                                <option>No Music</option>
+                            </select>
+                            <select name="dialogBackground" id="dialogBackground">
+                                <option>No Background</option>
+                            </select>
+                            <select name="dialogImage" id="dialogImage">
+                                <option>No Picture</option>
+                            </select>
+                            <select name="dialogAnimation" id="dialogAnimation">
+                                <option>No Animation</option>
+                                <option>shake</option>
+                                <option>fadeIn</option>
+                                <option>jump</option>
+                            </select>
+                        </div>
+
+                        <h2>Dialog Options</h2>
+                        <div class="dialogOption" id="dialogOption">
+                            <div class="grid-2 option-grid-2">
+                                <input type="number" name="optionID" id="optionID" placeholder="Option ID" title="Option ID" value="0">
+                                <input type="text" name="optionBody" id="optionBody" placeholder="Option Body" title="Option Body">
+                            </div>
+                            <div class="grid-2">
+                                <input type="number" name="optionGoToIndex" id="optionGoToIndex" placeholder="Go to Index (not required)" title="Go to Index (not required)">
+                                <select name="optionSound" id="optionSound">
+                                    <option>No Sound</option>
+                                </select>
+                            </div>
+                            
+                            <div id="optionConditionZone">
+                                <select name="optionCondition" id="optionCondition" onchange="appendCondition()">
+                                    <option>No Condition</option>
+                                    <option>GOLD</option>
+                                    <option>MEAL</option>
+                                    <option>STAMINA</option>
+                                    <option>ABILITY</option>
+                                    <option>SKILL</option>
+                                    <option>OBJECT</option>
+                                </select>
+                            </div>
+                            <div id="optionEffectZone">
+                                <select name="optionEffect" id="optionEffect" onchange="appendEffect()">
+                                    <option>No Effect</option>
+                                    <option>REMOVE_OBJECT</option>
+                                    <option>ADD_OBJECT</option>
+                                    <option>MEAL</option>
+                                    <option>STAMINA</option>
+                                    <option>ABILITY</option>
+                                    <option>LIFE</option>
+                                    <option>RESTART</option>
+                                </select>
+                            </div>
+                            <button class="add" onclick="addOption()"><i class='bx bx-plus'></i></button>
+                        </div>
+                        <table id="optionsList"></table>
+
+                        <!-- <h3></h3> -->
+                        <div class="grid-2">
+                            <button class="add" onclick="addDialog()"><i class='bx bx-check' ></i></button>
+                        </div>
+                    </div>
+                    <table id="colorList"></table>
+                </div>
+            </div>
+
+
+        </section>
+
+        <section id="list" class="section">
+
+            <div class="dataform">
+                <h2>Dialogs List</h2>
+                <table id="dialogList"></table>
+            </div>
 
         </section>
 
@@ -242,6 +325,7 @@
         <script src="js/generator/export.js"></script>
         <script src="js/generator/append.js"></script>
         <script src="js/generator/generator.js"></script>
+        <script src="js/generator/dialog.js"></script>
         <!-- <script src="js/lib/graphviz.js"></script> -->
         <script>
             show('gameInfos')

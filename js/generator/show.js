@@ -9,4 +9,6 @@ function show(div) {
 
     myDiv.style.display = 'flex'
     myBtn.style.background = '#363a3f'
+
+    if (div == "list") {updateDialogList()}
 }
