@@ -3,13 +3,11 @@
 
     <head>
         <meta charset="UTF-8">
-        <!-- <script src="https://kit.fontawesome.com/f4ace78f68.js" crossorigin="anonymous"></script> -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-        <!-- <link rel="stylesheet" href="css/generator.css"> -->
-        <!-- <link rel="stylesheet" href="css/collapse.css"> -->
         <link rel="stylesheet" href="css/generator/navbar.css">
         <link rel="stylesheet" href="css/generator/generator.css">
+        <link rel="stylesheet" href="css/generator/dialogs.css">
         <link rel="icon" type="image/png" href="img/icon.png" />
         <title>Hero.js | Generator</title>
     </head>
@@ -31,7 +29,7 @@
                 <li class="nav-item item-other wip" tabindex="0" title="Dialog Map"><i class='bx bx-sitemap' ></i></li>
                 <li class="nav-item item-other wip" tabindex="0" title="Import"><i class='bx bx-import' ></i></li>
                 <li class="nav-item item-other" tabindex="0" title="Save (CTRL + S)" onclick="submit()"><i class='bx bx-save'></i></li>
-                <li class="nav-item item-other wip" tabindex="0" title="News"><i class='bx bx-news' ></i></li>
+                <li class="nav-item" id="newsBtn" tabindex="0" title="News" onclick="show('news')"><i class='bx bx-news' ></i></li>
                 <!-- <li class="nav-item" tabindex="0"></li> -->
             </ul>
 
@@ -239,7 +237,7 @@
                         <textarea rows="5" name="dialogBody" id="dialogBody" placeholder="Dialog body" title="Dialog body"></textarea>
                         <input type="text" name="dialogAction" id="dialogAction" placeholder="Dialog action (not required)" title="Dialog action (not required)">
 
-                        <h2>Data</h2>
+                        <!-- <h2>Data</h2> -->
                         <div class="grid-4">
                             <select name="dialogMusic" id="dialogMusic">
                                 <option>No Music</option>
@@ -310,13 +308,20 @@
 
         </section>
 
+        <!-- DIALOG LIST -->
         <section id="list" class="section">
+
+            <div id="preview" style="display: none;"></div>
 
             <div class="dataform">
                 <h2>Dialogs List</h2>
                 <table id="dialogList"></table>
             </div>
 
+        </section>
+
+        <section class="section" id="news">
+            <h2>News & Updates</h2>
         </section>
 
         <div id="return"></div>
@@ -326,9 +331,16 @@
         <script src="js/generator/append.js"></script>
         <script src="js/generator/generator.js"></script>
         <script src="js/generator/dialog.js"></script>
+        <script src="js/generator/news.js"></script>
+
+        <script src="js/engine/dialog.js"></script>
+        <script src="js/engine/button.js"></script>
+        <script src="js/engine/sound.js"></script>
+        <script src="js/engine/hud.js"></script>
         <!-- <script src="js/lib/graphviz.js"></script> -->
         <script>
             show('gameInfos')
+            news()
 
             document.addEventListener("keydown", function(e) {
                 if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)  && e.keyCode == 83) {

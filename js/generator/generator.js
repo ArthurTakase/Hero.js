@@ -6,11 +6,14 @@ function gameInfos() {
     json.defeatNumber = parseInt(document.getElementById("defeatNumber").value)
     json.maxDice = parseInt(document.getElementById("maxDice").value)
     json.maxSkills = parseInt(document.getElementById("maxSkills").value)
-    json.showPlayerAbility = document.getElementById("showPlayerAbility").value == "on" ? true : false
-    json.showPlayerStamina = document.getElementById("showPlayerStamina").value == "on" ? true : false
-    json.showPlayerSkills = document.getElementById("showPlayerSkills").value == "on" ? true : false
-    json.showPlayerGold = document.getElementById("showPlayerGold").value == "on" ? true : false
-    json.showPlayerInventory = document.getElementById("showPlayerInventory").value == "on" ? true : false
+    json.showPlayerAbility = document.querySelector('#showPlayerAbility').checked;
+    json.showPlayerStamina = document.querySelector('#showPlayerStamina').checked;
+    json.showPlayerSkills = document.querySelector('#showPlayerSkills').checked;
+    json.showPlayerGold = document.querySelector('#showPlayerGold').checked;
+    json.showPlayerInventory = document.querySelector('#showPlayerInventory').checked;
+
+    console.log(document.getElementById("showPlayerAbility").value)
+    console.log(document.getElementById("showPlayerAbility").value == "on" ? true : false)
 
     return json
 }

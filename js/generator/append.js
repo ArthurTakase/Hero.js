@@ -283,13 +283,12 @@ function addOption() {
             break
         case "SKILL":
             var conditionDataObject = document.getElementById('conditionValue')
-            var conditionDataBool = document.getElementById('conditionIsHere')
             json.condition = optionCondition.value
 
             for (skill in skillsList) {
                 if (skillsList[skill].name == conditionDataObject.value) {
                     json.conditionData = [
-                        conditionDataBool.value == "on" ? true : false,
+                        document.querySelector('#conditionIsHere').checked,
                         skillsList[skill].name
                     ]
                     break
@@ -298,13 +297,12 @@ function addOption() {
             break
         case "OBJECT":
             var conditionDataObject = document.getElementById('conditionValue')
-            var conditionDataBool = document.getElementById('conditionIsHere')
             json.condition = optionCondition.value
 
             for (object in objectsList) {
                 if (objectsList[object].name == conditionDataObject.value) {
                     json.conditionData = [
-                        conditionDataBool.value == "on" ? true : false,
+                        document.querySelector('#conditionIsHere').checked,
                         objectsList[object].type,
                         objectsList[object].name
                     ]
@@ -315,7 +313,7 @@ function addOption() {
                 for (object in specialList) {
                     if (specialList[object].name == conditionDataObject.value) {
                         json.conditionData = [
-                            conditionDataBool.value == "on" ? true : false,
+                            document.querySelector('#conditionIsHere').checked,
                             specialList[object].type,
                             specialList[object].name
                         ]
@@ -347,11 +345,14 @@ function addOption() {
                 }
             }
             break
-        case "MEAL": case "STAMINA": case "ABILITY":    case "LIFE":
+        case "MEAL": case "STAMINA": case "ABILITY": case "LIFE":
             var optionEffectValue = document.getElementById('effectValue')
             json.effect = optionEffect.value
             json.effectData = [parseInt(optionEffectValue.value)]
             break
+        case "RESTART":
+            var optionEffectValue = document.getElementById('effectValue')
+            json.effect = optionEffect.value
         default: break
     }
 
@@ -449,6 +450,9 @@ function addDialog() {
     document.getElementById('optionsList').innerHTML = ""
     
     document.getElementById('dialogTitle').focus()
+
+    optionIDGlobal = 0
+    document.getElementById('optionID').value = optionIDGlobal
 
     // append au html
 }
