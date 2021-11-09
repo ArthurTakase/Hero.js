@@ -15,6 +15,7 @@
         <script src="//d3js.org/d3.v5.min.js"></script>
         <script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
         <script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
         <title>Hero.js | Generator</title>
     </head>
@@ -33,7 +34,7 @@
                 <li class="nav-item" id="playerBtn" tabindex="0" onclick="show('player')">Player</li>
                 <li class="nav-item" id="dialogsBtn" tabindex="0" onclick="show('dialogs')">Dialogs</li>
                 <li class="nav-item" id="listBtn" tabindex="0" title="Dialog List" onclick="show('list')"><i class='bx bx-list-ol' ></i></li>
-                <li class="nav-item" id="dialogGraphBtn" tabindex="0" title="Dialog Map" onclick="show('dialogGraph')"><i class='bx bx-sitemap' ></i></li>
+                <li class="nav-item" id="dialogGraphBtn" tabindex="0" title="Dialog Map" onclick="graph()"><i class='bx bx-sitemap' ></i></li>
                 <li class="nav-item item-other wip" tabindex="0" title="Import"><i class='bx bx-import' ></i></li>
                 <li class="nav-item item-other" tabindex="0" title="Save (CTRL + S)" onclick="submit()"><i class='bx bx-save'></i></li>
                 <li class="nav-item" id="newsBtn" tabindex="0" title="News" onclick="show('news')"><i class='bx bx-news' ></i></li>
@@ -329,6 +330,7 @@
 
         <section id="dialogGraph" class="section">
             <h2>Dialog Graph</h2>
+            <div id="previewGraph" style="display: none;"></div>
             <div id="graph"></div>
         </section>
 

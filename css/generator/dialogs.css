@@ -1,4 +1,5 @@
-#preview {
+#preview,
+#previewGraph {
     display: none;
     background: #40414b9c;
     z-index: 1;
@@ -10,20 +11,23 @@
     justify-content: center;
     flex-direction: column;
     border-radius: 1rem;
-    zoom: 0.4;
     position: fixed;
     bottom: 50px;
     right: 50px;
     backdrop-filter: blur(10px);
     box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.274);
-    transition-duration: 1s;
+    transition-duration: 0.3s;
+    transform: scale(0.4) translateY(85%) translateX(80%);
 }
 
-#preview:active {
-    zoom: 1;
+#preview:active,
+#previewGraph:active {
+    transform: translateY(0%) translateX(0%) scale(1);
+    max-width: 90vw;
 }
 
-#preview img {
+#preview img,
+#previewGraph img {
     position: relative;
     width: 30vw;
     animation: dialog-img 2s ease-in-out infinite;
@@ -35,7 +39,8 @@
     100% {transform: translateY(0px);}
 }
 
-#preview .hero-js-dialog {
+#preview .hero-js-dialog,
+#previewGraph .hero-js-dialog {
     width: 80%;
     position: absolute;
     bottom: 0;
@@ -45,7 +50,8 @@
     flex-direction: column;
 }
 
-#preview .hero-js-dialog-header {
+#preview .hero-js-dialog-header,
+#previewGraph .hero-js-dialog-header {
     background: rgba(161, 161, 161, 0.397);
     backdrop-filter: blur(30px);
     border: solid rgba(255, 255, 255, 0.096) 0.1rem;
@@ -61,7 +67,8 @@
     color: white;
 }
 
-#preview .hero-js-dialog-body {
+#preview .hero-js-dialog-body,
+#previewGraph .hero-js-dialog-body {
     width: 95%;
     text-align: justify;
     background: #40444be1;
@@ -73,14 +80,16 @@
     color: white;
 }
 
-#preview .hero-js-dialog-action {
+#preview .hero-js-dialog-action,
+#previewGraph .hero-js-dialog-action {
     font-style: italic;
     margin: 1rem;
     margin-bottom: 0;
     filter: drop-shadow(0 1px 1px black);
 }
 
-#preview .hero-js-dialog-button-zone {
+#preview .hero-js-dialog-button-zone,
+#previewGraph .hero-js-dialog-button-zone {
     width: 97%;
     display: flex;
     justify-content: center;
@@ -88,7 +97,8 @@
     overflow-x: unset;
 }
 
-#preview .hero-js-dialog-button-zone button {
+#preview .hero-js-dialog-button-zone button,
+#previewGraph .hero-js-dialog-button-zone button {
     flex: 1;
     text-decoration: none;
     border: none;
@@ -105,16 +115,18 @@
     min-width: unset;
 }
 
-#preview .dialog-id {
+#preview .dialog-id,
+#previewGraph .dialog-id {
     /* border: solid; */
     position: absolute;
-    top: .5rem;
-    right: .5rem;
+    top: 2rem;
+    right: 2rem;
     padding: 0.5rem 1rem;
     background-color: #32353b;
     color: white;
     border-radius: .5rem;
-    zoom: 2.5;
+    /* zoom: 2.5; */
+    transform: scale(2);
 }
 
 .preview-button {

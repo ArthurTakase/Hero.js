@@ -225,7 +225,7 @@ function appendCondition() {
     }
 }
 
-function preview(id) {
+function preview(div, id) {
     var currentDialog
     var allButtons = []
     var tempCondition
@@ -293,7 +293,8 @@ function preview(id) {
         currentDialog.animation
     )
 
-    dialog.preview('preview', id)
+    if (div == null || div == "null") {dialog.preview("preview", id)}
+    dialog.preview(div, id)
 
 }
 
@@ -312,7 +313,7 @@ function updateDialogList() {
     liste.innerHTML = '<tr class="tableHeader"><th>ID</th><th>Title</th><th>Body</th></tr>'
 
     for (dialog in dialogList) {
-        liste.innerHTML += '<tr class="preview-button" onclick="preview(' + dialog + ')"><td>' +
+        liste.innerHTML += '<tr class="preview-button" onclick="preview(null, ' + dialog + ')"><td>' +
                             dialog +
                             '</td><td>' +
                             dialogList[dialog].title +

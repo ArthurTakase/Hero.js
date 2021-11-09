@@ -1,3 +1,5 @@
+let isMap = false
+
 function show(div) {
     const sections = document.getElementsByClassName("section")
     var myDiv = document.getElementById(div)
@@ -11,4 +13,5 @@ function show(div) {
     myBtn.style.background = '#363a3f'
 
     if (div == "list") {updateDialogList()}
+    isMap = false
 }
