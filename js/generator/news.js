@@ -9,6 +9,11 @@ function news() {
             "title": "Patch Note #2",
             "date": "09/11/2021",
             "text": "<ul><li>Fix bugs on firefox.</li><li>Added a graph showing the paths between the different dialogs.</li><li>Possibility to preview the dialogs from the graph.</li></ul>"
+        },
+        {
+            "title": "Patch Note #3",
+            "date": "10/11/2021",
+            "text": "<ul><li>Ne pas afficher dialogList et dialogMap si aucun dialogue.</li><li>Masquer la preview quand on arrive sur dialogGraph.</li><li>Suppression des Undefined sur dialogGraph.</li><li>Correction erreur background si affichage preview vide suivit de pleine.</li></ul>"
         }
     ]
     const section = document.getElementById('news')

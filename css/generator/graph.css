@@ -4,13 +4,21 @@ polygon {
 
 .node {
     fill: black;
-    /* stroke: white; */
 }
 
 .node ellipse {
     fill: rgba(255, 255, 255, 0.788);
-    /* fill: #202225; */
-    /* stroke: white; */
+}
+
+.node polygon {
+    fill: rgba(139, 139, 139, 0.527);
+    stroke: black;
+}
+
+.node polygon:hover {
+    stroke-dasharray: 5;
+    cursor: pointer;
+    fill: rgb(139, 139, 139);
 }
 
 .node ellipse:hover {
@@ -24,53 +32,22 @@ polygon {
     stroke: white;
 }
 
-.edge path {
-    /* fill: white; */
-    /* stroke: white; */
-}
-
 .edge polygon {
     fill: white;
-    /* stroke: white; */
 }
 
 #graph {
-    /* background: #202225; */
-    /* background: #3b3b3b; */
     background: rgba(255, 255, 255, 0.068);
     backdrop-filter: blur(10px);
     border: solid;
     border-color: rgba(255, 255, 255, 0.205);
     box-shadow: 0rem .5rem .5rem rgba(0, 0, 0, 0.308);
-    /* width: 1280px; */
-    /* height: 720px; */
-    /* width: calc(100vw * (2/3)); */
-    /* height: calc(100vh * (2/3)); */
     text-align: center;
     border-radius: .5rem;
-    /* transform: scale(0.5); */
     overflow: hidden;
     width: auto;
     height: auto;
 }
-
-/* @media screen and (min-width: 770px) {
-    #graph {
-        transform: scale(0.6);
-    }
-}
-
-@media screen and (min-width: 1000px) {
-    #graph {
-        transform: scale(0.7);
-    }
-}
-
-@media screen and (min-width: 1300px) {
-    #graph {
-        transform: scale(1);
-    }
-} */
 
 #dialogGraph {
     flex-direction: column;

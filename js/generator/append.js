@@ -454,5 +454,14 @@ function addDialog() {
     optionIDGlobal = 0
     document.getElementById('optionID').value = optionIDGlobal
 
-    // append au html
+    
+    if (dialogList.length == 1) {
+        const btngGraph = document.getElementById('dialogGraphBtn')
+        const btnList = document.getElementById('listBtn')
+
+        btnList.classList.remove("wip")
+        btngGraph.classList.remove("wip")
+        btngGraph.setAttribute("onclick", "graph()")
+        btnList.setAttribute("onclick", "show('list')")
+    }
 }

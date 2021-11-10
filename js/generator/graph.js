@@ -1,38 +1,38 @@
-console.log("graph init")
 let dialogGraphList = ""
 
 function graph() {
+    const preview = document.getElementById("previewGraph")
+    preview.style.display = "none"
 	show('dialogGraph')
 
-	console.log(dialogList)
-	dialogGraphList = "digraph {"
+	dialogGraphList = 'digraph {\nnode [style="filled"]\n'
 	for (dialog in dialogList) {
 		if (dialogList[dialog].buttons.length == 0) {
 			dialogGraphList += dialog + "\n"
 		}
-		for (button in dialogList[dialog].buttons)
-			dialogGraphList += dialog + "->" + dialogList[dialog].buttons[button].goToIndex + "\n"
+		for (button in dialogList[dialog].buttons) {
+            if (dialogList[dialog].buttons[button].goToIndex == undefined) {
+                var temp = parseInt(dialog) + 1
+                dialogGraphList += dialog + "->" + parseInt(temp) + "\n"
+            } else {
+                dialogGraphList += dialog + "->" + dialogList[dialog].buttons[button].goToIndex + "\n"
+            }
+        }
 	}
 	dialogGraphList += "}"
 	isMap = true
 
-
 	d3.select("#graph")
-		.graphviz()
-		.renderDot(dialogGraphList)
-		.width(window.innerWidth / 1.2)
-		.height(window.innerHeight / 1.4)
-		.fit(true)
-		.fade(true)
+        .graphviz()
+            .renderDot(dialogGraphList)
+            .width(window.innerWidth / 1.2)
+            .height(window.innerHeight / 1.4)
+            .fit(true)
+            .fade(true)
 }
 
-// récupérer chaque node
-// Faire la même chose que pour la carte interactive
-// preview du dialog en fonciton du title du node
-
 $(window).resize(function() {
-	const graph = document.getElementById('graph')
-	if (graph.style.display != "flex") {return}
+    if (!isMap) {return}
 
 	d3.select("#graph")
 		.graphviz()
@@ -46,13 +46,12 @@ $(window).resize(function() {
 document.addEventListener("click", function(e) {
 	var div = e.target.parentNode
 	if (!isMap) {return}
-	if (!div.classList.contains("node")) {return}
+	
+    try{if (!div.classList.contains("node")) {return}}
+    catch(e) {return}
 
 	var id = parseInt(div.querySelector("title").innerHTML)
 
-	console.log(isMap)
-	console.log(div)
-	console.log(id)
-	console.log("click sur la map")
-	try{preview("previewGraph", id)} catch (e) {}
+	try{preview("previewGraph", id)}
+    catch (e) {document.getElementById("previewGraph").style.display = "none"}
 })
