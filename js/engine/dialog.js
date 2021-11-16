@@ -26,7 +26,7 @@ class Dialog {
             zone.style.backgroundRepeat = "no-repeat"
             zone.style.backgroundSize = "cover"
             zone.style.backgroundPosition = "center"
-        }
+        } else {zone.style.background = "#40414b9c"}
         if (this.img != null) {img = '<div class="hero-js-dialog-img"><img src="' + this.img + '"></div>'}
         if (this.title != null) {title = '<div class="hero-js-dialog-header">' + this.title + '</div>'}
         if (this.action != null) {action = '<div class="hero-js-dialog-action">' + this.action + '</div>'}
