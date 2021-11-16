@@ -15,6 +15,7 @@ class Dialog {
         var title = ""
         var buttons = ""
         var action = ""
+        var dialog = ""
         var zone = document.getElementById(div)
 
         zone.style.display = "flex"
@@ -30,12 +31,13 @@ class Dialog {
         if (this.title != null) {title = '<div class="hero-js-dialog-header">' + this.title + '</div>'}
         if (this.action != null) {action = '<div class="hero-js-dialog-action">' + this.action + '</div>'}
         for (var i = 0; i != this.buttons.length; i++) {buttons += '<button class="hero-js-button hero-js-activate"">' + this.buttons[i].text + '</button>\n'}
+        if (this.dialog != null) {dialog = '<div class="hero-js-dialog-body">' + this.dialog + '</div>'}
 
         zone.innerHTML =  img +
                         '<div class="dialog-id">' + id + '</div>' + 
                         '<div class="hero-js-dialog">' +
                         title +
-                        '<div class="hero-js-dialog-body">' + this.dialog + '</div>'+
+                        dialog +
                         action +
                         '<div class="hero-js-dialog-button-zone">' + buttons + '</div>\
                         </div>'
@@ -46,38 +48,33 @@ class Dialog {
         var title = ""
         var buttons = "<!-- goToIndex, condition, indexBtn, currentNumber, effect, text -->"
         var action = ""
+        var dialog = ""
 
         setBackground(this.background)
 
         if (this.img != null) {img = '<div class="hero-js-dialog-img"><img src="' + this.img + '"></div>'}
         if (this.title != null) {title = '<div class="hero-js-dialog-header">' + this.title + '</div>'}
         if (this.action != null) {action = '<div class="hero-js-dialog-action">' + this.action + '</div>'}
+        if (this.dialog != null) {dialog = '<div class="hero-js-dialog-body">' + this.dialog + '</div>'}
         for (var i = 0; i != this.buttons.length; i++) {
             if (!checkCondition(this.buttons[i].condition, i, currentNumber, "load")) {
                 buttons += '<button class="hero-js-button hero-js-not-activate">🔒</button>\n'
             } else {
                 buttons += '<button class="hero-js-button hero-js-activate"onclick="switchDialog(' +
-                            this.buttons[i].goToIndex +
-                            ', ' +
-                            this.buttons[i].condition +
-                            ', ' +
-                            i +
-                            ', ' +
-                            currentNumber +
-                            ', ' +
-                            this.buttons[i].effect +
-                            ',\'' +
-                            this.buttons[i].notif +
-                            '\')">' +
-                            this.buttons[i].text +
-                            '</button>\n'
+                            this.buttons[i].goToIndex + ', ' +
+                            this.buttons[i].condition + ', ' +
+                            i + ', ' +
+                            currentNumber + ', ' +
+                            this.buttons[i].effect + ',\'' +
+                            this.buttons[i].notif + '\')">' +
+                            this.buttons[i].text + '</button>\n'
             }
         }
 
         document.getElementById('hero-js-all').innerHTML =  img +
                                                             '<div class="hero-js-dialog">' +
                                                             title +
-                                                            '<div class="hero-js-dialog-body">' + this.dialog + '</div>'+
+                                                            dialog +
                                                             action +
                                                             '<div class="hero-js-dialog-button-zone">' + buttons + '</div>\
                                                             </div>'

@@ -1,9 +1,9 @@
 #preview,
 #previewGraph {
     display: none;
-    background: #40414b9c;
+    background: #be22510a;
     z-index: 1;
-    border: solid;
+    border: solid #be2251;
     width: 1280px;
     height: 720px;
     display: flex;
@@ -12,25 +12,32 @@
     flex-direction: column;
     border-radius: 1rem;
     position: fixed;
-    bottom: 50px;
-    right: 50px;
+    bottom: 1rem;
+    right: 1rem;
     backdrop-filter: blur(10px);
     box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.274);
-    transition-duration: 0.3s;
-    transform: scale(0.4) translateY(85%) translateX(80%);
+    transition-duration: 0.2s;
+    transform: scale(0.4) translateY(75%) translateX(75%);
+    overflow: hidden;
+}
+
+#preview:hover,
+#previewGraph:hover {
+    transform: translateY(25%) translateX(25%) scale(0.5);
+    /* max-width: calc(100vw - 68px - 2rem); */
 }
 
 #preview:active,
 #previewGraph:active {
     transform: translateY(0%) translateX(0%) scale(1);
-    max-width: 90vw;
+    max-width: calc(100vw - 68px - 2rem);
 }
 
 #preview img,
 #previewGraph img {
     position: relative;
-    width: 30vw;
-    animation: dialog-img 2s ease-in-out infinite;
+    width: 50vh;
+    /* animation: dialog-img 2s ease-in-out infinite; */
 }
 
 @keyframes dialog-img {
@@ -121,9 +128,10 @@
     position: absolute;
     top: 2rem;
     right: 2rem;
-    padding: 0.5rem 1rem;
-    background-color: #32353b;
-    color: white;
+    padding: .25rem .75rem;
+    /* background-color: #32353b; */
+    border: solid #be2251 .125rem;
+    color: #be2251;
     border-radius: .5rem;
     /* zoom: 2.5; */
     transform: scale(2);
