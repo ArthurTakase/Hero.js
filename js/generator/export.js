@@ -30,6 +30,7 @@ function gameInfos() {
     if (defeatNumber.value != "")  {json.defeatNumber = parseInt(defeatNumber.value)}
     if (maxDice.value != "") {json.maxDice = parseInt(maxDice.value)}
     if (maxSkills.value != "") {json.maxSkills = parseInt(maxSkills.value)}
+    if (startNumber.value != "") {json.startNumber = parseInt(startNumber.value)}
     json.showPlayerAbility = document.querySelector('#showPlayerAbility').checked;
     json.showPlayerStamina = document.querySelector('#showPlayerStamina').checked;
     json.showPlayerSkills = document.querySelector('#showPlayerSkills').checked;
