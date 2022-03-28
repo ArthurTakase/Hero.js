@@ -140,7 +140,6 @@ function switchDialog(indexDialog, condition, indexBtn, oldIndexDialog, effect, 
         else {currentNumber = indexDialog}
         temp = setEffect(effect, indexBtn, oldIndexDialog, null)
         allDialog[oldIndexDialog].buttons[indexBtn].sound.play()
-        // console.log(allDialog[oldIndexDialog].buttons[indexBtn].sound)
         if (temp != "FIGHT") {
             allDialog[currentNumber].show(player)
             setNotif(notif, effect, temp)

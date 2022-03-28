@@ -1,0 +1,142 @@
+#preview,
+#previewGraph {
+    display: none;
+    background: #be22510a;
+    z-index: 1;
+    border: solid #be2251;
+    width: 1280px;
+    height: 720px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 1rem;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.274);
+    transition-duration: 0.2s;
+    transform: scale(0.4) translateY(75%) translateX(75%);
+    overflow: hidden;
+}
+
+#preview:hover,
+#previewGraph:hover {
+    transform: translateY(25%) translateX(25%) scale(0.5);
+    /* max-width: calc(100vw - 68px - 2rem); */
+}
+
+#preview:active,
+#previewGraph:active {
+    transform: translateY(0%) translateX(0%) scale(1);
+    max-width: calc(100vw - 68px - 2rem);
+}
+
+#preview img,
+#previewGraph img {
+    position: relative;
+    width: 50vh;
+    /* animation: dialog-img 2s ease-in-out infinite; */
+}
+
+@keyframes dialog-img {
+    0% {transform: translateY(0px);}
+    50% {transform: translateY(-5px);}
+    100% {transform: translateY(0px);}
+}
+
+#preview .hero-js-dialog,
+#previewGraph .hero-js-dialog {
+    width: 80%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#preview .hero-js-dialog-header,
+#previewGraph .hero-js-dialog-header {
+    background: rgba(161, 161, 161, 0.397);
+    backdrop-filter: blur(30px);
+    border: solid rgba(255, 255, 255, 0.096) 0.1rem;
+    min-width: 50%;
+    border-radius: .3rem;
+    padding: 0.2rem;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+}
+
+#preview .hero-js-dialog-body,
+#previewGraph .hero-js-dialog-body {
+    width: 95%;
+    text-align: justify;
+    background: #40444be1;
+    font-size: 0.9rem;
+    border: solid none 0.1rem;
+    backdrop-filter: blur(30px);
+    padding: 1rem;
+    border-radius: .3rem;
+    color: white;
+}
+
+#preview .hero-js-dialog-action,
+#previewGraph .hero-js-dialog-action {
+    font-style: italic;
+    margin: 1rem;
+    margin-bottom: 0;
+    filter: drop-shadow(0 1px 1px black);
+}
+
+#preview .hero-js-dialog-button-zone,
+#previewGraph .hero-js-dialog-button-zone {
+    width: 97%;
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    overflow-x: unset;
+}
+
+#preview .hero-js-dialog-button-zone button,
+#previewGraph .hero-js-dialog-button-zone button {
+    flex: 1;
+    text-decoration: none;
+    border: none;
+    font-style: inherit;
+    font-size: 0.9rem;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    opacity: 0.9;
+    background-color: #32353b;
+    color: white;
+    min-width: unset;
+}
+
+#preview .dialog-id,
+#previewGraph .dialog-id {
+    /* border: solid; */
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    padding: .25rem .75rem;
+    /* background-color: #32353b; */
+    border: solid #be2251 .125rem;
+    color: #be2251;
+    border-radius: .5rem;
+    /* zoom: 2.5; */
+    transform: scale(2);
+}
+
+.preview-button {
+    cursor: pointer;
+}

@@ -1,0 +1,48 @@
+/* 
+rose : #be2251
+sub_container : #26272f
+color : #a2a0a6
+*/
+
+polygon {
+    fill: transparent;
+}
+
+.node {
+    fill: #be2251;
+    /* stroke: #be2251; */
+}
+
+.node ellipse {
+    stroke: #be2251;
+    fill: #be225115;
+    transition-duration: 0.2s;
+}
+
+.node ellipse:hover {
+    /* stroke-dasharray: 3; */
+    stroke-linecap: round;
+    cursor: pointer;
+    fill: #be22516e;
+}
+
+.edge path {
+    /* fill: #be2251; */
+    stroke: #be2251;
+}
+
+.edge polygon {
+    stroke: #be2251;
+    fill: #be225115;
+}
+
+#graph {
+    /* backdrop-filter: blur(10px); */
+    /* border-color: rgba(255, 255, 255, 0.205); */
+    /* box-shadow: 0rem .5rem .5rem rgba(0, 0, 0, 0.308); */
+    /* text-align: center; */
+    border-radius: .5rem;
+    overflow: hidden;
+    width: auto;
+    height: auto;
+}
