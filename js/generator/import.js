@@ -29,8 +29,35 @@ function setValueFromJSON(json) {
     if (json.color) {
         json.color.forEach(element => {
             addColorFromJSON(element)
-        });
+        })
     }
+
+    // Data - Skills
+    if (json.gameplay.skills) {
+        json.gameplay.skills.forEach(element => {
+            addSkillFromJSON(element)
+        })
+    }
+
+    // Data - Objects
+    if (json.gameplay.objectsInventory) {
+        json.gameplay.objectsInventory.forEach(element => {
+            addObjectFromJSON(element)
+        })
+    }
+    if (json.gameplay.objectsSpecial) {
+        json.gameplay.objectsSpecial.forEach(element => {
+            addObjectFromJSON(element)
+        })
+    }
+
+    // Data - Pictures
+    if (json.data.images)
+        addPictureFromJSON(json.data.images)
+
+    // Data - Sounds
+    if (json.data.music)
+        addSoundFromJSON(json.data.music)
 
 
 }
@@ -41,6 +68,8 @@ function openJSON(file) {
     reader.onload = function(e) {
         var json = JSON.parse(e.target.result)
         console.log(json)
+            // location.reload()
+            // free toutes les listes sinon ça fait une fusion des elements
         setValueFromJSON(json)
         show('infos')
     };
