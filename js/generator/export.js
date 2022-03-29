@@ -27,10 +27,10 @@ function gameInfos() {
     const startNumber = document.getElementById("startNumber")
 
     json.title = document.getElementById("title").value
-    if (defeatNumber.value != "")  {json.defeatNumber = parseInt(defeatNumber.value)}
-    if (maxDice.value != "") {json.maxDice = parseInt(maxDice.value)}
-    if (maxSkills.value != "") {json.maxSkills = parseInt(maxSkills.value)}
-    if (startNumber.value != "") {json.startNumber = parseInt(startNumber.value)}
+    if (defeatNumber.value != "") { json.defeatNumber = parseInt(defeatNumber.value) }
+    if (maxDice.value != "") { json.maxDice = parseInt(maxDice.value) }
+    if (maxSkills.value != "") { json.maxSkills = parseInt(maxSkills.value) }
+    if (startNumber.value != "") { json.startNumber = parseInt(startNumber.value) }
     json.showPlayerAbility = document.querySelector('#showPlayerAbility').checked;
     json.showPlayerStamina = document.querySelector('#showPlayerStamina').checked;
     json.showPlayerSkills = document.querySelector('#showPlayerSkills').checked;
@@ -46,12 +46,11 @@ function gameplay() {
     var specialList = []
     var skillsList = []
 
-    for (skill in skillsJson) {skillsList.push(skillsJson[skill])}
+    for (skill in skillsJson) { skillsList.push(skillsJson[skill]) }
     json.skills = skillsList
 
     for (object in objectsJson) {
-        if (objectsJson[object].type == "special") {specialList.push(objectsJson[object])}
-        else {objectsList.push(objectsJson[object])}
+        if (objectsJson[object].type == "special") { specialList.push(objectsJson[object]) } else { objectsList.push(objectsJson[object]) }
     }
     json.objectsInventory = objectsList
     json.objectsSpecial = specialList
@@ -74,10 +73,9 @@ function player() {
     json.meal = parseInt(meal.value)
     json.gold = parseInt(gold.value)
 
-    for (skill in playerSkills) {json.skills.push(playerSkills[skill])}
+    for (skill in playerSkills) { json.skills.push(playerSkills[skill]) }
     for (object in playerObjects) {
-        if (playerObjects[object].type == 'special') {json.special.push(playerObjects[object])}
-        else {json.inventory.push(playerObjects[object])}
+        if (playerObjects[object].type == 'special') { json.special.push(playerObjects[object]) } else { json.inventory.push(playerObjects[object]) }
     }
 
     return json
@@ -86,14 +84,14 @@ function player() {
 function color() {
     var colorList = []
 
-    for (c in colorJson) {colorList.push([c, colorJson[c]])}
+    for (c in colorJson) { colorList.push([c, colorJson[c]]) }
 
     return colorList
 }
 
 function checkJSON(json) {
-    if (json.gameInfos.title == undefined) {console.log("pas de titre"); return false}
-    if (json.gameInfos.startNumber == undefined) {console.log("pas de startNumber"); return false}
+    if (json.gameInfos.title == undefined) { console.log("pas de titre"); return false }
+    if (json.gameInfos.startNumber == undefined) { console.log("pas de startNumber"); return false }
 
     return true
 }
@@ -104,10 +102,9 @@ function submit() {
     json.data = data()
     json.gameInfos = gameInfos()
     json.gameplay = gameplay()
-    if (isPlayer) {json.player = player()}
+    if (isPlayer) { json.player = player() }
     json.color = color()
     json.dialogs = dialogList
 
-    console.log(json)
-    if (checkJSON(json)) {exportJSON(json)}
+    if (checkJSON(json)) { exportJSON(json) }
 }

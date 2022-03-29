@@ -95,13 +95,48 @@ function setValueFromJSON(json) {
     })
 }
 
+function resetAll() {
+    optionIDGlobal = 0
+    buttonList = []
+    colorJson = {}
+    colorAdvanced = false
+    dialogIDGlobal = 0
+    dialogList = []
+    objectsJson = {}
+    dialogGraphList = ""
+    isMap = false
+    pictureJson = {}
+    isPlayer = false
+    inventoryID = 0
+    playerSkills = {}
+    playerObjects = {}
+    skillsJson = {}
+    soundJson = {}
+
+    document.getElementById('player').innerHTML = ""
+    document.getElementById("title").value = ""
+    document.getElementById("startNumber").value = ""
+    document.getElementById("defeatNumber").value = ""
+    document.getElementById("maxDice").value = ""
+    document.getElementById("maxSkills").value = ""
+    document.getElementById("showPlayerStamina").checked = true
+    document.getElementById("showPlayerAbility").checked = true
+    document.getElementById("showPlayerSkills").checked = true
+    document.getElementById("showPlayerGold").checked = true
+    document.getElementById("showPlayerInventory").checked = true
+    document.getElementById('soundList').innerHTML = ""
+    document.getElementById('skillsList').innerHTML = ""
+    document.getElementById('pictureList').innerHTML = ""
+    document.getElementById('objectList').innerHTML = ""
+    document.getElementById('colorList').innerHTML = ""
+}
+
 // open JSON file
 function openJSON(file) {
     var reader = new FileReader()
     reader.onload = function(e) {
         var json = JSON.parse(e.target.result)
-        console.log(json)
-            // location.reload()
+        resetAll()
             // free toutes les listes sinon ça fait une fusion des elements
         setValueFromJSON(json)
         show('infos')
