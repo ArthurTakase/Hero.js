@@ -20,7 +20,7 @@ function addPictureFromJSON(elements) {
 
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Preview</th></tr>'
     for (picture in pictureJson) {
-        liste.innerHTML += '<tr><td>' + picture + '</td><td><a href="' + pictureJson[picture] + '" target="_blank"><img src="' + pictureJson[picture] + '"></a></td></tr>'
+        liste.innerHTML += '<tr><td>' + picture + '</td><td><img class="picture-img" src="' + pictureJson[picture] + '"></td></tr>'
     }
 }
 
@@ -36,7 +36,7 @@ function addPicture() {
 
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Preview</th></tr>'
     for (picture in pictureJson) {
-        liste.innerHTML += '<tr><td>' + picture + '</td><td><a href="' + pictureJson[picture] + '" target="_blank"><img src="' + pictureJson[picture] + '"></a></td></tr>'
+        liste.innerHTML += '<tr><td>' + picture + '</td><td><img src="' + pictureJson[picture] + '"></td></tr>'
     }
 
     pictureName.value = ""
