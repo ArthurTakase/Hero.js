@@ -89,6 +89,10 @@ function setValueFromJSON(json) {
             addPlayerInventoryFromJSON(element)
         })
     }
+
+    json.dialogs.forEach(element => {
+        addDialogFromJSON(element)
+    })
 }
 
 // open JSON file
