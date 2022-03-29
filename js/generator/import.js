@@ -52,14 +52,43 @@ function setValueFromJSON(json) {
     }
 
     // Data - Pictures
-    if (json.data.images)
+    if (json.data && json.data.images)
         addPictureFromJSON(json.data.images)
 
     // Data - Sounds
-    if (json.data.music)
+    if (json.data && json.data.music)
         addSoundFromJSON(json.data.music)
 
+    // Player
+    if (json.player) {
+        generatePlayer()
 
+        var playerAbility = document.getElementById('playerAbility')
+        var playerStamina = document.getElementById('playerStamina')
+        var playerMeal = document.getElementById('playerMeal')
+        var playerGold = document.getElementById('playerGold')
+
+        // Player - Stats
+        playerAbility.value = json.player.ability
+        playerStamina.value = json.player.stamina
+        playerMeal.value = json.player.meal
+        playerGold.value = json.player.gold
+
+        // Player - Skills
+        json.player.skills.forEach(element => {
+            addPlayerSkillFromJSON(element)
+        })
+
+        // Player - Inventory
+        json.player.inventory.forEach(element => {
+            addPlayerInventoryFromJSON(element)
+        })
+
+        // Player - Special
+        json.player.special.forEach(element => {
+            addPlayerInventoryFromJSON(element)
+        })
+    }
 }
 
 // open JSON file
