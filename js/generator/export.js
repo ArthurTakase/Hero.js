@@ -81,7 +81,7 @@ function player() {
     return json
 }
 
-function color() {
+function getcolor() {
     var colorList = []
 
     for (c in colorJson) { colorList.push([c, colorJson[c]]) }
@@ -103,7 +103,7 @@ function submit() {
     json.gameInfos = gameInfos()
     json.gameplay = gameplay()
     if (isPlayer) { json.player = player() }
-    json.color = color()
+    json.color = getcolor()
     json.dialogs = dialogList
 
     if (checkJSON(json)) { exportJSON(json) }
