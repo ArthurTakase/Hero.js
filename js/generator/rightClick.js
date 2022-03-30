@@ -4,6 +4,7 @@ var lastRightClickElement = null
 
 let editValue = "edit"
 let editValueColor = "edit-color"
+let editValueSkill = "edit-skill"
 let editValueObject = "edit-object"
 let editValuePicture = "edit-picture"
 let editValueSound = "edit-sound"
@@ -33,6 +34,8 @@ document.onclick = function(e) {
             else if (lastRightClickElement.classList.contains(editValuePicture)) editPicture(lastRightClickElement)
             else if (lastRightClickElement.classList.contains(editValueSound)) editSound(lastRightClickElement)
             else if (lastRightClickElement.classList.contains(editValueDialog)) editDialog(lastRightClickElement)
+            else if (lastRightClickElement.classList.contains(editValueSkill)) editSkill(lastRightClickElement)
+
             window.scrollTo(0, 0);
         } else { editMenu.style.display = "none" }
     } catch { editMenu.style.display = "none" }
