@@ -1,0 +1,56 @@
+/* <div class="edit-menu">
+        <button id="edit-edit"><i class="fa-solid fa-pen-to-square"></i></button>
+        <button id="edit-remove"><i class="fa-solid fa-ban"></i></button>
+    </div> */
+
+.edit:hover {
+    background: #ffffff04;
+}
+
+#edit-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* border: solid; */
+    z-index: 1000;
+    background: #373842;
+    border-radius: .3rem;
+    /* border: solid #be2251 .1rem; */
+    box-shadow: 0rem 0rem .5rem rgba(0, 0, 0, 0.377);
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    /* display: flex; */
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    /* color: #be2251; */
+    color: #a1a1a6;
+}
+
+
+/* #edit-menu:hover body {
+    opacity: 0.5;
+} */
+
+#edit-edit {
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+#edit-edit:hover {
+    cursor: pointer;
+    background: #4b4c58;
+}
+
+#edit-remove {
+    display: none;
+    color: #be2251;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+#edit-remove:hover {
+    cursor: pointer;
+    background: #4b4c58;
+}

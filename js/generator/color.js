@@ -11,7 +11,7 @@ function addColorFromJSON(colorInfos) {
 
     liste.innerHTML = '<tr class="tableHeader"><th>Element</th><th>Color</th></tr>'
     for (color in colorJson) {
-        liste.innerHTML += '<tr><td>' + color + '</td><td title="' + colorJson[color] + '" style="background: ' + colorJson[color] + '; border-radius: .5rem;"></td></tr>'
+        liste.innerHTML += '<tr class="' + editValue + ' ' + editValueColor + '"><td>' + color + '</td><td title="' + colorJson[color] + '" style="background: ' + colorJson[color] + '; border-radius: .5rem;"></td></tr>'
     }
 }
 
@@ -28,7 +28,7 @@ function addColor() {
 
     liste.innerHTML = '<tr class="tableHeader"><th>Element</th><th>Color</th></tr>'
     for (color in colorJson) {
-        liste.innerHTML += '<tr><td>' + color + '</td><td title="' + colorJson[color] + '" style="background: ' + colorJson[color] + '; border-radius: .5rem;"></td></tr>'
+        liste.innerHTML += '<tr class="' + editValue + ' ' + editValueColor + '"><td>' + color + '</td><td title="' + colorJson[color] + '" style="background: ' + colorJson[color] + '; border-radius: .5rem;"></td></tr>'
     }
 }
 
