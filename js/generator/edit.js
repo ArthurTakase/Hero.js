@@ -8,6 +8,18 @@ function editColor(div) {
     color.value = div.lastChild.title
 }
 
+function editSkill(div) {
+    var children = div.childNodes
+
+    const page_div = [
+        document.getElementById("skillName"),
+        document.getElementById("skillAbility"),
+        document.getElementById("skillStamina")
+    ]
+    for (i = 0; i < children.length; i++)
+        page_div[i].value = children[i].innerHTML
+}
+
 function editObject(div) {
     var children = div.childNodes
 
@@ -40,5 +52,4 @@ function editSound(div) {
     name.value = div.childNodes[0].innerHTML
     url.value = div.childNodes[1].firstChild.src
     try { volume.value = ParseInt(div.childNodes[2].innerHTML) } catch { volume.value = 50 }
-
 }
