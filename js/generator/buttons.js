@@ -1,6 +1,25 @@
 let optionIDGlobal = 0
 let buttonList = []
 
+function addOptionJSON(option) {
+    console.log(option)
+
+    const liste = document.getElementById('optionsList')
+    const optionID = document.getElementById('optionID')
+
+    // ===== SAVE =====
+    if (buttonList.length == 0) { liste.classList.add("table") }
+    buttonList.push(option);
+    optionIDGlobal += 1
+    optionID.value = optionIDGlobal
+
+    // ===== TABLEAU =====
+    liste.innerHTML = '<tr class="tableHeader"><th>ID</th><th>Text</th><th>Go To</th></tr>'
+    for (button in buttonList) {
+        if (buttonList[button].goToIndex == undefined) { liste.innerHTML += '<tr><td>' + button + '</td><td>' + buttonList[button].text + '</td><td>Next</td></tr>' } else { liste.innerHTML += '<tr><td>' + button + '</td><td>' + buttonList[button].text + '</td><td>' + buttonList[button].goToIndex + '</td></tr>' }
+    }
+}
+
 function addOption() {
     const liste = document.getElementById('optionsList')
     var optionID = document.getElementById('optionID')
@@ -63,8 +82,10 @@ function addOption() {
 
     // ===== SAVE =====
     if (buttonList.length == 0) { liste.classList.add("table") }
-    if (parseInt(optionID.value) != optionIDGlobal) { buttonList[parseInt(optionID.value)] = json } else { buttonList.push(json);
-        optionIDGlobal += 1 }
+    if (parseInt(optionID.value) != optionIDGlobal) { buttonList[parseInt(optionID.value)] = json } else {
+        buttonList.push(json);
+        optionIDGlobal += 1
+    }
 
     // ===== TABLEAU =====
     liste.innerHTML = '<tr class="tableHeader"><th>ID</th><th>Text</th><th>Go To</th></tr>'

@@ -155,7 +155,7 @@ function updateDialogList() {
     liste.innerHTML = '<tr class="tableHeader"><th>ID</th><th>Title</th><th>Body</th></tr>'
 
     for (dialog in dialogList) {
-        liste.innerHTML += '<tr class="preview-button" onclick="preview(\'preview\', ' + dialog + ')"><td>' +
+        liste.innerHTML += '<tr class="preview-button ' + editValue + ' ' + editValueDialog + '" onclick="preview(\'preview\', ' + dialog + ')"><td>' +
             dialog +
             '</td><td>' +
             dialogList[dialog].title +

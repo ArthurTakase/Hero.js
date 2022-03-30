@@ -39,6 +39,65 @@ function editSound(div) {
 
     name.value = div.childNodes[0].innerHTML
     url.value = div.childNodes[1].firstChild.src
-    try { volume.value = ParseInt(div.childNodes[2].innerHTML) } catch { volume.value = 50 }
+    try { volume.value = parseInt(div.childNodes[2].innerHTML) } catch { volume.value = 50 }
 
+}
+
+function resetDialog() {
+    const optionListe = document.getElementById('optionsList')
+    const optionID = document.getElementById('optionID')
+    const dialogTitle = document.getElementById('dialogTitle')
+    const dialogBody = document.getElementById('dialogBody')
+    const dialogAction = document.getElementById('dialogAction')
+    const dialogMusic = document.getElementById('dialogMusic')
+    const dialogBackground = document.getElementById('dialogBackground')
+    const dialogPicture = document.getElementById('dialogImage')
+    const dialogAnimation = document.getElementById('dialogAnimation')
+
+    // ===== RESET =====
+    dialogTitle.value = ""
+    dialogBody.value = ""
+    dialogAction.value = ""
+    dialogMusic.value = "No Music"
+    dialogBackground.value = "No Background"
+    dialogPicture.value = "No Picture"
+    dialogAnimation.value = "No Animation"
+
+    // ===== RESET BUTTON =====
+    buttonList = []
+    optionIDGlobal = 0
+    optionListe.classList.remove('table')
+    optionListe.innerHTML = ""
+    optionID.value = optionIDGlobal
+}
+
+function editDialog(div) {
+    resetDialog()
+    show('dialog')
+
+    const zoneId = document.getElementById("dialogID")
+    const title = document.getElementById("dialogTitle")
+    const body = document.getElementById("dialogBody")
+    const action = document.getElementById("dialogAction")
+    const music = document.getElementById("dialogMusic")
+    const background = document.getElementById("dialogBackground")
+    const picture = document.getElementById("dialogImage")
+    const animation = document.getElementById("dialogAnimation")
+
+
+    var id = parseInt(div.firstChild.innerHTML)
+    var dialog = dialogList[id]
+
+    zoneId.value = id
+    title.value = (dialog.title == undefined) ? "" : dialog.title
+    body.value = (dialog.body == undefined) ? "" : dialog.body
+    action.value = (dialog.action == undefined) ? "" : dialog.action
+    music.value = (Array.isArray(dialog.music)) ? "URL Music" : dialog.music
+        // background.value = (dialog.background.startWith("http")) ? "URL Background" : dialog.background
+        // picture.value = (dialog.img.startWith("http")) ? "URL Picture" : dialog.img
+    animation.value = (dialog.animation == undefined) ? "No Animation" : dialog.animation
+
+    console.log(dialog.buttons)
+
+    dialog.buttons.forEach(element => { addOptionJSON(element) });
 }
