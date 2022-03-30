@@ -31,3 +31,14 @@ function editPicture(div) {
     name.value = div.firstChild.innerHTML
     url.value = div.lastChild.firstChild.src
 }
+
+function editSound(div) {
+    const name = document.getElementById("soundName")
+    const url = document.getElementById("soundURL")
+    const volume = document.getElementById("soundVolume")
+
+    name.value = div.childNodes[0].innerHTML
+    url.value = div.childNodes[1].firstChild.src
+    try { volume.value = ParseInt(div.childNodes[2].innerHTML) } catch { volume.value = 50 }
+
+}

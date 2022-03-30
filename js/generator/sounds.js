@@ -20,7 +20,7 @@ function addSoundFromJSON(elements) {
 
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Preview</th><th>Volume</th></tr>'
     for (sound in soundJson) {
-        liste.innerHTML += '<tr><td>' +
+        liste.innerHTML += '<tr class="' + editValue + ' ' + editValueSound + '"><td>' +
             sound +
             '</td><td><audio controls src="' +
             soundJson[sound][0] +
@@ -43,7 +43,7 @@ function addSound() {
 
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Preview</th><th>Volume</th></tr>'
     for (sound in soundJson) {
-        liste.innerHTML += '<tr><td>' +
+        liste.innerHTML += '<tr class="' + editValue + ' ' + editValueSound + '"><td>' +
             sound +
             '</td><td><audio controls src="' +
             soundJson[sound][0] +

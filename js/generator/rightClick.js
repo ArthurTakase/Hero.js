@@ -6,6 +6,7 @@ let editValue = "edit"
 let editValueColor = "edit-color"
 let editValueObject = "edit-object"
 let editValuePicture = "edit-picture"
+let editValueSound = "edit-sound"
 
 document.oncontextmenu = function(e) {
     if (e.target.parentNode.classList.contains(editValue)) {
@@ -30,6 +31,7 @@ document.onclick = function(e) {
             if (lastRightClickElement.classList.contains(editValueColor)) editColor(lastRightClickElement)
             else if (lastRightClickElement.classList.contains(editValueObject)) editObject(lastRightClickElement)
             else if (lastRightClickElement.classList.contains(editValuePicture)) editPicture(lastRightClickElement)
+            else if (lastRightClickElement.classList.contains(editValueSound)) editSound(lastRightClickElement)
 
             window.scrollTo(0, 0);
         } else { editMenu.style.display = "none" }
