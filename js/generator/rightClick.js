@@ -4,9 +4,10 @@ var lastRightClickElement = null
 
 let editValue = "edit"
 let editValueColor = "edit-color"
+let editValueObject = "edit-object"
 
 document.oncontextmenu = function(e) {
-    if (e.target.parentNode.classList.contains("edit")) {
+    if (e.target.parentNode.classList.contains(editValue)) {
         e.preventDefault();
 
         editMenu.style.display = "flex"
@@ -25,8 +26,8 @@ document.onclick = function(e) {
     try {
         if (e.target.parentNode.id == "edit-menu" || e.target.id == "edit-menu") {
             console.log(lastRightClickElement)
-            if (lastRightClickElement.classList.contains(editValueColor))
-                editColor(lastRightClickElement)
+            if (lastRightClickElement.classList.contains(editValueColor)) editColor(lastRightClickElement)
+            else if (lastRightClickElement.classList.contains(editValueObject)) editObject(lastRightClickElement)
 
         } else { editMenu.style.display = "none" }
     } catch { editMenu.style.display = "none" }
