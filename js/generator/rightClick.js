@@ -11,9 +11,8 @@ let editValueSound = "edit-sound"
 let editValueDialog = "edit-dialog"
 
 document.oncontextmenu = function(e) {
+    e.preventDefault();
     if (e.target.parentNode.classList.contains(editValue)) {
-        e.preventDefault();
-
         editMenu.style.display = "flex"
 
         editMenu.style.top = e.clientY + "px"
