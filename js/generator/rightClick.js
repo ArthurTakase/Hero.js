@@ -4,6 +4,7 @@ var lastRightClickElement = null
 
 let editValue = "edit"
 let editValueColor = "edit-color"
+let editValueSkill = "edit-skill"
 
 document.oncontextmenu = function(e) {
     if (e.target.parentNode.classList.contains("edit")) {
@@ -27,6 +28,8 @@ document.onclick = function(e) {
             console.log(lastRightClickElement)
             if (lastRightClickElement.classList.contains(editValueColor))
                 editColor(lastRightClickElement)
+            else if (lastRightClickElement.classList.contains(editValueSkill))
+                editSkill(lastRightClickElement)
 
         } else { editMenu.style.display = "none" }
     } catch { editMenu.style.display = "none" }
