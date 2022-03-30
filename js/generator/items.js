@@ -4,7 +4,7 @@ let objectsJson = {}
 function reloadObjectList(liste) {
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Type</th><th>Ability</th><th>Stamina</th><th>Gold</th><th>Meal</th></tr>'
     for (object in objectsJson) {
-        liste.innerHTML += '<tr><td>' +
+        liste.innerHTML += '<tr class="' + editValue + ' ' + editValueObject + '"><td>' +
             objectsJson[object].name + '</td><td>' +
             objectsJson[object].type + '</td><td>' +
             objectsJson[object].data[0] + '</td><td>' +
