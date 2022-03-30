@@ -23,3 +23,11 @@ function editObject(div) {
     for (var i = 0; i < children.length; i++)
         pages_div[i].value = children[i].innerHTML
 }
+
+function editPicture(div) {
+    const name = document.getElementById("pictureName")
+    const url = document.getElementById("pictureURL")
+
+    name.value = div.firstChild.innerHTML
+    url.value = div.lastChild.firstChild.src
+}

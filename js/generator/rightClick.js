@@ -5,6 +5,7 @@ var lastRightClickElement = null
 let editValue = "edit"
 let editValueColor = "edit-color"
 let editValueObject = "edit-object"
+let editValuePicture = "edit-picture"
 
 document.oncontextmenu = function(e) {
     if (e.target.parentNode.classList.contains(editValue)) {
@@ -28,8 +29,14 @@ document.onclick = function(e) {
             console.log(lastRightClickElement)
             if (lastRightClickElement.classList.contains(editValueColor)) editColor(lastRightClickElement)
             else if (lastRightClickElement.classList.contains(editValueObject)) editObject(lastRightClickElement)
+            else if (lastRightClickElement.classList.contains(editValuePicture)) editPicture(lastRightClickElement)
 
+            window.scrollTo(0, 0);
         } else { editMenu.style.display = "none" }
     } catch { editMenu.style.display = "none" }
     editMenu.style.display = "none"
 };
+
+document.onscroll = function(e) {
+    editMenu.style.display = "none"
+}
