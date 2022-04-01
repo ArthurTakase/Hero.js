@@ -71,9 +71,27 @@ function removeButton(div) {
     console.log(div)
 }
 
-// Remove skill from player
+function removeSkillFromPlayer(div) {
+    const liste = document.getElementById('playerSkillsListTable')
 
-// Remove object from player
+    delete playerSkills[div.firstChild.innerHTML]
+
+    if (jsonLen(playerSkills) == 0) { liste.innerHTML = "" } else {
+        liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
+        for (skill in playerSkills) { liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePlayerSkill + '"><td>' + skill + '</td></tr>' }
+    }
+}
+
+function removeObjectFromPlayer(div) {
+    const liste = document.getElementById('playerInventoryListTable')
+
+    delete playerObjects[div.firstChild.innerHTML]
+
+    if (jsonLen(playerObjects) == 0) { liste.innerHTML = "" } else {
+        liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
+        for (object in playerObjects) { liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePlayerInv + '"><td>' + playerObjects[object] + '</td></tr>' }
+    }
+}
 
 function confirmDeletion() {
     modal.style.display = "none"
@@ -84,6 +102,8 @@ function confirmDeletion() {
     else if (lastRightClickElement.classList.contains(editValueDialog)) removeDialog(lastRightClickElement)
     else if (lastRightClickElement.classList.contains(editValueSkill)) removeSkill(lastRightClickElement)
     else if (lastRightClickElement.classList.contains(editValueButton)) removeButton(lastRightClickElement)
+    else if (lastRightClickElement.classList.contains(editValuePlayerSkill)) removeSkillFromPlayer(lastRightClickElement)
+    else if (lastRightClickElement.classList.contains(editValuePlayerInv)) removeObjectFromPlayer(lastRightClickElement)
 }
 
 function showDelete(x, y) {

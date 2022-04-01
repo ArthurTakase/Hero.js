@@ -10,6 +10,8 @@ let editValuePicture = "edit-picture"
 let editValueSound = "edit-sound"
 let editValueDialog = "edit-dialog"
 let editValueButton = "edit-button"
+let editValuePlayerSkill = "edit-player-skill"
+let editValuePlayerInv = "edit-player-inv"
 
 let lastX, lastY
 
@@ -42,7 +44,6 @@ document.onclick = function(e) {
         else if (lastRightClickElement.classList.contains(editValueButton)) editButton(lastRightClickElement)
         editMenu.style.display = "none"
     } else if (e.target.parentNode.id == "edit-remove" || e.target.id == "edit-remove") {
-        console.log("delete", lastRightClickElement)
         showDelete(lastX, lastY)
     } else {
         editMenu.style.display = "none"
