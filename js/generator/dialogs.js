@@ -2,25 +2,25 @@ var dialogIDGlobal = 0
 var dialogList = []
 
 const selectCondition = {
-    "No Condition": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option selected>No Condition</option><option>GOLD</option><option>MEAL</option><option>STAMINA</option><option>ABILITY</option><option>SKILL</option><option>OBJECT</option></select>',
-    "GOLD": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option>No Condition</option><option selected>GOLD</option><option>MEAL</option><option>STAMINA</option><option>ABILITY</option><option>SKILL</option><option>OBJECT</option></select>',
-    "MEAL": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option>No Condition</option><option>GOLD</option><option selected>MEAL</option><option>STAMINA</option><option>ABILITY</option><option>SKILL</option><option>OBJECT</option></select>',
-    "STAMINA": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option>No Condition</option><option>GOLD</option><option>MEAL</option><option selected>STAMINA</option><option>ABILITY</option><option>SKILL</option><option>OBJECT</option></select>',
-    "ABILITY": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option>No Condition</option><option>GOLD</option><option>MEAL</option><option>STAMINA</option><option selected>ABILITY</option><option>SKILL</option><option>OBJECT</option></select>',
-    "SKILL": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option>No Condition</option><option>GOLD</option><option>MEAL</option><option>STAMINA</option><option>ABILITY</option><option selected>SKILL</option><option>OBJECT</option></select>',
-    "OBJECT": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option>No Condition</option><option>GOLD</option><option>MEAL</option><option>STAMINA</option><option>ABILITY</option><option>SKILL</option><option selected>OBJECT</option></select>'
+    "No Condition": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option selected>No Condition</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>SKILL</option><option>OBJECT</option></select>',
+    "GOLD": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option>No Condition</option><option selected>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>SKILL</option><option>OBJECT</option></select>',
+    "EXTRA": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option>No Condition</option><option>GOLD</option><option selected>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>SKILL</option><option>OBJECT</option></select>',
+    "STAMINA": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option>No Condition</option><option>GOLD</option><option>EXTRA</option><option selected>STAMINA</option><option>ABILITY</option><option>SKILL</option><option>OBJECT</option></select>',
+    "ABILITY": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option>No Condition</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option selected>ABILITY</option><option>SKILL</option><option>OBJECT</option></select>',
+    "SKILL": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option>No Condition</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option selected>SKILL</option><option>OBJECT</option></select>',
+    "OBJECT": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option>No Condition</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>SKILL</option><option selected>OBJECT</option></select>'
 }
 
 const selectEffect = {
-    "No Effect": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option selected>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option>MEAL</option><option>STAMINA</option><option>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
-    "REMOVE_OBJECT": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option selected>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option>MEAL</option><option>STAMINA</option><option>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
-    "ADD_OBJECT": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option selected>ADD_OBJECT</option><option>GOLD</option><option>MEAL</option><option>STAMINA</option><option>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
-    "GOLD": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option selected>GOLD</option><option>MEAL</option><option>STAMINA</option><option>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
-    "MEAL": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option selected>MEAL</option><option>STAMINA</option><option>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
-    "STAMINA": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option>MEAL</option><option selected>STAMINA</option><option>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
-    "ABILITY": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option>MEAL</option><option>STAMINA</option><option selected>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
-    "LIFE": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option>MEAL</option><option>STAMINA</option><option>ABILITY</option><option selected>LIFE</option><option>RESTART</option></select>',
-    "RESTART": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option>MEAL</option><option>STAMINA</option><option>ABILITY</option><option>LIFE</option><option selected>RESTART</option></select>',
+    "No Effect": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option selected>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
+    "REMOVE_OBJECT": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option selected>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
+    "ADD_OBJECT": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option selected>ADD_OBJECT</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
+    "GOLD": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option selected>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
+    "EXTRA": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option selected>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
+    "STAMINA": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option>EXTRA</option><option selected>STAMINA</option><option>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
+    "ABILITY": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option selected>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
+    "LIFE": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option selected>LIFE</option><option>RESTART</option></select>',
+    "RESTART": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>LIFE</option><option selected>RESTART</option></select>',
 }
 
 function appendCondition() {
@@ -33,7 +33,7 @@ function appendCondition() {
         case "No Condition":
             break
         case "GOLD":
-        case "MEAL":
+        case "EXTRA":
         case "STAMINA":
         case "ABILITY":
             conditionZone.innerHTML += '<input type="number" name="conditionValue" id="conditionValue" placeholder="Condition Value" title="Condition Value">'
@@ -69,7 +69,7 @@ function appendEffect() {
             effectZone.innerHTML += '<select name="effectValue" id="effectValue" title="Effect Value"></select>'
             updateObjects()
             break
-        case "MEAL":
+        case "EXTRA":
         case "STAMINA":
         case "ABILITY":
         case "LIFE":

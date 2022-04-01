@@ -5,6 +5,6 @@ class Object {
         this.bonusAbility = bonus[0] // int
         this.bonusStamina = bonus[1] // int
         this.bonusGold = bonus[2] // int
-        this.bonusMeal = bonus[3] // int
+        this.bonusExtra = bonus[3] // int
     }
 }

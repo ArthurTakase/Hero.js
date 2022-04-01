@@ -65,13 +65,13 @@ function setValueFromJSON(json) {
 
         var playerAbility = document.getElementById('playerAbility')
         var playerStamina = document.getElementById('playerStamina')
-        var playerMeal = document.getElementById('playerMeal')
+        var playerExtra = document.getElementById('playerExtra')
         var playerGold = document.getElementById('playerGold')
 
         // Player - Stats
         playerAbility.value = json.player.ability
         playerStamina.value = json.player.stamina
-        playerMeal.value = json.player.meal
+        playerExtra.value = json.player.extra
         playerGold.value = json.player.gold
 
         // Player - Skills

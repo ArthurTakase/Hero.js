@@ -10,7 +10,7 @@ function exportJSON(data) {
 }
 
 function reloadSave(json) {
-    if (json.save == undefined) {return}
+    if (json.save == undefined) { return }
 
     if (player != null) {
         player.inventory = []
@@ -20,7 +20,7 @@ function reloadSave(json) {
         player.ability = json.save.player.ability
         player.stamina = json.save.player.stamina
         player.maxStamina = json.save.player.maxStamina
-        player.meal = json.save.player.meal
+        player.extra = json.save.player.extra
         player.gold = json.save.player.gold
 
         for (item in json.save.player.inventory)
@@ -28,7 +28,7 @@ function reloadSave(json) {
 
         for (item in json.save.player.special)
             newObject(json.save.player.special[item], specialList, player.special)
-        
+
         for (i in json.save.player.skill)
             player.setSkill(getFromName(json.save.player.skills[i], skillList))
     }
@@ -41,7 +41,7 @@ function save() {
 
     temp.save = {}
     temp.save.currentNumber = currentNumber
-    
+
     if (player != null) {
         var inventory = []
         var special = []
@@ -51,18 +51,18 @@ function save() {
         temp.save.player.ability = player.ability
         temp.save.player.stamina = player.stamina
         temp.save.player.maxStamina = player.maxStamina
-        temp.save.player.meal = player.meal
+        temp.save.player.extra = player.extra
         temp.save.player.gold = player.gold
-        
+
         for (item in player.inventory)
             inventory.push(player.inventory[item].name)
-        
+
         for (item in player.special)
             special.push(player.special[item].name)
-        
+
         for (i in player.skill)
             skills.push(player.skill[i].name)
-        
+
         temp.save.player.inventory = inventory
         temp.save.player.special = special
         temp.save.player.skills = skills

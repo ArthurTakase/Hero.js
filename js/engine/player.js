@@ -6,13 +6,13 @@ class Player {
         this.skill = []
         this.bestWeapon = null
         this.inventory = []
-        this.meal
+        this.extra
         this.gold
         this.special = []
     }
 
     setSkill(skill) {
-        if (skill == null) {return}
+        if (skill == null) { return }
         if (this.skill.length < maxSkill) {
             this.skill.push(skill);
             this.ability += skill.bonusAbility
@@ -24,16 +24,16 @@ class Player {
         this.ability += object.bonusAbility
         this.maxStamina += object.bonusStamina
         this.gold += object.bonusGold
-        this.meal += object.bonusMeal
+        this.extra += object.bonusExtra
         this.stamina += object.bonusStamina
-        if (this.stamina > this.maxStamina) {this.stamina = this.maxStamina}
+        if (this.stamina > this.maxStamina) { this.stamina = this.maxStamina }
     }
 
     removeStuffBonus(object) {
         this.ability -= object.bonusAbility
         this.maxStamina -= object.bonusStamina
         this.gold -= object.bonusGold
-        this.meal -= object.bonusMeal
+        this.extra -= object.bonusExtra
         this.stamina -= object.bonusStamina
     }
 

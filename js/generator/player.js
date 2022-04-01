@@ -11,7 +11,7 @@ function generatePlayer() {
                         <div class="grid-4">\
                             <input type="number" name="playerAbility" id="playerAbility" placeholder="Player Ability" title="Player Ability" required>\
                             <input type="number" name="playerStamina" id="playerStamina" placeholder="Player Stamina" title="Player Stamina" required>\
-                            <input type="number" name="playerMeal" id="playerMeal" placeholder="Meal" title="Meal" required>\
+                            <input type="number" name="playerExtra" id="playerExtra" placeholder="Extra" title="Extra" required>\
                             <input type="number" name="playerGold" id="playerGold" placeholder="Gold" title="Gold" required>\
                         </div>\
                     </div>\

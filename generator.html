@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/generator/preview.css">
     <link rel="stylesheet" href="css/generator/map.css">
     <link rel="stylesheet" href="css/generator/edit.css">
+    <link rel="stylesheet" href="css/generator/notification.css">
     <!-- ===== LIB ===== -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <script src="//d3js.org/d3.v5.min.js"></script>
@@ -145,9 +146,11 @@
                         <h3>Generator</h3>
                         You can now delete and edit elements with the right click of your mouse.<br>
                         Be careful, deleting is not without consequences on your game. It's up to you to see what impact it will have.<br>
+                        Added notifications to prevent generation errors<br>
                         <br><h3>Engine</h3>
                         From the JSON of your game, you can now write the names of the data from the data.pictures and data.sounds sections in the images and sounds of your project instead of the links<br>
                         Removal of duplicated effects (e.g. ADD_GOLD and REMOVE_GOLD) or simplified effects (GOLD)<br>
+                        Changing "Meal" to "Extra"<br>
                     </span>
             </div>
 
@@ -309,7 +312,7 @@
                     <input type="number" name="itemAbility" id="itemAbility" placeholder="Ability" title="Ability" required>
                     <input type="number" name="itemStamina" id="itemStamina" placeholder="Stamina" title="Stamina" required>
                     <input type="number" name="itemGold" id="itemGold" placeholder="Gold" title="Gold" required>
-                    <input type="number" name="itemMeal" id="itemMeal" placeholder="Meal" title="Meal" required>
+                    <input type="number" name="itemExtra" id="itemExtra" placeholder="Extra" title="Extra" required>
                     <button class="add" onclick="addObject()"><i class='bx bx-check' ></i></button>
                 </div>
 
@@ -412,7 +415,7 @@
                     <select name="optionCondition" id="optionCondition" onchange="appendCondition()">
                             <option>No Condition</option>
                             <option>GOLD</option>
-                            <option>MEAL</option>
+                            <option>EXTRA</option>
                             <option>STAMINA</option>
                             <option>ABILITY</option>
                             <option>SKILL</option>
@@ -426,7 +429,7 @@
                             <option>REMOVE_OBJECT</option>
                             <option>ADD_OBJECT</option>
                             <option>GOLD</option>
-                            <option>MEAL</option>
+                            <option>EXTRA</option>
                             <option>STAMINA</option>
                             <option>ABILITY</option>
                             <option>LIFE</option>
@@ -470,6 +473,8 @@
         <p>Any deletion is final and may cause problems in your game</p>
         <button onclick="confirmDeletion()">Confirm</button>
     </div>
+
+    <div id="notif-zone"></div>
 
     <!-- ===== SCRIPTS ===== -->
     <script src="js/engine/button.js"></script>

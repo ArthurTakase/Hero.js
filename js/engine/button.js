@@ -31,10 +31,10 @@ function checkCondition(condition, indexBtn, oldIndexDialog, type) {
             if (data[0] && player.gold >= temp) { return true }
             if (!data[0] && player.gold <= temp) { return true }
             return false
-        case 2: // MEAL [isSup, amount]
+        case 2: // Extra [isSup, amount]
             temp = setInt(data[1])
-            if (data[0] && player.meal >= temp) { return true }
-            if (!data[0] && player.meal <= temp) { return true }
+            if (data[0] && player.extra >= temp) { return true }
+            if (!data[0] && player.extra <= temp) { return true }
             return false
         case 3: // STAMINA [isSup, amount]
             temp = setInt(data[1])
@@ -81,7 +81,7 @@ function setEffect(effect, indexBtn, oldIndexDialog, data) {
             return temp2
         case 6:
             temp2 = setInt(data[0]);
-            player.meal += temp2;
+            player.extra += temp2;
             return temp2
         case 8:
             temp2 = setInt(data[0]);
@@ -127,26 +127,14 @@ function setNotif(notif, effect, data) {
             case 2:
                 notifHTML += "Add " + getObjectName(data) + "</p></div>";
                 break
-            case 3:
-                notifHTML += "-" + data + " gold(s).</div></div>";
-                break
             case 4:
                 notifHTML += "+" + data + " gold(s).</div></div>";
                 break
-            case 5:
-                notifHTML += "-" + data + " meal(s).</div></div>";
-                break
             case 6:
-                notifHTML += "+" + data + " meal(s).</div></div>";
-                break
-            case 7:
-                notifHTML += "-" + data + " stamina.</div></div>";
+                notifHTML += "+" + data + " extra(s).</div></div>";
                 break
             case 8:
                 notifHTML += "+" + data + " stamina.</div></div>";
-                break
-            case 9:
-                notifHTML += "-" + data + " ability.</div></div>";
                 break
             case 10:
                 notifHTML += "+" + data + " ability.</div></div>";
