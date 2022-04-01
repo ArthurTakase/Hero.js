@@ -1,9 +1,6 @@
 const modal = document.getElementById('remove-modal')
 
 function removeColor(div) {
-    // modal.close()
-    modal.style.display = "none"
-
     const liste = document.getElementById('colorList')
 
     delete colorJson[div.firstChild.innerHTML]
@@ -14,12 +11,21 @@ function removeColor(div) {
             liste.innerHTML += '<tr class="' + editValue + ' ' + editValueColor + '"><td>' + color + '</td><td title="' + colorJson[color] + '" style="background: ' + colorJson[color] + '; border-radius: .5rem;"></td></tr>'
         }
     }
+}
+
+function removeObject(div) {
+    const liste = document.getElementById('objectList')
+
+    delete objectsJson[div.firstChild.innerHTML]
+
+    if (jsonLen(objectsJson) == 0) { liste.innerHTML = "" } else { reloadObjectList(liste) }
 
 }
 
 function confirmDeletion() {
+    modal.style.display = "none"
     if (lastRightClickElement.classList.contains(editValueColor)) removeColor(lastRightClickElement)
-        // else if (lastRightClickElement.classList.contains(editValueObject)) editObject(lastRightClickElement)
+    else if (lastRightClickElement.classList.contains(editValueObject)) removeObject(lastRightClickElement)
         // else if (lastRightClickElement.classList.contains(editValuePicture)) editPicture(lastRightClickElement)
         // else if (lastRightClickElement.classList.contains(editValueSound)) editSound(lastRightClickElement)
         // else if (lastRightClickElement.classList.contains(editValueDialog)) editDialog(lastRightClickElement)
@@ -28,17 +34,7 @@ function confirmDeletion() {
 }
 
 function showDelete(x, y) {
-
-    // console.log(x, y)
-
-    // modal.showModal()
     modal.style.display = "flex"
     modal.style.top = y + "px"
     modal.style.left = x + "px"
 }
-
-// window.addEventListener("keypress", keypressFn, false);
-
-// const modal = document.getElementById('remove-modal')
-// modal.showModal()
-// mocal.close()
