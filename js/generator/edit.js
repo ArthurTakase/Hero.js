@@ -104,9 +104,9 @@ function editDialog(div) {
     title.value = (dialog.title == undefined) ? "" : dialog.title
     body.value = (dialog.body == undefined) ? "" : dialog.body
     action.value = (dialog.action == undefined) ? "" : dialog.action
-    music.value = (Array.isArray(dialog.music)) ? "URL Music" : dialog.music
-        // background.value = (dialog.background.startWith("http")) ? "URL Background" : dialog.background
-        // picture.value = (dialog.img.startWith("http")) ? "URL Picture" : dialog.img
+    music.value = (Array.isArray(dialog.music)) ? "No Music" : dialog.music
+    background.value = (dialog.background == undefined) ? "No Background" : dialog.background
+    picture.value = (dialog.img == undefined) ? "No Picture" : dialog.img
     animation.value = (dialog.animation == undefined) ? "No Animation" : dialog.animation
 
     console.log(dialog.buttons)

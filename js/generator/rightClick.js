@@ -12,16 +12,16 @@ let editValueDialog = "edit-dialog"
 
 document.oncontextmenu = function(e) {
     e.preventDefault();
-    if (e.target.parentNode.classList.contains(editValue)) {
-        editMenu.style.display = "flex"
+    try {
+        if (e.target.parentNode.classList.contains(editValue)) {
+            editMenu.style.display = "flex"
 
-        editMenu.style.top = e.clientY + "px"
-        editMenu.style.left = e.clientX + "px"
+            editMenu.style.top = e.clientY + "px"
+            editMenu.style.left = e.clientX + "px"
 
-        lastRightClickElement = e.target.parentNode
-    } else {
-        editMenu.style.display = "none"
-    }
+            lastRightClickElement = e.target.parentNode
+        } else { editMenu.style.display = "none" }
+    } catch { editMenu.style.display = "none" }
 
 };
 

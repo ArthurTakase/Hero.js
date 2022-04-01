@@ -19,14 +19,17 @@ function preview(div, id) {
         )
     }
 
+    var background = (currentDialog.background.substring(0, 4) == "http") ? currentDialog.background : pictureJson[currentDialog.background]
+    try { var img = (currentDialog.img.substring(0, 4) == "http") ? currentDialog.img : pictureJson[currentDialog.img] } catch { var img = undefined }
+
     // Génération du dialogue
     var dialog = new Dialog(
         currentDialog.title,
         currentDialog.body,
         currentDialog.action,
         allButtons,
-        currentDialog.img,
-        currentDialog.background,
+        img,
+        background,
         currentDialog.music,
         currentDialog.animation
     )
