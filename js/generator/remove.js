@@ -19,7 +19,7 @@ function removeObject(div) {
     delete objectsJson[div.firstChild.innerHTML]
 
     if (jsonLen(objectsJson) == 0) { liste.innerHTML = "" } else { reloadObjectList(liste) }
-
+    updateObjects()
 }
 
 function removePicture(div) {
@@ -33,6 +33,39 @@ function removePicture(div) {
             liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePicture + '"><td>' + picture + '</td><td><img class="picture-img" src="' + pictureJson[picture] + '"></td></tr>'
         }
     }
+    updatePictures()
+}
+
+function removeSound(div) {
+    const liste = document.getElementById('soundList')
+
+    delete soundJson[div.firstChild.innerHTML]
+
+    if (jsonLen(soundJson) == 0) { liste.innerHTML = "" } else {
+        liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Preview</th><th>Volume</th></tr>'
+        for (sound in soundJson) {
+            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueSound + '"><td>' +
+                sound +
+                '</td><td><audio controls src="' +
+                soundJson[sound][0] +
+                '"></audio></td><td>' +
+                soundJson[sound][1] +
+                '</td></tr>'
+        }
+    }
+    updateSounds()
+}
+
+function removeDialog(div) {
+    console.log(div)
+}
+
+function removeSkill(div) {
+    console.log(div)
+}
+
+function removeButton(div) {
+    console.log(div)
 }
 
 function confirmDeletion() {
@@ -40,10 +73,10 @@ function confirmDeletion() {
     if (lastRightClickElement.classList.contains(editValueColor)) removeColor(lastRightClickElement)
     else if (lastRightClickElement.classList.contains(editValueObject)) removeObject(lastRightClickElement)
     else if (lastRightClickElement.classList.contains(editValuePicture)) removePicture(lastRightClickElement)
-        // else if (lastRightClickElement.classList.contains(editValueSound)) editSound(lastRightClickElement)
-        // else if (lastRightClickElement.classList.contains(editValueDialog)) editDialog(lastRightClickElement)
-        // else if (lastRightClickElement.classList.contains(editValueSkill)) editSkill(lastRightClickElement)
-        // else if (lastRightClickElement.classList.contains(editValueButton)) editButton(lastRightClickElement)
+    else if (lastRightClickElement.classList.contains(editValueSound)) removeSound(lastRightClickElement)
+    else if (lastRightClickElement.classList.contains(editValueDialog)) removeDialog(lastRightClickElement)
+    else if (lastRightClickElement.classList.contains(editValueSkill)) removeSkill(lastRightClickElement)
+    else if (lastRightClickElement.classList.contains(editValueButton)) removeButton(lastRightClickElement)
 }
 
 function showDelete(x, y) {
