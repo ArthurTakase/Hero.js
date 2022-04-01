@@ -3,7 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 /***********************************/
+
+
 /*            Player HUD           */
+
+
 /***********************************/
 
 .hero-js-default {
@@ -68,29 +72,60 @@
 
 .hero-js-stats-body li {
     overflow: hidden;
-    white-space: nowrap; 
+    white-space: nowrap;
     text-overflow: ellipsis;
     width: 150px;
 }
 
 .hero-js-stats-body li:hover {
-    overflow: visible; 
-    white-space: unset; 
+    overflow: visible;
+    white-space: unset;
     width: auto;
 }
 
-.hero-js-item-special {color: rgb(166, 235, 126);}
-.hero-js-item-broken {color: rgb(235, 142, 126);}
+.hero-js-item-special {
+    color: rgb(166, 235, 126);
+}
 
-.hero-js-player-left {left: 0;}
-.hero-js-player-right {right: 0;}
-.hero-js-player-left .hero-js-stats {box-shadow: -0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.185); border-left: none; border-radius: 0 1rem 1rem 0;}
-.hero-js-player-right .hero-js-stats {box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.185); border-right: none; border-radius: 1rem 0 0 1rem;}
-.hero-js-player-left .hero-js-stats-header {border-radius: 0 1rem 0 0;}
-.hero-js-player-right .hero-js-stats-header {border-radius: 1rem 0 0 0;}
+.hero-js-item-broken {
+    color: rgb(235, 142, 126);
+}
+
+.hero-js-player-left {
+    left: 0;
+}
+
+.hero-js-player-right {
+    right: 0;
+}
+
+.hero-js-player-left .hero-js-stats {
+    box-shadow: -0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.185);
+    border-left: none;
+    border-radius: 0 1rem 1rem 0;
+}
+
+.hero-js-player-right .hero-js-stats {
+    box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.185);
+    border-right: none;
+    border-radius: 1rem 0 0 1rem;
+}
+
+.hero-js-player-left .hero-js-stats-header {
+    border-radius: 0 1rem 0 0;
+}
+
+.hero-js-player-right .hero-js-stats-header {
+    border-radius: 1rem 0 0 0;
+}
+
 
 /***********************************/
+
+
 /*          GAME INFOS HUD         */
+
+
 /***********************************/
 
 .hero-js-hud-title {
@@ -125,8 +160,13 @@
     padding: 1rem;
 }
 
+
 /***********************************/
+
+
 /*            DIALOGUE             */
+
+
 /***********************************/
 
 .hero-js-dialog {
@@ -159,9 +199,15 @@
 }
 
 @keyframes dialog-img {
-    0% {transform: translateY(0px);}
-    50% {transform: translateY(-5px);}
-    100% {transform: translateY(0px);}
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .hero-js-dialog-header {
@@ -239,8 +285,13 @@
     cursor: pointer;
 }
 
+
 /***********************************/
+
+
 /*         DIALOGUE OPTIONS        */
+
+
 /***********************************/
 
 .subtext {
@@ -267,51 +318,13 @@
     color: rgb(108, 108, 199);
 }
 
-/***********************************/
-/*           NOTIFICATION          */
-/***********************************/
-
-#hero-js-notification {
-    position: fixed;
-    top: -120px;
-    display: flex;
-    border-radius: 0 0 .5rem .5rem;
-    backdrop-filter: blur(30px);
-    flex-direction: column;
-    animation: notification-animation 4s linear;
-    background: var(--notificationBodyColor);
-    font-size: 0.8rem;
-    z-index: 100;
-}
-
-.notif-title {
-    background: var(--notificationHeaderColor);
-    backdrop-filter: blur(50px);
-    padding-left: 1rem;
-    padding-right: 2rem;
-    padding-top: 0.3rem;
-    padding-bottom: 0.3rem;
-    color: var(--notificationHeaderTextColor);
-}
-
-.notif-body {
-    margin-top: .4rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    display: inline-block;
-    height: 25px;
-    color: var(--notificationBodyTextColor);
-}
-
-@keyframes notification-animation {
-    0% {transform: translateY(0px); display: flex;}
-    8% {transform: translateY(120px); display: flex;}
-    92% {transform: translateY(120px); display: flex;}
-    100% {transform: translateY(0px); display: none;}
-}
 
 /***********************************/
+
+
 /*              FIGHT              */
+
+
 /***********************************/
 
 #fight-stats {
@@ -327,31 +340,61 @@
     color: var(--fightHudInfosTextColor);
 }
 
+
 /***********************************/
+
+
 /*           ANIMATIONS            */
+
+
 /***********************************/
 
 @keyframes shake-anime {
-    59% {transform: translateX(0px);}
-    60% {transform: translateX(10px);}
-    70% {transform: translateX(-10px);}
-    80% {transform: translateX(10px);}
-    90% {transform: translateX(-10px);}
-    100% {transform: translateX(10px);}
+    59% {
+        transform: translateX(0px);
+    }
+    60% {
+        transform: translateX(10px);
+    }
+    70% {
+        transform: translateX(-10px);
+    }
+    80% {
+        transform: translateX(10px);
+    }
+    90% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(10px);
+    }
 }
 
 @keyframes defeat-anime {
-    0% {opacity: 0%;}
-    100% {opacity: 100%;}
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
 }
 
 @keyframes victory-anime {
-    0% {transform: translateY(20px);}
-    100% {transform: translateY(0px);}
+    0% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }
 
+
 /***********************************/
+
+
 /*              DICE               */
+
+
 /***********************************/
 
 #dice {
@@ -367,7 +410,6 @@
     justify-content: center;
     font-weight: bold;
     font-size: 1rem;
-
     transform-style: preserve-3d;
     transform: rotate3d(-0.5, -0.5, -0.5, -20deg);
     animation: dice-roll-anime 0.3 linear;
@@ -382,7 +424,9 @@
 }
 
 @keyframes dice-roll-anime {
-    50% {transform: rotate3d(-0.5, -0.5, -0.5, 360deg);}
+    50% {
+        transform: rotate3d(-0.5, -0.5, -0.5, 360deg);
+    }
 }
 
 .face {
@@ -399,34 +443,56 @@
     align-items: center;
 }
 
-#face-top {transform: rotateX(90deg) translateZ(1.5rem); background: #c4c4c4;}
-#face-front {transform: translateZ(1.5rem);}
-#face-right {transform: rotateY(90deg) translateZ(1.5rem); background: #c4c4c4;}
-#face-back {transform: translateZ(-1.5rem); background: #c4c4c4;}
-#face-left {transform: rotateY(90deg) translateZ(-1.5rem); background: #c4c4c4;}
-#face-bottom {transform: rotateX(90deg) translateZ(-1.5rem); background: #979797;}
+#face-top {
+    transform: rotateX(90deg) translateZ(1.5rem);
+    background: #c4c4c4;
+}
+
+#face-front {
+    transform: translateZ(1.5rem);
+}
+
+#face-right {
+    transform: rotateY(90deg) translateZ(1.5rem);
+    background: #c4c4c4;
+}
+
+#face-back {
+    transform: translateZ(-1.5rem);
+    background: #c4c4c4;
+}
+
+#face-left {
+    transform: rotateY(90deg) translateZ(-1.5rem);
+    background: #c4c4c4;
+}
+
+#face-bottom {
+    transform: rotateX(90deg) translateZ(-1.5rem);
+    background: #979797;
+}
+
 
 /*===========================================================*/
 
+
 /* Interface pc */
+
 @media screen and (min-width: 768px) and (min-height: 768px) {
     #hero-js-notification {
         left: 68px;
         border-radius: 0 0 .5rem 0;
         font-size: 1.2rem;
     }
-
     .notif-title {
         padding-left: 1rem;
         padding-right: 2rem;
         padding-top: 0.7rem;
         padding-bottom: 0.7rem;
     }
-    
     .notif-body {
         margin: 1rem;
     }
-
     .hero-js-dialog {
         width: 800px;
         position: fixed;
@@ -437,7 +503,6 @@
         flex-direction: column;
         z-index: 2;
     }
-    
     .hero-js-dialog-img {
         position: fixed;
         z-index: 1;
@@ -446,19 +511,22 @@
         align-items: center;
         animation: dialog-img 2s ease-in-out infinite;
     }
-    
     .hero-js-dialog-img img {
         height: 80vw;
         max-height: 80vh;
         filter: drop-shadow(1rem 1rem 1rem rgba(0, 0, 0, 0.288));
     }
-    
     @keyframes dialog-img {
-        0% {transform: translateY(0px);}
-        50% {transform: translateY(-5px);}
-        100% {transform: translateY(0px);}
+        0% {
+            transform: translateY(0px);
+        }
+        50% {
+            transform: translateY(-5px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
     }
-    
     .hero-js-dialog-header {
         background: var(--dialogHeaderColor);
         backdrop-filter: blur(30px);
@@ -472,7 +540,6 @@
         font-weight: bold;
         color: var(--dialogHeaderTextColor);
     }
-    
     .hero-js-dialog-body {
         width: 95%;
         text-align: justify;
@@ -484,7 +551,6 @@
         border-radius: .3rem;
         color: var(--dialogBodyTextColor);
     }
-    
     .hero-js-dialog-action {
         display: flex;
         font-style: italic;
@@ -492,14 +558,12 @@
         margin-bottom: 0;
         filter: drop-shadow(0 1px 1px black);
     }
-    
     .hero-js-dialog-button-zone {
         margin: 1rem;
         width: 97%;
         display: flex;
         overflow-x: unset;
     }
-    
     .hero-js-button {
         flex: 1;
         text-decoration: none;
@@ -513,20 +577,17 @@
         margin-right: 0.5rem;
         min-width: unset;
     }
-    
     .hero-js-activate {
         opacity: 0.9;
         background-color: var(--buttonColor);
         color: var(--buttonTextColor);
     }
-    
     .hero-js-not-activate {
         opacity: 0.3;
         background-color: var(--buttonDisableColor);
         color: var(--buttonDisabletextColor);
         cursor: not-allowed;
     }
-    
     .hero-js-activate:hover {
         opacity: 1;
         cursor: pointer;

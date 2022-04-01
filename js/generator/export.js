@@ -89,9 +89,23 @@ function getcolor() {
     return colorList
 }
 
+function createNotif(text) {
+    var notif = document.getElementById('notif-zone')
+
+    notif.innerHTML = '<div class="hero-js-notification">\
+    <div class="notif-title"><i class="bx bx-bug"></i> Warning !</div><div class="notif-body">' + text + '</div></div>'
+}
+
 function checkJSON(json) {
-    if (json.gameInfos.title == undefined) { console.log("pas de titre"); return false }
-    if (json.gameInfos.startNumber == undefined) { console.log("pas de startNumber"); return false }
+    console.log(json.gameInfos.title)
+    if (json.gameInfos.title == undefined || json.gameInfos.title == "") {
+        createNotif("No Game Title")
+        return false
+    }
+    if (json.gameInfos.startNumber == undefined) {
+        createNotif("No Start Number")
+        return false
+    }
 
     return true
 }

@@ -1,88 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <!-- <script src="https://kit.fontawesome.com/f4ace78f68.js" crossorigin="anonymous"></script> -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/engine/color.css">
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/engine/navbar.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
-        <link rel="stylesheet" href="css/engine/heros.css">
-        <link rel="icon" type="image/png" href="img/icon.png" />
-        <title>Hero.js</title>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <!-- <script src="https://kit.fontawesome.com/f4ace78f68.js" crossorigin="anonymous"></script> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/engine/color.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/engine/navbar.css">
+    <link rel="stylesheet" href="css/engine/notification.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
-        <!-- Menu Index (disparait une fois le jeu lancé) -->
-        <section class="home" id="home">
-            <div class="home__container bd-grid">
-                <div class="home__img" id="home__img"></div>
+    <link rel="stylesheet" href="css/engine/heros.css">
+    <link rel="icon" type="image/png" href="img/icon.png" />
+    <title>Hero.js</title>
+</head>
 
-                <div class="home__data">
-                    <h1 class="home__title">Hero.js</h1>
-                    <p class="home__description">Et si vous deveniez un créateur ?</p>
+<body>
 
-                    <label class="home__button" for="hero-js-form-json">Charger un jeu</label>
-                    <input style="display: none;" type="file" id="hero-js-form-json" accept=".json,.hero" onchange="initGame(this.files[0])">
-                    <a href="generator.html" class="home__button">Créer votre jeu</a>
-                </div>
+    <!-- Menu Index (disparait une fois le jeu lancé) -->
+    <section class="home" id="home">
+        <div class="home__container bd-grid">
+            <div class="home__img" id="home__img"></div>
+
+            <div class="home__data">
+                <h1 class="home__title">Hero.js</h1>
+                <p class="home__description">Et si vous deveniez un créateur ?</p>
+
+                <label class="home__button" for="hero-js-form-json">Charger un jeu</label>
+                <input style="display: none;" type="file" id="hero-js-form-json" accept=".json,.hero" onchange="initGame(this.files[0])">
+                <a href="generator.html" class="home__button">Créer votre jeu</a>
             </div>
-            <div class="bottom-text" id="home__bottom">Participez au développement sur <a href="https://github.com/ArthurTakase/Heros.js" target="_blank">Github</a> !</div>
-        </section>
+        </div>
+        <div class="bottom-text" id="home__bottom">Participez au développement sur <a href="https://github.com/ArthurTakase/Heros.js" target="_blank">Github</a> !</div>
+    </section>
 
-        <!-- Zone de jeu -->
-        <div id='hero-js-all' class='hero-js-default' style="display: none;"></div>
-        
-        <!-- Barre de menu -->
-        <div class="nav" id="navbar" style="display: none;">
-            <nav class="nav__container">
-                <div>
-                    <a class="nav__link nav__logo"><span class="nav__logo-name">Hero.js</span></a>
-                    <div class="nav__list">
-                        <div class="nav__items" id="player__data">
-                            <!-- AJOUTER LES TRUCS ICI -->
-                        </div>
+    <!-- Zone de jeu -->
+    <div id='hero-js-all' class='hero-js-default' style="display: none;"></div>
+
+    <!-- Barre de menu -->
+    <div class="nav" id="navbar" style="display: none;">
+        <nav class="nav__container">
+            <div>
+                <a class="nav__link nav__logo"><span class="nav__logo-name">Hero.js</span></a>
+                <div class="nav__list">
+                    <div class="nav__items" id="player__data">
+                        <!-- AJOUTER LES TRUCS ICI -->
                     </div>
                 </div>
-                <a class="nav__link nav__logout" onclick="save()" style="cursor: pointer;">
-                    <i class="bx bx-save nav__icon"></i>
-                    <span class="nav__name">Save</span>
-                </a>
-            </nav>
-        </div>
-
-        <!-- Déclancheur de la navbar (mobile only) -->
-        <header class="header" id="header">
-            <div class="header__container">
-                <div class="header__toggle">
-                    <i class="bx bx-menu" id="header-toggle"></i>
-                </div>
             </div>
-        </header>
+            <a class="nav__link nav__logout" onclick="save()" style="cursor: pointer;">
+                <i class="bx bx-save nav__icon"></i>
+                <span class="nav__name">Save</span>
+            </a>
+        </nav>
+    </div>
 
-        <!-- Lib Animation -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-        <!-- Engine Lib -->
-        <script src="js/engine/lib.js"></script>
-        <script src="js/engine/fight.js"></script>
-        <script src="js/engine/animation.js"></script>
-        <script src="js/engine/hud.js"></script>
-        <script src="js/engine/save.js"></script>
-        <script src="js/engine/url.js"></script>
-        <!-- Engine Objets -->
-        <script src="js/engine/button.js"></script>
-        <script src="js/engine/dialog.js"></script>
-        <script src="js/engine/object.js"></script>
-        <script src="js/engine/skill.js"></script>
-        <script src="js/engine/player.js"></script>
-        <script src="js/engine/sound.js"></script>
-        <script src="js/engine/music.js"></script>
-        <!-- Configuration de la partie -->
-        <script src="js/engine/init.js"></script>
-        <!-- Index -->
-        <script src="js/index/index.js"></script>
-        <script src="js/index/navbar.js"></script>
-    </body>
+    <!-- Déclancheur de la navbar (mobile only) -->
+    <header class="header" id="header">
+        <div class="header__container">
+            <div class="header__toggle">
+                <i class="bx bx-menu" id="header-toggle"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Lib Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <!-- Engine Lib -->
+    <script src="js/engine/lib.js"></script>
+    <script src="js/engine/fight.js"></script>
+    <script src="js/engine/animation.js"></script>
+    <script src="js/engine/hud.js"></script>
+    <script src="js/engine/save.js"></script>
+    <script src="js/engine/url.js"></script>
+    <!-- Engine Objets -->
+    <script src="js/engine/button.js"></script>
+    <script src="js/engine/dialog.js"></script>
+    <script src="js/engine/object.js"></script>
+    <script src="js/engine/skill.js"></script>
+    <script src="js/engine/player.js"></script>
+    <script src="js/engine/sound.js"></script>
+    <script src="js/engine/music.js"></script>
+    <!-- Configuration de la partie -->
+    <script src="js/engine/init.js"></script>
+    <!-- Index -->
+    <script src="js/index/index.js"></script>
+    <script src="js/index/navbar.js"></script>
+</body>
+
 </html>
