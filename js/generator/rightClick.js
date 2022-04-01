@@ -32,7 +32,6 @@ document.oncontextmenu = function(e) {
 };
 
 document.onclick = function(e) {
-    // try {
     if (e.target.id == "edit-edit" || (e.target.parentNode && e.target.parentNode.id == "edit-edit")) {
         if (lastRightClickElement.classList.contains(editValueColor)) editColor(lastRightClickElement)
         else if (lastRightClickElement.classList.contains(editValueObject)) editObject(lastRightClickElement)
@@ -41,6 +40,7 @@ document.onclick = function(e) {
         else if (lastRightClickElement.classList.contains(editValueDialog)) editDialog(lastRightClickElement)
         else if (lastRightClickElement.classList.contains(editValueSkill)) editSkill(lastRightClickElement)
         else if (lastRightClickElement.classList.contains(editValueButton)) editButton(lastRightClickElement)
+        editMenu.style.display = "none"
     } else if (e.target.parentNode.id == "edit-remove" || e.target.id == "edit-remove") {
         console.log("delete", lastRightClickElement)
         showDelete(lastX, lastY)
@@ -48,9 +48,6 @@ document.onclick = function(e) {
         editMenu.style.display = "none"
         modal.style.display = "none"
     }
-    // } catch { editMenu.style.display = "none" }
-    // editMenu.style.display = "none"
-    // modal.style.display = "none"
 };
 
 document.onscroll = function(e) {
