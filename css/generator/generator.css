@@ -132,7 +132,7 @@
     cursor: pointer;
     border: 0;
     appearance: none;
-    -webkit-appearance: none; 
+    -webkit-appearance: none;
 }
 
 .check input:checked {
@@ -198,22 +198,65 @@
     background: #373842a4;
 }
 
-th {text-transform: uppercase;}
-th, td {text-align: center;}
+th {
+    text-transform: uppercase;
+}
 
-#colorList td {width: 50%;}
-#skillsList td {width: 33%;}
-#pictureList td {width: 50%;}
-#objectList td {width: 16.6%;}
-#soundList td:first-child {width: 20%;}
-#soundList td {width: 60%;}
-#soundList td:last-child {width: 20%;}
-#optionsList td:first-child {width: 5rem;}
+th,
+td {
+    text-align: center;
+}
+
+#colorList td {
+    width: 50%;
+}
+
+#skillsList td {
+    width: 33%;
+}
+
+#pictureList td {
+    width: 50%;
+}
+
+#objectList td {
+    width: 16.6%;
+}
+
+#soundList td:first-child {
+    width: 20%;
+}
+
+#soundList td {
+    width: 60%;
+}
+
+#soundList td:last-child {
+    width: 20%;
+}
+
+#optionsList td:first-child {
+    width: 5rem;
+}
+
+
 /* #optionsList td {width: 100%;} */
-#optionsList td:last-child {width: 5rem;}
-#dialogList td:first-child {width: 10%;}
-#dialogList td {width: 30%;}
-#dialogList td:last-child {width: 60%;}
+
+#optionsList td:last-child {
+    width: 5rem;
+}
+
+#dialogList td:first-child {
+    width: 10%;
+}
+
+#dialogList td {
+    width: 30%;
+}
+
+#dialogList td:last-child {
+    width: 60%;
+}
 
 #pictureList img {
     height: 8rem;
@@ -222,10 +265,22 @@ th, td {text-align: center;}
     border-radius: .5rem;
 }
 
-::-webkit-scrollbar {width: 12px;}
-::-webkit-scrollbar-track {background: #211f25;}
-::-webkit-scrollbar-thumb {background: #26272f; border-radius: .5rem;}
-::-webkit-scrollbar-thumb:hover {background: #26272f;}
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #211f25;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #26272f;
+    border-radius: .5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #26272f;
+}
 
 .img_list {
     overflow: hidden;
@@ -303,7 +358,7 @@ input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 5px;
     cursor: pointer;
-    animate: 0.2s;
+    /* animate: 0.2s; */
     box-shadow: 0px 0px 0px #000000;
     background: #a2a0a657;
     border-radius: .5rem;
@@ -340,9 +395,18 @@ input[type=range]::-webkit-slider-thumb {
     cursor: pointer;
 }
 
-.full-length {width: 5rem; margin-left: .5rem;}
-.full-length label {width: 10rem;}
-.full-length input {width: 1rem;}
+.full-length {
+    width: 5rem;
+    margin-left: .5rem;
+}
+
+.full-length label {
+    width: 10rem;
+}
+
+.full-length input {
+    width: 1rem;
+}
 
 .dialog_validate {
     position: fixed;
@@ -380,4 +444,22 @@ input[type=range]::-webkit-slider-thumb {
 
 .preview-button:hover {
     cursor: pointer;
+}
+
+.picture-img {
+    transition-duration: .2s;
+    /* transform: scale(1.5); */
+}
+
+.picture-img:hover {
+    transform: scale(1.5);
+    z-index: 100;
+    border: solid white 0.1rem;
+    background: rgba(202, 202, 202, 0.4);
+}
+
+.picture-img:active {
+    transform: scale(3) translateX(-2rem);
+    z-index: 100;
+    background: rgba(202, 202, 202, 0.4);
 }

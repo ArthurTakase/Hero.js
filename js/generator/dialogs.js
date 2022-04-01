@@ -30,7 +30,8 @@ function appendCondition() {
     conditionZone.innerHTML = selectCondition[conditionSelect.value]
 
     switch (conditionSelect.value) {
-        case "No Condition": break
+        case "No Condition":
+            break
         case "GOLD":
         case "MEAL":
         case "STAMINA":
@@ -81,6 +82,16 @@ function appendEffect() {
     }
 }
 
+function addDialogFromJSON(element) {
+    var dialogId = document.getElementById('dialogID')
+        // ===== SAVE =====
+    dialogList.push(element)
+    dialogIDGlobal += 1
+
+    // ===== RESET =====
+    dialogId.value = dialogIDGlobal
+}
+
 function addDialog() {
     const optionListe = document.getElementById('optionsList')
     const optionID = document.getElementById('optionID')
@@ -95,18 +106,20 @@ function addDialog() {
     var json = {}
 
     // ===== GENERATE =====
-    if (dialogTitle.value != "") {json.title = dialogTitle.value}
-    if (dialogBody.value != "") {json.body = dialogBody.value}
-    if (dialogAction.value != "") {json.action = dialogAction.value}
-    if (dialogMusic.value != "No Music") {json.music = soundJson[dialogMusic.value]}
-    if (buttonList.length != 0) {json.buttons = buttonList}
-    if (dialogPicture.value != "No Picture") {json.img = pictureJson[dialogPicture.value]}
-    if (dialogBackground.value != "No Background") {json.background = pictureJson[dialogBackground.value]}
-    if (dialogAnimation.value != "No Animation") {json.animation = dialogAnimation.value}
+    if (dialogTitle.value != "") { json.title = dialogTitle.value }
+    if (dialogBody.value != "") { json.body = dialogBody.value }
+    if (dialogAction.value != "") { json.action = dialogAction.value }
+    if (dialogMusic.value != "No Music") { json.music = dialogMusic.value }
+    if (buttonList.length != 0) { json.buttons = buttonList }
+    if (dialogPicture.value != "No Picture") { json.img = dialogPicture.value }
+    if (dialogBackground.value != "No Background") { json.background = dialogBackground.value }
+    if (dialogAnimation.value != "No Animation") { json.animation = dialogAnimation.value }
 
     // ===== SAVE =====
-    if (parseInt(dialogId.value) != dialogIDGlobal) {dialogList[parseInt(dialogId.value)] = json}
-    else {dialogList.push(json); dialogIDGlobal += 1}
+    if (parseInt(dialogId.value) != dialogIDGlobal) { dialogList[parseInt(dialogId.value)] = json } else {
+        dialogList.push(json);
+        dialogIDGlobal += 1
+    }
 
     // ===== RESET =====
     dialogId.value = dialogIDGlobal
@@ -118,7 +131,7 @@ function addDialog() {
     dialogPicture.value = "No Picture"
     dialogAnimation.value = "No Animation"
     dialogTitle.focus()
-    
+
     // ===== RESET BUTTON =====
     buttonList = []
     optionIDGlobal = 0
@@ -142,12 +155,12 @@ function updateDialogList() {
     liste.innerHTML = '<tr class="tableHeader"><th>ID</th><th>Title</th><th>Body</th></tr>'
 
     for (dialog in dialogList) {
-        liste.innerHTML += '<tr class="preview-button" onclick="preview(\'preview\', ' + dialog + ')"><td>' +
-                            dialog +
-                            '</td><td>' +
-                            dialogList[dialog].title +
-                            '</td><td>' +
-                            dialogList[dialog].body +
-                            '</td></tr>'
+        liste.innerHTML += '<tr class="preview-button ' + editValue + ' ' + editValueDialog + '" onclick="preview(\'preview\', ' + dialog + ')"><td>' +
+            dialog +
+            '</td><td>' +
+            dialogList[dialog].title +
+            '</td><td>' +
+            dialogList[dialog].body +
+            '</td></tr>'
     }
 }

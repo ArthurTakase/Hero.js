@@ -7,37 +7,81 @@ function initDialog(json) {
     for (d in json.dialogs) {
         allButtons = []
         currentDialog = json.dialogs[d]
-        
+
         // Génération des boutons
         for (b in currentDialog.buttons) {
             // Conditions des boutons
             switch (currentDialog.buttons[b].condition) {
-                case "GOLD": tempCondition = 1; break
-                case "MEAL": tempCondition = 2; break
-                case "STAMINA": tempCondition = 3; break
-                case "ABILITY": tempCondition = 4; break
-                case "SKILL": tempCondition = 5; break
-                case "OBJECT": tempCondition = 6; break
-                default: tempCondition = null; break
+                case "GOLD":
+                    tempCondition = 1;
+                    break
+                case "MEAL":
+                    tempCondition = 2;
+                    break
+                case "STAMINA":
+                    tempCondition = 3;
+                    break
+                case "ABILITY":
+                    tempCondition = 4;
+                    break
+                case "SKILL":
+                    tempCondition = 5;
+                    break
+                case "OBJECT":
+                    tempCondition = 6;
+                    break
+                default:
+                    tempCondition = null;
+                    break
             }
 
             // Effets des boutons
             switch (currentDialog.buttons[b].effect) {
-                case "REMOVE_OBJECT": tempEffect = 1; break
-                case "ADD_OBJECT": tempEffect = 2; break
-                case "REMOVE_GOLD": tempEffect = 3; break
-                case "ADD_GOLD": tempEffect = 4; break
-                case "REMOVE_MEAL": tempEffect = 5; break
-                case "ADD_MEAL": tempEffect = 6; break
-                case "REMOVE_STAMINA": tempEffect = 7; break
-                case "ADD_STAMINA": tempEffect = 8; break
-                case "REMOVE_ABILITY": tempEffect = 9; break
-                case "ADD_ABILITY": tempEffect = 10; break
-                case "HEAL": tempEffect = 11; break
-                case "HURT": tempEffect = 12; break
-                case "FIGHT": tempEffect = 13; break
-                case "RESTART": tempEffect = 14; break
-                default: tempEffect = null; break
+                case "REMOVE_OBJECT":
+                    tempEffect = 1;
+                    break
+                case "ADD_OBJECT":
+                    tempEffect = 2;
+                    break
+                case "REMOVE_GOLD":
+                    tempEffect = 3;
+                    break
+                case "ADD_GOLD":
+                    tempEffect = 4;
+                    break
+                case "REMOVE_MEAL":
+                    tempEffect = 5;
+                    break
+                case "ADD_MEAL":
+                    tempEffect = 6;
+                    break
+                case "REMOVE_STAMINA":
+                    tempEffect = 7;
+                    break
+                case "ADD_STAMINA":
+                    tempEffect = 8;
+                    break
+                case "REMOVE_ABILITY":
+                    tempEffect = 9;
+                    break
+                case "ADD_ABILITY":
+                    tempEffect = 10;
+                    break
+                case "HEAL":
+                    tempEffect = 11;
+                    break
+                case "HURT":
+                    tempEffect = 12;
+                    break
+                case "FIGHT":
+                    tempEffect = 13;
+                    break
+                case "RESTART":
+                    tempEffect = 14;
+                    break
+                default:
+                    tempEffect = null;
+                    break
             }
 
             // Création du bouton
@@ -116,7 +160,7 @@ function initGameplay(json) {
     }
 
     fightTable = json.gameplay.fightTable
-    if (fightTable != null && fightTable != undefined) {fightLimite = Math.floor(fightTable.length / 2)}
+    if (fightTable != null && fightTable != undefined) { fightLimite = Math.floor(fightTable.length / 2) }
 }
 
 function initPlayer(json) {
@@ -152,12 +196,12 @@ function initPlayer(json) {
 }
 
 function initSound(json) {
-    if (json.music == undefined) {return}
+    if (json.sounds == undefined) { return }
 
-    sound_hurt = new Sound(json.music.hurt)
-    sound_victory = new Sound(json.music.victory)
-    sound_defeat = new Sound(json.music.defeat)
-    music_fight = new Music(json.music.fight)
+    sound_hurt = new Sound(json.sounds.hurt)
+    sound_victory = new Sound(json.sounds.victory)
+    sound_defeat = new Sound(json.sounds.defeat)
+    music_fight = new Music(json.sounds.fight)
 }
 
 function initGame(file) {

@@ -2,20 +2,33 @@
 let colorJson = {}
 let colorAdvanced = false
 
+function addColorFromJSON(colorInfos) {
+    const liste = document.getElementById('colorList')
+
+    if (jsonLen(colorJson) == 0) { liste.classList.add("table") }
+
+    colorJson[colorInfos[0]] = colorInfos[1]
+
+    liste.innerHTML = '<tr class="tableHeader"><th>Element</th><th>Color</th></tr>'
+    for (color in colorJson) {
+        liste.innerHTML += '<tr class="' + editValue + ' ' + editValueColor + '"><td>' + color + '</td><td title="' + colorJson[color] + '" style="background: ' + colorJson[color] + '; border-radius: .5rem;"></td></tr>'
+    }
+}
+
 function addColor() {
     const liste = document.getElementById('colorList')
     var elem = document.getElementById('ColorElem')
     var color = document.getElementById('ColorColor')
 
-    if (elem.value == "") {return}
-    if (jsonLen(colorJson) == 0) {liste.classList.add("table")}
-    
+    if (elem.value == "") { return }
+    if (jsonLen(colorJson) == 0) { liste.classList.add("table") }
+
     colorJson[elem.value] = color.value
-    // colorList = []
-    
+        // colorList = []
+
     liste.innerHTML = '<tr class="tableHeader"><th>Element</th><th>Color</th></tr>'
     for (color in colorJson) {
-        liste.innerHTML += '<tr><td>' + color + '</td><td title="' + colorJson[color] + '" style="background: ' + colorJson[color] + '; border-radius: .5rem;"></td></tr>'
+        liste.innerHTML += '<tr class="' + editValue + ' ' + editValueColor + '"><td>' + color + '</td><td title="' + colorJson[color] + '" style="background: ' + colorJson[color] + '; border-radius: .5rem;"></td></tr>'
     }
 }
 

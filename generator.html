@@ -1,132 +1,155 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <!-- ===== INFOS ===== -->
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/png" href="img/icon.png" />
-        <title>Hero.js | Generator</title>
-        <!-- ===== CSS ===== -->
-        <!-- <link rel="stylesheet" href="css/generator/color.css"> -->
-        <link rel="stylesheet" href="css/generator/navbar.css">
-        <link rel="stylesheet" href="css/generator/header.css">
-        <link rel="stylesheet" href="css/generator/generator.css">
-        <link rel="stylesheet" href="css/generator/preview.css">
-        <link rel="stylesheet" href="css/generator/map.css">
-        <!-- ===== LIB ===== -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-        <script src="//d3js.org/d3.v5.min.js"></script>
-        <script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
-        <script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    </head>
-    <body>
 
-        <!-- ===== SIDEBAR ===== -->
-        <div class="nav" id="navbar">
-            <nav class="nav__container">
-                <div>
-    
-                    <div class="nav__list">
-                        <div class="nav__items">
-                            <h3 class="nav__subtitle">Heros.js</h3>
+<head>
+    <!-- ===== INFOS ===== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/icon.png" />
+    <title>Hero.js | Generator</title>
+    <!-- ===== CSS ===== -->
+    <!-- <link rel="stylesheet" href="css/generator/color.css"> -->
+    <link rel="stylesheet" href="css/generator/navbar.css">
+    <link rel="stylesheet" href="css/generator/header.css">
+    <link rel="stylesheet" href="css/generator/generator.css">
+    <link rel="stylesheet" href="css/generator/preview.css">
+    <link rel="stylesheet" href="css/generator/map.css">
+    <link rel="stylesheet" href="css/generator/edit.css">
+    <!-- ===== LIB ===== -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <script src="//d3js.org/d3.v5.min.js"></script>
+    <script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
+    <script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+
+    <!-- ===== SIDEBAR ===== -->
+    <div class="nav" id="navbar">
+        <nav class="nav__container">
+            <div>
+
+                <div class="nav__list">
+                    <div class="nav__items">
+                        <h3 class="nav__subtitle">Heros.js</h3>
 
 
-                            <!-- ===== GAME INFOS ===== -->
-                            <div class="nav__dropdown">
-                                <a class="nav__link" onclick="show('infos')" id="infosLink">
-                                    <i class='bx bx-info-circle nav__icon'></i>
-                                    <span class="nav__name">Game Infos</span>
-                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a class="nav__dropdown-item" onclick="show('infos')">General</a>
-                                        <a class="nav__dropdown-item" onclick="show('infos-display')">Display</a>
-                                        <a class="nav__dropdown-item" onclick="show('infos-color')">Color</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- ===== DATA ===== -->
-                            <div class="nav__dropdown">
-                                <a class="nav__link" onclick="show('data')" id="dataLink">
-                                    <i class='bx bx-data nav__icon' ></i>
-                                    <span class="nav__name">Data</span>
-                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a class="nav__dropdown-item" onclick="show('data')">Skills</a>
-                                        <a class="nav__dropdown-item" onclick="show('data-objects')">Objects</a>
-                                        <a class="nav__dropdown-item" onclick="show('data-pictures')">Pictures</a>
-                                        <a class="nav__dropdown-item" onclick="show('data-sounds')">Sounds</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- ===== PLAYER ===== -->
-                            <a class="nav__link" onclick="show('player')" id="playerLink">
-                                <i class='bx bxs-user nav__icon' ></i>
-                                <span class="nav__name">Player</span>
+                        <!-- ===== GAME INFOS ===== -->
+                        <div class="nav__dropdown">
+                            <a class="nav__link" onclick="show('infos')" id="infosLink">
+                                <i class='bx bx-info-circle nav__icon'></i>
+                                <span class="nav__name">Game Infos</span>
+                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
                             </a>
 
-                            <!-- ===== DIALOGS ===== -->
-                            <div class="nav__dropdown">
-                                <a onclick="show('dialog')" id="dialogLink" class="nav__link">
-                                    <i class='bx bx-message-dots nav__icon'></i>
-                                    <span class="nav__name">Dialogs</span>
-                                    <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
-                                </a>
-
-                                <div class="nav__dropdown-collapse">
-                                    <div class="nav__dropdown-content">
-                                        <a onclick="show('dialog')" class="nav__dropdown-item">Create</a>
-                                        <a onclick="show('dialog-list')" class="nav__dropdown-item">List</a>
-                                        <a onclick="show('dialog-map')" class="nav__dropdown-item">Map</a>
-                                    </div>
+                            <div class="nav__dropdown-collapse">
+                                <div class="nav__dropdown-content">
+                                    <a class="nav__dropdown-item" onclick="show('infos')">General</a>
+                                    <a class="nav__dropdown-item" onclick="show('infos-display')">Display</a>
+                                    <a class="nav__dropdown-item" onclick="show('infos-color')">Color</a>
                                 </div>
                             </div>
-
                         </div>
-    
-                    </div>
-                </div>
 
-                <!-- ===== SAVE ===== -->
-                <a class="nav__link nav__logout" onclick="submit()">
-                    <i class='bx bx-save nav__icon' ></i>
+                        <!-- ===== DATA ===== -->
+                        <div class="nav__dropdown">
+                            <a class="nav__link" onclick="show('data')" id="dataLink">
+                                <i class='bx bx-data nav__icon'></i>
+                                <span class="nav__name">Data</span>
+                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                            </a>
+
+                            <div class="nav__dropdown-collapse">
+                                <div class="nav__dropdown-content">
+                                    <a class="nav__dropdown-item" onclick="show('data')">Skills</a>
+                                    <a class="nav__dropdown-item" onclick="show('data-objects')">Objects</a>
+                                    <a class="nav__dropdown-item" onclick="show('data-pictures')">Pictures</a>
+                                    <a class="nav__dropdown-item" onclick="show('data-sounds')">Sounds</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== PLAYER ===== -->
+                        <a class="nav__link" onclick="show('player')" id="playerLink">
+                            <i class='bx bxs-user nav__icon'></i>
+                            <span class="nav__name">Player</span>
+                        </a>
+
+                        <!-- ===== DIALOGS ===== -->
+                        <div class="nav__dropdown">
+                            <a onclick="show('dialog')" id="dialogLink" class="nav__link">
+                                <i class='bx bx-message-dots nav__icon'></i>
+                                <span class="nav__name">Dialogs</span>
+                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                            </a>
+
+                            <div class="nav__dropdown-collapse">
+                                <div class="nav__dropdown-content">
+                                    <a onclick="show('dialog')" class="nav__dropdown-item">Create</a>
+                                    <a onclick="show('dialog-list')" class="nav__dropdown-item">List</a>
+                                    <a onclick="show('dialog-map')" class="nav__dropdown-item">Map</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===== SAVE ===== -->
+            <div clas="bottom__navbar">
+                <label class="nav__link" for="hero-js-form-json">
+                    <i class='bx bx-upload nav__icon'></i>
+                    <!-- Charger un jeu -->
+                    <span class="nav__name">Load</span>
+                </label>
+                <br>
+                <input style="display: none;" type="file" id="hero-js-form-json" accept=".json,.hero" onchange="openJSON(this.files[0])">
+                <!-- <a class="nav__link" onclick="submit()"> -->
+                <!-- <i class='bx bx-save nav__icon' ></i> -->
+                <!-- </a> -->
+                <a class="nav__link" onclick="submit()">
+                    <i class='bx bx-save nav__icon'></i>
                     <span class="nav__name">Save</span>
                 </a>
-            </nav>
-        </div>
+            </div>
+        </nav>
+    </div>
 
-        <!-- ===== HEADERBAR ===== -->
-        <div class="header" id="headerbar"></div>
+    <!-- ===== HEADERBAR ===== -->
+    <div class="header" id="headerbar"></div>
 
-        <!-- ===== CONTENT ===== -->
-        <div class="body_container" id="body_container">
+    <!-- ===== CONTENT ===== -->
+    <div class="body_container" id="body_container">
 
-            <!-- ===== HOME ===== -->
-            <section id="index">
-                <div class="sub_container">
-                    <div class="sub_container_title">Heros.js Generator</div>
-                    <span style="text-align: center;">
+        <!-- ===== HOME ===== -->
+        <section id="index">
+            <div class="sub_container">
+                <div class="sub_container_title">Heros.js Generator</div>
+                <span style="text-align: center;">
                         Heros.js is an <b>OpenSource</b> project of <b>Visual Novel game engine</b>.
                         The goal of this project is to allow you to create Visual Novels (from a simple Doki Doki to a JDR with fighting system), <b>without coding.</b>
                         So what are you waiting for to start creating your stories?<br><br>
                         If you have the skills, you can participate to the development of the project on <a href="https://github.com/ArthurTakase/Heros.js" target="_blank" style="color: #be2251;">github</a>!<br>
                     </span>
-                    <div class="img_list">
-                        <img onclick="show('infos')" src="img/let's create.png">
-                        <!-- <img src="img/icon.png"> -->
-                    </div>
+                <div class="img_list">
+                    <img onclick="show('infos')" src="img/let's create.png">
                 </div>
-                <div class="sub_container">
-                    <div class="sub_container_title">PatchNote (16/11/2021)</div>
-                    <span style="text-align: center;">
+            </div>
+            <div class="sub_container">
+                <div class="sub_container_title">PatchNote (29/03/2022)</div>
+                <span style="text-align: center;">
+                        It's been a long time, hasn't it?<br><br>
+                        <h3>Generator</h3>
+                        You can now load JSON/Hero files and edit them !<br>
+                        + Various fix.<br>
+                    </span>
+            </div>
+            <div class="sub_container">
+                <div class="sub_container_title">PatchNote (16/11/2021)</div>
+                <span style="text-align: center;">
                         <h3>Generator</h3>
                         New interface.<br>
                         Source code optimization.<br>
@@ -137,33 +160,33 @@
                         <br><h3>Misc</h3>
                         Deletion of the repo examples.
                     </span>
-                </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- ===== INFOS GENERAL ===== -->
-            <section id="infos">
-                <div class="sub_container">
-    
-                    <div class="sub_container_title">General</div>
-    
-                    <input type="text" name="title" id="title" placeholder="Game Title" title="Game title" required>
-                    <input type="number" name="startNumber" id="startNumber" placeholder="First Dialog" title="First Dialog" required>
-                    <input type="number" name="defeatNumber" id="defeatNumber" placeholder="Defeat Dialog (not required)" title="Defeat Dialog (not required)" required>
-                    <input type="number" name="maxDice" id="maxDice" placeholder="Max Dice (not required)" title="Max Dice (not required)" required>
-                    <input type="number" name="maxSkills" id="maxSkills" placeholder="Max Skills (not required)" title="Max Skills (not required)" required>
-    
-                </div>
-            </section>
+        <!-- ===== INFOS GENERAL ===== -->
+        <section id="infos">
+            <div class="sub_container">
 
-            <!-- ===== INFOS COLOR ===== -->
-            <section id="infos-color">
-                <div class="sub_container">
-                    <div class="sub_container_title">Color</div>
-                    
-                    <div class="switch-color" onclick="advancedColor()"><i class='bx bx-edit-alt'></i></div>
+                <div class="sub_container_title">General</div>
 
-                    <div class="grid-3">
-                        <select name="ColorElem" id="ColorElem">
+                <input type="text" name="title" id="title" placeholder="Game Title" title="Game title" required>
+                <input type="number" name="startNumber" id="startNumber" placeholder="First Dialog" title="First Dialog" required>
+                <input type="number" name="defeatNumber" id="defeatNumber" placeholder="Defeat Dialog (not required)" title="Defeat Dialog (not required)" required>
+                <input type="number" name="maxDice" id="maxDice" placeholder="Max Dice (not required)" title="Max Dice (not required)" required>
+                <input type="number" name="maxSkills" id="maxSkills" placeholder="Max Skills (not required)" title="Max Skills (not required)" required>
+
+            </div>
+        </section>
+
+        <!-- ===== INFOS COLOR ===== -->
+        <section id="infos-color">
+            <div class="sub_container">
+                <div class="sub_container_title">Color</div>
+
+                <div class="switch-color" onclick="advancedColor()"><i class='bx bx-edit-alt'></i></div>
+
+                <div class="grid-3">
+                    <select name="ColorElem" id="ColorElem">
                             <option>hudColor</option>
                             <option>hudBoderColor</option>
                             <option>hudTextColor</option>
@@ -200,179 +223,179 @@
                             <option>first-color-darken</option>
                             <option>white-color</option>
                         </select>
-                        <input type="color" name="ColorColor" id="ColorColor" title="Element Color">
-                        <button class="add" onclick="addColor()"><i class='bx bx-check' ></i></button>
-                    </div>
-                    
-                    <table id="colorList"></table>
+                    <input type="color" name="ColorColor" id="ColorColor" title="Element Color">
+                    <button class="add" onclick="addColor()"><i class='bx bx-check' ></i></button>
                 </div>
-            </section>
-                
-            <!-- ===== INFOS DISPLAY ===== -->
-            <section id="infos-display">
-                <div class="sub_container">
-                    
-                    <div class="sub_container_title">Display</div>
-                    
-                    <div class="data check">
-                        <input type="checkbox" name="showPlayerStamina" id="showPlayerStamina" required checked>
-                        <label for="showPlayerStamina">Show Stamina</label>
-                    </div>
-                    
-                    <div class="data check">
-                        <input type="checkbox" name="showPlayerAbility" id="showPlayerAbility" required checked>
-                        <label for="showPlayerAbility">Show Ability</label>
-                    </div>
-                    
-                    <div class="data check">
-                        <input type="checkbox" name="showPlayerSkills" id="showPlayerSkills" required checked>
-                        <label for="showPlayerSkills">Show Skills</label>
-                    </div>
-                    
-                    <div class="data check">
-                        <input type="checkbox" name="showPlayerGold" id="showPlayerGold" required checked>
-                        <label for="showPlayerGold">Show Gold</label>
-                    </div>
-                    
-                    <div class="data check">
-                        <input type="checkbox" name="showPlayerInventory" id="showPlayerInventory" required checked>
-                        <label for="showPlayerInventory">Show Inventory</label>
-                    </div>
-                    
+
+                <table id="colorList"></table>
+            </div>
+        </section>
+
+        <!-- ===== INFOS DISPLAY ===== -->
+        <section id="infos-display">
+            <div class="sub_container">
+
+                <div class="sub_container_title">Display</div>
+
+                <div class="data check">
+                    <input type="checkbox" name="showPlayerStamina" id="showPlayerStamina" required checked>
+                    <label for="showPlayerStamina">Show Stamina</label>
                 </div>
-            </section>
 
-            <!-- ===== DATA SKILLS ===== -->
-            <section id="data">
-                <div class="sub_container">
-                    <div class="sub_container_title">Skills</div>
-
-                    <div class="grid-4">
-                        <input type="text" name="skillName" id="skillName" placeholder="Skill Name" title="Skill Name" required>
-                        <input type="number" name="skillAbility" id="skillAbility" placeholder="Ability" title="Ability" required>
-                        <input type="number" name="skillStamina" id="skillStamina" placeholder="Stamina" title="Stamina" required>
-                        <button class="add" onclick="addSkill()"><i class='bx bx-check' ></i></button>
-                    </div>
-
-                    <table id="skillsList"></table>
+                <div class="data check">
+                    <input type="checkbox" name="showPlayerAbility" id="showPlayerAbility" required checked>
+                    <label for="showPlayerAbility">Show Ability</label>
                 </div>
-            </section>
 
-            <!-- ===== DATA OBJECTS ===== -->
-            <section id="data-objects">
-                <div class="sub_container">
-                    <div class="sub_container_title">Objects</div>
+                <div class="data check">
+                    <input type="checkbox" name="showPlayerSkills" id="showPlayerSkills" required checked>
+                    <label for="showPlayerSkills">Show Skills</label>
+                </div>
 
-                    <div class="grid-4">
-                        <input type="text" name="objectName" id="objectName" placeholder="Object Name" title="Object Name" required>
-                        <select name="objectType" id="objectType" list="objectTypeList" placeholder="Object Type">
+                <div class="data check">
+                    <input type="checkbox" name="showPlayerGold" id="showPlayerGold" required checked>
+                    <label for="showPlayerGold">Show Gold</label>
+                </div>
+
+                <div class="data check">
+                    <input type="checkbox" name="showPlayerInventory" id="showPlayerInventory" required checked>
+                    <label for="showPlayerInventory">Show Inventory</label>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== DATA SKILLS ===== -->
+        <section id="data">
+            <div class="sub_container">
+                <div class="sub_container_title">Skills</div>
+
+                <div class="grid-4">
+                    <input type="text" name="skillName" id="skillName" placeholder="Skill Name" title="Skill Name" required>
+                    <input type="number" name="skillAbility" id="skillAbility" placeholder="Ability" title="Ability" required>
+                    <input type="number" name="skillStamina" id="skillStamina" placeholder="Stamina" title="Stamina" required>
+                    <button class="add" onclick="addSkill()"><i class='bx bx-check' ></i></button>
+                </div>
+
+                <table id="skillsList"></table>
+            </div>
+        </section>
+
+        <!-- ===== DATA OBJECTS ===== -->
+        <section id="data-objects">
+            <div class="sub_container">
+                <div class="sub_container_title">Objects</div>
+
+                <div class="grid-4">
+                    <input type="text" name="objectName" id="objectName" placeholder="Object Name" title="Object Name" required>
+                    <select name="objectType" id="objectType" list="objectTypeList" placeholder="Object Type">
                             <option>inventory</option>
                             <option>special</option>
                           </select>
-                        <input type="number" name="itemAbility" id="itemAbility" placeholder="Ability" title="Ability" required>
-                        <input type="number" name="itemStamina" id="itemStamina" placeholder="Stamina" title="Stamina" required>
-                        <input type="number" name="itemGold" id="itemGold" placeholder="Gold" title="Gold" required>
-                        <input type="number" name="itemMeal" id="itemMeal" placeholder="Meal" title="Meal" required>
-                        <button class="add" onclick="addObject()"><i class='bx bx-check' ></i></button>
-                    </div>
-
-                    <table id="objectList"></table>
-                </div>
-            </section>
-
-            <!-- ===== DATA PICTURES ===== -->
-            <section id="data-pictures">
-                <div class="sub_container">
-                    <div class="sub_container_title">Pictures</div>
-
-                    <div class="grid-3">
-                        <input type="text" name="pictureName" id="pictureName" placeholder="Picture Name" title="Picture Name" required>
-                        <input type="url" name="pictureURL" id="pictureURL" placeholder="Picture URL" title="Picture URL" required>
-                        <button class="add" onclick="addPicture()"><i class='bx bx-check' ></i></button>
-                    </div>
-
-                    <table id="pictureList"></table>
-                </div>
-            </section>
-
-            <!-- ===== DATA SOUNDS ===== -->
-            <section id="data-sounds">
-                <div class="sub_container">
-                    <div class="sub_container_title">Music & Sounds</div>
-
-                    <div class="grid-4">
-                        <input type="text" name="soundName" id="soundName" placeholder="Sound name" title="Sound Name">
-                        <input type="URL" name="soundURL" id="soundURL" placeholder="Sound URL" title="Sound URL">
-                        <input type="range" id="soundVolume" name="soundVolume" min="0" max="100" step="1" title="Sound Volume">
-                        <button class="add" onclick="addSound()"><i class='bx bx-check' ></i></button>
-                    </div>
-
-                    <table id="soundList"></table>
-                </div>
-            </section>
-
-            <!-- ===== PLAYER ===== -->
-            <section id="player">
-                <div class="sub_container">
-                    <div class="sub_container_title">Player</div>
-
-                    Creating a player is mandatory if you want to use skills, items or even conditions on the dialog.
-
-                    <button onclick="generatePlayer()" class="big-btn">Create new Player</button>
-                </div>
-            </section>
-
-            <!-- ===== DIALOG ===== -->
-            <section id="dialog">
-                <!-- ===== DIALOG BODY ===== -->
-                <div class="sub_container">
-                    <div class="sub_container_title">Dialog</div>
-
-                    <input type="text" name="dialogID" id="dialogID" placeholder="ID" title="Dialog ID" value="0">
-                    <input type="text" name="dialogTitle" id="dialogTitle" placeholder="Dialog title (not required)" title="Dialog title (not required)">
-                    <textarea rows="5" name="dialogBody" id="dialogBody" placeholder="Dialog body (not required)" title="Dialog body (not required)"></textarea>
-                    <input type="text" name="dialogAction" id="dialogAction" placeholder="Dialog action (not required)" title="Dialog action (not required)">
+                    <input type="number" name="itemAbility" id="itemAbility" placeholder="Ability" title="Ability" required>
+                    <input type="number" name="itemStamina" id="itemStamina" placeholder="Stamina" title="Stamina" required>
+                    <input type="number" name="itemGold" id="itemGold" placeholder="Gold" title="Gold" required>
+                    <input type="number" name="itemMeal" id="itemMeal" placeholder="Meal" title="Meal" required>
+                    <button class="add" onclick="addObject()"><i class='bx bx-check' ></i></button>
                 </div>
 
-                <!-- ===== DIALOG DATA ===== -->
-                <div class="sub_container">
-                    <div class="grid-4">
-                        <select name="dialogMusic" id="dialogMusic">
+                <table id="objectList"></table>
+            </div>
+        </section>
+
+        <!-- ===== DATA PICTURES ===== -->
+        <section id="data-pictures">
+            <div class="sub_container">
+                <div class="sub_container_title">Pictures</div>
+
+                <div class="grid-3">
+                    <input type="text" name="pictureName" id="pictureName" placeholder="Picture Name" title="Picture Name" required>
+                    <input type="url" name="pictureURL" id="pictureURL" placeholder="Picture URL" title="Picture URL" required>
+                    <button class="add" onclick="addPicture()"><i class='bx bx-check' ></i></button>
+                </div>
+
+                <table id="pictureList"></table>
+            </div>
+        </section>
+
+        <!-- ===== DATA SOUNDS ===== -->
+        <section id="data-sounds">
+            <div class="sub_container">
+                <div class="sub_container_title">Music & Sounds</div>
+
+                <div class="grid-4">
+                    <input type="text" name="soundName" id="soundName" placeholder="Sound name" title="Sound Name">
+                    <input type="URL" name="soundURL" id="soundURL" placeholder="Sound URL" title="Sound URL">
+                    <input type="range" id="soundVolume" name="soundVolume" min="0" max="100" step="1" title="Sound Volume">
+                    <button class="add" onclick="addSound()"><i class='bx bx-check' ></i></button>
+                </div>
+
+                <table id="soundList"></table>
+            </div>
+        </section>
+
+        <!-- ===== PLAYER ===== -->
+        <section id="player">
+            <div class="sub_container">
+                <div class="sub_container_title">Player</div>
+
+                Creating a player is mandatory if you want to use skills, items or even conditions on the dialog.
+
+                <button onclick="generatePlayer()" class="big-btn">Create new Player</button>
+            </div>
+        </section>
+
+        <!-- ===== DIALOG ===== -->
+        <section id="dialog">
+            <!-- ===== DIALOG BODY ===== -->
+            <div class="sub_container">
+                <div class="sub_container_title">Dialog</div>
+
+                <input type="text" name="dialogID" id="dialogID" placeholder="ID" title="Dialog ID" value="0">
+                <input type="text" name="dialogTitle" id="dialogTitle" placeholder="Dialog title (not required)" title="Dialog title (not required)">
+                <textarea rows="5" name="dialogBody" id="dialogBody" placeholder="Dialog body (not required)" title="Dialog body (not required)"></textarea>
+                <input type="text" name="dialogAction" id="dialogAction" placeholder="Dialog action (not required)" title="Dialog action (not required)">
+            </div>
+
+            <!-- ===== DIALOG DATA ===== -->
+            <div class="sub_container">
+                <div class="grid-4">
+                    <select name="dialogMusic" id="dialogMusic">
                             <option>No Music</option>
                         </select>
-                        <select name="dialogBackground" id="dialogBackground">
+                    <select name="dialogBackground" id="dialogBackground">
                             <option>No Background</option>
                         </select>
-                        <select name="dialogImage" id="dialogImage">
+                    <select name="dialogImage" id="dialogImage">
                             <option>No Picture</option>
                         </select>
-                        <select name="dialogAnimation" id="dialogAnimation">
+                    <select name="dialogAnimation" id="dialogAnimation">
                             <option>No Animation</option>
                             <option>shake</option>
                             <option>fadeIn</option>
                             <option>jump</option>
                         </select>
-                    </div>
+                </div>
+            </div>
+
+            <!-- ===== DIALOG BUTTONS ===== -->
+            <div class="sub_container" id="button_container">
+                <div class="sub_container_title">New Button</div>
+                <input type="text" name="optionID" id="optionID" placeholder="ID" title="Option ID" value="0">
+
+                <div class="grid-3">
+                    <input type="text" name="optionBody" id="optionBody" placeholder="Button Body" title="Option Body">
                 </div>
 
-                <!-- ===== DIALOG BUTTONS ===== -->
-                <div class="sub_container" id="button_container">
-                    <div class="sub_container_title">New Button</div>
-                    <input type="text" name="optionID" id="optionID" placeholder="ID" title="Option ID" value="0">
-
-                    <div class="grid-3">
-                        <input type="text" name="optionBody" id="optionBody" placeholder="Button Body" title="Option Body">
-                    </div>
-
-                    <div class="grid-3">
-                        <input type="number" name="optionGoToIndex" id="optionGoToIndex" placeholder="Go to Index (not required)" title="Go to Index (not required)">
-                        <select name="optionSound" id="optionSound">
+                <div class="grid-3">
+                    <input type="number" name="optionGoToIndex" id="optionGoToIndex" placeholder="Go to Index (not required)" title="Go to Index (not required)">
+                    <select name="optionSound" id="optionSound">
                             <option>No Sound</option>
                         </select>
-                    </div>
-                    
-                    <div class="grid-3" id="optionConditionZone">
-                        <select name="optionCondition" id="optionCondition" onchange="appendCondition()">
+                </div>
+
+                <div class="grid-3" id="optionConditionZone">
+                    <select name="optionCondition" id="optionCondition" onchange="appendCondition()">
                             <option>No Condition</option>
                             <option>GOLD</option>
                             <option>MEAL</option>
@@ -381,10 +404,10 @@
                             <option>SKILL</option>
                             <option>OBJECT</option>
                         </select>
-                    </div>
+                </div>
 
-                    <div class="grid-3" id="optionEffectZone">
-                        <select name="optionEffect" id="optionEffect" onchange="appendEffect()">
+                <div class="grid-3" id="optionEffectZone">
+                    <select name="optionEffect" id="optionEffect" onchange="appendEffect()">
                             <option>No Effect</option>
                             <option>REMOVE_OBJECT</option>
                             <option>ADD_OBJECT</option>
@@ -395,51 +418,60 @@
                             <option>LIFE</option>
                             <option>RESTART</option>
                         </select>
-                    </div>
-
-                    <button class="add" id="add_option" onclick="addOption()"><i class='bx bx-plus'></i></button>
-                    
-                    <table id="optionsList"></table>
                 </div>
 
-                <!-- ===== DIALOG VALIDATE ===== -->
-                <button class="dialog_validate" tabindex="0" onclick="addDialog()"><i class='bx bx-check'></i></button>
-                
-            </section>
+                <button class="add" id="add_option" onclick="addOption()"><i class='bx bx-plus'></i></button>
 
-            <!-- ===== DIALOG LIST ===== -->
-            <section id="dialog-list">
-            </section>
-            
-            <!-- ===== DIALOG MAP ===== -->
-            <section id="dialog-map">
-                <div class="sub_container" id="map_container">
-                    <div class="sub_container_title">Map</div>
-                    You didn't write any dialogue yet.
-                </div>
-            </section>
+                <table id="optionsList"></table>
+            </div>
 
-            <!-- ===== GO UP ===== -->
-            <i class='bx bx-caret-up container_end' id="toTop" onclick="toTop()"></i>
+            <!-- ===== DIALOG VALIDATE ===== -->
+            <button class="dialog_validate" tabindex="0" onclick="addDialog()"><i class='bx bx-check'></i></button>
 
-        </div>
+        </section>
 
-        <!-- ===== SCRIPTS ===== -->
-        <script src="js/engine/button.js"></script>
-        <script src="js/engine/dialog.js"></script>
-        <script src="js/engine/sound.js"></script>
-        <script src="js/generator/lib.js"></script>
-        <script src="js/generator/color.js"></script>
-        <script src="js/generator/skills.js"></script>
-        <script src="js/generator/items.js"></script>
-        <script src="js/generator/pictures.js"></script>
-        <script src="js/generator/sounds.js"></script>
-        <script src="js/generator/player.js"></script>
-        <script src="js/generator/dialogs.js"></script>
-        <script src="js/generator/buttons.js"></script>
-        <script src="js/generator/preview.js"></script>
-        <script src="js/generator/map.js"></script>
-        <script src="js/generator/show.js"></script>
-        <script src="js/generator/export.js"></script>
-    </body>
+        <!-- ===== DIALOG LIST ===== -->
+        <section id="dialog-list">
+        </section>
+
+        <!-- ===== DIALOG MAP ===== -->
+        <section id="dialog-map">
+            <div class="sub_container" id="map_container">
+                <div class="sub_container_title">Map</div>
+                You didn't write any dialogue yet.
+            </div>
+        </section>
+
+        <!-- ===== GO UP ===== -->
+        <i class='bx bx-caret-up container_end' id="toTop" onclick="toTop()"></i>
+
+    </div>
+
+    <div id="edit-menu">
+        <a id="edit-edit"><i class='bx bxs-edit-alt'></i> Edit</a>
+        <a id="edit-remove"><i class='bx bxs-eraser' ></i> Remove</a>
+    </div>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="js/engine/button.js"></script>
+    <script src="js/engine/dialog.js"></script>
+    <script src="js/engine/sound.js"></script>
+    <script src="js/generator/lib.js"></script>
+    <script src="js/generator/color.js"></script>
+    <script src="js/generator/skills.js"></script>
+    <script src="js/generator/items.js"></script>
+    <script src="js/generator/pictures.js"></script>
+    <script src="js/generator/sounds.js"></script>
+    <script src="js/generator/player.js"></script>
+    <script src="js/generator/dialogs.js"></script>
+    <script src="js/generator/buttons.js"></script>
+    <script src="js/generator/preview.js"></script>
+    <script src="js/generator/map.js"></script>
+    <script src="js/generator/show.js"></script>
+    <script src="js/generator/export.js"></script>
+    <script src="js/generator/import.js"></script>
+    <script src="js/generator/edit.js"></script>
+    <script src="js/generator/rightClick.js"></script>
+</body>
+
 </html>

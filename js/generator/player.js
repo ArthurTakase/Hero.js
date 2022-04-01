@@ -34,38 +34,62 @@ function generatePlayer() {
                         </div>\
                         <table id="playerInventoryListTable"></table>\
                     </div>'
-    
+
     updateSkills()
     updateObjects()
+}
+
+function addPlayerSkillFromJSON(element) {
+    const liste = document.getElementById('playerSkillsListTable')
+
+    if (jsonLen(playerSkills) == 0) { liste.classList.add("table") }
+
+    playerSkills[element] = element
+
+    liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
+    for (skill in playerSkills) { liste.innerHTML += '<tr><td>' + skill + '</td></tr>' }
 }
 
 function addPlayerSkill() {
     var skillInput = document.getElementById('playerSkillsList')
     const liste = document.getElementById('playerSkillsListTable')
 
-    if (skillInput.value == "") {return}
-    if (jsonLen(playerSkills) == 0) {liste.classList.add("table")}
-    
+    if (skillInput.value == "") { return }
+    if (jsonLen(playerSkills) == 0) { liste.classList.add("table") }
+
     playerSkills[skillInput.value] = skillInput.value
 
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
-    for (skill in playerSkills) {liste.innerHTML += '<tr><td>' + skill + '</td></tr>'}
+    for (skill in playerSkills) { liste.innerHTML += '<tr><td>' + skill + '</td></tr>' }
 
     skillInput.focus()
+}
+
+
+function addPlayerInventoryFromJSON(element) {
+    const liste = document.getElementById('playerInventoryListTable')
+
+    if (jsonLen(playerObjects) == 0) { liste.classList.add("table") }
+
+    playerObjects[inventoryID] = element
+    inventoryID += 1
+
+    liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
+    for (object in playerObjects) { liste.innerHTML += '<tr><td>' + playerObjects[object] + '</td></tr>' }
 }
 
 function addPlayerInventory() {
     var item = document.getElementById('playerInventoryList')
     const liste = document.getElementById('playerInventoryListTable')
 
-    if (item.value == "") {return}
-    if (jsonLen(playerObjects) == 0) {liste.classList.add("table")}
+    if (item.value == "") { return }
+    if (jsonLen(playerObjects) == 0) { liste.classList.add("table") }
 
     playerObjects[inventoryID] = item.value
     inventoryID += 1
-    
+
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
-    for (object in playerObjects) {liste.innerHTML += '<tr><td>' + playerObjects[object] + '</td></tr>'}
+    for (object in playerObjects) { liste.innerHTML += '<tr><td>' + playerObjects[object] + '</td></tr>' }
 
     item.focus()
 }
