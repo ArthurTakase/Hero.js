@@ -126,8 +126,6 @@ function editDialog(div) {
 }
 
 function editButton(div) {
-    console.log(div)
-
     const zoneId = document.getElementById("dialogID")
     const b_buttonId = document.getElementById("optionID")
     const b_body = document.getElementById("optionBody")
@@ -139,8 +137,6 @@ function editButton(div) {
     var id = parseInt(div.firstChild.innerHTML)
     var button = dialogList[parseInt(zoneId.value)].buttons[id]
 
-    console.log(id, parseInt(zoneId.value), dialogList[parseInt(zoneId.value)].buttons[id])
-
     b_buttonId.value = id
     b_body.value = button.text
     b_index.value = (button.goToIndex == undefined) ? "" : button.goToIndex
@@ -150,9 +146,6 @@ function editButton(div) {
 
     appendCondition()
     appendEffect()
-
-    console.log(button.conditionData)
-    console.log(button.effectData)
 
     const conditionValue = document.getElementById("conditionValue")
     const conditionCheck = document.getElementById("conditionIsHere")

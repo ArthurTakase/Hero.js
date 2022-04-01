@@ -107,7 +107,6 @@ function resetAll() {
     isMap = false
     pictureJson = {}
     isPlayer = false
-    inventoryID = 0
     playerSkills = {}
     playerObjects = {}
     skillsJson = {}

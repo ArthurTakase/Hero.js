@@ -1,5 +1,4 @@
 let isPlayer = false
-let inventoryID = 0
 let playerSkills = {}
 let playerObjects = {}
 
@@ -47,7 +46,7 @@ function addPlayerSkillFromJSON(element) {
     playerSkills[element] = element
 
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
-    for (skill in playerSkills) { liste.innerHTML += '<tr><td>' + skill + '</td></tr>' }
+    for (skill in playerSkills) { liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePlayerSkill + '"><td>' + skill + '</td></tr>' }
 }
 
 function addPlayerSkill() {
@@ -60,7 +59,7 @@ function addPlayerSkill() {
     playerSkills[skillInput.value] = skillInput.value
 
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
-    for (skill in playerSkills) { liste.innerHTML += '<tr><td>' + skill + '</td></tr>' }
+    for (skill in playerSkills) { liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePlayerSkill + '"><td>' + skill + '</td></tr>' }
 
     skillInput.focus()
 }
@@ -71,11 +70,10 @@ function addPlayerInventoryFromJSON(element) {
 
     if (jsonLen(playerObjects) == 0) { liste.classList.add("table") }
 
-    playerObjects[inventoryID] = element
-    inventoryID += 1
+    playerObjects[element] = element
 
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
-    for (object in playerObjects) { liste.innerHTML += '<tr><td>' + playerObjects[object] + '</td></tr>' }
+    for (object in playerObjects) { liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePlayerInv + '"><td>' + playerObjects[object] + '</td></tr>' }
 }
 
 function addPlayerInventory() {
@@ -85,11 +83,10 @@ function addPlayerInventory() {
     if (item.value == "") { return }
     if (jsonLen(playerObjects) == 0) { liste.classList.add("table") }
 
-    playerObjects[inventoryID] = item.value
-    inventoryID += 1
+    playerObjects[item.value] = item.value
 
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
-    for (object in playerObjects) { liste.innerHTML += '<tr><td>' + playerObjects[object] + '</td></tr>' }
+    for (object in playerObjects) { liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePlayerInv + '"><td>' + playerObjects[object] + '</td></tr>' }
 
     item.focus()
 }

@@ -3,7 +3,6 @@ let skillsJson = {}
 
 function addSkillFromJSON(element) {
     const liste = document.getElementById('skillsList')
-    var json = {}
 
     if (jsonLen(skillsJson) == 0) { liste.classList.add("table") }
 
