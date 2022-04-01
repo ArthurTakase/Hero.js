@@ -33,7 +33,7 @@ function editObject(div) {
         document.getElementById("itemAbility"),
         document.getElementById("itemStamina"),
         document.getElementById("itemGold"),
-        document.getElementById("itemMeal")
+        document.getElementById("itemExtra")
     ]
 
     for (var i = 0; i < children.length; i++)
@@ -153,7 +153,7 @@ function editButton(div) {
 
     switch (b_optionCondition.value) {
         case "GOLD":
-        case "MEAL":
+        case "EXTRA":
         case "STAMINA":
         case "ABILITY":
             conditionValue.value = button.conditionData[1]
@@ -175,7 +175,7 @@ function editButton(div) {
         case "ADD_OBJECT":
             effectValue.value = button.effectData[1]
             break
-        case "MEAL":
+        case "EXTRA":
         case "STAMINA":
         case "ABILITY":
         case "LIFE":

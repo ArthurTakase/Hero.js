@@ -44,7 +44,7 @@ function addOption() {
     // ===== CONDITION =====
     switch (optionCondition.value) {
         case "GOLD":
-        case "MEAL":
+        case "EXTRA":
         case "STAMINA":
         case "ABILITY":
             json.condition = optionCondition.value
@@ -69,7 +69,7 @@ function addOption() {
             json.effect = optionEffect.value
             try { json.effectData = [objectsJson[effectData.value].type, objectsJson[effectData.value].name] } catch (e) { return }
             break
-        case "MEAL":
+        case "EXTRA":
         case "STAMINA":
         case "ABILITY":
         case "LIFE":

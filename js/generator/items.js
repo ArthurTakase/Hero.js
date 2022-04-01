@@ -2,7 +2,7 @@
 let objectsJson = {}
 
 function reloadObjectList(liste) {
-    liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Type</th><th>Ability</th><th>Stamina</th><th>Gold</th><th>Meal</th></tr>'
+    liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Type</th><th>Ability</th><th>Stamina</th><th>Gold</th><th>Extra</th></tr>'
     for (object in objectsJson) {
         liste.innerHTML += '<tr class="' + editValue + ' ' + editValueObject + '"><td>' +
             objectsJson[object].name + '</td><td>' +
@@ -30,13 +30,13 @@ function addObject() {
     var objectAbility = document.getElementById('itemAbility')
     var objectStamina = document.getElementById('itemStamina')
     var objectGold = document.getElementById('itemGold')
-    var objectMeal = document.getElementById('itemMeal')
+    var objectExtra = document.getElementById('itemExtra')
     var json = {}
 
     if (objectAbility.value == "" ||
         objectGold.value == "" ||
         objectStamina.value == "" ||
-        objectMeal.value == "" ||
+        objectExtra.value == "" ||
         objectName.value == "") { return }
     if (jsonLen(objectsJson) == 0) { liste.classList.add("table") }
 
@@ -46,7 +46,7 @@ function addObject() {
         parseInt(objectAbility.value),
         parseInt(objectStamina.value),
         parseInt(objectGold.value),
-        parseInt(objectMeal.value)
+        parseInt(objectExtra.value)
     ]
 
     objectsJson[objectName.value] = json
@@ -56,7 +56,7 @@ function addObject() {
     // Reset des valeurs de l'input
     objectAbility.value = ""
     objectGold.value = ""
-    objectMeal.value = ""
+    objectExtra.value = ""
     objectName.value = ""
     objectStamina.value = ""
     objectName.focus()

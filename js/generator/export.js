@@ -61,7 +61,7 @@ function gameplay() {
 function player() {
     const ability = document.getElementById('playerAbility')
     const stamina = document.getElementById('playerStamina')
-    const meal = document.getElementById('playerMeal')
+    const extra = document.getElementById('playerExtra')
     const gold = document.getElementById('playerGold')
     var json = {}
 
@@ -70,7 +70,7 @@ function player() {
     json.special = []
     json.ability = parseInt(ability.value)
     json.stamina = parseInt(stamina.value)
-    json.meal = parseInt(meal.value)
+    json.extra = parseInt(extra.value)
     json.gold = parseInt(gold.value)
 
     for (skill in playerSkills) { json.skills.push(playerSkills[skill]) }

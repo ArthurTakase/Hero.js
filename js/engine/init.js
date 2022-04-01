@@ -15,7 +15,7 @@ function initDialog(json) {
                 case "GOLD":
                     tempCondition = 1;
                     break
-                case "MEAL":
+                case "EXTRA":
                     tempCondition = 2;
                     break
                 case "STAMINA":
@@ -46,7 +46,7 @@ function initDialog(json) {
                 case "GOLD":
                     tempEffect = 4;
                     break
-                case "MEAL":
+                case "EXTRA":
                     tempEffect = 6;
                     break
                 case "STAMINA":
@@ -160,7 +160,7 @@ function initPlayer(json) {
         player.maxStamina = json.player.maxStamina
     else
         player.maxStamina = player.stamina
-    player.meal = setInt(json.player.meal)
+    player.extra = setInt(json.player.extra)
     player.gold = setInt(json.player.gold)
 
     for (i in json.player.inventory)
