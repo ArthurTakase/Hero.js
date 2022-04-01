@@ -7,13 +7,14 @@ class Dialog {
 
 
         try {
-            var d_background = (background.substring(0, 4) == "http") ? background : defaultJSON.data.images[background]
+            var d_background = (background.substring(0, 4) == "http") ? background : defaultJSON.data.pictures[background]
         } catch { var d_background = undefined }
-        try { var d_img = (img.substring(0, 4) == "http") ? img : defaultJSON.data.images[img] } catch { var d_img = undefined }
+        try { var d_img = (img.substring(0, 4) == "http") ? img : defaultJSON.data.pictures[img] } catch { var d_img = undefined }
+        try { var d_music = (Array.isArray(music) ? music : defaultJSON.data.sounds[music]) } catch { var d_music = undefined }
 
         this.img = d_img // str
         this.background = d_background // str
-        this.music = music // [str, float]
+        this.music = d_music // [str, float]
         this.animation = animation // str
     }
 

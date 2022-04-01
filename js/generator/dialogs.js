@@ -109,7 +109,7 @@ function addDialog() {
     if (dialogTitle.value != "") { json.title = dialogTitle.value }
     if (dialogBody.value != "") { json.body = dialogBody.value }
     if (dialogAction.value != "") { json.action = dialogAction.value }
-    if (dialogMusic.value != "No Music") { json.music = soundJson[dialogMusic.value] }
+    if (dialogMusic.value != "No Music") { json.music = dialogMusic.value }
     if (buttonList.length != 0) { json.buttons = buttonList }
     if (dialogPicture.value != "No Picture") { json.img = dialogPicture.value }
     if (dialogBackground.value != "No Background") { json.background = dialogBackground.value }

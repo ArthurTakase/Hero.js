@@ -53,11 +53,11 @@ function setValueFromJSON(json) {
 
     // Data - Pictures
     if (json.data && json.data.images)
-        addPictureFromJSON(json.data.images)
+        addPictureFromJSON(json.data.pictures)
 
     // Data - Sounds
     if (json.data && json.data.music)
-        addSoundFromJSON(json.data.music)
+        addSoundFromJSON(json.data.sounds)
 
     // Player
     if (json.player) {
