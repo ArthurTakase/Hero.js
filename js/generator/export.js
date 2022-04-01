@@ -13,8 +13,6 @@ function exportJSON(data) {
 function data() {
     var json = {}
 
-    console.log(soundJson)
-
     json.pictures = pictureJson
     json.sounds = soundJson
 
