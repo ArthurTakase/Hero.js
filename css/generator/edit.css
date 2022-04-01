@@ -44,7 +44,7 @@
 }
 
 #edit-remove {
-    display: none;
+    /* display: none; */
     color: #be2251;
     padding-left: .5rem;
     padding-right: .5rem;
@@ -53,4 +53,58 @@
 #edit-remove:hover {
     cursor: pointer;
     background: #4b4c58;
+}
+
+#remove-modal p {
+    padding: 0;
+    margin: .5rem;
+}
+
+#remove-modal {
+    border-radius: .3rem;
+    /* background: #373842; */
+    background: #ac204a9a;
+    backdrop-filter: blur(5px);
+    border: solid #be2251 .2rem;
+    color: #c2c2ca;
+    /* display: flex; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1001;
+    margin-left: 6.5rem;
+    padding-top: -.5rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    padding-bottom: .5rem;
+    width: 20rem;
+    text-align: center;
+    box-shadow: 0rem 0rem .5rem rgba(0, 0, 0, 0.377);
+}
+
+#remove-modal button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: .3rem;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    border-radius: .3rem;
+    /* border: solid; */
+    background: #be2251;
+    transition-duration: .2s;
+}
+
+#remove-modal button:hover {
+    transform: scale(1.1);
+}
+
+#remove-modal::backdrop {
+    background: #5555556c;
+    backdrop-filter: blur(5px);
 }

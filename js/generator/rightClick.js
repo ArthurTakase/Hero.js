@@ -11,14 +11,19 @@ let editValueSound = "edit-sound"
 let editValueDialog = "edit-dialog"
 let editValueButton = "edit-button"
 
+let lastX, lastY
+
 document.oncontextmenu = function(e) {
     e.preventDefault();
     try {
         if (e.target.parentNode.classList.contains(editValue)) {
             editMenu.style.display = "flex"
 
-            editMenu.style.top = e.clientY + "px"
-            editMenu.style.left = e.clientX + "px"
+            lastX = e.clientX
+            lastY = e.clientY
+
+            editMenu.style.top = lastY + "px"
+            editMenu.style.left = lastX + "px"
 
             lastRightClickElement = e.target.parentNode
         } else { editMenu.style.display = "none" }
@@ -28,7 +33,7 @@ document.oncontextmenu = function(e) {
 
 document.onclick = function(e) {
     // try {
-    if (e.target.parentNode.id == "edit-menu" || e.target.id == "edit-menu") {
+    if (e.target.id == "edit-edit" || (e.target.parentNode && e.target.parentNode.id == "edit-edit")) {
         if (lastRightClickElement.classList.contains(editValueColor)) editColor(lastRightClickElement)
         else if (lastRightClickElement.classList.contains(editValueObject)) editObject(lastRightClickElement)
         else if (lastRightClickElement.classList.contains(editValuePicture)) editPicture(lastRightClickElement)
@@ -36,11 +41,19 @@ document.onclick = function(e) {
         else if (lastRightClickElement.classList.contains(editValueDialog)) editDialog(lastRightClickElement)
         else if (lastRightClickElement.classList.contains(editValueSkill)) editSkill(lastRightClickElement)
         else if (lastRightClickElement.classList.contains(editValueButton)) editButton(lastRightClickElement)
-    } else { editMenu.style.display = "none" }
+    } else if (e.target.parentNode.id == "edit-remove" || e.target.id == "edit-remove") {
+        console.log("delete", lastRightClickElement)
+        showDelete(lastX, lastY)
+    } else {
+        editMenu.style.display = "none"
+        modal.style.display = "none"
+    }
     // } catch { editMenu.style.display = "none" }
-    editMenu.style.display = "none"
+    // editMenu.style.display = "none"
+    // modal.style.display = "none"
 };
 
 document.onscroll = function(e) {
     editMenu.style.display = "none"
+    modal.style.display = "none"
 }
