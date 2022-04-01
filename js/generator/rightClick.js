@@ -9,6 +9,7 @@ let editValueObject = "edit-object"
 let editValuePicture = "edit-picture"
 let editValueSound = "edit-sound"
 let editValueDialog = "edit-dialog"
+let editValueButton = "edit-button"
 
 document.oncontextmenu = function(e) {
     e.preventDefault();
@@ -26,18 +27,17 @@ document.oncontextmenu = function(e) {
 };
 
 document.onclick = function(e) {
-    try {
-        if (e.target.parentNode.id == "edit-menu" || e.target.id == "edit-menu") {
-            if (lastRightClickElement.classList.contains(editValueColor)) editColor(lastRightClickElement)
-            else if (lastRightClickElement.classList.contains(editValueObject)) editObject(lastRightClickElement)
-            else if (lastRightClickElement.classList.contains(editValuePicture)) editPicture(lastRightClickElement)
-            else if (lastRightClickElement.classList.contains(editValueSound)) editSound(lastRightClickElement)
-            else if (lastRightClickElement.classList.contains(editValueDialog)) editDialog(lastRightClickElement)
-            else if (lastRightClickElement.classList.contains(editValueSkill)) editSkill(lastRightClickElement)
-
-            window.scrollTo(0, 0);
-        } else { editMenu.style.display = "none" }
-    } catch { editMenu.style.display = "none" }
+    // try {
+    if (e.target.parentNode.id == "edit-menu" || e.target.id == "edit-menu") {
+        if (lastRightClickElement.classList.contains(editValueColor)) editColor(lastRightClickElement)
+        else if (lastRightClickElement.classList.contains(editValueObject)) editObject(lastRightClickElement)
+        else if (lastRightClickElement.classList.contains(editValuePicture)) editPicture(lastRightClickElement)
+        else if (lastRightClickElement.classList.contains(editValueSound)) editSound(lastRightClickElement)
+        else if (lastRightClickElement.classList.contains(editValueDialog)) editDialog(lastRightClickElement)
+        else if (lastRightClickElement.classList.contains(editValueSkill)) editSkill(lastRightClickElement)
+        else if (lastRightClickElement.classList.contains(editValueButton)) editButton(lastRightClickElement)
+    } else { editMenu.style.display = "none" }
+    // } catch { editMenu.style.display = "none" }
     editMenu.style.display = "none"
 };
 

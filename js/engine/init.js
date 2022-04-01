@@ -43,35 +43,20 @@ function initDialog(json) {
                 case "ADD_OBJECT":
                     tempEffect = 2;
                     break
-                case "REMOVE_GOLD":
-                    tempEffect = 3;
-                    break
-                case "ADD_GOLD":
+                case "GOLD":
                     tempEffect = 4;
                     break
-                case "REMOVE_MEAL":
-                    tempEffect = 5;
-                    break
-                case "ADD_MEAL":
+                case "MEAL":
                     tempEffect = 6;
                     break
-                case "REMOVE_STAMINA":
-                    tempEffect = 7;
-                    break
-                case "ADD_STAMINA":
+                case "STAMINA":
                     tempEffect = 8;
                     break
-                case "REMOVE_ABILITY":
-                    tempEffect = 9;
-                    break
-                case "ADD_ABILITY":
+                case "ABILITY":
                     tempEffect = 10;
                     break
-                case "HEAL":
+                case "LIFE":
                     tempEffect = 11;
-                    break
-                case "HURT":
-                    tempEffect = 12;
                     break
                 case "FIGHT":
                     tempEffect = 13;

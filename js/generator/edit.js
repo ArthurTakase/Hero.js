@@ -6,6 +6,8 @@ function editColor(div) {
 
     elem.value = div.firstChild.innerHTML
     color.value = div.lastChild.title
+
+    window.scrollTo(0, 0);
 }
 
 function editSkill(div) {
@@ -18,6 +20,8 @@ function editSkill(div) {
     ]
     for (i = 0; i < children.length; i++)
         page_div[i].value = children[i].innerHTML
+
+    window.scrollTo(0, 0);
 }
 
 function editObject(div) {
@@ -34,6 +38,8 @@ function editObject(div) {
 
     for (var i = 0; i < children.length; i++)
         pages_div[i].value = children[i].innerHTML
+
+    window.scrollTo(0, 0);
 }
 
 function editPicture(div) {
@@ -42,6 +48,8 @@ function editPicture(div) {
 
     name.value = div.firstChild.innerHTML
     url.value = div.lastChild.firstChild.src
+
+    window.scrollTo(0, 0);
 }
 
 function editSound(div) {
@@ -53,6 +61,7 @@ function editSound(div) {
     url.value = div.childNodes[1].firstChild.src
     try { volume.value = parseInt(div.childNodes[2].innerHTML) } catch { volume.value = 50 }
 
+    window.scrollTo(0, 0);
 }
 
 function resetDialog() {
@@ -81,6 +90,8 @@ function resetDialog() {
     optionListe.classList.remove('table')
     optionListe.innerHTML = ""
     optionID.value = optionIDGlobal
+
+    window.scrollTo(0, 0);
 }
 
 function editDialog(div) {
@@ -109,7 +120,78 @@ function editDialog(div) {
     picture.value = (dialog.img == undefined) ? "No Picture" : dialog.img
     animation.value = (dialog.animation == undefined) ? "No Animation" : dialog.animation
 
-    console.log(dialog.buttons)
-
     dialog.buttons.forEach(element => { addOptionJSON(element) });
+
+    window.scrollTo(0, 0);
+}
+
+function editButton(div) {
+    console.log(div)
+
+    const zoneId = document.getElementById("dialogID")
+    const b_buttonId = document.getElementById("optionID")
+    const b_body = document.getElementById("optionBody")
+    const b_index = document.getElementById("optionGoToIndex")
+    const b_music = document.getElementById("optionSound")
+    const b_optionCondition = document.getElementById("optionCondition")
+    const b_optionEffect = document.getElementById("optionEffect")
+
+    var id = parseInt(div.firstChild.innerHTML)
+    var button = dialogList[parseInt(zoneId.value)].buttons[id]
+
+    console.log(id, parseInt(zoneId.value), dialogList[parseInt(zoneId.value)].buttons[id])
+
+    b_buttonId.value = id
+    b_body.value = button.text
+    b_index.value = (button.goToIndex == undefined) ? "" : button.goToIndex
+    b_music.value = (Array.isArray(button.sound)) ? "No Sound" : button.sound
+    b_optionCondition.value = (button.condition == undefined) ? "No Condition" : button.condition
+    b_optionEffect.value = (button.effect == undefined || button.effect == "FIGHT") ? "No Effect" : button.effect
+
+    appendCondition()
+    appendEffect()
+
+    console.log(button.conditionData)
+    console.log(button.effectData)
+
+    const conditionValue = document.getElementById("conditionValue")
+    const conditionCheck = document.getElementById("conditionIsHere")
+    const effectValue = document.getElementById("effectValue")
+
+    switch (b_optionCondition.value) {
+        case "GOLD":
+        case "MEAL":
+        case "STAMINA":
+        case "ABILITY":
+            conditionValue.value = button.conditionData[1]
+            break
+        case "OBJECT":
+            conditionValue.value = button.conditionData[2]
+            conditionCheck.checked = button.conditionData[0]
+            break
+        case "SKILL":
+            conditionValue.value = button.conditionData[1]
+            conditionCheck.checked = button.conditionData[0]
+            break
+        default:
+            break
+    }
+
+    switch (b_optionEffect.value) {
+        case "REMOVE_OBJECT":
+        case "ADD_OBJECT":
+            effectValue.value = button.effectData[1]
+            break
+        case "MEAL":
+        case "STAMINA":
+        case "ABILITY":
+        case "LIFE":
+        case "GOLD":
+            effectValue.value = button.effectData[0]
+            break
+        case "RESTART":
+        default:
+            break
+    }
+
 }

@@ -1,7 +1,6 @@
 let soundJson = {}
 
 function addSoundFromJSON(elements) {
-    console.log(elements)
     const liste = document.getElementById('soundList')
 
     if (jsonLen(soundJson) == 0) { liste.classList.add("table") }

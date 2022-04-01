@@ -129,6 +129,8 @@ function resetAll() {
     document.getElementById('pictureList').innerHTML = ""
     document.getElementById('objectList').innerHTML = ""
     document.getElementById('colorList').innerHTML = ""
+
+    resetDialog()
 }
 
 // open JSON file

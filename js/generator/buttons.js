@@ -2,8 +2,6 @@ let optionIDGlobal = 0
 let buttonList = []
 
 function addOptionJSON(option) {
-    console.log(option)
-
     const liste = document.getElementById('optionsList')
     const optionID = document.getElementById('optionID')
 
@@ -16,7 +14,11 @@ function addOptionJSON(option) {
     // ===== TABLEAU =====
     liste.innerHTML = '<tr class="tableHeader"><th>ID</th><th>Text</th><th>Go To</th></tr>'
     for (button in buttonList) {
-        if (buttonList[button].goToIndex == undefined) { liste.innerHTML += '<tr><td>' + button + '</td><td>' + buttonList[button].text + '</td><td>Next</td></tr>' } else { liste.innerHTML += '<tr><td>' + button + '</td><td>' + buttonList[button].text + '</td><td>' + buttonList[button].goToIndex + '</td></tr>' }
+        if (buttonList[button].goToIndex == undefined) {
+            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueButton + '"><td>' + button + '</td><td>' + buttonList[button].text + '</td><td>Next</td></tr>'
+        } else {
+            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueButton + '"><td>' + button + '</td><td>' + buttonList[button].text + '</td><td>' + buttonList[button].goToIndex + '</td></tr>'
+        }
     }
 }
 
