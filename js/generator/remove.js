@@ -57,7 +57,10 @@ function removeSound(div) {
 }
 
 function removeDialog(div) {
-    console.log(div)
+    var id = parseInt(div.firstChild.innerHTML)
+
+    dialogList.splice(id, 1)
+    updateDialogList()
 }
 
 function removeSkill(div) {
@@ -67,6 +70,10 @@ function removeSkill(div) {
 function removeButton(div) {
     console.log(div)
 }
+
+// Remove skill from player
+
+// Remove object from player
 
 function confirmDeletion() {
     modal.style.display = "none"
