@@ -1,5 +1,5 @@
 let dialogGraphList = ""
-var isMap = false
+let isMap = false
 
 function graph() {
     if (dialogList.length == 0) { return }
@@ -41,16 +41,62 @@ $(window).resize(function() {
         .fade(true)
 });
 
+function nodeAction(node) {
+    console.log(node)
+
+    var id = parseInt(node.querySelector("title").innerHTML)
+
+    try { preview("previewGraph", id) } catch (e) {}
+}
+
+function edgeAction(node) {
+    console.log("coucou")
+
+    var title = node.querySelector("title").innerHTML
+    var ids = title.split("-&gt;")
+    var dialog = dialogList[parseInt(ids[0])]
+    var nbElem = 0
+    var index = 0
+
+    for (var i = 0; i != dialog.buttons.length; i++) {
+        element = dialog.buttons[i]
+        if ((element.goToIndex == undefined && parseInt(ids[0]) + 1 == parseInt(ids[1])) ||
+            element.goToIndex == parseInt(ids[1])) {
+            index = i
+            nbElem++
+        }
+    }
+
+    // try {
+    if (nbElem == 1) {
+        preview("previewGraph", parseInt(ids[0]))
+
+        var previewDiv = document.getElementById("previewGraph")
+        var editButton = previewDiv.getElementsByClassName("hero-js-button")[index]
+
+        editButton.classList.add("selectedButton")
+        editButton.style.border = "solid #be2251 .2rem"
+        editButton.style.color = "#be2251"
+        editButton.style.backgroundColor = "#be225159"
+        console.log("coucou")
+    }
+    // } catch {}
+}
+
 document.addEventListener("click", function(e) {
     if (!isMap) { return }
     var div = e.target.parentNode
     try {
-        if (!div.classList.contains("node")) { return }
+        if (div.classList.contains("node")) {
+            nodeAction(div)
+        } else if (div.classList.contains("edge")) {
+            edgeAction(div)
+        } else if (e.target.id != "previewGraph") {
+            document.getElementById("previewGraph").style.display = "none"
+        }
     } catch {
         return;
     }
 
-    var id = parseInt(div.querySelector("title").innerHTML)
 
-    try { preview("previewGraph", id) } catch (e) {}
 })
