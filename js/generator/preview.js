@@ -6,7 +6,6 @@ function Instantpreview() {
     var dialogTitle = document.getElementById('dialogTitle')
     var dialogBody = document.getElementById('dialogBody')
     var dialogAction = document.getElementById('dialogAction')
-    var dialogMusic = document.getElementById('dialogMusic')
     var dialogBackground = document.getElementById('dialogBackground')
     var dialogPicture = document.getElementById('dialogImage')
     var dialogAnimation = document.getElementById('dialogAnimation')
