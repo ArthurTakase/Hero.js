@@ -130,6 +130,7 @@ function resetAll() {
     document.getElementById('colorList').innerHTML = ""
 
     resetDialog()
+    Instantpreview()
 }
 
 // open JSON file

@@ -39,7 +39,7 @@ function addOption() {
 
     json.text = optionBody.value
     if (optionGoTo.value != "") { json.goToIndex = parseInt(optionGoTo.value) }
-    if (optionSound.value != "No Sound") { json.sound = soundJSON[optionSound.value] }
+    if (optionSound.value != "No Sound" && optionSound.value != "") { json.sound = soundJSON[optionSound.value] }
 
     // ===== CONDITION =====
     switch (optionCondition.value) {
@@ -109,4 +109,5 @@ function addOption() {
     appendCondition()
     appendEffect()
     optionBody.focus()
+    Instantpreview()
 }

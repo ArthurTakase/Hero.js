@@ -30,15 +30,15 @@ const sidebar = {
 
 function setHeader(dest) {
     const headerBar = document.getElementById('headerbar')
-    
-    try {headerBar.innerHTML = headerList[dest]} catch(e) {}
+
+    try { headerBar.innerHTML = headerList[dest] } catch (e) {}
 }
 
 function setSideBar(dest) {
     const navLink = document.getElementsByClassName('nav__link')
 
-    for (link in navLink) {try {navLink[link].classList.remove('active')} catch(e) {}}
-    try {document.getElementById(sidebar[dest]).classList.add('active')} catch(e) {}
+    for (link in navLink) { try { navLink[link].classList.remove('active') } catch (e) {} }
+    try { document.getElementById(sidebar[dest]).classList.add('active') } catch (e) {}
 }
 
 function show(dest) {
@@ -49,20 +49,24 @@ function show(dest) {
     toTop.style.display = 'flex'
     setHeader(dest)
     setSideBar(dest)
-    if (dest == "player" || dest == "dialog") {updateSkills(); updateObjects()}
-    if (dest == "dialog") {updatePictures(); updateSounds()}
-    if (dest == "dialog-list") {updateDialogList()}
-    if (dest == "dialog-map") {graph(); toTop.style.display = 'none'}
+    if (dest == "player" || dest == "dialog") { updateSkills();
+        updateObjects() }
+    if (dest == "dialog") { updatePictures();
+        updateSounds();
+        Instantpreview() }
+    if (dest == "dialog-list") { updateDialogList() }
+    if (dest == "dialog-map") { graph();
+        toTop.style.display = 'none' }
     try {
-        for (var i = 0; i != sections.length; i++) {sections[i].style.display = 'none'}
-        document.getElementById(dest).style.display = "flex" 
+        for (var i = 0; i != sections.length; i++) { sections[i].style.display = 'none' }
+        document.getElementById(dest).style.display = "flex"
     } catch (e) {}
 }
 
 function toTop() {
-    scroll(0,0)
+    scroll(0, 0)
 }
 
 show("index")
-// show("player")
-// show('dialog-map')
+    // show("player")
+    // show('dialog-map')

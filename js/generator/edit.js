@@ -135,7 +135,11 @@ function editButton(div) {
     const b_optionEffect = document.getElementById("optionEffect")
 
     var id = parseInt(div.firstChild.innerHTML)
-    var button = dialogList[parseInt(zoneId.value)].buttons[id]
+    try {
+        var button = dialogList[parseInt(zoneId.value)].buttons[id]
+    } catch { var button = buttonList[id] }
+
+    console.log(button)
 
     b_buttonId.value = id
     b_body.value = button.text

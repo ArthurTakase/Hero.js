@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="css/generator/navbar.css">
     <link rel="stylesheet" href="css/generator/header.css">
     <link rel="stylesheet" href="css/generator/generator.css">
-    <link rel="stylesheet" href="css/generator/preview.css">
     <link rel="stylesheet" href="css/generator/map.css">
     <link rel="stylesheet" href="css/generator/edit.css">
     <link rel="stylesheet" href="css/generator/notification.css">
+    <link rel="stylesheet" href="css/generator/preview.css">
     <!-- ===== LIB ===== -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <script src="//d3js.org/d3.v5.min.js"></script>
@@ -141,16 +141,25 @@
             </div>
 
             <div class="sub_container">
+                <div class="sub_container_title">PatchNote (04/04/2022)</div>
+                <span style="text-align: center;">
+                        <h3>Generator</h3>
+                        Real-time dialogue preview option.<br>
+                        Ability to see which button is linked to which arrow on the map by clicking on it<br>
+                    </span>
+            </div>
+
+            <div class="sub_container">
                 <div class="sub_container_title">PatchNote (01/04/2022)</div>
                 <span style="text-align: center;">
                         <h3>Generator</h3>
                         You can now delete and edit elements with the right click of your mouse.<br>
                         Be careful, deleting is not without consequences on your game. It's up to you to see what impact it will have.<br>
-                        Added notifications to prevent generation errors<br>
+                        Added notifications to prevent generation errors.<br>
                         <br><h3>Engine</h3>
-                        From the JSON of your game, you can now write the names of the data from the data.pictures and data.sounds sections in the images and sounds of your project instead of the links<br>
-                        Removal of duplicated effects (e.g. ADD_GOLD and REMOVE_GOLD) or simplified effects (GOLD)<br>
-                        Changing "Meal" to "Extra"<br>
+                        From the JSON of your game, you can now write the names of the data from the data.pictures and data.sounds sections in the images and sounds of your project instead of the links.<br>
+                        Removal of duplicated effects (e.g. ADD_GOLD and REMOVE_GOLD) for simplified effects (GOLD).<br>
+                        Changing "Meal" to "Extra".<br>
                     </span>
             </div>
 
@@ -364,14 +373,19 @@
 
         <!-- ===== DIALOG ===== -->
         <section id="dialog">
+            <div class="container_preview" title="Show Preview">
+                <div id="instantPreview" style="display: none;"></div>
+                <!-- Edit Dialog to update preview. -->
+            </div>
+
             <!-- ===== DIALOG BODY ===== -->
             <div class="sub_container">
                 <div class="sub_container_title">Dialog</div>
 
-                <input type="text" name="dialogID" id="dialogID" placeholder="ID" title="Dialog ID" value="0">
-                <input type="text" name="dialogTitle" id="dialogTitle" placeholder="Dialog title (not required)" title="Dialog title (not required)">
-                <textarea rows="5" name="dialogBody" id="dialogBody" placeholder="Dialog body (not required)" title="Dialog body (not required)"></textarea>
-                <input type="text" name="dialogAction" id="dialogAction" placeholder="Dialog action (not required)" title="Dialog action (not required)">
+                <input type="text" onchange="Instantpreview()" name="dialogID" id="dialogID" placeholder="ID" title="Dialog ID" value="0">
+                <input type="text" onchange="Instantpreview()" name="dialogTitle" id="dialogTitle" placeholder="Dialog title (not required)" title="Dialog title (not required)">
+                <textarea rows="5" onchange="Instantpreview()" name="dialogBody" id="dialogBody" placeholder="Dialog body (not required)" title="Dialog body (not required)"></textarea>
+                <input type="text" onchange="Instantpreview()" name="dialogAction" id="dialogAction" placeholder="Dialog action (not required)" title="Dialog action (not required)">
             </div>
 
             <!-- ===== DIALOG DATA ===== -->
@@ -380,10 +394,10 @@
                     <select name="dialogMusic" id="dialogMusic">
                             <option>No Music</option>
                         </select>
-                    <select name="dialogBackground" id="dialogBackground">
+                    <select name="dialogBackground" onchange="Instantpreview()" id="dialogBackground">
                             <option>No Background</option>
                         </select>
-                    <select name="dialogImage" id="dialogImage">
+                    <select name="dialogImage" onchange="Instantpreview()" id="dialogImage">
                             <option>No Picture</option>
                         </select>
                     <select name="dialogAnimation" id="dialogAnimation">
@@ -401,7 +415,7 @@
                 <input type="text" name="optionID" id="optionID" placeholder="ID" title="Option ID" value="0">
 
                 <div class="grid-3">
-                    <input type="text" name="optionBody" id="optionBody" placeholder="Button Body" title="Option Body">
+                    <input type="text" name="optionBody" onchange="Instantpreview()" id="optionBody" placeholder="Button Body" title="Option Body">
                 </div>
 
                 <div class="grid-3">

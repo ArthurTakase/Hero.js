@@ -1,3 +1,54 @@
+function Instantpreview() {
+
+    console.log("update")
+
+    var dialogId = document.getElementById('dialogID')
+    var dialogTitle = document.getElementById('dialogTitle')
+    var dialogBody = document.getElementById('dialogBody')
+    var dialogAction = document.getElementById('dialogAction')
+    var dialogBackground = document.getElementById('dialogBackground')
+    var dialogPicture = document.getElementById('dialogImage')
+    var dialogAnimation = document.getElementById('dialogAnimation')
+
+    // var currentDialog = dialogList[id]
+
+    // Génération des boutons
+    var allButtons = []
+    for (b in buttonList) {
+        // Création du bouton
+        allButtons.push(
+            new Button(
+                buttonList[b].text,
+                buttonList[b].goToIndex,
+                null,
+                buttonList[b].conditionData,
+                null,
+                buttonList[b].effectData,
+                buttonList[b].notification,
+                null
+            )
+        )
+    }
+
+    var background = (dialogBackground.value.substring(0, 4) == "http") ? dialogBackground.value : pictureJson[dialogBackground.value]
+    try { var img = (dialogPicture.value.substring(0, 4) == "http") ? dialogPicture.value : pictureJson[dialogPicture.value] } catch { var img = undefined }
+
+    // Génération du dialogue
+    var dialog = new Dialog(
+        dialogTitle.value,
+        dialogBody.value,
+        dialogAction.value,
+        allButtons,
+        img,
+        background,
+        null,
+        dialogAnimation.value
+    )
+
+    dialog.preview("instantPreview", 0)
+
+}
+
 function preview(div, id) {
     var allButtons = []
     var currentDialog = dialogList[id]
