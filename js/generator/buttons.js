@@ -109,4 +109,5 @@ function addOption() {
     appendCondition()
     appendEffect()
     optionBody.focus()
+    Instantpreview()
 }

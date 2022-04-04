@@ -364,14 +364,19 @@
 
         <!-- ===== DIALOG ===== -->
         <section id="dialog">
+            <div class="container_preview" title="Show Preview">
+                <div id="instantPreview" style="display: none;"></div>
+                <!-- Edit Dialog to update preview. -->
+            </div>
+
             <!-- ===== DIALOG BODY ===== -->
             <div class="sub_container">
                 <div class="sub_container_title">Dialog</div>
 
-                <input type="text" name="dialogID" id="dialogID" placeholder="ID" title="Dialog ID" value="0">
-                <input type="text" name="dialogTitle" id="dialogTitle" placeholder="Dialog title (not required)" title="Dialog title (not required)">
-                <textarea rows="5" name="dialogBody" id="dialogBody" placeholder="Dialog body (not required)" title="Dialog body (not required)"></textarea>
-                <input type="text" name="dialogAction" id="dialogAction" placeholder="Dialog action (not required)" title="Dialog action (not required)">
+                <input type="text" onchange="Instantpreview()" name="dialogID" id="dialogID" placeholder="ID" title="Dialog ID" value="0">
+                <input type="text" onchange="Instantpreview()" name="dialogTitle" id="dialogTitle" placeholder="Dialog title (not required)" title="Dialog title (not required)">
+                <textarea rows="5" onchange="Instantpreview()" name="dialogBody" id="dialogBody" placeholder="Dialog body (not required)" title="Dialog body (not required)"></textarea>
+                <input type="text" onchange="Instantpreview()" name="dialogAction" id="dialogAction" placeholder="Dialog action (not required)" title="Dialog action (not required)">
             </div>
 
             <!-- ===== DIALOG DATA ===== -->
@@ -380,10 +385,10 @@
                     <select name="dialogMusic" id="dialogMusic">
                             <option>No Music</option>
                         </select>
-                    <select name="dialogBackground" id="dialogBackground">
+                    <select name="dialogBackground" onchange="Instantpreview()" id="dialogBackground">
                             <option>No Background</option>
                         </select>
-                    <select name="dialogImage" id="dialogImage">
+                    <select name="dialogImage" onchange="Instantpreview()" id="dialogImage">
                             <option>No Picture</option>
                         </select>
                     <select name="dialogAnimation" id="dialogAnimation">
@@ -401,7 +406,7 @@
                 <input type="text" name="optionID" id="optionID" placeholder="ID" title="Option ID" value="0">
 
                 <div class="grid-3">
-                    <input type="text" name="optionBody" id="optionBody" placeholder="Button Body" title="Option Body">
+                    <input type="text" name="optionBody" onchange="Instantpreview()" id="optionBody" placeholder="Button Body" title="Option Body">
                 </div>
 
                 <div class="grid-3">
