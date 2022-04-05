@@ -4,13 +4,15 @@ let skillsJson = {}
 function addSkillFromJSON(element) {
     const liste = document.getElementById('skillsList')
 
-    if (jsonLen(skillsJson) == 0) { liste.classList.add("table") }
+    if (jsonLen(skillsJson)) { liste.classList.add("table") }
 
     skillsJson[element.name] = element
 
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Ability</th><th>Stamina</th></tr>'
     for (skill in skillsJson) {
-        liste.innerHTML += '<tr class="' + editValue + ' ' + editValueSkill + '"><td>' + skillsJson[skill].name + '</td><td>' + skillsJson[skill].stats[0] + '</td><td>' + skillsJson[skill].stats[1] + '</td></tr>'
+        try {
+            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueSkill + '"><td>' + skillsJson[skill].name + '</td><td>' + skillsJson[skill].stats[0] + '</td><td>' + skillsJson[skill].stats[1] + '</td></tr>'
+        } catch { continue }
     }
 }
 
@@ -22,15 +24,21 @@ function addSkill() {
     var json = {}
 
     if (skillAbility.value == "" || skillName.value == "" || skillStamina.value == "") { return }
-    if (jsonLen(skillsJson) == 0) { liste.classList.add("table") }
+    if (jsonLen(skillsJson)) { liste.classList.add("table") }
 
     json.name = skillName.value
-    json.stats = [parseInt(skillAbility.value), parseInt(skillStamina.value)]
+    json.stats = [
+        (isnum(skillAbility.value)) ? parseInt(skillAbility.value) : skillAbility.value,
+        (isnum(skillStamina.value)) ? parseInt(skillStamina.value) : skillStamina.value
+    ]
+
     skillsJson[skillName.value] = json
 
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Ability</th><th>Stamina</th></tr>'
     for (skill in skillsJson) {
-        liste.innerHTML += '<tr class="' + editValue + ' ' + editValueSkill + '"><td>' + skillsJson[skill].name + '</td><td>' + skillsJson[skill].stats[0] + '</td><td>' + skillsJson[skill].stats[1] + '</td></tr>'
+        try {
+            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueSkill + '"><td>' + skillsJson[skill].name + '</td><td>' + skillsJson[skill].stats[0] + '</td><td>' + skillsJson[skill].stats[1] + '</td></tr>'
+        } catch { continue }
     }
 
     // Reset des valeurs de l'input

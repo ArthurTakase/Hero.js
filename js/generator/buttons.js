@@ -48,7 +48,7 @@ function addOption() {
         case "STAMINA":
         case "ABILITY":
             json.condition = optionCondition.value
-            json.conditionData = [true, parseInt(conditionData.value)]
+            json.conditionData = [true, (isnum(conditionData.value)) ? parseInt(conditionData.value) : conditionData.value]
             break
         case "SKILL":
             json.condition = optionCondition.value
@@ -74,7 +74,7 @@ function addOption() {
         case "ABILITY":
         case "LIFE":
             json.effect = optionEffect.value
-            json.effectData = [parseInt(effectData.value)]
+            json.effectData = (isnum(effectData.value)) ? parseInt(effectData.value) : effectData.value
             break
         case "RESTART":
             json.effect = optionEffect.value

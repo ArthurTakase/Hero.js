@@ -1,7 +1,7 @@
 const headerList = {
-    "infos": '<div onclick="show(\'infos\')" class="header_element header_active"><div class="header_text">General</div><div class="header_bottom"></div></div><div onclick="show(\'infos-display\')" class="header_element"><div class="header_text">Display</div><div class="header_bottom"></div></div><div class="header_element" onclick="show(\'infos-color\')"><div class="header_text">Color</div><div class="header_bottom"></div></div>',
-    "infos-display": '<div onclick="show(\'infos\')" class="header_element"><div class="header_text">General</div><div class="header_bottom"></div></div><div onclick="show(\'infos-display\')" class="header_element header_active"><div class="header_text">Display</div><div class="header_bottom"></div></div><div class="header_element" onclick="show(\'infos-color\')"><div class="header_text">Color</div><div class="header_bottom"></div></div>',
-    "infos-color": '<div onclick="show(\'infos\')" class="header_element"><div class="header_text">General</div><div class="header_bottom"></div></div><div onclick="show(\'infos-display\')" class="header_element"><div class="header_text">Display</div><div class="header_bottom"></div></div><div class="header_element header_active" onclick="show(\'infos-color\')"><div class="header_text">Color</div><div class="header_bottom"></div></div>',
+    "infos": '<div onclick="show(\'infos\')" class="header_element header_active"><div class="header_text">General</div><div class="header_bottom"></div></div><div onclick="show(\'infos-display\')" class="header_element"><div class="header_text">Display</div><div class="header_bottom"></div></div><div class="header_element" onclick="show(\'infos-color\')"><div class="header_text">Style</div><div class="header_bottom"></div></div>',
+    "infos-display": '<div onclick="show(\'infos\')" class="header_element"><div class="header_text">General</div><div class="header_bottom"></div></div><div onclick="show(\'infos-display\')" class="header_element header_active"><div class="header_text">Display</div><div class="header_bottom"></div></div><div class="header_element" onclick="show(\'infos-color\')"><div class="header_text">Style</div><div class="header_bottom"></div></div>',
+    "infos-color": '<div onclick="show(\'infos\')" class="header_element"><div class="header_text">General</div><div class="header_bottom"></div></div><div onclick="show(\'infos-display\')" class="header_element"><div class="header_text">Display</div><div class="header_bottom"></div></div><div class="header_element header_active" onclick="show(\'infos-color\')"><div class="header_text">Style</div><div class="header_bottom"></div></div>',
     "data": '<div onclick="show(\'data\')" class="header_element header_active"><div class="header_text">Skills</div><div class="header_bottom"></div></div><div onclick="show(\'data-objects\')" class="header_element"><div class="header_text">Objects</div><div class="header_bottom"></div></div><div class="header_element" onclick="show(\'data-pictures\')"><div class="header_text">Pictures</div><div class="header_bottom"></div></div><div onclick="show(\'data-sounds\')" class="header_element"><div class="header_text">Sounds</div><div class="header_bottom"></div></div>',
     "data-objects": '<div onclick="show(\'data\')" class="header_element"><div class="header_text">Skills</div><div class="header_bottom"></div></div><div onclick="show(\'data-objects\')" class="header_element header_active"><div class="header_text">Objects</div><div class="header_bottom"></div></div><div class="header_element" onclick="show(\'data-pictures\')"><div class="header_text">Pictures</div><div class="header_bottom"></div></div><div onclick="show(\'data-sounds\')" class="header_element"><div class="header_text">Sounds</div><div class="header_bottom"></div></div>',
     "data-pictures": '<div onclick="show(\'data\')" class="header_element"><div class="header_text">Skills</div><div class="header_bottom"></div></div><div onclick="show(\'data-objects\')" class="header_element"><div class="header_text">Objects</div><div class="header_bottom"></div></div><div class="header_element header_active" onclick="show(\'data-pictures\')"><div class="header_text">Pictures</div><div class="header_bottom"></div></div><div onclick="show(\'data-sounds\')" class="header_element"><div class="header_text">Sounds</div><div class="header_bottom"></div></div>',
@@ -49,14 +49,20 @@ function show(dest) {
     toTop.style.display = 'flex'
     setHeader(dest)
     setSideBar(dest)
-    if (dest == "player" || dest == "dialog") { updateSkills();
-        updateObjects() }
-    if (dest == "dialog") { updatePictures();
+    if (dest == "player" || dest == "dialog") {
+        updateSkills();
+        updateObjects()
+    }
+    if (dest == "dialog") {
+        updatePictures();
         updateSounds();
-        Instantpreview() }
+        Instantpreview()
+    }
     if (dest == "dialog-list") { updateDialogList() }
-    if (dest == "dialog-map") { graph();
-        toTop.style.display = 'none' }
+    if (dest == "dialog-map") {
+        graph();
+        toTop.style.display = 'none'
+    }
     try {
         for (var i = 0; i != sections.length; i++) { sections[i].style.display = 'none' }
         document.getElementById(dest).style.display = "flex"

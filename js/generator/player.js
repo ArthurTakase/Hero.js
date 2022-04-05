@@ -5,14 +5,15 @@ let playerObjects = {}
 function generatePlayer() {
     const section = document.getElementById('player')
     isPlayer = true
+    let type = (advanced) ? 'text' : 'number'
 
     section.innerHTML = '<div class="sub_container">\
                         <div class="sub_container_title">Stats</div>\
                         <div class="grid-4">\
-                            <input type="number" name="playerAbility" id="playerAbility" placeholder="Player Ability" title="Player Ability" required>\
-                            <input type="number" name="playerStamina" id="playerStamina" placeholder="Player Stamina" title="Player Stamina" required>\
-                            <input type="number" name="playerExtra" id="playerExtra" placeholder="Extra" title="Extra" required>\
-                            <input type="number" name="playerGold" id="playerGold" placeholder="Gold" title="Gold" required>\
+                            <input type="' + type + '" name="playerAbility" id="playerAbility" placeholder="Player Ability" title="Player Ability" class="advanced" required>\
+                            <input type="' + type + '" name="playerStamina" id="playerStamina" placeholder="Player Stamina" title="Player Stamina" class="advanced" required>\
+                            <input type="' + type + '" name="playerExtra" id="playerExtra" placeholder="Extra" title="Extra" class="advanced" required>\
+                            <input type="' + type + '" name="playerGold" id="playerGold" placeholder="Gold" title="Gold" class="advanced" required>\
                         </div>\
                     </div>\
                     <div class="sub_container">\

@@ -4,20 +4,22 @@ let objectsJson = {}
 function reloadObjectList(liste) {
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Type</th><th>Ability</th><th>Stamina</th><th>Gold</th><th>Extra</th></tr>'
     for (object in objectsJson) {
-        liste.innerHTML += '<tr class="' + editValue + ' ' + editValueObject + '"><td>' +
-            objectsJson[object].name + '</td><td>' +
-            objectsJson[object].type + '</td><td>' +
-            objectsJson[object].data[0] + '</td><td>' +
-            objectsJson[object].data[1] + '</td><td>' +
-            objectsJson[object].data[2] + '</td><td>' +
-            objectsJson[object].data[3] + '</td></tr>'
+        try {
+            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueObject + '"><td>' +
+                objectsJson[object].name + '</td><td>' +
+                objectsJson[object].type + '</td><td>' +
+                objectsJson[object].data[0] + '</td><td>' +
+                objectsJson[object].data[1] + '</td><td>' +
+                objectsJson[object].data[2] + '</td><td>' +
+                objectsJson[object].data[3] + '</td></tr>'
+        } catch { continue }
     }
 }
 
 function addObjectFromJSON(element) {
     const liste = document.getElementById('objectList')
 
-    if (jsonLen(objectsJson) == 0) { liste.classList.add("table") }
+    if (jsonLen(objectsJson)) { liste.classList.add("table") }
 
     objectsJson[element.name] = element
     reloadObjectList(liste)
@@ -38,15 +40,15 @@ function addObject() {
         objectStamina.value == "" ||
         objectExtra.value == "" ||
         objectName.value == "") { return }
-    if (jsonLen(objectsJson) == 0) { liste.classList.add("table") }
+    if (jsonLen(objectsJson)) { liste.classList.add("table") }
 
     json.name = objectName.value
     json.type = objectType.value
     json.data = [
-        parseInt(objectAbility.value),
-        parseInt(objectStamina.value),
-        parseInt(objectGold.value),
-        parseInt(objectExtra.value)
+        isnum(objectAbility.value) ? parseInt(objectAbility.value) : objectAbility.value,
+        isnum(objectStamina.value) ? parseInt(objectStamina.value) : objectStamina.value,
+        isnum(objectGold.value) ? parseInt(objectGold.value) : objectGold.value,
+        isnum(objectExtra.value) ? parseInt(objectExtra.value) : objectExtra.value
     ]
 
     objectsJson[objectName.value] = json

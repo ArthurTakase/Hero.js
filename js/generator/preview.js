@@ -1,8 +1,4 @@
 function Instantpreview() {
-
-    console.log("update")
-
-    var dialogId = document.getElementById('dialogID')
     var dialogTitle = document.getElementById('dialogTitle')
     var dialogBody = document.getElementById('dialogBody')
     var dialogAction = document.getElementById('dialogAction')
@@ -10,12 +6,8 @@ function Instantpreview() {
     var dialogPicture = document.getElementById('dialogImage')
     var dialogAnimation = document.getElementById('dialogAnimation')
 
-    // var currentDialog = dialogList[id]
-
-    // Génération des boutons
     var allButtons = []
     for (b in buttonList) {
-        // Création du bouton
         allButtons.push(
             new Button(
                 buttonList[b].text,

@@ -48,7 +48,7 @@
                                 <div class="nav__dropdown-content">
                                     <a class="nav__dropdown-item" onclick="show('infos')">General</a>
                                     <a class="nav__dropdown-item" onclick="show('infos-display')">Display</a>
-                                    <a class="nav__dropdown-item" onclick="show('infos-color')">Color</a>
+                                    <a class="nav__dropdown-item" onclick="show('infos-color')">Style</a>
                                 </div>
                             </div>
                         </div>
@@ -138,6 +138,20 @@
                 <div class="img_list">
                     <img onclick="show('infos')" src="img/let's create.png">
                 </div>
+            </div>
+
+            <div class="sub_container">
+                <div class="sub_container_title">PatchNote (05/04/2022)</div>
+                <span style="text-align: center;">
+                        <h3>Generator</h3>
+                        Rename "Color" menu to "Style".<br>
+                        Add custom CSS option.<br>
+                        Add shortcuts : <b>Ctrl + S</b> to save, <b>Ctrl + D</b> to open.<br>
+                        Add random items/skills options.<br>
+                        Add advanced mode with <b>Ctrl + F</b> that allow you to write random number (<b>RANDOM,min,max</b>).<br>
+                        <br><h3>Engine</h3>
+                        Add custom CSS option.<br>
+                    </span>
             </div>
 
             <div class="sub_container">
@@ -255,6 +269,11 @@
 
                 <table id="colorList"></table>
             </div>
+
+            <div class="sub_container">
+                <div class="sub_container_title">Custom CSS</div>
+                <textarea rows="5" name="customCSS" id="customCSS" placeholder="Custom CSS" title="Custom CSS"></textarea>
+            </div>
         </section>
 
         <!-- ===== INFOS DISPLAY ===== -->
@@ -298,8 +317,8 @@
 
                 <div class="grid-4">
                     <input type="text" name="skillName" id="skillName" placeholder="Skill Name" title="Skill Name" required>
-                    <input type="number" name="skillAbility" id="skillAbility" placeholder="Ability" title="Ability" required>
-                    <input type="number" name="skillStamina" id="skillStamina" placeholder="Stamina" title="Stamina" required>
+                    <input type="number" name="skillAbility" id="skillAbility" placeholder="Ability" title="Ability" class="advanced" required>
+                    <input type="number" name="skillStamina" id="skillStamina" placeholder="Stamina" title="Stamina" class="advanced" required>
                     <button class="add" onclick="addSkill()"><i class='bx bx-check' ></i></button>
                 </div>
 
@@ -318,10 +337,10 @@
                             <option>inventory</option>
                             <option>special</option>
                           </select>
-                    <input type="number" name="itemAbility" id="itemAbility" placeholder="Ability" title="Ability" required>
-                    <input type="number" name="itemStamina" id="itemStamina" placeholder="Stamina" title="Stamina" required>
-                    <input type="number" name="itemGold" id="itemGold" placeholder="Gold" title="Gold" required>
-                    <input type="number" name="itemExtra" id="itemExtra" placeholder="Extra" title="Extra" required>
+                    <input type="number" name="itemAbility" id="itemAbility" placeholder="Ability" title="Ability" class="advanced" required>
+                    <input type="number" name="itemStamina" id="itemStamina" placeholder="Stamina" title="Stamina" class="advanced" required>
+                    <input type="number" name="itemGold" id="itemGold" placeholder="Gold" title="Gold" class="advanced" required>
+                    <input type="number" name="itemExtra" id="itemExtra" placeholder="Extra" title="Extra" class="advanced" required>
                     <button class="add" onclick="addObject()"><i class='bx bx-check' ></i></button>
                 </div>
 
@@ -511,6 +530,8 @@
     <script src="js/generator/edit.js"></script>
     <script src="js/generator/remove.js"></script>
     <script src="js/generator/rightClick.js"></script>
+    <script src="js/generator/hotkeys.js"></script>
+    <script src="js/generator/random.js"></script>
 </body>
 
 </html>
