@@ -8,4 +8,9 @@ $(document).bind('keydown', function(e) {
         e.preventDefault();
         openFile()
     }
+
+    if (e.ctrlKey && (e.which == "f".charCodeAt(0) || e.which == "F".charCodeAt(0))) {
+        e.preventDefault();
+        toggleAdvanced()
+    }
 });

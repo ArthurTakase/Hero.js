@@ -36,7 +36,7 @@ function appendCondition() {
         case "EXTRA":
         case "STAMINA":
         case "ABILITY":
-            conditionZone.innerHTML += '<input type="number" name="conditionValue" id="conditionValue" placeholder="Condition Value" title="Condition Value">'
+            conditionZone.innerHTML += '<input type="number" name="conditionValue" id="conditionValue" placeholder="Condition Value" title="Condition Value" class="advanced">'
             break
         case "SKILL":
             conditionZone.innerHTML += '<select name="conditionValue" id="conditionValue" title="Condition Value"></select>\
@@ -74,7 +74,7 @@ function appendEffect() {
         case "ABILITY":
         case "LIFE":
         case "GOLD":
-            effectZone.innerHTML += '<input type="number" name="effectValue" id="effectValue" placeholder="Effect Value" title="Effect Value">'
+            effectZone.innerHTML += '<input type="number" name="effectValue" id="effectValue" placeholder="Effect Value" title="Effect Value" class="advanced" >'
             break
         case "RESTART":
         case "No Effect":

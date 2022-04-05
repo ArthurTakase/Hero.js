@@ -42,16 +42,12 @@ $(window).resize(function() {
 });
 
 function nodeAction(node) {
-    console.log(node)
-
     var id = parseInt(node.querySelector("title").innerHTML)
 
     try { preview("previewGraph", id) } catch (e) {}
 }
 
 function edgeAction(node) {
-    console.log("coucou")
-
     var title = node.querySelector("title").innerHTML
     var ids = title.split("-&gt;")
     var dialog = dialogList[parseInt(ids[0])]
@@ -78,7 +74,6 @@ function edgeAction(node) {
         editButton.style.border = "solid #be2251 .2rem"
         editButton.style.color = "#be2251"
         editButton.style.backgroundColor = "#be225159"
-        console.log("coucou")
     }
     // } catch {}
 }

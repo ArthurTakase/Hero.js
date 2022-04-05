@@ -139,8 +139,6 @@ function editButton(div) {
         var button = dialogList[parseInt(zoneId.value)].buttons[id]
     } catch { var button = buttonList[id] }
 
-    console.log(button)
-
     b_buttonId.value = id
     b_body.value = button.text
     b_index.value = (button.goToIndex == undefined) ? "" : button.goToIndex

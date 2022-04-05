@@ -143,6 +143,7 @@ function openJSON(file) {
         var json = JSON.parse(e.target.result)
         resetAll()
             // free toutes les listes sinon ça fait une fusion des elements
+        addDefaultValues()
         setValueFromJSON(json)
         show('infos')
     };

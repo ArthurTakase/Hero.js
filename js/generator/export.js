@@ -1,3 +1,7 @@
+let error = false
+
+function isnum(val) { return /^\d+$/.test(val) }
+
 function exportJSON(data) {
     var temp = data
     data = JSON.stringify(data)
@@ -71,10 +75,15 @@ function player() {
     json.skills = []
     json.inventory = []
     json.special = []
-    json.ability = parseInt(ability.value)
-    json.stamina = parseInt(stamina.value)
-    json.extra = parseInt(extra.value)
-    json.gold = parseInt(gold.value)
+    json.ability = (isnum(ability.value)) ? parseInt(ability.value) : (ability.value.includes("RANDOM")) ? ability.value : "Error"
+    json.stamina = (isnum(stamina.value)) ? parseInt(stamina.value) : (stamina.value.includes("RANDOM")) ? stamina.value : "Error"
+    json.extra = (isnum(extra.value)) ? parseInt(extra.value) : (extra.value.includes("RANDOM")) ? extra.value : "Error"
+    json.gold = (isnum(gold.value)) ? parseInt(gold.value) : (gold.value.includes("RANDOM")) ? gold.value : "Error"
+
+    if (json.ability == "Error" || json.stamina == "Error" || json.extra == "Error" || json.gold == "Error") {
+        createNotif("Bad value in Advanced Mode (Player)", "<i class='bx bx-bug'></i> Warning !")
+        error = true
+    }
 
     for (skill in playerSkills) { json.skills.push(playerSkills[skill]) }
     for (object in playerObjects) {
@@ -92,21 +101,21 @@ function getcolor() {
     return colorList
 }
 
-function createNotif(text) {
+function createNotif(text, title) {
     var notif = document.getElementById('notif-zone')
 
     notif.innerHTML = '<div class="hero-js-notification">\
-    <div class="notif-title"><i class="bx bx-bug"></i> Warning !</div><div class="notif-body">' + text + '</div></div>'
+    <div class="notif-title">' + title + '</div><div class="notif-body">' + text + '</div></div>'
 }
 
 function checkJSON(json) {
-    console.log(json.gameInfos.title)
+    if (error) { return false }
     if (json.gameInfos.title == undefined || json.gameInfos.title == "") {
-        createNotif("No Game Title")
+        createNotif("No Game Title", "<i class='bx bx-bug'></i> Warning !")
         return false
     }
     if (json.gameInfos.startNumber == undefined) {
-        createNotif("No Start Number")
+        createNotif("No Start Number", "<i class='bx bx-bug'></i> Warning !")
         return false
     }
 
