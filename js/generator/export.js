@@ -16,6 +16,9 @@ function data() {
     json.pictures = pictureJson
     json.sounds = soundJson
 
+    const css = document.getElementById("customCSS")
+    json.css = css.value
+
     return json
 }
 

@@ -48,7 +48,7 @@
                                 <div class="nav__dropdown-content">
                                     <a class="nav__dropdown-item" onclick="show('infos')">General</a>
                                     <a class="nav__dropdown-item" onclick="show('infos-display')">Display</a>
-                                    <a class="nav__dropdown-item" onclick="show('infos-color')">Color</a>
+                                    <a class="nav__dropdown-item" onclick="show('infos-color')">Style</a>
                                 </div>
                             </div>
                         </div>
@@ -138,6 +138,18 @@
                 <div class="img_list">
                     <img onclick="show('infos')" src="img/let's create.png">
                 </div>
+            </div>
+
+            <div class="sub_container">
+                <div class="sub_container_title">PatchNote (05/04/2022)</div>
+                <span style="text-align: center;">
+                        <h3>Generator</h3>
+                        Rename "Color" menu to "Style".<br>
+                        Add custom CSS option.<br>
+                        Add shortcuts : <b>Ctrl + S</b> to save, <b>Ctrl + D</b> to open.<br>
+                        <br><h3>Engine</h3>
+                        Add custom CSS option.<br>
+                    </span>
             </div>
 
             <div class="sub_container">
@@ -254,6 +266,11 @@
                 </div>
 
                 <table id="colorList"></table>
+            </div>
+
+            <div class="sub_container">
+                <div class="sub_container_title">Custom CSS</div>
+                <textarea rows="5" name="customCSS" id="customCSS" placeholder="Custom CSS" title="Custom CSS"></textarea>
             </div>
         </section>
 
@@ -511,6 +528,7 @@
     <script src="js/generator/edit.js"></script>
     <script src="js/generator/remove.js"></script>
     <script src="js/generator/rightClick.js"></script>
+    <script src="js/generator/hotkeys.js"></script>
 </body>
 
 </html>

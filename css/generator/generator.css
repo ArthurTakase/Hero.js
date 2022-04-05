@@ -57,6 +57,10 @@
     color: #be2251;
 }
 
+.sub_container textarea {
+    resize: vertical;
+}
+
 .sub_container input,
 .sub_container select,
 .sub_container textarea {
@@ -69,6 +73,7 @@
     color: #a2a0a6;
     margin: .2rem;
     width: 100%;
+    max-width: 100%;
     /* flex: 1; */
 }
 

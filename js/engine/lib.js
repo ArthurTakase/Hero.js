@@ -17,14 +17,14 @@ let fightTable = []
 let fightLimite
 let player = null
 let fight = null
-// Affichage
+    // Affichage
 let showPlayerAbility = true
 let showPlayerStamina = true
 let showPlayerSkills = true
 let showPlayerGold = true
 let showPlayerInventory = true
 let showPlayerSpecial = true
-// Audio
+    // Audio
 let sound_hurt = null
 let sound_victory = null
 let sound_defeat = null
@@ -36,7 +36,7 @@ let music_fight = null
 /***********************************/
 
 function randomFromList(liste) {
-    return liste[Math.floor(Math.random()*liste.length)]
+    return liste[Math.floor(Math.random() * liste.length)]
 }
 
 function randomFromListUnique(liste, target) {
@@ -52,7 +52,7 @@ function randomFromListUnique(liste, target) {
         if (random == origin)
             return null
         temp = liste[random]
-    } 
+    }
     return temp
 }
 
@@ -87,7 +87,7 @@ function setInt(objetValue) {
 
 function removeFromPlayer(object, list) {
     var temp
-    
+
     if (object == "RANDOM_IN_CLASS") {
         temp = Math.floor(Math.random() * list.length)
         player.removeStuffBonus(list[temp])
@@ -105,7 +105,7 @@ function removeFromPlayer(object, list) {
 
 function newObject(object, list, playerData) {
     var temp
-    
+
     if (object == "RANDOM_IN_CLASS") {
         player.addStuff(randomFromList(list))
     } else if (object == "RANDOM_IN_CLASS_UNIQUE") {
@@ -114,7 +114,7 @@ function newObject(object, list, playerData) {
             player.addStuff(temp)
     } else if (typeof object === 'string') {
         temp = getFromName(object, list)
-        if(temp != null)
+        if (temp != null)
             player.addStuff(temp)
     } else {
         player.addStuff(
@@ -159,6 +159,9 @@ function setColor(json) {
     for (elem in json.color) {
         root.setProperty('--' + json.color[elem][0], json.color[elem][1])
     }
+
+    if (json.data && json.data.css)
+        addStyle(json.data.css)
 }
 
 function isPlaying(audelem) {
@@ -167,4 +170,4 @@ function isPlaying(audelem) {
 
 function isMobile() {
     return ((window.innerWidth <= 768) || (window.innerHeight <= 768));
-  }
+}

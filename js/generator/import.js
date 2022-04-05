@@ -10,6 +10,7 @@ function setValueFromJSON(json) {
     const showSkills = document.getElementById("showPlayerSkills")
     const showGold = document.getElementById("showPlayerGold")
     const showInventory = document.getElementById("showPlayerInventory")
+    const css = document.getElementById("customCSS")
 
     // Game Infos - General
     gameTitle.value = json.gameInfos.title
@@ -93,6 +94,8 @@ function setValueFromJSON(json) {
     json.dialogs.forEach(element => {
         addDialogFromJSON(element)
     })
+
+    css.value = (json.css == undefined) ? "" : json.css
 }
 
 function resetAll() {
@@ -118,6 +121,7 @@ function resetAll() {
     document.getElementById("defeatNumber").value = ""
     document.getElementById("maxDice").value = ""
     document.getElementById("maxSkills").value = ""
+    document.getElementById("customCSS").value = ""
     document.getElementById("showPlayerStamina").checked = true
     document.getElementById("showPlayerAbility").checked = true
     document.getElementById("showPlayerSkills").checked = true
@@ -133,7 +137,6 @@ function resetAll() {
     Instantpreview()
 }
 
-// open JSON file
 function openJSON(file) {
     var reader = new FileReader()
     reader.onload = function(e) {
@@ -144,4 +147,9 @@ function openJSON(file) {
         show('infos')
     };
     reader.readAsText(file)
+}
+
+function openFile() {
+    var input = document.getElementById('hero-js-form-json');
+    input.click();
 }
