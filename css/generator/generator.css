@@ -2,6 +2,15 @@
     scroll-behavior: smooth;
 }
 
+body {
+    background-color: #1f1f24;
+    background-image: var(--bg-svg);
+}
+
+#toTop {
+    color: #e6003c;
+}
+
 .body_container {
     width: calc(100% - 68px);
     margin-left: 68px;

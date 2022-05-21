@@ -80,13 +80,18 @@ function removeSkill(div) {
 
     delete skillsJson[div.firstChild.innerHTML]
 
+    console.log(skillsJson)
+
     if (jsonLen(skillsJson) == 0) {
         liste.innerHTML = ""
         liste.classList.remove("table")
     } else {
         liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Ability</th><th>Stamina</th></tr>'
-        for (skill in skillsJson)
-            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueSkill + '"><td>' + skillsJson[skill].name + '</td><td>' + skillsJson[skill].stats[0] + '</td><td>' + skillsJson[skill].stats[1] + '</td></tr>'
+        for (skill in skillsJson) {
+            try {
+                liste.innerHTML += '<tr class="' + editValue + ' ' + editValueSkill + '"><td>' + skillsJson[skill].name + '</td><td>' + skillsJson[skill].stats[0] + '</td><td>' + skillsJson[skill].stats[1] + '</td></tr>'
+            } catch (e) { continue; }
+        }
     }
 
     updateSkills()
