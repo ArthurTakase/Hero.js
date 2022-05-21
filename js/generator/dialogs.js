@@ -116,6 +116,7 @@ function addDialog() {
     if (dialogAnimation.value != "No Animation") { json.animation = dialogAnimation.value }
 
     // ===== SAVE =====
+    createNotif("Dialog " + dialogId.value + " saved.", "<i class='bx bx-save'></i> Info")
     if (parseInt(dialogId.value) != dialogIDGlobal) { dialogList[parseInt(dialogId.value)] = json } else {
         dialogList.push(json);
         dialogIDGlobal += 1

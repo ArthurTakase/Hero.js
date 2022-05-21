@@ -75,10 +75,18 @@ function player() {
     json.skills = []
     json.inventory = []
     json.special = []
+
+    if (ability.value == "") ability.value = 0
+    if (stamina.value == "") stamina.value = 0
+    if (extra.value == "") extra.value = 0
+    if (gold.value == "") gold.value = 0
+
     json.ability = (isnum(ability.value)) ? parseInt(ability.value) : (ability.value.includes("RANDOM")) ? ability.value : "Error"
     json.stamina = (isnum(stamina.value)) ? parseInt(stamina.value) : (stamina.value.includes("RANDOM")) ? stamina.value : "Error"
     json.extra = (isnum(extra.value)) ? parseInt(extra.value) : (extra.value.includes("RANDOM")) ? extra.value : "Error"
     json.gold = (isnum(gold.value)) ? parseInt(gold.value) : (gold.value.includes("RANDOM")) ? gold.value : "Error"
+
+    console.log(json.ability, json.stamina, json.extra, json.gold)
 
     if (json.ability == "Error" || json.stamina == "Error" || json.extra == "Error" || json.gold == "Error") {
         createNotif("Bad value in Advanced Mode (Player)", "<i class='bx bx-bug'></i> Warning !")

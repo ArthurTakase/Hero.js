@@ -4,85 +4,90 @@ function initDialog(json) {
     var tempCondition
     var tempEffect
 
+    console.log(json)
+    console.log(json.dialogs)
+
     for (d in json.dialogs) {
         allButtons = []
         currentDialog = json.dialogs[d]
 
         // Génération des boutons
-        for (b in currentDialog.buttons) {
-            // Conditions des boutons
-            switch (currentDialog.buttons[b].condition) {
-                case "GOLD":
-                    tempCondition = 1;
-                    break
-                case "EXTRA":
-                    tempCondition = 2;
-                    break
-                case "STAMINA":
-                    tempCondition = 3;
-                    break
-                case "ABILITY":
-                    tempCondition = 4;
-                    break
-                case "SKILL":
-                    tempCondition = 5;
-                    break
-                case "OBJECT":
-                    tempCondition = 6;
-                    break
-                default:
-                    tempCondition = null;
-                    break
-            }
+        try {
+            for (b in currentDialog.buttons) {
+                // Conditions des boutons
+                switch (currentDialog.buttons[b].condition) {
+                    case "GOLD":
+                        tempCondition = 1;
+                        break
+                    case "EXTRA":
+                        tempCondition = 2;
+                        break
+                    case "STAMINA":
+                        tempCondition = 3;
+                        break
+                    case "ABILITY":
+                        tempCondition = 4;
+                        break
+                    case "SKILL":
+                        tempCondition = 5;
+                        break
+                    case "OBJECT":
+                        tempCondition = 6;
+                        break
+                    default:
+                        tempCondition = null;
+                        break
+                }
 
-            // Effets des boutons
-            switch (currentDialog.buttons[b].effect) {
-                case "REMOVE_OBJECT":
-                    tempEffect = 1;
-                    break
-                case "ADD_OBJECT":
-                    tempEffect = 2;
-                    break
-                case "GOLD":
-                    tempEffect = 4;
-                    break
-                case "EXTRA":
-                    tempEffect = 6;
-                    break
-                case "STAMINA":
-                    tempEffect = 8;
-                    break
-                case "ABILITY":
-                    tempEffect = 10;
-                    break
-                case "LIFE":
-                    tempEffect = 11;
-                    break
-                case "FIGHT":
-                    tempEffect = 13;
-                    break
-                case "RESTART":
-                    tempEffect = 14;
-                    break
-                default:
-                    tempEffect = null;
-                    break
-            }
+                // Effets des boutons
+                switch (currentDialog.buttons[b].effect) {
+                    case "REMOVE_OBJECT":
+                        tempEffect = 1;
+                        break
+                    case "ADD_OBJECT":
+                        tempEffect = 2;
+                        break
+                    case "GOLD":
+                        tempEffect = 4;
+                        break
+                    case "EXTRA":
+                        tempEffect = 6;
+                        break
+                    case "STAMINA":
+                        tempEffect = 8;
+                        break
+                    case "ABILITY":
+                        tempEffect = 10;
+                        break
+                    case "LIFE":
+                        tempEffect = 11;
+                        break
+                    case "FIGHT":
+                        tempEffect = 13;
+                        break
+                    case "RESTART":
+                        tempEffect = 14;
+                        break
+                    default:
+                        tempEffect = null;
+                        break
+                }
 
-            // Création du bouton
-            allButtons.push(
-                new Button(
-                    currentDialog.buttons[b].text,
-                    currentDialog.buttons[b].goToIndex,
-                    tempCondition,
-                    currentDialog.buttons[b].conditionData,
-                    tempEffect,
-                    currentDialog.buttons[b].effectData,
-                    currentDialog.buttons[b].notification,
-                    new Sound(currentDialog.buttons[b].sound)
+                // Création du bouton
+                allButtons.push(
+                    new Button(
+                        currentDialog.buttons[b].text,
+                        currentDialog.buttons[b].goToIndex,
+                        tempCondition,
+                        currentDialog.buttons[b].conditionData,
+                        tempEffect,
+                        currentDialog.buttons[b].effectData,
+                        currentDialog.buttons[b].notification,
+                        new Sound(currentDialog.buttons[b].sound)
+                    )
                 )
-            )
-        }
+            }
+        } catch (e) {}
 
         // Génération du dialogue
         allDialog.push(
@@ -122,25 +127,32 @@ function initGameplay(json) {
 
     // Génération des compétences
     if (json.gameplay.skills) {
+        console.log(json.gameplay.skills)
         for (s in json.gameplay.skills) {
-            temp = json.gameplay.skills[s]
-            skillList.push(new Skill(temp.name, temp.stats))
+            try {
+                temp = json.gameplay.skills[s]
+                skillList.push(new Skill(temp.name, temp.stats))
+            } catch (e) { continue }
         }
     }
 
     // Générations des objets classiques
     if (json.gameplay.objectsInventory) {
         for (i in json.gameplay.objectsInventory) {
-            temp = json.gameplay.objectsInventory[i]
-            inventoryList.push(new Object(temp.name, temp.type, temp.data))
+            try {
+                temp = json.gameplay.objectsInventory[i]
+                inventoryList.push(new Object(temp.name, temp.type, temp.data))
+            } catch (e) { continue }
         }
     }
 
     // Génération des objets spéciaux
     if (json.gameplay.objectsSpecial) {
         for (j in json.gameplay.objectsSpecial) {
-            temp = json.gameplay.objectsSpecial[j]
-            specialList.push(new Object(temp.name, temp.type, temp.data))
+            try {
+                temp = json.gameplay.objectsSpecial[j]
+                specialList.push(new Object(temp.name, temp.type, temp.data))
+            } catch (e) { continue }
         }
     }
 

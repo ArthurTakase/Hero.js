@@ -5,7 +5,6 @@ Hero.js est un projet **OpenSource** de moteur de jeu de type Visual Novel.
 Le but de ce projet est de permettre la création simple et rapide de Visual Novel (d'un simple *Doki Doki* à un *micro JDR avec systeme de combats*) sans coder.
 En effet, tous les codes importants se trouvent dans le moteur, les utilisateurs n'ont qu'à écrire un simple fichier **JSON** avec les informations de leur jeu.
 
-
 ## Pour aller plus loin
 
 * [Documentation](https://github.com/ArthurTakase/Heros.js/wiki)
@@ -14,5 +13,3 @@ En effet, tous les codes importants se trouvent dans le moteur, les utilisateurs
 * [Pour héberger vos images](https://www.zupimages.net/) (Discord est aussi une bonne solution)
 
 > N'hésitez pas à participer au developpement du projet !
-
-https://github.com/magjac/d3-graphviz#creating-a-graphviz-renderer

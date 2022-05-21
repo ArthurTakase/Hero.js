@@ -115,12 +115,12 @@ function editDialog(div) {
     title.value = (dialog.title == undefined) ? "" : dialog.title
     body.value = (dialog.body == undefined) ? "" : dialog.body
     action.value = (dialog.action == undefined) ? "" : dialog.action
-    music.value = (Array.isArray(dialog.music)) ? "No Music" : dialog.music
+    music.value = (dialog.music == undefined) ? "No Music" : ((Array.isArray(dialog.music)) ? "No Music" : dialog.music)
     background.value = (dialog.background == undefined) ? "No Background" : dialog.background
     picture.value = (dialog.img == undefined) ? "No Picture" : dialog.img
     animation.value = (dialog.animation == undefined) ? "No Animation" : dialog.animation
 
-    dialog.buttons.forEach(element => { addOptionJSON(element) });
+    try { dialog.buttons.forEach(element => { addOptionJSON(element) }); } catch (e) {}
 
     window.scrollTo(0, 0);
 }

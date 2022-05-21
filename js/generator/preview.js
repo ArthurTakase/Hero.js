@@ -62,7 +62,7 @@ function preview(div, id) {
         )
     }
 
-    var background = (currentDialog.background.substring(0, 4) == "http") ? currentDialog.background : pictureJson[currentDialog.background]
+    try { var background = (currentDialog.background.substring(0, 4) == "http") ? currentDialog.background : pictureJson[currentDialog.background] } catch (e) { var background = undefined }
     try { var img = (currentDialog.img.substring(0, 4) == "http") ? currentDialog.img : pictureJson[currentDialog.img] } catch { var img = undefined }
 
     // Génération du dialogue
