@@ -39,7 +39,7 @@ function addOption() {
 
     json.text = optionBody.value
     if (optionGoTo.value != "") { json.goToIndex = parseInt(optionGoTo.value) }
-    if (optionSound.value != "No Sound" && optionSound.value != "") { json.sound = soundJSON[optionSound.value] }
+    if (optionSound.value != "No Sound" && optionSound.value != "") { json.sound = optionSound.value }
 
     // ===== CONDITION =====
     switch (optionCondition.value) {

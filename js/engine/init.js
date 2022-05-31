@@ -4,9 +4,6 @@ function initDialog(json) {
     var tempCondition
     var tempEffect
 
-    console.log(json)
-    console.log(json.dialogs)
-
     for (d in json.dialogs) {
         allButtons = []
         currentDialog = json.dialogs[d]
@@ -83,7 +80,7 @@ function initDialog(json) {
                         tempEffect,
                         currentDialog.buttons[b].effectData,
                         currentDialog.buttons[b].notification,
-                        new Sound(currentDialog.buttons[b].sound)
+                        new Sound(((Array.isArray(currentDialog.buttons[b].sound)) ? currentDialog.buttons[b].sound : json.data.sounds[currentDialog.buttons[b].sound]))
                     )
                 )
             }
