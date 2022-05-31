@@ -123,6 +123,7 @@ function editDialog(div) {
     try { dialog.buttons.forEach(element => { addOptionJSON(element) }); } catch (e) {}
 
     window.scrollTo(0, 0);
+    Instantpreview()
 }
 
 function editButton(div) {
