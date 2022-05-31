@@ -86,8 +86,6 @@ function player() {
     json.extra = (isnum(extra.value)) ? parseInt(extra.value) : (extra.value.includes("RANDOM")) ? extra.value : "Error"
     json.gold = (isnum(gold.value)) ? parseInt(gold.value) : (gold.value.includes("RANDOM")) ? gold.value : "Error"
 
-    console.log(json.ability, json.stamina, json.extra, json.gold)
-
     if (json.ability == "Error" || json.stamina == "Error" || json.extra == "Error" || json.gold == "Error") {
         createNotif("Bad value in Advanced Mode (Player)", "<i class='bx bx-bug'></i> Warning !")
         error = true

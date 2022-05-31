@@ -177,6 +177,10 @@
     color: var(--text-color);
 }
 
+.nav__logo-name {
+    margin-bottom: -1rem;
+}
+
 
 /* ========== MEDIA QUERIES ==========*/
 

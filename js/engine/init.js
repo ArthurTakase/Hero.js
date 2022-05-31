@@ -124,7 +124,6 @@ function initGameplay(json) {
 
     // Génération des compétences
     if (json.gameplay.skills) {
-        console.log(json.gameplay.skills)
         for (s in json.gameplay.skills) {
             try {
                 temp = json.gameplay.skills[s]

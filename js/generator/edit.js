@@ -144,8 +144,6 @@ function editButton(div) {
     b_body.value = button.text
     b_index.value = (button.goToIndex == undefined) ? "" : button.goToIndex
 
-    console.log(button.sound)
-
     b_music.value = (button.sound == undefined) ? "No Music" : ((Array.isArray(button.sound)) ? "No Music" : button.sound)
     b_optionCondition.value = (button.condition == undefined) ? "No Condition" : button.condition
     b_optionEffect.value = (button.effect == undefined || button.effect == "FIGHT") ? "No Effect" : button.effect
