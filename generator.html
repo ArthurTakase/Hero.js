@@ -38,11 +38,11 @@
 
 
                         <!-- ===== GAME INFOS ===== -->
-                        <div class="nav__dropdown">
-                            <a class="nav__link" onclick="show('infos')" id="infosLink">
-                                <i class='bx bx-info-circle nav__icon'></i>
-                                <span class="nav__name">Game Infos</span>
-                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                        <div class="nav__dropdown" id="infosDropDown">
+                            <a class="nav__link" id="infosLink">
+                                <i class='bx bx-info-circle nav__icon' onclick="show('infos')"></i>
+                                <span class="nav__name" onclick="show('infos')">Game Infos</span>
+                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon' onclick="showDropDown('infosDropDown')"></i>
                             </a>
 
                             <div class="nav__dropdown-collapse">
@@ -55,11 +55,11 @@
                         </div>
 
                         <!-- ===== DATA ===== -->
-                        <div class="nav__dropdown">
-                            <a class="nav__link" onclick="show('data')" id="dataLink">
-                                <i class='bx bx-data nav__icon'></i>
-                                <span class="nav__name">Data</span>
-                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                        <div class="nav__dropdown" id="dataDropDown">
+                            <a class="nav__link" id="dataLink">
+                                <i class='bx bx-data nav__icon' onclick="show('data')"></i>
+                                <span class="nav__name" onclick="show('data')">Data</span>
+                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon' onclick="showDropDown('dataDropDown')"></i>
                             </a>
 
                             <div class="nav__dropdown-collapse">
@@ -79,11 +79,11 @@
                         </a>
 
                         <!-- ===== DIALOGS ===== -->
-                        <div class="nav__dropdown">
-                            <a onclick="show('dialog')" id="dialogLink" class="nav__link">
-                                <i class='bx bx-message-dots nav__icon'></i>
-                                <span class="nav__name">Dialogs</span>
-                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon'></i>
+                        <div class="nav__dropdown" id="dialogDropDown">
+                            <a id="dialogLink" class="nav__link">
+                                <i class='bx bx-message-dots nav__icon' onclick="show('dialog')"></i>
+                                <span class="nav__name" onclick="show('dialog')">Dialogs</span>
+                                <i class='bx bx-chevron-down nav__icon nav__dropdown-icon' onclick="showDropDown('dialogDropDown')"></i>
                             </a>
 
                             <div class="nav__dropdown-collapse">
@@ -151,11 +151,14 @@
             </div>
 
             <div class="sub_container">
-                <div class="sub_container_title">PatchNote (31/05/2022)</div>
+                <div class="sub_container_title">PatchNote (01/06/2022)</div>
                 <span style="text-align: center;">
                     <h3>Generator</h3>
                     Correction of button audio<br>
                     automatic update of the preview when a dialog is modified<br>
+                    Change the behavior of the sidebar<br>
+                    <br><h3>Engine</h3>
+                    Change the behavior of the sidebar<br>
                 </span>
             </div>
 
@@ -503,6 +506,7 @@
     <script src="js/generator/rightClick.js"></script>
     <script src="js/generator/hotkeys.js"></script>
     <script src="js/generator/random.js"></script>
+    <script src="js/generator/navbar.js"></script>
 </body>
 
 </html>

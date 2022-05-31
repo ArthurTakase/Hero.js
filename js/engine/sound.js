@@ -18,7 +18,7 @@ class Sound {
     play() {
         if (this.exist)
             this.sound.play()
-        
+
     }
 
     stop() {

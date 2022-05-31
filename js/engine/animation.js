@@ -2,7 +2,7 @@ function anime(anime) {
     var div = document.getElementById('hero-js-all')
 
     div.style.animation = "none"
-    
+
     setTimeout(function() {
         switch (anime) {
             case "jump":
@@ -13,7 +13,7 @@ function anime(anime) {
                 break
             case "shake":
                 div.style.animation = 'shake-anime 0.5s linear'
-                try {dice.style.animation = 'dice-roll-anime 0.3s linear'} catch(e) {}
+                try { dice.style.animation = 'dice-roll-anime 0.3s linear' } catch (e) {}
                 break
             default:
                 break

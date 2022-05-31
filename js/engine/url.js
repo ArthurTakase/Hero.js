@@ -2,7 +2,7 @@ function checkStart() {
     var url = new URL(window.location.href);
     var game = url.searchParams.get("game");
 
-    if (game == null) {return}
+    if (game == null) { return }
 
     fetch(game).then((r) => {
         r.text().then((d) => {
@@ -17,5 +17,5 @@ function checkStart() {
             allDialog[currentNumber].show()
         })
     })
-    
+
 }

@@ -15,9 +15,9 @@ class Fight {
         <div id="fight-stats">🗡️' + this.ability + '  ❤️' + this.stamina + '  ⭐️' + this.zoneEffect + '</div>\
         </div>'
         var buttons = '<button class="hero-js-button hero-js-activate" onclick="attack()">Attack</button>\n'
-        // buttons += '<button class="hero-js-button hero-js-not-activate">Fuir</button>\n'
+            // buttons += '<button class="hero-js-button hero-js-not-activate">Fuir</button>\n'
         var title = '<div class="hero-js-dialog-header">' + this.title + '</div>'
-        
+
         var diceElem = '<div id="dice">\
                         <div class="face" id="face-top">6</div>\
                         <div class="face" id="face-front">' + dice + '</div>\
@@ -28,12 +28,12 @@ class Fight {
                     </div>'
         setBackground(this.background)
         document.getElementById('hero-js-all').innerHTML = img +
-                                                        '<div class="hero-js-dialog">' +
-                                                        diceElem +
-                                                        title +
-                                                        '<div class="hero-js-dialog-button-zone">' + buttons + '</div>\
+            '<div class="hero-js-dialog">' +
+            diceElem +
+            title +
+            '<div class="hero-js-dialog-button-zone">' + buttons + '</div>\
                                                         </div>'
-        if (player != null) {player.show()}
+        if (player != null) { player.show() }
     }
 
     checkVictory() {
@@ -45,8 +45,8 @@ class Fight {
             allDialog[currentNumber].show(player)
             anime("jump")
             sound_victory.play()
-            if (music) {music.play()}
-            if (music_fight) {music_fight.stop()}
+            if (music) { music.play() }
+            if (music_fight) { music_fight.stop() }
             return true
         }
         if (player.stamina <= 0 || this.quotient < 0 - fightLimite) {
@@ -67,25 +67,25 @@ class Fight {
 
 function launchFight(data) {
     fight = new Fight(data)
-    if (fight.checkVictory()) {return}
+    if (fight.checkVictory()) { return }
     fight.show("N.C.")
-    if (music) {music.stop()}
-    if (music_fight) {music_fight.play()}
+    if (music) { music.stop() }
+    if (music_fight) { music_fight.play() }
 }
 
 function attack() {
-    if (fight.checkVictory()) {return}
-    
+    if (fight.checkVictory()) { return }
+
     var dice = randomInRange(0, maxDice)
     var data = fightTable[fight.quotient + fightLimite][dice]
     fight.stamina -= Math.floor(data[0] * fight.zoneEffect)
-    
-    if (fight.checkVictory()) {return}
-    
+
+    if (fight.checkVictory()) { return }
+
     player.stamina -= data[1]
     anime("shake")
     sound_hurt.play()
     fight.show(dice)
 
-    if (fight.checkVictory()) {return}
+    if (fight.checkVictory()) { return }
 }
