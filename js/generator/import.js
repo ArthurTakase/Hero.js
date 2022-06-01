@@ -36,24 +36,31 @@ function setValueFromJSON(json) {
     // Data - Skills
     if (json.gameplay.skills) {
         json.gameplay.skills.forEach(element => {
-            addSkillFromJSON(element)
+            if (element.name != "" && element.name != null && element.name != undefined)
+                addSkillFromJSON(element)
         })
     }
 
     // Data - Objects
     if (json.gameplay.objectsInventory) {
         json.gameplay.objectsInventory.forEach(element => {
-            addObjectFromJSON(element)
+            if (element.name != "" && element.name != null && element.name != undefined)
+                addObjectFromJSON(element)
         })
     }
 
     // Data - Pictures
-    if (json.data && json.data.pictures)
-        addPictureFromJSON(json.data.pictures)
+
+    if (json.data && json.data.pictures) {
+        if (jsonLen(json.data.pictures) != 0)
+            addPictureFromJSON(json.data.pictures)
+    }
 
     // Data - Sounds
-    if (json.data && json.data.sounds)
-        addSoundFromJSON(json.data.sounds)
+    if (json.data && json.data.sounds) {
+        if (jsonLen(json.data.sounds) != 0)
+            addSoundFromJSON(json.data.sounds)
+    }
 
     // Player
     if (json.player) {
