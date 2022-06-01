@@ -477,3 +477,22 @@ input[type=range]::-webkit-slider-thumb {
     z-index: 100;
     background: rgba(202, 202, 202, 0.4);
 }
+
+#version {
+    position: fixed;
+    bottom: .2rem;
+    left: 0rem;
+    /* border: solid; */
+    width: 4.2rem;
+    text-align: center;
+    z-index: 100000;
+    color: white;
+    opacity: 0.3;
+    font-size: .9rem;
+    transition: .2s;
+}
+
+#version:hover {
+    opacity: 1;
+    cursor: default;
+}

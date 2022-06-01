@@ -46,11 +46,6 @@ function setValueFromJSON(json) {
             addObjectFromJSON(element)
         })
     }
-    if (json.gameplay.objectsSpecial) {
-        json.gameplay.objectsSpecial.forEach(element => {
-            addObjectFromJSON(element)
-        })
-    }
 
     // Data - Pictures
     if (json.data && json.data.pictures)
@@ -85,10 +80,6 @@ function setValueFromJSON(json) {
             addPlayerInventoryFromJSON(element)
         })
 
-        // Player - Special
-        json.player.special.forEach(element => {
-            addPlayerInventoryFromJSON(element)
-        })
     } else {
         const player = document.getElementById('player')
         player.innerHTML = '<div class="sub_container">\

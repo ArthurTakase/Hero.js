@@ -8,7 +8,6 @@ class Player {
         this.inventory = []
         this.extra
         this.gold
-        this.special = []
     }
 
     setSkill(skill) {
@@ -40,10 +39,7 @@ class Player {
     addStuff(object) {
         if (object == null)
             return
-        if (object.type == "inventory")
-            this.inventory.push(object);
-        if (object.type == "special")
-            this.special.push(object);
+        this.inventory.push(object);
         this.setStuffBonus(object)
     }
 
@@ -74,8 +70,6 @@ class Player {
                         </a><div class="nav__dropdown-collapse"><div class="nav__dropdown-content">`
             for (var j = 0; j != this.inventory.length; j++)
                 playerHTML += '<a class="nav__dropdown-item">' + this.inventory[j].name + '</a>'
-            for (var k = 0; k != this.special.length; k++)
-                playerHTML += '<a class="nav__dropdown-item item__special">' + this.special[k].name + '</a>'
             playerHTML += '</div></div></div>'
         }
 

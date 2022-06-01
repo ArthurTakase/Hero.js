@@ -29,7 +29,6 @@ function editObject(div) {
 
     const pages_div = [
         document.getElementById("objectName"),
-        document.getElementById("objectType"),
         document.getElementById("itemAbility"),
         document.getElementById("itemStamina"),
         document.getElementById("itemGold"),
@@ -144,7 +143,7 @@ function editButton(div) {
     b_body.value = button.text
     b_index.value = (button.goToIndex == undefined) ? "" : button.goToIndex
 
-    b_music.value = (button.sound == undefined) ? "No Music" : ((Array.isArray(button.sound)) ? "No Music" : button.sound)
+    b_music.value = (button.sound == undefined) ? "No Sound" : ((Array.isArray(button.sound)) ? "No Sound" : button.sound)
     b_optionCondition.value = (button.condition == undefined) ? "No Condition" : button.condition
     b_optionEffect.value = (button.effect == undefined || button.effect == "FIGHT") ? "No Effect" : button.effect
 
@@ -154,6 +153,8 @@ function editButton(div) {
     const conditionValue = document.getElementById("conditionValue")
     const conditionCheck = document.getElementById("conditionIsHere")
     const effectValue = document.getElementById("effectValue")
+
+    console.log(button.conditionData)
 
     switch (b_optionCondition.value) {
         case "GOLD":
@@ -173,6 +174,8 @@ function editButton(div) {
         default:
             break
     }
+
+    console.log(button.effectData)
 
     switch (b_optionEffect.value) {
         case "REMOVE_OBJECT":

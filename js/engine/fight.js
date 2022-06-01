@@ -55,7 +55,6 @@ class Fight {
             showPlayerSkills = false
             showPlayerGold = false
             showPlayerInventory = false
-            showPlayerSpecial = false
             allDialog[defeatNumber].show(player)
             anime("fadeIn")
             sound_defeat.play()

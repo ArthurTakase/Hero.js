@@ -50,17 +50,15 @@ function gameInfos() {
 function gameplay() {
     var json = {}
     var objectsList = []
-    var specialList = []
     var skillsList = []
 
     for (skill in skillsJson) { skillsList.push(skillsJson[skill]) }
     json.skills = skillsList
 
     for (object in objectsJson) {
-        if (objectsJson[object].type == "special") { specialList.push(objectsJson[object]) } else { objectsList.push(objectsJson[object]) }
+        objectsList.push(objectsJson[object])
     }
     json.objectsInventory = objectsList
-    json.objectsSpecial = specialList
 
     return json
 }
@@ -74,7 +72,6 @@ function player() {
 
     json.skills = []
     json.inventory = []
-    json.special = []
 
     if (ability.value == "") ability.value = 0
     if (stamina.value == "") stamina.value = 0
@@ -92,9 +89,7 @@ function player() {
     }
 
     for (skill in playerSkills) { json.skills.push(playerSkills[skill]) }
-    for (object in playerObjects) {
-        if (playerObjects[object].type == 'special') { json.special.push(playerObjects[object]) } else { json.inventory.push(playerObjects[object]) }
-    }
+    for (object in playerObjects) { json.inventory.push(playerObjects[object]) }
 
     return json
 }

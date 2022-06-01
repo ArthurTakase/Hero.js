@@ -2,12 +2,11 @@
 let objectsJson = {}
 
 function reloadObjectList(liste) {
-    liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Type</th><th>Ability</th><th>Stamina</th><th>Gold</th><th>Extra</th></tr>'
+    liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Ability</th><th>Stamina</th><th>Gold</th><th>Extra</th></tr>'
     for (object in objectsJson) {
         try {
             liste.innerHTML += '<tr class="' + editValue + ' ' + editValueObject + '"><td>' +
                 objectsJson[object].name + '</td><td>' +
-                objectsJson[object].type + '</td><td>' +
                 objectsJson[object].data[0] + '</td><td>' +
                 objectsJson[object].data[1] + '</td><td>' +
                 objectsJson[object].data[2] + '</td><td>' +
@@ -28,7 +27,6 @@ function addObjectFromJSON(element) {
 function addObject() {
     const liste = document.getElementById('objectList')
     var objectName = document.getElementById('objectName')
-    var objectType = document.getElementById('objectType')
     var objectAbility = document.getElementById('itemAbility')
     var objectStamina = document.getElementById('itemStamina')
     var objectGold = document.getElementById('itemGold')
@@ -43,7 +41,6 @@ function addObject() {
     if (jsonLen(objectsJson)) { liste.classList.add("table") }
 
     json.name = objectName.value
-    json.type = objectType.value
     json.data = [
         isnum(objectAbility.value) ? parseInt(objectAbility.value) : objectAbility.value,
         isnum(objectStamina.value) ? parseInt(objectStamina.value) : objectStamina.value,

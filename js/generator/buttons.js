@@ -52,11 +52,19 @@ function addOption() {
             break
         case "SKILL":
             json.condition = optionCondition.value
-            try { json.conditionData = [conditionIsHere.checked, skillsList[conditionData.value].name] } catch (e) { return }
+            try { json.conditionData = [conditionIsHere.checked, skillsList[conditionData.value].name] } catch (e) {
+                if (conditionData == null || conditionData == undefined || conditionData.value == "")
+                    return
+                json.conditionData = [conditionIsHere.checked, conditionData.value]
+            }
             break
         case "OBJECT":
             json.condition = optionCondition.value
-            try { json.conditionData = [conditionIsHere.checked, objectsJson[conditionData.value].type, objectsJson[conditionData.value].name] } catch (e) { return }
+            try { json.conditionData = [conditionIsHere.checked, objectsJson[conditionData.value].name] } catch (e) {
+                if (conditionData == null || conditionData == undefined || conditionData == "")
+                    return
+                json.conditionData = [conditionIsHere.checked, conditionData.value]
+            }
             break
         default:
             break
@@ -67,7 +75,7 @@ function addOption() {
         case "REMOVE_OBJECT":
         case "ADD_OBJECT":
             json.effect = optionEffect.value
-            try { json.effectData = [objectsJson[effectData.value].type, objectsJson[effectData.value].name] } catch (e) { return }
+            try { json.effectData = [effectData.value] } catch (e) { return }
             break
         case "EXTRA":
         case "STAMINA":

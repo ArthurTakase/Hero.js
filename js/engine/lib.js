@@ -12,7 +12,6 @@ let maxSkill
 let allDialog = []
 let skillList = []
 let inventoryList = []
-let specialList = []
 let fightTable = []
 let fightLimite
 let player = null
@@ -23,7 +22,6 @@ let showPlayerStamina = true
 let showPlayerSkills = true
 let showPlayerGold = true
 let showPlayerInventory = true
-let showPlayerSpecial = true
     // Audio
 let sound_hurt = null
 let sound_victory = null
@@ -120,7 +118,6 @@ function newObject(object, list, playerData) {
         player.addStuff(
             new Object(
                 object.name,
-                object.type,
                 object.data
             )
         )
@@ -131,14 +128,12 @@ function restart() {
     allDialog = []
     skillList = []
     inventoryList = []
-    specialList = []
     player = null
     showPlayerAbility = true
     showPlayerStamina = true
     showPlayerSkills = true
     showPlayerGold = true
     showPlayerInventory = true
-    showPlayerSpecial = true
 
     initDialog(defaultJSON)
     initGameInfos(defaultJSON)
