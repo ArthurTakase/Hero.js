@@ -155,10 +155,6 @@
     color: var(--text-color);
 }
 
-.nav__dropdown-icon:hover {
-    transform: rotate(180deg);
-}
-
 
 /*===== Show menu =====*/
 
