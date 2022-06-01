@@ -8,7 +8,6 @@ class Player {
         this.inventory = []
         this.extra
         this.gold
-        this.special = []
     }
 
     setSkill(skill) {
@@ -40,10 +39,7 @@ class Player {
     addStuff(object) {
         if (object == null)
             return
-        if (object.type == "inventory")
-            this.inventory.push(object);
-        if (object.type == "special")
-            this.special.push(object);
+        this.inventory.push(object);
         this.setStuffBonus(object)
     }
 
@@ -60,22 +56,20 @@ class Player {
             playerHTML += '<a class="nav__link"><i class="bx bx-euro nav__icon" ></i><span class="nav__name">' + this.gold + '</span></a>'
 
         if (showPlayerSkills != false) {
-            playerHTML += '<div class="nav__dropdown"><a class="nav__link"><i class="bx bx-dna nav__icon"></i>\
+            playerHTML += `<div class="nav__dropdown" id="skillDropDown" onclick="showDropDown('skillDropDown')"><a class="nav__link"><i class="bx bx-dna nav__icon"></i>\
                         <span class="nav__name">Skills</span><i class="bx bx-chevron-down nav__icon nav__dropdown-icon"></i>\
-                        </a><div class="nav__dropdown-collapse"><div class="nav__dropdown-content">'
+                        </a><div class="nav__dropdown-collapse"><div class="nav__dropdown-content">`
             for (var i = 0; i != this.skill.length; i++)
                 playerHTML += '<a class="nav__dropdown-item">' + this.skill[i].name + '</a>'
             playerHTML += '</div></div></div>'
         }
 
         if (showPlayerInventory != false) {
-            playerHTML += '<div class="nav__dropdown"><a class="nav__link"><i class="bx bx-briefcase-alt-2 nav__icon"></i>\
+            playerHTML += `<div class="nav__dropdown" id="inventoryDropDown" onclick="showDropDown('inventoryDropDown')"><a class="nav__link"><i class="bx bx-briefcase-alt-2 nav__icon"></i>\
                         <span class="nav__name">Inventory</span><i class="bx bx-chevron-down nav__icon nav__dropdown-icon"></i>\
-                        </a><div class="nav__dropdown-collapse"><div class="nav__dropdown-content">'
+                        </a><div class="nav__dropdown-collapse"><div class="nav__dropdown-content">`
             for (var j = 0; j != this.inventory.length; j++)
                 playerHTML += '<a class="nav__dropdown-item">' + this.inventory[j].name + '</a>'
-            for (var k = 0; k != this.special.length; k++)
-                playerHTML += '<a class="nav__dropdown-item item__special">' + this.special[k].name + '</a>'
             playerHTML += '</div></div></div>'
         }
 

@@ -51,9 +51,8 @@ function checkCondition(condition, indexBtn, oldIndexDialog, type) {
             if (data[0] && temp != null) { return true }
             if (!data[0] && temp == null) { return true }
             return false
-        case 6: // OBJECT [isHere, type, name]
-            if (data[1] == "inventory") { temp2 = player.inventory } else { temp2 = player.special }
-            temp = getFromName(data[2], temp2)
+        case 6: // OBJECT [isHere, name]
+            temp = getFromName(data[1], player.inventory)
             if (data[0] && temp != null) { return true }
             if (!data[0] && temp == null) { return true }
             return false
@@ -69,11 +68,10 @@ function setEffect(effect, indexBtn, oldIndexDialog, data) {
 
     switch (effect) {
         case 1: // REMOVE_OBJECT [inventaire, object]
-            if (data[0] == "inventory") { temp = player.inventory } else { temp = player.special }
-            removeFromPlayer(data[1], temp)
+            removeFromPlayer(data[1], player.inventory)
             return data[1]
         case 2: // ADD_OBJECT [inventaire, object]
-            if (data[0] == "inventory") { newObject(data[1], inventoryList, player.inventory) } else { newObject(data[1], specialList, player.special) }
+            newObject(data[0], inventoryList, player.inventory)
             return data[1]
         case 4:
             temp2 = setInt(data[0]);

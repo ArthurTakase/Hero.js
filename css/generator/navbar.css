@@ -191,17 +191,10 @@ img {
 }
 
 
-/* Show dropdown collapse */
-
-.nav__dropdown:hover {
-    max-height: 100rem;
-}
-
-
 /* Rotate icon arrow */
 
 .nav__dropdown:hover .nav__dropdown-icon {
-    transform: rotate(180deg);
+    color: var(--text-color);
 }
 
 
@@ -216,6 +209,10 @@ img {
 
 .active {
     color: var(--first-color);
+}
+
+.active .nav__dropdown-icon {
+    color: var(--text-color);
 }
 
 

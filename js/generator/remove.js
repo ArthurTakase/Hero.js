@@ -80,8 +80,6 @@ function removeSkill(div) {
 
     delete skillsJson[div.firstChild.innerHTML]
 
-    console.log(skillsJson)
-
     if (jsonLen(skillsJson) == 0) {
         liste.innerHTML = ""
         liste.classList.remove("table")

@@ -139,6 +139,7 @@ function addDialog() {
     optionListe.classList.remove('table')
     optionListe.innerHTML = ""
     optionID.value = optionIDGlobal
+    Instantpreview()
 }
 
 function updateDialogList() {

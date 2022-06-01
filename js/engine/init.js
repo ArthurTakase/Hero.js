@@ -112,7 +112,6 @@ function initGameInfos(json) {
     showPlayerSkills = json.gameInfos.showPlayerSkills
     showPlayerGold = json.gameInfos.showPlayerGold
     showPlayerInventory = json.gameInfos.showPlayerInventory
-    showPlayerSpecial = json.gameInfos.showPlayerSpecial
     defeatNumber = json.gameInfos.defeatNumber
 }
 
@@ -124,7 +123,6 @@ function initGameplay(json) {
 
     // Génération des compétences
     if (json.gameplay.skills) {
-        console.log(json.gameplay.skills)
         for (s in json.gameplay.skills) {
             try {
                 temp = json.gameplay.skills[s]
@@ -138,17 +136,7 @@ function initGameplay(json) {
         for (i in json.gameplay.objectsInventory) {
             try {
                 temp = json.gameplay.objectsInventory[i]
-                inventoryList.push(new Object(temp.name, temp.type, temp.data))
-            } catch (e) { continue }
-        }
-    }
-
-    // Génération des objets spéciaux
-    if (json.gameplay.objectsSpecial) {
-        for (j in json.gameplay.objectsSpecial) {
-            try {
-                temp = json.gameplay.objectsSpecial[j]
-                specialList.push(new Object(temp.name, temp.type, temp.data))
+                inventoryList.push(new Object(temp.name, temp.data))
             } catch (e) { continue }
         }
     }
@@ -174,8 +162,6 @@ function initPlayer(json) {
 
     for (i in json.player.inventory)
         newObject(json.player.inventory[i], inventoryList, player.inventory)
-    for (j in json.player.special)
-        newObject(json.player.special[j], specialList, player.special)
 
     // Généation des compétences du joueur
     for (k in json.player.skills) {

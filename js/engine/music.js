@@ -26,10 +26,9 @@ class Music {
             this.music.pause()
     }
 
-    switch(data) {
+    switch (data) {
         if (this.src == data[0]) {
-            if (!isPlaying(this.music)) {this.play()}
-            else {return}
+            if (!isPlaying(this.music)) { this.play() } else { return }
         }
         this.stop()
         this.src = data[0]

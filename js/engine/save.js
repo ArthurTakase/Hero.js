@@ -14,7 +14,6 @@ function reloadSave(json) {
 
     if (player != null) {
         player.inventory = []
-        player.special = []
         player.skills = []
 
         player.ability = json.save.player.ability
@@ -25,9 +24,6 @@ function reloadSave(json) {
 
         for (item in json.save.player.inventory)
             newObject(json.save.player.inventory[item], inventoryList, player.inventory)
-
-        for (item in json.save.player.special)
-            newObject(json.save.player.special[item], specialList, player.special)
 
         for (i in json.save.player.skill)
             player.setSkill(getFromName(json.save.player.skills[i], skillList))
@@ -44,7 +40,6 @@ function save() {
 
     if (player != null) {
         var inventory = []
-        var special = []
         var skills = []
 
         temp.save.player = {}
@@ -57,14 +52,10 @@ function save() {
         for (item in player.inventory)
             inventory.push(player.inventory[item].name)
 
-        for (item in player.special)
-            special.push(player.special[item].name)
-
         for (i in player.skill)
             skills.push(player.skill[i].name)
 
         temp.save.player.inventory = inventory
-        temp.save.player.special = special
         temp.save.player.skills = skills
     }
 
