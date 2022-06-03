@@ -146,11 +146,15 @@ function updateDialogList() {
     const zone = document.getElementById('dialog-list')
 
     if (dialogList.length == 0) {
-        zone.innerHTML = '<div class="sub_container"><div id="preview" style="display: none;"></div><div class="sub_container_title">List</div>You didn\'t write any dialogue yet.</div>'
+        zone.innerHTML = '<div class="sub_container"><div id="preview" style="display: none;"></div>\
+                            <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#060e8b2e69884b04ab0f28cd403ea735" target="_blank" class="help"><i class="bx bx-help-circle"></i> Help</a>\
+                            <div class="sub_container_title">List</div>You didn\'t write any dialogue yet.</div>'
         return
     }
 
-    zone.innerHTML = '<div class="sub_container"><div id="preview" style="display: none;"></div><div class="sub_container_title">List</div><table id="dialogList" style="margin-top: 0;"></table></div>'
+    zone.innerHTML = '<div class="sub_container"><div id="preview" style="display: none;"></div>\
+    <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#060e8b2e69884b04ab0f28cd403ea735" target="_blank" class="help"><i class="bx bx-help-circle"></i> Help</a>\
+    <div class="sub_container_title">List</div><table id="dialogList" style="margin-top: 0;"></table></div>'
 
     var liste = document.getElementById('dialogList')
     liste.classList.add('table')

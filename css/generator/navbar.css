@@ -255,3 +255,8 @@ img {
 .bottom__navbar .nav__link {
     border: solid;
 }
+
+.nav__subtitle:hover {
+    cursor: pointer;
+    color: var(--first-color);
+}

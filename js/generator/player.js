@@ -8,6 +8,7 @@ function generatePlayer() {
     let type = (advanced) ? 'text' : 'number'
 
     section.innerHTML = '<div class="sub_container">\
+                        <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#d53a7b7b48dc4118864754b212f49d73" target="_blank" class="help"><i class="bx bx-help-circle"></i> Help</a>\
                         <div class="sub_container_title">Stats</div>\
                         <div class="grid-4">\
                             <input type="' + type + '" name="playerAbility" id="playerAbility" placeholder="Player Ability" title="Player Ability" class="advanced" required>\
@@ -17,6 +18,7 @@ function generatePlayer() {
                         </div>\
                     </div>\
                     <div class="sub_container">\
+                    <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#6dadff79c47b4cd2a6cf1fcc07fec6a9" target="_blank" class="help"><i class="bx bx-help-circle"></i> Help</a>\
                         <div class="sub_container_title">Skills</div>\
                         <div class="grid-4">\
                             <select name="playerSkillsList" id="playerSkillsList">\
@@ -26,6 +28,7 @@ function generatePlayer() {
                         <table id="playerSkillsListTable"></table>\
                     </div>\
                     <div class="sub_container">\
+                    <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#3fba536c603446279a5dbca934b35752" target="_blank" class="help"><i class="bx bx-help-circle"></i> Help</a>\
                         <div class="sub_container_title">Inventory</div>\
                         <div class="grid-4">\
                             <select name="playerInventoryList" id="playerInventoryList">\

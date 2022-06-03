@@ -6,7 +6,9 @@ function graph() {
 
     const mapZone = document.getElementById('map_container')
     mapZone.style.padding = "0"
-    mapZone.innerHTML = '<div id="previewGraph" style="display: none;"></div><div id="graph"></div>'
+    mapZone.innerHTML = '<div id="previewGraph" style="display: none;"></div>\
+                            <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#5ca36cb20c0249939e297e26a85e7dc5" target="_blank" class="help"><i class="bx bx-help-circle"></i> Help</a>\
+                        <div id="graph"></div>'
 
     dialogGraphList = "digraph {"
     for (dialog in dialogList) {
