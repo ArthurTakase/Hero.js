@@ -1,5 +1,6 @@
 let optionIDGlobal = 0
 let buttonList = []
+let buttonIsExpand = true
 
 function addOptionJSON(option) {
     const liste = document.getElementById('optionsList')
@@ -30,12 +31,18 @@ function addOption() {
     var optionSound = document.getElementById('optionSound')
     var optionCondition = document.getElementById('optionCondition')
     var optionEffect = document.getElementById('optionEffect')
-    var conditionData = document.getElementById('conditionValue') // may null
-    var conditionIsHere = document.querySelector('#conditionIsHere') // may null
-    var effectData = document.getElementById('effectValue') // may null
+    var conditionData = document.getElementById('conditionValue')
+    var conditionIsHere = document.querySelector('#conditionIsHere')
+    var effectData = document.getElementById('effectValue')
+    var notificationCheck = document.getElementById('notificationIsEnable')
+    var notificationData = document.getElementById('notificationText')
     var json = {}
 
+    console.log("coucou")
+
     if (optionBody.value == "") { return }
+
+    console.log("oui")
 
     json.text = optionBody.value
     if (optionGoTo.value != "") { json.goToIndex = parseInt(optionGoTo.value) }
@@ -107,6 +114,10 @@ function addOption() {
         }
     }
 
+    if (notificationCheck.checked) {
+        if (notificationData.value != "") json.notification = notificationData.value
+    } else { json.notification = false }
+
     // ===== RESET =====
     optionID.value = optionIDGlobal
     optionBody.value = ""
@@ -114,8 +125,33 @@ function addOption() {
     optionCondition.value = "No Condition"
     optionEffect.value = "No Effect"
     optionSound.value = "No Sound"
+    notificationCheck.checked = true
+    notificationData.value = ""
     appendCondition()
     appendEffect()
     optionBody.focus()
     Instantpreview()
 }
+
+function expandButton() {
+    const sound = document.getElementById("optionSound")
+    const condition = document.getElementById("optionConditionZone")
+    const effect = document.getElementById("optionEffectZone")
+    const notification = document.getElementById("optionNotificationZone")
+
+    if (buttonIsExpand) {
+        sound.style.display = "none"
+        condition.style.display = "none"
+        effect.style.display = "none"
+        notification.style.display = "none"
+        buttonIsExpand = false
+    } else {
+        sound.style.display = "flex"
+        condition.style.display = "flex"
+        effect.style.display = "flex"
+        notification.style.display = "flex"
+        buttonIsExpand = true
+    }
+}
+
+expandButton()
