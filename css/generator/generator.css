@@ -496,3 +496,35 @@ input[type=range]::-webkit-slider-thumb {
     opacity: 1;
     cursor: default;
 }
+
+.help {
+    position: absolute;
+    top: .5rem;
+    left: .7rem;
+    transition: .5s;
+    opacity: 0.3;
+    color: #be2251;
+    font-size: 1.3rem;
+    max-width: 1.3rem;
+    overflow: hidden;
+    text-overflow: unset;
+    word-wrap: unset;
+    white-space: nowrap;
+}
+
+.help:hover {
+    cursor: help;
+    transform: scale(1.1);
+    opacity: 1;
+    max-width: 20rem;
+}
+
+a {
+    color: #be2251;
+    text-decoration: none;
+    transition: .2s;
+}
+
+a:hover {
+    font-weight: bold;
+}
