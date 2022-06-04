@@ -151,9 +151,9 @@
                     <b>Ctrl + D</b> Load project<br>
                     <b>Ctrl + F</b> Toggle advanced mode<br>
                     <br><h3>Documentations</h3>
-                    <a href="https://icy-wind-398.notion.site/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b" target="_blank">🇫🇷 Détails de l'interface de création</a><br>
-                    <a href="https://icy-wind-398.notion.site/Correction-des-erreurs-classiques-194bd01a71cc4bb29dfcdf958d2926af" target="_blank">🇫🇷 Correction des erreurs classiques</a><br>
-                    <a href="https://icy-wind-398.notion.site/FAQ-0cf40d6d48d44d1d9f9e4b931041c04a" target="_blank">🇫🇷 FAQ</a>
+                    <a style="color: #be2251; text-decoration: none; transition: .2s;" href="https://icy-wind-398.notion.site/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b" target="_blank">🇫🇷 Détails de l'interface de création</a><br>
+                    <a style="color: #be2251; text-decoration: none; transition: .2s;" href="https://icy-wind-398.notion.site/Correction-des-erreurs-classiques-194bd01a71cc4bb29dfcdf958d2926af" target="_blank">🇫🇷 Correction des erreurs classiques</a><br>
+                    <a style="color: #be2251; text-decoration: none; transition: .2s;" href="https://icy-wind-398.notion.site/FAQ-0cf40d6d48d44d1d9f9e4b931041c04a" target="_blank">🇫🇷 FAQ</a>
                 </span>
             </div>
 
@@ -455,6 +455,9 @@
                 <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#4383615041154e65b2a7e92674da81b4" target="_blank" class="help"><i class='bx bx-help-circle'></i> Help</a>
 
                 <div class="sub_container_title">New Button</div>
+
+                <button id="buttonMore" onclick="expandButton()"><i class='bx bx-align-middle' ></i></button>
+
                 <input type="text" name="optionID" id="optionID" placeholder="ID" title="Option ID" value="0">
 
                 <div class="grid-3">
@@ -464,11 +467,12 @@
                 <div class="grid-3">
                     <input type="number" name="optionGoToIndex" id="optionGoToIndex" placeholder="Go to Index (not required)" title="Go to Index (not required)">
                     <select name="optionSound" id="optionSound">
-                            <option>No Sound</option>
-                        </select>
+                        <option>No Sound</option>
+                    </select>
                 </div>
 
-                <div class="grid-3" id="optionConditionZone">
+                <div class="grid-3 border-pink" id="optionConditionZone">
+                    <div class="grid-title">Condition</div>
                     <select name="optionCondition" id="optionCondition" onchange="appendCondition()">
                             <option>No Condition</option>
                             <option>GOLD</option>
@@ -480,7 +484,8 @@
                         </select>
                 </div>
 
-                <div class="grid-3" id="optionEffectZone">
+                <div class="grid-3 border-pink" id="optionEffectZone">
+                    <div class="grid-title">Effect</div>
                     <select name="optionEffect" id="optionEffect" onchange="appendEffect()">
                             <option>No Effect</option>
                             <option>REMOVE_OBJECT</option>
@@ -492,6 +497,15 @@
                             <option>LIFE</option>
                             <option>RESTART</option>
                         </select>
+                </div>
+
+                <div class="grid-3 border-pink" id="optionNotificationZone">
+                    <div class="grid-title">Notification</div>
+                    <div class="data check full-length">
+                        <input type="checkbox" name="notificationIsEnable" id="notificationIsEnable" required checked>
+                        <label for="notificationIsEnable">Enable ?</label>
+                    </div>
+                    <input type="text" name="notificationText" id="notificationText" placeholder="Notification Text (not required, the default text is linked to conditions and effects)" title="Notification Text">
                 </div>
 
                 <button class="add" id="add_option" onclick="addOption()"><i class='bx bx-plus'></i></button>

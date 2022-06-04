@@ -8,7 +8,7 @@ body {
 }
 
 #toTop {
-    color: #e6003c;
+    color: #be2251;
 }
 
 .body_container {
@@ -45,6 +45,7 @@ body {
     flex-direction: column;
     font-size: 1rem;
     position: relative;
+    transition: .5s;
 }
 
 .container_end {
@@ -129,16 +130,11 @@ body {
 
 .data {
     display: flex;
-    /* border: solid; */
     justify-content: center;
     align-items: center;
 }
 
 .check input {
-    /* border: red solid; */
-    /* width: auto; */
-    /* width: 20px; */
-    /* height: 15px; */
     width: auto;
     border-radius: 50%;
     transition: box-shadow .3s;
@@ -154,7 +150,6 @@ body {
 }
 
 .check label {
-    /* border: blue solid; */
     width: 100%;
     margin-left: .5rem;
 }
@@ -410,7 +405,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .full-length {
-    width: 5rem;
+    width: 6.5rem;
     margin-left: .5rem;
 }
 
@@ -519,12 +514,63 @@ input[type=range]::-webkit-slider-thumb {
     max-width: 20rem;
 }
 
-a {
+.link {
     color: #be2251;
     text-decoration: none;
     transition: .2s;
 }
 
-a:hover {
+.link:hover {
     font-weight: bold;
+}
+
+.border-pink {
+    border: solid #be225180;
+    border-radius: .5rem;
+    padding: .2rem;
+    padding-top: .4rem;
+    padding-bottom: .3rem;
+    margin: .2rem;
+    margin-top: .9rem;
+    position: relative;
+}
+
+.grid-title {
+    color: #be2251a4;
+    background: rgb(38, 39, 47);
+    position: absolute;
+    top: -1rem;
+    padding-left: .2rem;
+    padding-right: .2rem;
+}
+
+#buttonMore {
+    width: 2.2rem;
+    border: #be2251 solid;
+    position: absolute;
+    top: .7rem;
+    right: 4rem;
+    margin-bottom: 0;
+    padding: .2rem;
+    font-weight: bold;
+    color: #be2251;
+    background: none;
+    text-align: center;
+    opacity: 0.3;
+    transition-duration: 0.3s;
+    border-radius: .5rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding-top: .1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#buttonMore:hover {
+    opacity: 1;
+}
+
+#buttonMore::placeholder {
+    color: #be2251;
 }

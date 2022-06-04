@@ -27,7 +27,7 @@ function appendCondition() {
     const conditionZone = document.getElementById('optionConditionZone')
     var conditionSelect = document.getElementById('optionCondition')
 
-    conditionZone.innerHTML = selectCondition[conditionSelect.value]
+    conditionZone.innerHTML = '<div class="grid-title">Condition</div>' + selectCondition[conditionSelect.value]
 
     switch (conditionSelect.value) {
         case "No Condition":
@@ -61,7 +61,7 @@ function appendEffect() {
     const effectZone = document.getElementById('optionEffectZone')
     const effectSelect = document.getElementById('optionEffect')
 
-    effectZone.innerHTML = selectEffect[effectSelect.value]
+    effectZone.innerHTML = '<div class="grid-title">Effect</div>' + selectEffect[effectSelect.value]
 
     switch (effectSelect.value) {
         case "REMOVE_OBJECT":
