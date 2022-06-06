@@ -15,15 +15,15 @@
     backdrop-filter: blur(30px);
     flex-direction: column;
     animation: notification-animation 5s linear;
-    background: #26272f;
+    background: var(--container-dark);
     font-size: 0.8rem;
     z-index: 1002;
-    border: solid #be2251;
+    border: solid var(--accent-color);
     font-size: 1rem;
 }
 
 .notif-title {
-    background: #be2251;
+    background: var(--accent-color);
     backdrop-filter: blur(50px);
     padding-left: 1rem;
     padding-right: 2rem;
@@ -39,7 +39,7 @@
     margin-bottom: .4rem;
     display: inline-block;
     height: 25px;
-    color: #be2251;
+    color: var(--accent-color);
 }
 
 @keyframes notification-animation {

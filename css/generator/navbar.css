@@ -6,14 +6,6 @@
 
 :root {
     --nav-width: 219px;
-    /*========== Colors ==========*/
-    --first-color: #d12458;
-    --first-color-light: #373842;
-    --title-color: #19181B;
-    --text-color: #a1a1a6;
-    --text-color-light: #A5A1AA;
-    --body-color: #202025;
-    --container-color: #26272f;
     /*========== Font and typography ==========*/
     --body-font: 'Poppins', sans-serif;
     --normal-font-size: .938rem;
@@ -48,7 +40,6 @@ body {
     padding: 1rem 1rem 0;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
-    background-color: var(--body-color);
     color: var(--text-color);
 }
 
@@ -74,7 +65,7 @@ img {
     /* left: -100%; */
     height: 100vh;
     /* padding: 1rem 1rem 0; */
-    background-color: var(--container-color);
+    background-color: var(--container-dark);
     box-shadow: .3rem 0 .5rem rgba(0, 0, 0, 0.116);
     z-index: var(--z-fixed);
     transition: .4s;
@@ -124,7 +115,7 @@ img {
     font-size: var(--normal-font-size);
     text-transform: uppercase;
     letter-spacing: .1rem;
-    color: var(--text-color-light);
+    color: var(--accent-color);
 }
 
 .nav__link {
@@ -134,7 +125,7 @@ img {
 }
 
 .nav__link:hover {
-    color: var(--first-color);
+    color: var(--accent-color);
     cursor: pointer;
 }
 
@@ -163,7 +154,7 @@ img {
 }
 
 .nav__dropdown-collapse {
-    background-color: var(--first-color-light);
+    background-color: var(--navbar-collapse-color);
     border-radius: .25rem;
     margin-top: 1rem;
 }
@@ -181,7 +172,7 @@ img {
 }
 
 .nav__dropdown-item:hover {
-    color: var(--first-color);
+    color: var(--accent-color);
     cursor: pointer;
 }
 
@@ -208,7 +199,7 @@ img {
 /*===== Active link =====*/
 
 .active {
-    color: var(--first-color);
+    color: var(--accent-color);
 }
 
 .active .nav__dropdown-icon {
@@ -258,5 +249,5 @@ img {
 
 .nav__subtitle:hover {
     cursor: pointer;
-    color: var(--first-color);
+    color: var(--accent-color);
 }
