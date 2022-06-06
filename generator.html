@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="theme-dark">
 
 <head>
     <!-- ===== INFOS ===== -->
@@ -9,6 +9,7 @@
     <title>Hero.js | Generator</title>
     <!-- ===== CSS ===== -->
     <!-- <link rel="stylesheet" href="css/generator/color.css"> -->
+    <link rel="stylesheet" href="css/generator/colors.css">
     <link rel="stylesheet" href="css/generator/background.css">
     <link rel="stylesheet" href="css/generator/navbar.css">
     <link rel="stylesheet" href="css/generator/header.css">
@@ -27,7 +28,7 @@
 
 <body>
 
-    <div id="version">v1.0.4</div>
+    <div id="version">v1.0.5</div>
 
     <!-- ===== SIDEBAR ===== -->
     <div class="nav" id="navbar">
@@ -104,16 +105,21 @@
 
             <!-- ===== SAVE ===== -->
             <div clas="bottom__navbar">
+                <a class="nav__link" id="toggleTheme" onclick="switchTheme()">
+                    <i class='bx bx-sun nav__icon'></i>
+                    <span class="nav__name">Theme</span>
+                </a>
+
+                <br>
                 <label class="nav__link" for="hero-js-form-json">
                     <i class='bx bx-upload nav__icon'></i>
                     <!-- Charger un jeu -->
                     <span class="nav__name">Load</span>
                 </label>
+
+
                 <br>
                 <input style="display: none;" type="file" id="hero-js-form-json" accept=".json,.hero" onchange="openJSON(this.files[0])">
-                <!-- <a class="nav__link" onclick="submit()"> -->
-                <!-- <i class='bx bx-save nav__icon' ></i> -->
-                <!-- </a> -->
                 <a class="nav__link" onclick="submit()">
                     <i class='bx bx-save nav__icon'></i>
                     <span class="nav__name">Save</span>
@@ -136,7 +142,7 @@
                         Hero.js is an <b>OpenSource</b> project of <b>Visual Novel game engine</b>.
                         The goal of this project is to allow you to create Visual Novels (from a simple Doki Doki to a JDR with fighting system), <b>without coding.</b>
                         So what are you waiting for to start creating your stories?<br><br>
-                        If you have the skills, you can participate to the development of the project on <a href="https://github.com/ArthurTakase/Heros.js" target="_blank" style="color: #be2251;">github</a>!<br>
+                        If you have the skills, you can participate to the development of the project on <a href="https://github.com/ArthurTakase/Heros.js" target="_blank" style="color: var(--accent-color);">github</a>!<br>
                     </span>
                 <div class="img_list">
                     <img onclick="show('infos')" src="img/let's create.png">
@@ -151,14 +157,22 @@
                     <b>Ctrl + D</b> Load project<br>
                     <b>Ctrl + F</b> Toggle advanced mode<br>
                     <br><h3>Documentations</h3>
-                    <a style="color: #be2251; text-decoration: none; transition: .2s;" href="https://icy-wind-398.notion.site/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b" target="_blank">🇫🇷 Détails de l'interface de création</a><br>
-                    <a style="color: #be2251; text-decoration: none; transition: .2s;" href="https://icy-wind-398.notion.site/Correction-des-erreurs-classiques-194bd01a71cc4bb29dfcdf958d2926af" target="_blank">🇫🇷 Correction des erreurs classiques</a><br>
-                    <a style="color: #be2251; text-decoration: none; transition: .2s;" href="https://icy-wind-398.notion.site/FAQ-0cf40d6d48d44d1d9f9e4b931041c04a" target="_blank">🇫🇷 FAQ</a>
+                    <a style="color: var(--accent-color); text-decoration: none; transition: .2s;" href="https://icy-wind-398.notion.site/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b" target="_blank">🇫🇷 Détails de l'interface de création</a><br>
+                    <a style="color: var(--accent-color); text-decoration: none; transition: .2s;" href="https://icy-wind-398.notion.site/Correction-des-erreurs-classiques-194bd01a71cc4bb29dfcdf958d2926af" target="_blank">🇫🇷 Correction des erreurs classiques</a><br>
+                    <a style="color: var(--accent-color); text-decoration: none; transition: .2s;" href="https://icy-wind-398.notion.site/FAQ-0cf40d6d48d44d1d9f9e4b931041c04a" target="_blank">🇫🇷 FAQ</a>
                 </span>
             </div>
 
-            <div class="space" style="color: #be2251; width: 100%; text-align: center; padding-top: 1rem; font-size: 3rem; margin-bottom: -1.3rem;">
+            <div class="space" style="color: var(--accent-color); width: 100%; text-align: center; padding-top: 1rem; font-size: 3rem; margin-bottom: -1.3rem;">
                 <i class='bx bx-dots-horizontal-rounded'></i>
+            </div>
+
+            <div class="sub_container">
+                <div class="sub_container_title">PatchNote (06/06/2022)</div>
+                <span style="text-align: center;">
+                    <h3>Generator</h3>
+                    Add Light Theme<br>
+                </span>
             </div>
 
             <div class="sub_container">
@@ -456,8 +470,6 @@
 
                 <div class="sub_container_title">New Button</div>
 
-                <button id="buttonMore" onclick="expandButton()"><i class='bx bx-align-middle' ></i></button>
-
                 <input type="text" name="optionID" id="optionID" placeholder="ID" title="Option ID" value="0">
 
                 <div class="grid-3">
@@ -508,7 +520,11 @@
                     <input type="text" name="notificationText" id="notificationText" placeholder="Notification Text (not required, the default text is linked to conditions and effects)" title="Notification Text">
                 </div>
 
-                <button class="add" id="add_option" onclick="addOption()"><i class='bx bx-plus'></i></button>
+                <div class="grid-2-large">
+                    <button class="add" id="buttonMore" title="Expand Button" onclick="expandButton()"><i class='bx bx-expand-alt' ></i></button>
+                    <button class="add" id="add_option" title="Create Button" onclick="addOption()"><i class='bx bx-plus'></i></button>
+                </div>
+
 
                 <table id="optionsList"></table>
             </div>
@@ -551,6 +567,7 @@
     <div id="notif-zone"></div>
 
     <!-- ===== SCRIPTS ===== -->
+    <script src="js/generator/theme.js"></script>
     <script src="js/engine/button.js"></script>
     <script src="js/engine/dialog.js"></script>
     <script src="js/engine/sound.js"></script>

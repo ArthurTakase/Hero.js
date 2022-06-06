@@ -1,0 +1,37 @@
+.theme-dark {
+    --accent-color: #be2251;
+    --accent-color-50: #be22516e;
+    --accent-color-10: #be225115;
+    --navbar-collapse-color: #373842;
+    --navbar-collapse-color-70: #373842a4;
+    --text-color: #a1a1a6;
+    --text-color-light: #c2c2ca;
+    --text-placeholder-color: #a2a0a657;
+    --body-color: #202025;
+    --container-dark: #26272f;
+    --white-5: #ffffff04;
+    --edit-hover: #4b4c58;
+    --checkbox-background: #a2a0a6;
+    --scrollbar-color: #211f25;
+    --soft-background: #40414b9c;
+    --big-btn-text-color: #a2a0a6;
+}
+
+.theme-light {
+    --accent-color: #b80755;
+    --accent-color-50: #b807556e;
+    --accent-color-10: #b8075515;
+    --navbar-collapse-color: #fae6f1;
+    --navbar-collapse-color-70: #fae6f1a4;
+    --text-color: #554a4e;
+    --text-color-light: #ffffff;
+    --text-placeholder-color: #966674;
+    --body-color: #f9f9f9;
+    --container-dark: #ffffff;
+    --white-5: #fae6f1;
+    --edit-hover: #f8d6e8;
+    --checkbox-background: #d4d1da;
+    --scrollbar-color: #b807556e;
+    --soft-background: #fae6f1d8;
+    --big-btn-text-color: #b807556e;
+}

@@ -1,7 +1,7 @@
 /* 
-rose : #be2251
-sub_container : #26272f
-color : #a2a0a6
+rose : var(--accent-color)
+sub_container : var(--container-dark)
+color : var(--checkbox-background)
 */
 
 polygon {
@@ -9,36 +9,35 @@ polygon {
 }
 
 .node {
-    fill: #be2251;
-    /* stroke: #be2251; */
+    fill: var(--accent-color);
+    /* stroke: var(--accent-color); */
 }
 
 .node ellipse {
-    stroke: #be2251;
-    fill: #be225115;
+    stroke: var(--accent-color);
+    fill: var(--accent-color-10);
     transition-duration: 0.2s;
 }
 
 .node ellipse:hover {
-    /* stroke-dasharray: 3; */
     stroke-linecap: round;
     cursor: pointer;
-    fill: #be22516e;
+    fill: var(--accent-color-50);
 }
 
 .edge path {
-    /* fill: #be2251; */
-    stroke: #be2251;
+    /* fill: var(--accent-color); */
+    stroke: var(--accent-color);
 }
 
 .edge polygon {
-    stroke: #be2251;
-    fill: #be225115;
+    stroke: var(--accent-color);
+    fill: var(--accent-color-10);
 }
 
 .edge:hover polygon,
 .edge:hover path {
-    stroke: #a1a0a6;
+    stroke: var(--text-color);
     cursor: pointer;
 }
 

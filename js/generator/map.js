@@ -73,9 +73,9 @@ function edgeAction(node) {
         var editButton = previewDiv.getElementsByClassName("hero-js-button")[index]
 
         editButton.classList.add("selectedButton")
-        editButton.style.border = "solid #be2251 .2rem"
-        editButton.style.color = "#be2251"
-        editButton.style.backgroundColor = "#be225159"
+        editButton.style.border = "solid var(--accent-color) .2rem"
+        editButton.style.color = "var(--accent-color)"
+        editButton.style.backgroundColor = "var(--accent-color)59"
     }
     // } catch {}
 }

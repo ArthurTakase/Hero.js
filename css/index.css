@@ -1,14 +1,20 @@
-@media screen and (min-width: 768px){
-    :root{
+@media screen and (min-width: 768px) {
+     :root {
         --big-font-size: 5rem;
         --normal-font-size: 1rem;
     }
 }
 
-/*===== BASE =====*/
-*,::before,::after {box-sizing: border-box;}
 
-body{
+/*===== BASE =====*/
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
     margin: 0;
     padding: 0;
     font-family: var(--body-font);
@@ -17,14 +23,34 @@ body{
     overflow: hidden;
 }
 
-h1,p,ul {margin: 0;}
-ul {padding: 0; list-style: none;}
-a {text-decoration: none;}
-img {max-width: 100%; height: auto;}
-button {font-family: var(--body-font);}
+h1,
+p,
+ul {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    font-family: var(--body-font);
+}
+
 
 /*===== LAYOUT =====*/
-.bd-grid{
+
+.bd-grid {
     max-width: 1024px;
     display: grid;
     grid-template-columns: 100%;
@@ -35,25 +61,26 @@ button {font-family: var(--body-font);}
     transform: translateY(130px);
 }
 
+
 /*===== HOME =====*/
+
 .home {
     background: linear-gradient(45deg, #FCA4A6 0%, #A83E51 30%, #A83E51 60%, #FCA4A6 100%);
-    /* background: linear-gradient(-90deg, #25C26B, #3087CA); */
     overflow: hidden;
     animation: gradient 10s ease infinite;
     background-size: 200%;
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .home__container {
@@ -111,30 +138,39 @@ button {font-family: var(--body-font);}
     cursor: pointer;
 }
 
-/* ===== MEDIA QUERIES =====*/
-@media screen and (min-width: 768px) {
-    body {margin: 0;}
-    .home, #home {padding-top: 1rem;}
-    .home__img img {width: 375px;}
 
+/* ===== MEDIA QUERIES =====*/
+
+@media screen and (min-width: 768px) {
+    body {
+        margin: 0;
+    }
+    .home,
+    #home {
+        padding-top: 1rem;
+    }
+    .home__img img {
+        width: 375px;
+    }
     .home__container {
         height: 100vh;
         grid-template-columns: repeat(2, max-content);
-        grid-template-rows:  1fr;
+        grid-template-rows: 1fr;
         row-gap: 0;
         align-items: center;
         justify-content: center;
     }
-    
     .home__img {
         order: 1;
         width: 375px;
         height: 289px;
     }
-
-    .bd-grid {transform: translateY(0);}
-
-    .home__data {display: block;}
+    .bd-grid {
+        transform: translateY(0);
+    }
+    .home__data {
+        display: block;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -142,18 +178,17 @@ button {font-family: var(--body-font);}
         margin-left: auto;
         margin-right: auto;
     }
-
     .home__container {
         justify-content: initial;
         column-gap: 4.5rem;
     }
-
     .home__img {
         width: 604px;
         height: 466px;
     }
-
-    .home__img img {width: 604px;}
+    .home__img img {
+        width: 604px;
+    }
 }
 
 .bottom-text {
@@ -167,5 +202,5 @@ button {font-family: var(--body-font);}
 }
 
 .bottom-text a {
-  color: rgb(241, 166, 176);
+    color: rgb(241, 166, 176);
 }

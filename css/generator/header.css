@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #26272f;
+    background: var(--container-dark);
     box-shadow: 0 .3rem .5rem rgba(0, 0, 0, 0.116);
     z-index: 99;
 }
@@ -21,7 +21,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #a1a1a6;
+    color: var(--text-color);
     width: 80px;
 }
 
@@ -37,10 +37,15 @@
     position: absolute;
     width: 60px;
     bottom: 0;
-    background: #a1a1a6;
+    background: var(--text-color);
     height: 5px;
     border-radius: .5rem .5rem 0 0;
 }
 
-.header_active .header_bottom {background: #d12458;}
-.header_active {color: #d12458;}
+.header_active .header_bottom {
+    background: var(--accent-color);
+}
+
+.header_active {
+    color: var(--accent-color);
+}
