@@ -138,14 +138,17 @@ function expandButton() {
     const condition = document.getElementById("optionConditionZone")
     const effect = document.getElementById("optionEffectZone")
     const notification = document.getElementById("optionNotificationZone")
+    const button = document.getElementById("buttonMore")
 
     if (buttonIsExpand) {
+        button.innerHTML = "<i class='bx bx-expand-alt' ></i>"
         sound.style.display = "none"
         condition.style.display = "none"
         effect.style.display = "none"
         notification.style.display = "none"
         buttonIsExpand = false
     } else {
+        button.innerHTML = "<i class='bx bx-collapse-alt' ></i>"
         sound.style.display = "flex"
         condition.style.display = "flex"
         effect.style.display = "flex"

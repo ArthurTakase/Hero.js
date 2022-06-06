@@ -543,34 +543,3 @@ input[type=range]::-webkit-slider-thumb {
     padding-left: .2rem;
     padding-right: .2rem;
 }
-
-#buttonMore {
-    width: 2.2rem;
-    border: #be2251 solid;
-    position: absolute;
-    top: .7rem;
-    right: 4rem;
-    margin-bottom: 0;
-    padding: .2rem;
-    font-weight: bold;
-    color: #be2251;
-    background: none;
-    text-align: center;
-    opacity: 0.3;
-    transition-duration: 0.3s;
-    border-radius: .5rem;
-    font-size: 1.3rem;
-    cursor: pointer;
-    padding-top: .1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#buttonMore:hover {
-    opacity: 1;
-}
-
-#buttonMore::placeholder {
-    color: #be2251;
-}

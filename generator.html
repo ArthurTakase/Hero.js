@@ -456,8 +456,6 @@
 
                 <div class="sub_container_title">New Button</div>
 
-                <button id="buttonMore" onclick="expandButton()"><i class='bx bx-align-middle' ></i></button>
-
                 <input type="text" name="optionID" id="optionID" placeholder="ID" title="Option ID" value="0">
 
                 <div class="grid-3">
@@ -508,7 +506,11 @@
                     <input type="text" name="notificationText" id="notificationText" placeholder="Notification Text (not required, the default text is linked to conditions and effects)" title="Notification Text">
                 </div>
 
-                <button class="add" id="add_option" onclick="addOption()"><i class='bx bx-plus'></i></button>
+                <div class="grid-2-large">
+                    <button class="add" id="buttonMore" title="Expand Button" onclick="expandButton()"><i class='bx bx-expand-alt' ></i></button>
+                    <button class="add" id="add_option" title="Create Button" onclick="addOption()"><i class='bx bx-plus'></i></button>
+                </div>
+
 
                 <table id="optionsList"></table>
             </div>
