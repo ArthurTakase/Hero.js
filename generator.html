@@ -28,7 +28,7 @@
 
 <body>
 
-    <div id="version">v1.0.5</div>
+    <div id="version"></div>
 
     <!-- ===== SIDEBAR ===== -->
     <div class="nav" id="navbar">
@@ -135,7 +135,58 @@
     </div>
 
     <!-- ===== HEADERBAR ===== -->
-    <div class="header" id="headerbar"></div>
+    <div class="header" id="headerbar">
+        <div class='header_element header_active' style='font-weight: bold;' id="Home">Home</div>
+        <!--  -->
+        <div onclick="show('infos')" class="header_element">
+            <div class="header_text" id="GeneralSubtitle">General</div>
+            <div class="header_bottom"></div>
+        </div>
+        <div onclick="show('infos-display')" class="header_element">
+            <div class="header_text" id="DisplaySubtitle">Display</div>
+            <div class="header_bottom"></div>
+        </div>
+        <div class="header_element" onclick="show('infos-color')">
+            <div class="header_text" id="StyleSubtitle">Style</div>
+            <div class="header_bottom"></div>
+        </div>
+        <!--  -->
+        <div onclick="show('data')" class="header_element">
+            <div class="header_text" id="SkillsSubtitle">Skills</div>
+            <div class="header_bottom"></div>
+        </div>
+        <div onclick="show('data-objects')" class="header_element">
+            <div class="header_text" id="ObjectsSubtitle">Objects</div>
+            <div class="header_bottom"></div>
+        </div>
+        <div class="header_element" onclick="show('data-pictures')">
+            <div class="header_text" id="PicturesSubtitle">Pictures</div>
+            <div class="header_bottom"></div>
+        </div>
+        <div onclick="show('data-sounds')" class="header_element">
+            <div class="header_text" id="SoundsSubtitle">Sounds</div>
+            <div class="header_bottom"></div>
+        </div>
+        <!-- -->
+        <div onclick="show('player')" class="header_element">
+            <div class="header_text" id="PlayerSubtitle">Player</div>
+            <div class="header_bottom"></div>
+        </div>
+        <!--  -->
+        <div onclick="show('dialog')" class="header_element">
+            <div class="header_text" id="DialogCreateSubtitle">Create</div>
+            <div class="header_bottom"></div>
+        </div>
+        <div onclick="show('dialog-list')" class="header_element">
+            <div class="header_text" id="DialogListSubtitle">List</div>
+            <div class="header_bottom"></div>
+        </div>
+        <div class="header_element" onclick="show('dialog-map')">
+            <div class="header_text" id="DialogMapSubtitle">Map</div>
+            <div class="header_bottom"></div>
+        </div>
+
+    </div>
 
     <!-- ===== CONTENT ===== -->
     <div class="body_container" id="body_container">
@@ -561,13 +612,13 @@
     </div>
 
     <div id="edit-menu">
-        <a id="edit-edit"><i class='bx bxs-edit-alt'></i> Edit</a>
-        <a id="edit-remove"><i class='bx bxs-eraser' ></i> Remove</a>
+        <a id="edit-edit"><i class='bx bxs-edit-alt'></i> <span id="EditCmd"></span></a>
+        <a id="edit-remove"><i class='bx bxs-eraser' ></i> <span id="DeleteCmd"></span></a>
     </div>
 
     <div id="remove-modal">
-        <p>Any deletion is final and may cause problems in your game</p>
-        <button onclick="confirmDeletion()">Confirm</button>
+        <p id="DeleteMsg"></p>
+        <button onclick="confirmDeletion()" id="DeleteConfirm">Confirm</button>
     </div>
 
     <div id="notif-zone"></div>

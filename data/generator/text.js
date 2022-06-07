@@ -20,7 +20,12 @@ const language = {
         "LanguageTitle": "Langue",
         "ThemeTitle": "Thèmes",
         "LoadTitle": "Charger",
-        "SaveTitle": "Sauvegarder"
+        "SaveTitle": "Sauvegarder",
+        "DeleteMsg": "Toute suppression est définitive et peut entrainer des problèmes dans votre jeu.",
+        "DeleteConfirm": "Confirmer",
+        "EditCmd": "Editer",
+        "DeleteCmd": "Supprimer",
+        "Home": "Accueil",
     },
     "en": {
         "title": "Hero.js | Generator",
@@ -43,7 +48,12 @@ const language = {
         "LanguageTitle": "Language",
         "ThemeTitle": "Themes",
         "LoadTitle": "Load",
-        "SaveTitle": "Save"
+        "SaveTitle": "Save",
+        "DeleteMsg": "Any deletion is final and may cause problems in your game.",
+        "DeleteConfirm": "Confirm",
+        "EditCmd": "Edit",
+        "DeleteCmd": "Remove",
+        "Home": "Home"
     }
 }
 
@@ -51,23 +61,28 @@ const elements = {
     "version": ["version"],
     "navHeader": ["navHeader"],
     "GameInfosTitle": ["GameInfosTitle"],
-    "GameInfosGeneral": ["GameInfosGeneral"],
-    "GameinfosDisplay": ["GameinfosDisplay"],
-    "GameInfosStyle": ["GameInfosStyle"],
+    "GameInfosGeneral": ["GameInfosGeneral", "GeneralSubtitle"],
+    "GameinfosDisplay": ["GameinfosDisplay", "DisplaySubtitle"],
+    "GameInfosStyle": ["GameInfosStyle", "StyleSubtitle"],
     "DataTitle": ["DataTitle"],
-    "DataSkills": ["DataSkills"],
-    "DataObjects": ["DataObjects"],
-    "DataPictures": ["DataPictures"],
-    "DataSounds": ["DataSounds"],
-    "PlayerTitle": ["PlayerTitle"],
+    "DataSkills": ["DataSkills", "SkillsSubtitle"],
+    "DataObjects": ["DataObjects", "ObjectsSubtitle"],
+    "DataPictures": ["DataPictures", "PicturesSubtitle"],
+    "DataSounds": ["DataSounds", "SoundsSubtitle"],
+    "PlayerTitle": ["PlayerTitle", "PlayerSubtitle"],
     "DialogTitle": ["DialogTitle"],
-    "DialogCreate": ["DialogCreate"],
-    "DialogList": ["DialogList"],
-    "DialogMap": ["DialogMap"],
+    "DialogCreate": ["DialogCreate", "DialogCreateSubtitle"],
+    "DialogList": ["DialogList", "DialogListSubtitle"],
+    "DialogMap": ["DialogMap", "DialogMapSubtitle"],
     "LanguageTitle": ["LanguageTitle"],
-    "ThemeTitle": [],
+    "ThemeTitle": ["ThemeTitle"],
     "LoadTitle": ["LoadTitle"],
-    "SaveTitle": ["SaveTitle"]
+    "SaveTitle": ["SaveTitle"],
+    "DeleteMsg": ["DeleteMsg"],
+    "DeleteConfirm": ["DeleteConfirm"],
+    "EditCmd": ["EditCmd"],
+    "DeleteCmd": ["DeleteCmd"],
+    "Home": ["Home"]
 }
 
 function translate(lang) {

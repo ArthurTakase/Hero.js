@@ -22,24 +22,20 @@
     justify-content: center;
     align-items: center;
     color: var(--text-color);
-    width: 80px;
+    /* width: 80%; */
+    border-top: solid var(--text-color-50) .2rem;
+    /* border-radius: .5rem; */
+    transition: .3s;
 }
 
 .header_element:hover {
     cursor: pointer;
+    background-color: var(--accent-color-10);
+    border-color: var(--accent-color);
 }
 
 .header_text {
     margin-top: -5px;
-}
-
-.header_bottom {
-    position: absolute;
-    width: 60px;
-    bottom: 0;
-    background: var(--text-color);
-    height: 5px;
-    border-radius: .5rem .5rem 0 0;
 }
 
 .header_active .header_bottom {
@@ -47,5 +43,6 @@
 }
 
 .header_active {
-    color: var(--accent-color);
+    background-color: var(--accent-color-50);
+    border-color: var(--accent-color);
 }
