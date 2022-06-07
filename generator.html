@@ -37,22 +37,22 @@
 
                 <div class="nav__list">
                     <div class="nav__items">
-                        <h3 class="nav__subtitle" onclick="show('index')">Hero.js</h3>
+                        <h3 class="nav__subtitle" onclick="show('index')" id="navHeader">Hero.js</h3>
 
 
                         <!-- ===== GAME INFOS ===== -->
                         <div class="nav__dropdown" id="infosDropDown">
                             <a class="nav__link" id="infosLink">
                                 <i class='bx bx-info-circle nav__icon' onclick="show('infos')"></i>
-                                <span class="nav__name" onclick="show('infos')">Game Infos</span>
+                                <span class="nav__name" onclick="show('infos')" id="GameInfosTitle">Game Infos</span>
                                 <i class='bx bx-chevron-down nav__icon nav__dropdown-icon' onclick="showDropDown('infosDropDown')"></i>
                             </a>
 
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
-                                    <a class="nav__dropdown-item" onclick="show('infos')">General</a>
-                                    <a class="nav__dropdown-item" onclick="show('infos-display')">Display</a>
-                                    <a class="nav__dropdown-item" onclick="show('infos-color')">Style</a>
+                                    <a class="nav__dropdown-item" onclick="show('infos')" id="GameInfosGeneral">General</a>
+                                    <a class="nav__dropdown-item" onclick="show('infos-display')" id="GameinfosDisplay">Display</a>
+                                    <a class="nav__dropdown-item" onclick="show('infos-color')" id="GameInfosStyle">Style</a>
                                 </div>
                             </div>
                         </div>
@@ -105,6 +105,13 @@
 
             <!-- ===== SAVE ===== -->
             <div clas="bottom__navbar">
+
+                <a class="nav__link" onclick="switchTranslate()">
+                    <span class="nav__icon" id="flag">🇫🇷</span>
+                    <span class="nav__name">Language</span>
+                </a>
+
+                <br>
                 <a class="nav__link" id="toggleTheme" onclick="switchTheme()">
                     <i class='bx bx-sun nav__icon'></i>
                     <span class="nav__name">Theme</span>
@@ -567,6 +574,7 @@
     <div id="notif-zone"></div>
 
     <!-- ===== SCRIPTS ===== -->
+    <script src="data/generator/text.js"></script>
     <script src="js/generator/theme.js"></script>
     <script src="js/engine/button.js"></script>
     <script src="js/engine/dialog.js"></script>
