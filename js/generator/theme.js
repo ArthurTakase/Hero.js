@@ -18,4 +18,10 @@ function switchTheme() {
     } else {
         switchTheme('theme-light');
     }
+
+    if (localStorage.getItem('lang') === 'fr') {
+        switchTranslate('fr');
+    } else {
+        switchTranslate('en');
+    }
 })();

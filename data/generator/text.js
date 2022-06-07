@@ -53,21 +53,21 @@ const elements = {
     "GameInfosTitle": ["GameInfosTitle"],
     "GameInfosGeneral": ["GameInfosGeneral"],
     "GameinfosDisplay": ["GameinfosDisplay"],
-    "GameInfosStyle": ["GameInfosStyle"]
-        // "DataTitle": "Données",
-        // "DataSkills": "Compétences",
-        // "DataObjects": "Objets",
-        // "DataPictures": "Images",
-        // "DataSounds": "Sons",
-        // "PlayerTitle": "Joueur",
-        // "DialogTitle": "Dialogues",
-        // "DialogCreate": "Créer",
-        // "DialogList": "Liste",
-        // "DialogMap": "Carte",
-        // "LanguageTitle": "Language"
-        // "ThemeTitle": "Thèmes",
-        // "LoadTitle": "Charger",
-        // "SaveTitle": "Sauvegarder"
+    "GameInfosStyle": ["GameInfosStyle"],
+    "DataTitle": ["DataTitle"],
+    "DataSkills": ["DataSkills"],
+    "DataObjects": ["DataObjects"],
+    "DataPictures": ["DataPictures"],
+    "DataSounds": ["DataSounds"],
+    "PlayerTitle": ["PlayerTitle"],
+    "DialogTitle": ["DialogTitle"],
+    "DialogCreate": ["DialogCreate"],
+    "DialogList": ["DialogList"],
+    "DialogMap": ["DialogMap"],
+    "LanguageTitle": ["LanguageTitle"],
+    "ThemeTitle": [],
+    "LoadTitle": ["LoadTitle"],
+    "SaveTitle": ["SaveTitle"]
 }
 
 function translate(lang) {
@@ -82,7 +82,11 @@ function translate(lang) {
         let elementTranslated = language[lang][key]
 
         element.forEach(it => {
-            document.getElementById(it).innerHTML = elementTranslated
+            try {
+                document.getElementById(it).innerHTML = elementTranslated
+            } catch (e) {
+                console.log("error on element " + it + " : " + e)
+            }
         });
     }
 }
@@ -92,11 +96,3 @@ function switchTranslate() {
     if (lang == "en") translate("fr")
     if (lang == "fr") translate("en")
 }
-
-(function() {
-    if (localStorage.getItem('lang') === 'fr') {
-        switchTranslate('fr');
-    } else {
-        switchTranslate('en');
-    }
-})();

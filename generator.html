@@ -61,16 +61,16 @@
                         <div class="nav__dropdown" id="dataDropDown">
                             <a class="nav__link" id="dataLink">
                                 <i class='bx bx-data nav__icon' onclick="show('data')"></i>
-                                <span class="nav__name" onclick="show('data')">Data</span>
+                                <span class="nav__name" onclick="show('data')" id="DataTitle">Data</span>
                                 <i class='bx bx-chevron-down nav__icon nav__dropdown-icon' onclick="showDropDown('dataDropDown')"></i>
                             </a>
 
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
-                                    <a class="nav__dropdown-item" onclick="show('data')">Skills</a>
-                                    <a class="nav__dropdown-item" onclick="show('data-objects')">Objects</a>
-                                    <a class="nav__dropdown-item" onclick="show('data-pictures')">Pictures</a>
-                                    <a class="nav__dropdown-item" onclick="show('data-sounds')">Sounds</a>
+                                    <a class="nav__dropdown-item" onclick="show('data')" id="DataSkills">Skills</a>
+                                    <a class="nav__dropdown-item" onclick="show('data-objects')" id="DataObjects">Objects</a>
+                                    <a class="nav__dropdown-item" onclick="show('data-pictures')" id="DataPictures">Pictures</a>
+                                    <a class="nav__dropdown-item" onclick="show('data-sounds')" id="DataSounds">Sounds</a>
                                 </div>
                             </div>
                         </div>
@@ -78,22 +78,22 @@
                         <!-- ===== PLAYER ===== -->
                         <a class="nav__link" onclick="show('player')" id="playerLink">
                             <i class='bx bxs-user nav__icon'></i>
-                            <span class="nav__name">Player</span>
+                            <span class="nav__name" id="PlayerTitle">Player</span>
                         </a>
 
                         <!-- ===== DIALOGS ===== -->
                         <div class="nav__dropdown" id="dialogDropDown">
                             <a id="dialogLink" class="nav__link">
                                 <i class='bx bx-message-dots nav__icon' onclick="show('dialog')"></i>
-                                <span class="nav__name" onclick="show('dialog')">Dialogs</span>
+                                <span class="nav__name" onclick="show('dialog')" id="DialogTitle">Dialogs</span>
                                 <i class='bx bx-chevron-down nav__icon nav__dropdown-icon' onclick="showDropDown('dialogDropDown')"></i>
                             </a>
 
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
-                                    <a onclick="show('dialog')" class="nav__dropdown-item">Create</a>
-                                    <a onclick="show('dialog-list')" class="nav__dropdown-item">List</a>
-                                    <a onclick="show('dialog-map')" class="nav__dropdown-item">Map</a>
+                                    <a onclick="show('dialog')" class="nav__dropdown-item" id="DialogCreate">Create</a>
+                                    <a onclick="show('dialog-list')" class="nav__dropdown-item" id="DialogList">List</a>
+                                    <a onclick="show('dialog-map')" class="nav__dropdown-item" id="DialogMap">Map</a>
                                 </div>
                             </div>
                         </div>
@@ -108,20 +108,19 @@
 
                 <a class="nav__link" onclick="switchTranslate()">
                     <span class="nav__icon" id="flag">🇫🇷</span>
-                    <span class="nav__name">Language</span>
+                    <span class="nav__name" id="LanguageTitle">Language</span>
                 </a>
 
                 <br>
                 <a class="nav__link" id="toggleTheme" onclick="switchTheme()">
                     <i class='bx bx-sun nav__icon'></i>
-                    <span class="nav__name">Theme</span>
+                    <span class="nav__name" id="ThemeTitle">Theme</span>
                 </a>
 
                 <br>
                 <label class="nav__link" for="hero-js-form-json">
                     <i class='bx bx-upload nav__icon'></i>
-                    <!-- Charger un jeu -->
-                    <span class="nav__name">Load</span>
+                    <span class="nav__name" id="LoadTitle"></span>
                 </label>
 
 
@@ -129,7 +128,7 @@
                 <input style="display: none;" type="file" id="hero-js-form-json" accept=".json,.hero" onchange="openJSON(this.files[0])">
                 <a class="nav__link" onclick="submit()">
                     <i class='bx bx-save nav__icon'></i>
-                    <span class="nav__name">Save</span>
+                    <span class="nav__name" id="SaveTitle"></span>
                 </a>
             </div>
         </nav>
