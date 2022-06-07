@@ -38,11 +38,7 @@ function addOption() {
     var notificationData = document.getElementById('notificationText')
     var json = {}
 
-    console.log("coucou")
-
     if (optionBody.value == "") { return }
-
-    console.log("oui")
 
     json.text = optionBody.value
     if (optionGoTo.value != "") { json.goToIndex = parseInt(optionGoTo.value) }

@@ -101,8 +101,6 @@ function removeButton(div) {
 
     buttonList.splice(id, 1)
 
-    console.log(buttonList)
-
     if (buttonList.length == 0) {
         liste.innerHTML = ""
         liste.classList.remove("table")
