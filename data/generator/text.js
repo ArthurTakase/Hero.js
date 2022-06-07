@@ -4,7 +4,7 @@ const language = {
         "Version": "v1.0.6",
         "NavHeader": "Hero.js",
         "GameInfosTitle": "Informations",
-        "GameInfosGeneral": "Générales",
+        "GameInfosGeneral": "Préférences",
         "GameinfosDisplay": "Affichage",
         "GameInfosStyle": "Style",
         "DataTitle": "Données",
@@ -38,7 +38,21 @@ const language = {
         "HomeMsg": 'Hero.js est un lecteur/générateur de <b>Visual Novel</b> entièrement <b>OpenSource</b>.\
                         Le but de ce projet est de permettre à tout le monde de créer facilement ses jeux (d\'un simple Doki Doki à un JDR avec systeme de combat), <b>sans coder</b>.\
                         Alors qu\'attendez-vous pour écrire vos histoire ?<br><br>\
-                        Si vous avez le compétences nécessaires, vous pouvez participer au développement du projet sur <a href="https://github.com/ArthurTakase/Heros.js" target="_blank" style="color: var(--accent-color);">github</a>!<br>'
+                        Si vous avez le compétences nécessaires, vous pouvez participer au développement du projet sur <a href="https://github.com/ArthurTakase/Heros.js" target="_blank" style="color: var(--accent-color);">github</a>!<br>',
+        "GameTitle": "Nom du jeu",
+        "FirstDialog": "ID du premier dialogue",
+        "DefeatDialog": "ID du dialogue de défaite (JDR)",
+        "MaxDice": "Valeur max des dés (pour l'aléatoire)",
+        "MaxSkills": "Nombre max de compétences pour le joueur",
+        "ShowStamina": "Stamina",
+        "ShowAbility": "Habileté",
+        "ShowSkills": "Compétences",
+        "ShowGold": "Argent",
+        "ShowInventory": "Inventaire",
+        "ColorContainer": "Couleurs",
+        "CSSContainer": "CSS Personnalisé",
+        "ColorTableElement": "Élément",
+        "ColorTableValue": "Valeur",
     },
     "en": {
         "Title": "Hero.js Generator",
@@ -79,17 +93,31 @@ const language = {
         "HomeMsg": 'Hero.js is an <b>OpenSource</b> project of <b>Visual Novel game engine</b>.\
                         The goal of this project is to allow you to create Visual Novels (from a simple Doki Doki to a JDR with fighting system), <b>without coding.</b>\
                         So what are you waiting for to start creating your stories?<br><br>\
-                        If you have the skills, you can participate to the development of the project on <a href="https://github.com/ArthurTakase/Heros.js" target="_blank" style="color: var(--accent-color);">github</a>!<br>'
+                        If you have the skills, you can participate to the development of the project on <a href="https://github.com/ArthurTakase/Heros.js" target="_blank" style="color: var(--accent-color);">github</a>!<br>',
+        "GameTitle": "Game Title",
+        "FirstDialog": "First Dialog ID",
+        "DefeatDialog": "Defeat Dialog ID (JDR)",
+        "MaxDice": "Max Dice Value (for random number generation)",
+        "MaxSkills": "Max number of skills for the player",
+        "ShowStamina": "Stamina",
+        "ShowAbility": "Ability",
+        "ShowSkills": "Skills",
+        "ShowGold": "Gold",
+        "ShowInventory": "Inventory",
+        "ColorContainer": "Colors",
+        "CSSContainer": "Custom CSS",
+        "ColorTableElement": "Element",
+        "ColorTableValue": "Value",
     }
 }
 
-const elements = {
+const elementsText = {
     "Title": ["ProjectTitle"],
     "Version": ["version"],
     "NavHeader": ["navHeader"],
     "GameInfosTitle": ["GameInfosTitle"],
-    "GameInfosGeneral": ["GameInfosGeneral", "GeneralSubtitle"],
-    "GameinfosDisplay": ["GameinfosDisplay", "DisplaySubtitle"],
+    "GameInfosGeneral": ["GameInfosGeneral", "GeneralSubtitle", "GeneralContainer"],
+    "GameinfosDisplay": ["GameinfosDisplay", "DisplaySubtitle", "DisplayContainer"],
     "GameInfosStyle": ["GameInfosStyle", "StyleSubtitle"],
     "DataTitle": ["DataTitle"],
     "DataSkills": ["DataSkills", "SkillsSubtitle"],
@@ -112,7 +140,25 @@ const elements = {
     "Home": ["Home"],
     "InformationsTitle": ["InformationsTitle"],
     "Informations": ["Informations"],
-    "HomeMsg": ["HomeMsg"]
+    "HomeMsg": ["HomeMsg"],
+    "ShowStamina": ["ShowStamina"],
+    "ShowAbility": ["ShowAbility"],
+    "ShowSkills": ["ShowSkills"],
+    "ShowGold": ["ShowGold"],
+    "ShowInventory": ["ShowInventory"],
+    "ColorContainer": ["ColorContainer"],
+    "CSSContainer": ["CSSContainer"],
+    "ColorTableElement": ["ColorElemTable"],
+    "ColorTableValue": ["ColorValueTable"],
+}
+
+const elementsPlaceHolder = {
+    "GameTitle": ["title"],
+    "FirstDialog": ["startNumber"],
+    "DefeatDialog": ["defeatNumber"],
+    "MaxDice": ["maxDice"],
+    "MaxSkills": ["maxSkills"],
+    "CSSContainer": ["customCSS"]
 }
 
 function translate(lang) {
@@ -122,13 +168,27 @@ function translate(lang) {
     if (lang == "en") flag.innerHTML = "🇬🇧"
     if (lang == "fr") flag.innerHTML = "🇫🇷"
 
-    for (let key in elements) {
-        let element = elements[key]
+    for (let key in elementsText) {
+        let element = elementsText[key]
         let elementTranslated = language[lang][key]
 
         element.forEach(it => {
             try {
                 document.getElementById(it).innerHTML = elementTranslated
+            } catch (e) {
+                console.log("error on element " + it + " : " + e)
+            }
+        });
+    }
+
+    for (let key in elementsPlaceHolder) {
+        let element = elementsPlaceHolder[key]
+        let elementTranslated = language[lang][key]
+
+        element.forEach(it => {
+            try {
+                document.getElementById(it).placeholder = elementTranslated
+                document.getElementById(it).title = elementTranslated
             } catch (e) {
                 console.log("error on element " + it + " : " + e)
             }

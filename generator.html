@@ -37,22 +37,22 @@
 
                 <div class="nav__list">
                     <div class="nav__items">
-                        <h3 class="nav__subtitle" onclick="show('index')" id="navHeader">Hero.js</h3>
+                        <h3 class="nav__subtitle" onclick="show('index')" id="navHeader"></h3>
 
 
                         <!-- ===== GAME INFOS ===== -->
                         <div class="nav__dropdown" id="infosDropDown">
                             <a class="nav__link" id="infosLink">
                                 <i class='bx bx-info-circle nav__icon' onclick="show('infos')"></i>
-                                <span class="nav__name" onclick="show('infos')" id="GameInfosTitle">Game Infos</span>
+                                <span class="nav__name" onclick="show('infos')" id="GameInfosTitle"></span>
                                 <i class='bx bx-chevron-down nav__icon nav__dropdown-icon' onclick="showDropDown('infosDropDown')"></i>
                             </a>
 
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
-                                    <a class="nav__dropdown-item" onclick="show('infos')" id="GameInfosGeneral">General</a>
-                                    <a class="nav__dropdown-item" onclick="show('infos-display')" id="GameinfosDisplay">Display</a>
-                                    <a class="nav__dropdown-item" onclick="show('infos-color')" id="GameInfosStyle">Style</a>
+                                    <a class="nav__dropdown-item" onclick="show('infos')" id="GameInfosGeneral"></a>
+                                    <a class="nav__dropdown-item" onclick="show('infos-display')" id="GameinfosDisplay"></a>
+                                    <a class="nav__dropdown-item" onclick="show('infos-color')" id="GameInfosStyle"></a>
                                 </div>
                             </div>
                         </div>
@@ -61,16 +61,16 @@
                         <div class="nav__dropdown" id="dataDropDown">
                             <a class="nav__link" id="dataLink">
                                 <i class='bx bx-data nav__icon' onclick="show('data')"></i>
-                                <span class="nav__name" onclick="show('data')" id="DataTitle">Data</span>
+                                <span class="nav__name" onclick="show('data')" id="DataTitle"></span>
                                 <i class='bx bx-chevron-down nav__icon nav__dropdown-icon' onclick="showDropDown('dataDropDown')"></i>
                             </a>
 
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
-                                    <a class="nav__dropdown-item" onclick="show('data')" id="DataSkills">Skills</a>
-                                    <a class="nav__dropdown-item" onclick="show('data-objects')" id="DataObjects">Objects</a>
-                                    <a class="nav__dropdown-item" onclick="show('data-pictures')" id="DataPictures">Pictures</a>
-                                    <a class="nav__dropdown-item" onclick="show('data-sounds')" id="DataSounds">Sounds</a>
+                                    <a class="nav__dropdown-item" onclick="show('data')" id="DataSkills"></a>
+                                    <a class="nav__dropdown-item" onclick="show('data-objects')" id="DataObjects"></a>
+                                    <a class="nav__dropdown-item" onclick="show('data-pictures')" id="DataPictures"></a>
+                                    <a class="nav__dropdown-item" onclick="show('data-sounds')" id="DataSounds"></a>
                                 </div>
                             </div>
                         </div>
@@ -78,22 +78,22 @@
                         <!-- ===== PLAYER ===== -->
                         <a class="nav__link" onclick="show('player')" id="playerLink">
                             <i class='bx bxs-user nav__icon'></i>
-                            <span class="nav__name" id="PlayerTitle">Player</span>
+                            <span class="nav__name" id="PlayerTitle"></span>
                         </a>
 
                         <!-- ===== DIALOGS ===== -->
                         <div class="nav__dropdown" id="dialogDropDown">
                             <a id="dialogLink" class="nav__link">
                                 <i class='bx bx-message-dots nav__icon' onclick="show('dialog')"></i>
-                                <span class="nav__name" onclick="show('dialog')" id="DialogTitle">Dialogs</span>
+                                <span class="nav__name" onclick="show('dialog')" id="DialogTitle"></span>
                                 <i class='bx bx-chevron-down nav__icon nav__dropdown-icon' onclick="showDropDown('dialogDropDown')"></i>
                             </a>
 
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
-                                    <a onclick="show('dialog')" class="nav__dropdown-item" id="DialogCreate">Create</a>
-                                    <a onclick="show('dialog-list')" class="nav__dropdown-item" id="DialogList">List</a>
-                                    <a onclick="show('dialog-map')" class="nav__dropdown-item" id="DialogMap">Map</a>
+                                    <a onclick="show('dialog')" class="nav__dropdown-item" id="DialogCreate"></a>
+                                    <a onclick="show('dialog-list')" class="nav__dropdown-item" id="DialogList"></a>
+                                    <a onclick="show('dialog-map')" class="nav__dropdown-item" id="DialogMap"></a>
                                 </div>
                             </div>
                         </div>
@@ -108,13 +108,13 @@
 
                 <a class="nav__link" onclick="switchTranslate()">
                     <span class="nav__icon" id="flag">🇫🇷</span>
-                    <span class="nav__name" id="LanguageTitle">Language</span>
+                    <span class="nav__name" id="LanguageTitle"></span>
                 </a>
 
                 <br>
                 <a class="nav__link" id="toggleTheme" onclick="switchTheme()">
                     <i class='bx bx-sun nav__icon'></i>
-                    <span class="nav__name" id="ThemeTitle">Theme</span>
+                    <span class="nav__name" id="ThemeTitle"></span>
                 </a>
 
                 <br>
@@ -139,50 +139,50 @@
         <div class='header_element header_active' style='font-weight: bold;' id="Home">Home</div>
         <!--  -->
         <div onclick="show('infos')" class="header_element">
-            <div class="header_text" id="GeneralSubtitle">General</div>
+            <div class="header_text" id="GeneralSubtitle"></div>
             <div class="header_bottom"></div>
         </div>
         <div onclick="show('infos-display')" class="header_element">
-            <div class="header_text" id="DisplaySubtitle">Display</div>
+            <div class="header_text" id="DisplaySubtitle"></div>
             <div class="header_bottom"></div>
         </div>
         <div class="header_element" onclick="show('infos-color')">
-            <div class="header_text" id="StyleSubtitle">Style</div>
+            <div class="header_text" id="StyleSubtitle"></div>
             <div class="header_bottom"></div>
         </div>
         <!--  -->
         <div onclick="show('data')" class="header_element">
-            <div class="header_text" id="SkillsSubtitle">Skills</div>
+            <div class="header_text" id="SkillsSubtitle"></div>
             <div class="header_bottom"></div>
         </div>
         <div onclick="show('data-objects')" class="header_element">
-            <div class="header_text" id="ObjectsSubtitle">Objects</div>
+            <div class="header_text" id="ObjectsSubtitle"></div>
             <div class="header_bottom"></div>
         </div>
         <div class="header_element" onclick="show('data-pictures')">
-            <div class="header_text" id="PicturesSubtitle">Pictures</div>
+            <div class="header_text" id="PicturesSubtitle"></div>
             <div class="header_bottom"></div>
         </div>
         <div onclick="show('data-sounds')" class="header_element">
-            <div class="header_text" id="SoundsSubtitle">Sounds</div>
+            <div class="header_text" id="SoundsSubtitle"></div>
             <div class="header_bottom"></div>
         </div>
         <!-- -->
         <div onclick="show('player')" class="header_element">
-            <div class="header_text" id="PlayerSubtitle">Player</div>
+            <div class="header_text" id="PlayerSubtitle"></div>
             <div class="header_bottom"></div>
         </div>
         <!--  -->
         <div onclick="show('dialog')" class="header_element">
-            <div class="header_text" id="DialogCreateSubtitle">Create</div>
+            <div class="header_text" id="DialogCreateSubtitle"></div>
             <div class="header_bottom"></div>
         </div>
         <div onclick="show('dialog-list')" class="header_element">
-            <div class="header_text" id="DialogListSubtitle">List</div>
+            <div class="header_text" id="DialogListSubtitle"></div>
             <div class="header_bottom"></div>
         </div>
         <div class="header_element" onclick="show('dialog-map')">
-            <div class="header_text" id="DialogMapSubtitle">Map</div>
+            <div class="header_text" id="DialogMapSubtitle"></div>
             <div class="header_bottom"></div>
         </div>
 
@@ -218,13 +218,49 @@
 
                 <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#eaade251e7df4b19bcfc35dd4583be4a" target="_blank" class="help"><i class='bx bx-help-circle'></i> Help</a>
 
-                <div class="sub_container_title">General</div>
+                <div class="sub_container_title" id="GeneralContainer"></div>
 
-                <input type="text" name="title" id="title" placeholder="Game Title" title="Game title" required>
-                <input type="number" name="startNumber" id="startNumber" placeholder="First Dialog" title="First Dialog" required>
-                <input type="number" name="defeatNumber" id="defeatNumber" placeholder="Defeat Dialog (not required)" title="Defeat Dialog (not required)" required>
-                <input type="number" name="maxDice" id="maxDice" placeholder="Max Dice (not required)" title="Max Dice (not required)" required>
-                <input type="number" name="maxSkills" id="maxSkills" placeholder="Max Skills (not required)" title="Max Skills (not required)" required>
+                <input type="text" name="title" id="title" class="required" required>
+                <input type="number" name="startNumber" id="startNumber" class="required" required>
+                <input type="number" name="defeatNumber" id="defeatNumber" required>
+                <input type="number" name="maxDice" id="maxDice" required>
+                <input type="number" name="maxSkills" id="maxSkills" required>
+
+            </div>
+        </section>
+
+        <!-- ===== INFOS DISPLAY ===== -->
+        <section id="infos-display">
+            <div class="sub_container">
+
+                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#e47507ff3f864fbdaf075fdeba560db7" target="_blank" class="help"><i class='bx bx-help-circle'></i> Help</a>
+
+                <div class="sub_container_title" id="DisplayContainer"></div>
+
+                <div class="data check">
+                    <input type="checkbox" name="showPlayerStamina" id="showPlayerStamina" required checked>
+                    <label for="showPlayerStamina" id="ShowStamina"></label>
+                </div>
+
+                <div class="data check">
+                    <input type="checkbox" name="showPlayerAbility" id="showPlayerAbility" required checked>
+                    <label for="showPlayerAbility" id="ShowAbility"></label>
+                </div>
+
+                <div class="data check">
+                    <input type="checkbox" name="showPlayerSkills" id="showPlayerSkills" required checked>
+                    <label for="showPlayerSkills" id="ShowSkills"></label>
+                </div>
+
+                <div class="data check">
+                    <input type="checkbox" name="showPlayerGold" id="showPlayerGold" required checked>
+                    <label for="showPlayerGold" id="ShowGold"></label>
+                </div>
+
+                <div class="data check">
+                    <input type="checkbox" name="showPlayerInventory" id="showPlayerInventory" required checked>
+                    <label for="showPlayerInventory" id="ShowInventory"></label>
+                </div>
 
             </div>
         </section>
@@ -235,7 +271,7 @@
 
                 <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#9949dd896dd34c3a97093ad04f4d443e" target="_blank" class="help"><i class='bx bx-help-circle'></i> Help</a>
 
-                <div class="sub_container_title">Color</div>
+                <div class="sub_container_title" id="ColorContainer"></div>
 
                 <div class="switch-color" onclick="advancedColor()"><i class='bx bx-edit-alt'></i></div>
 
@@ -288,44 +324,8 @@
 
                 <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#1a203276ff10487a995f3f1ae1379fca" target="_blank" class="help"><i class='bx bx-help-circle'></i> Help</a>
 
-                <div class="sub_container_title">Custom CSS</div>
-                <textarea rows="5" name="customCSS" id="customCSS" placeholder="Custom CSS" title="Custom CSS"></textarea>
-            </div>
-        </section>
-
-        <!-- ===== INFOS DISPLAY ===== -->
-        <section id="infos-display">
-            <div class="sub_container">
-
-                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#e47507ff3f864fbdaf075fdeba560db7" target="_blank" class="help"><i class='bx bx-help-circle'></i> Help</a>
-
-                <div class="sub_container_title">Display</div>
-
-                <div class="data check">
-                    <input type="checkbox" name="showPlayerStamina" id="showPlayerStamina" required checked>
-                    <label for="showPlayerStamina">Show Stamina</label>
-                </div>
-
-                <div class="data check">
-                    <input type="checkbox" name="showPlayerAbility" id="showPlayerAbility" required checked>
-                    <label for="showPlayerAbility">Show Ability</label>
-                </div>
-
-                <div class="data check">
-                    <input type="checkbox" name="showPlayerSkills" id="showPlayerSkills" required checked>
-                    <label for="showPlayerSkills">Show Skills</label>
-                </div>
-
-                <div class="data check">
-                    <input type="checkbox" name="showPlayerGold" id="showPlayerGold" required checked>
-                    <label for="showPlayerGold">Show Gold</label>
-                </div>
-
-                <div class="data check">
-                    <input type="checkbox" name="showPlayerInventory" id="showPlayerInventory" required checked>
-                    <label for="showPlayerInventory">Show Inventory</label>
-                </div>
-
+                <div class="sub_container_title" id="CSSContainer"></div>
+                <textarea rows="5" name="customCSS" id="customCSS"></textarea>
             </div>
         </section>
 
@@ -435,9 +435,9 @@
                 <div class="sub_container_title">Dialog</div>
 
                 <input type="text" onchange="Instantpreview()" name="dialogID" id="dialogID" placeholder="ID" title="Dialog ID" value="0">
-                <input type="text" onchange="Instantpreview()" name="dialogTitle" id="dialogTitle" placeholder="Dialog title (not required)" title="Dialog title (not required)">
-                <textarea rows="5" onchange="Instantpreview()" name="dialogBody" id="dialogBody" placeholder="Dialog body (not required)" title="Dialog body (not required)"></textarea>
-                <input type="text" onchange="Instantpreview()" name="dialogAction" id="dialogAction" placeholder="Dialog action (not required)" title="Dialog action (not required)">
+                <input type="text" onchange="Instantpreview()" name="dialogTitle" id="dialogTitle" placeholder="Dialog title" title="Dialog title">
+                <textarea rows="5" onchange="Instantpreview()" name="dialogBody" id="dialogBody" placeholder="Dialog body" title="Dialog body"></textarea>
+                <input type="text" onchange="Instantpreview()" name="dialogAction" id="dialogAction" placeholder="Dialog action" title="Dialog action">
             </div>
 
             <!-- ===== DIALOG DATA ===== -->
@@ -471,11 +471,11 @@
                 <input type="text" name="optionID" id="optionID" placeholder="ID" title="Option ID" value="0">
 
                 <div class="grid-3">
-                    <input type="text" name="optionBody" onchange="Instantpreview()" id="optionBody" placeholder="Button Body" title="Option Body">
+                    <input type="text" name="optionBody" onchange="Instantpreview()" id="optionBody" class="required" placeholder="Button Body" title="Option Body">
                 </div>
 
                 <div class="grid-3">
-                    <input type="number" name="optionGoToIndex" id="optionGoToIndex" placeholder="Go to Index (not required)" title="Go to Index (not required)">
+                    <input type="number" name="optionGoToIndex" id="optionGoToIndex" placeholder="Go to Index" title="Go to Index">
                     <select name="optionSound" id="optionSound">
                         <option>No Sound</option>
                     </select>

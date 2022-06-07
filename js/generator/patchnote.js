@@ -42,7 +42,8 @@ const patchnote = [{
             "Added an engine translation button (fr/en).",
             "New version of the top bar, much easier to maintain and translate.",
             "Translation of the navbar, headerbar, and homepage",
-            "Quick patchnote system"
+            "Quick patchnote system",
+            "Complete translation of Game Infos"
         ]
     }
 ]
