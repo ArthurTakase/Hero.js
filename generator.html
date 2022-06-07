@@ -195,12 +195,7 @@
         <section id="index">
             <div class="sub_container">
                 <div class="sub_container_title">Hero.js Generator</div>
-                <span style="text-align: center;">
-                        Hero.js is an <b>OpenSource</b> project of <b>Visual Novel game engine</b>.
-                        The goal of this project is to allow you to create Visual Novels (from a simple Doki Doki to a JDR with fighting system), <b>without coding.</b>
-                        So what are you waiting for to start creating your stories?<br><br>
-                        If you have the skills, you can participate to the development of the project on <a href="https://github.com/ArthurTakase/Heros.js" target="_blank" style="color: var(--accent-color);">github</a>!<br>
-                    </span>
+                <span style="text-align: center;" id="HomeMsg"></span>
                 <div class="img_list">
                     <img onclick="show('infos')" src="img/let's create.png">
                 </div>
@@ -208,16 +203,7 @@
 
             <div class="sub_container">
                 <div class="sub_container_title">Informations</div>
-                <span style="text-align: center;">
-                    <h3>Shortcuts</h3>
-                    <b>Ctrl + S</b> Save project<br>
-                    <b>Ctrl + D</b> Load project<br>
-                    <b>Ctrl + F</b> Toggle advanced mode<br>
-                    <br><h3>Documentations</h3>
-                    <a style="color: var(--accent-color); text-decoration: none; transition: .2s;" href="https://icy-wind-398.notion.site/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b" target="_blank">🇫🇷 Détails de l'interface de création</a><br>
-                    <a style="color: var(--accent-color); text-decoration: none; transition: .2s;" href="https://icy-wind-398.notion.site/Correction-des-erreurs-classiques-194bd01a71cc4bb29dfcdf958d2926af" target="_blank">🇫🇷 Correction des erreurs classiques</a><br>
-                    <a style="color: var(--accent-color); text-decoration: none; transition: .2s;" href="https://icy-wind-398.notion.site/FAQ-0cf40d6d48d44d1d9f9e4b931041c04a" target="_blank">🇫🇷 FAQ</a>
-                </span>
+                <span style="text-align: center;" id="Informations"></span>
             </div>
 
             <div class="space" style="color: var(--accent-color); width: 100%; text-align: center; padding-top: 1rem; font-size: 3rem; margin-bottom: -1.3rem;">
@@ -618,7 +604,7 @@
 
     <div id="remove-modal">
         <p id="DeleteMsg"></p>
-        <button onclick="confirmDeletion()" id="DeleteConfirm">Confirm</button>
+        <button onclick="confirmDeletion()" id="DeleteConfirm"></button>
     </div>
 
     <div id="notif-zone"></div>

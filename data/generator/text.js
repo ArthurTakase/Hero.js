@@ -26,6 +26,18 @@ const language = {
         "EditCmd": "Editer",
         "DeleteCmd": "Supprimer",
         "Home": "Accueil",
+        "Informations": "<h3>Raccourcis</h3>\
+                        <b>Ctrl + S</b> Sauvegarder le projet<br>\
+                        <b>Ctrl + D</b> Charger un projet<br>\
+                        <b>Ctrl + F</b> Activer le mode avancé<br>\
+                        <br><h3>Documentations</h3>\
+                        <a style='color: var(--accent-color); text-decoration: none; transition: .2s;' href='https://icy-wind-398.notion.site/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b' target='_blank'>🇫🇷 Détails de l'interface de création</a><br>\
+                        <a style='color: var(--accent-color); text-decoration: none; transition: .2s;'' href='https://icy-wind-398.notion.site/Correction-des-erreurs-classiques-194bd01a71cc4bb29dfcdf958d2926af' target='_blank'>🇫🇷 Correction des erreurs classiques</a><br>\
+                        <a style='color: var(--accent-color); text-decoration: none; transition: .2s;' href='https://icy-wind-398.notion.site/FAQ-0cf40d6d48d44d1d9f9e4b931041c04a' target='_blank'>🇫🇷 FAQ</a>",
+        "HomeMsg": 'Hero.js est un lecteur/générateur de <b>Visual Novel</b> entièrement <b>OpenSource</b>.\
+                        Le but de ce projet est de permettre à tout le monde de créer facilement ses jeux (d\'un simple Doki Doki à un JDR avec systeme de combat), <b>sans coder</b>.\
+                        Alors qu\'attendez-vous pour écrire vos histoire ?<br><br>\
+                        Si vous avez le compétences nécessaires, vous pouvez participer au développement du projet sur <a href="https://github.com/ArthurTakase/Heros.js" target="_blank" style="color: var(--accent-color);">github</a>!<br>'
     },
     "en": {
         "title": "Hero.js | Generator",
@@ -53,7 +65,19 @@ const language = {
         "DeleteConfirm": "Confirm",
         "EditCmd": "Edit",
         "DeleteCmd": "Remove",
-        "Home": "Home"
+        "Home": "Home",
+        "Informations": "<h3>Shortcuts</h3>\
+                        <b>Ctrl + S</b> Save project<br>\
+                        <b>Ctrl + D</b> Load project<br>\
+                        <b>Ctrl + F</b> Toggle advanced mode<br>\
+                        <br><h3>Documentations</h3>\
+                        <a style='color: var(--accent-color); text-decoration: none; transition: .2s;' href='https://icy-wind-398.notion.site/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b' target='_blank'>🇫🇷 Détails de l'interface de création</a><br>\
+                        <a style='color: var(--accent-color); text-decoration: none; transition: .2s;'' href='https://icy-wind-398.notion.site/Correction-des-erreurs-classiques-194bd01a71cc4bb29dfcdf958d2926af' target='_blank'>🇫🇷 Correction des erreurs classiques</a><br>\
+                        <a style='color: var(--accent-color); text-decoration: none; transition: .2s;' href='https://icy-wind-398.notion.site/FAQ-0cf40d6d48d44d1d9f9e4b931041c04a' target='_blank'>🇫🇷 FAQ</a>",
+        "HomeMsg": 'Hero.js is an <b>OpenSource</b> project of <b>Visual Novel game engine</b>.\
+                        The goal of this project is to allow you to create Visual Novels (from a simple Doki Doki to a JDR with fighting system), <b>without coding.</b>\
+                        So what are you waiting for to start creating your stories?<br><br>\
+                        If you have the skills, you can participate to the development of the project on <a href="https://github.com/ArthurTakase/Heros.js" target="_blank" style="color: var(--accent-color);">github</a>!<br>'
     }
 }
 
@@ -82,7 +106,9 @@ const elements = {
     "DeleteConfirm": ["DeleteConfirm"],
     "EditCmd": ["EditCmd"],
     "DeleteCmd": ["DeleteCmd"],
-    "Home": ["Home"]
+    "Home": ["Home"],
+    "Informations": ["Informations"],
+    "HomeMsg": ["HomeMsg"]
 }
 
 function translate(lang) {
