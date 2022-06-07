@@ -23,24 +23,24 @@
     align-items: center;
     color: var(--text-color);
     border-top: solid var(--text-color-50) .2rem;
-    transition: .3s;
+    transition: .2s;
 }
 
 .header_element:hover {
     cursor: pointer;
-    background-color: var(--accent-color-10);
+    background-color: var(--header-hover-color);
     border-color: var(--accent-color);
+    color: var(--header-hover-text);
 }
 
 .header_text {
     margin-top: -5px;
 }
 
-.header_active .header_bottom {
-    background: var(--accent-color);
-}
-
 .header_active {
-    background-color: var(--accent-color-50);
+    background-color: var(--header-active-color);
     border-color: var(--accent-color);
+    color: var(--header-active-text);
+    /* font-weight: bold; */
+    border-width: .4rem;
 }

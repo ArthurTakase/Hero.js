@@ -1,8 +1,8 @@
 const language = {
     "fr": {
-        "title": "Hero.js | Générateur",
-        "version": "v1.0.6",
-        "navHeader": "Hero.js",
+        "Title": "Générateur Hero.js",
+        "Version": "v1.0.6",
+        "NavHeader": "Hero.js",
         "GameInfosTitle": "Informations",
         "GameInfosGeneral": "Générales",
         "GameinfosDisplay": "Affichage",
@@ -26,6 +26,7 @@ const language = {
         "EditCmd": "Editer",
         "DeleteCmd": "Supprimer",
         "Home": "Accueil",
+        "InformationsTitle": "Informations",
         "Informations": "<h3>Raccourcis</h3>\
                         <b>Ctrl + S</b> Sauvegarder le projet<br>\
                         <b>Ctrl + D</b> Charger un projet<br>\
@@ -40,9 +41,9 @@ const language = {
                         Si vous avez le compétences nécessaires, vous pouvez participer au développement du projet sur <a href="https://github.com/ArthurTakase/Heros.js" target="_blank" style="color: var(--accent-color);">github</a>!<br>'
     },
     "en": {
-        "title": "Hero.js | Generator",
-        "version": "v1.0.6",
-        "navHeader": "Hero.js",
+        "Title": "Hero.js Generator",
+        "Version": "v1.0.6",
+        "NavHeader": "Hero.js",
         "GameInfosTitle": "Game Infos",
         "GameInfosGeneral": "General",
         "GameinfosDisplay": "Display",
@@ -66,6 +67,7 @@ const language = {
         "EditCmd": "Edit",
         "DeleteCmd": "Remove",
         "Home": "Home",
+        "InformationsTitle": "Informations",
         "Informations": "<h3>Shortcuts</h3>\
                         <b>Ctrl + S</b> Save project<br>\
                         <b>Ctrl + D</b> Load project<br>\
@@ -82,8 +84,9 @@ const language = {
 }
 
 const elements = {
-    "version": ["version"],
-    "navHeader": ["navHeader"],
+    "Title": ["ProjectTitle"],
+    "Version": ["version"],
+    "NavHeader": ["navHeader"],
     "GameInfosTitle": ["GameInfosTitle"],
     "GameInfosGeneral": ["GameInfosGeneral", "GeneralSubtitle"],
     "GameinfosDisplay": ["GameinfosDisplay", "DisplaySubtitle"],
@@ -107,6 +110,7 @@ const elements = {
     "EditCmd": ["EditCmd"],
     "DeleteCmd": ["DeleteCmd"],
     "Home": ["Home"],
+    "InformationsTitle": ["InformationsTitle"],
     "Informations": ["Informations"],
     "HomeMsg": ["HomeMsg"]
 }
@@ -134,6 +138,7 @@ function translate(lang) {
 
 function switchTranslate() {
     let lang = localStorage.getItem("lang")
+
+    if (lang == "fr" || lang == null) translate("en")
     if (lang == "en") translate("fr")
-    if (lang == "fr") translate("en")
 }

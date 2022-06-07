@@ -194,7 +194,7 @@
         <!-- ===== HOME ===== -->
         <section id="index">
             <div class="sub_container">
-                <div class="sub_container_title">Hero.js Generator</div>
+                <div class="sub_container_title" id="ProjectTitle"></div>
                 <span style="text-align: center;" id="HomeMsg"></span>
                 <div class="img_list">
                     <img onclick="show('infos')" src="img/let's create.png">
@@ -202,57 +202,12 @@
             </div>
 
             <div class="sub_container">
-                <div class="sub_container_title">Informations</div>
+                <div class="sub_container_title" id="InformationsTitle"></div>
                 <span style="text-align: center;" id="Informations"></span>
             </div>
 
             <div class="space" style="color: var(--accent-color); width: 100%; text-align: center; padding-top: 1rem; font-size: 3rem; margin-bottom: -1.3rem;">
                 <i class='bx bx-dots-horizontal-rounded'></i>
-            </div>
-
-            <div class="sub_container">
-                <div class="sub_container_title">PatchNote (06/06/2022)</div>
-                <span style="text-align: center;">
-                    <h3>Generator</h3>
-                    Add Light Theme<br>
-                </span>
-            </div>
-
-            <div class="sub_container">
-                <div class="sub_container_title">PatchNote (03/06/2022)</div>
-                <span style="text-align: center;">
-                    <h3>Generator</h3>
-                    Adding documentations in the different parts of the generator<br>
-                    Added a link to go back to the generator home page
-                </span>
-            </div>
-
-            <div class="sub_container">
-                <div class="sub_container_title">PatchNote (01/06/2022)</div>
-                <span style="text-align: center;">
-                    <h3>Generator</h3>
-                    Correction of button audio<br>
-                    automatic update of the preview when a dialog is modified<br>
-                    Change the behavior of the sidebar<br>
-                    Deleting object types<br>
-                    Correction of the error related to the Skills and Effects conditions<br>
-                    Minor bug fixes<br>
-                    <br><h3>Engine</h3>
-                    Change the behavior of the sidebar<br>
-                </span>
-            </div>
-
-            <div class="sub_container">
-                <div class="sub_container_title">PatchNote (21/05/2022)</div>
-                <span style="text-align: center;">
-                    <h3>Generator</h3>
-                    Add notification when dialog is saved.<br>
-                    If player's infos are empty, automatically fill them with 0.<br>
-                    Fix error when previewing a "no background" dialog.<br>
-                    "No Music" instead of "" when edit a dialog without music.<br>
-                    If you load a project without a player, the player tab will be set to "No Player".<br>
-                    No more errors with RANDOM_IN_CLASS and RANDOM_IN_CLASS_UNIQUE.<br>
-                </span>
             </div>
 
         </section>
@@ -635,6 +590,7 @@
     <script src="js/generator/hotkeys.js"></script>
     <script src="js/generator/random.js"></script>
     <script src="js/generator/navbar.js"></script>
+    <script src="js/generator/patchnote.js"></script>
 </body>
 
 </html>
