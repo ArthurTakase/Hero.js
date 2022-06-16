@@ -96,8 +96,6 @@
     width: 14rem;
     height: 20rem;
     object-fit: cover;
-    /* position: fixed; */
-    /* top: 2.5rem; */
     border-radius: .6rem;
     opacity: 0.4;
     filter: blur(4px);
@@ -134,6 +132,10 @@
     width: 50%;
     overflow: scroll;
     transition: .5s;
+}
+
+#startMenuDescription::-webkit-scrollbar {
+    display: none;
 }
 
 #startMenuPlay {
