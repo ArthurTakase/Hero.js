@@ -1,7 +1,7 @@
 const language = {
     "fr": {
         "Title": "Générateur Hero.js",
-        "Version": "v1.0.6",
+        "Version": "v1.0.7",
         "NavHeader": "Hero.js",
         "GameInfosTitle": "Informations",
         "GameInfosGeneral": "Préférences",
@@ -67,7 +67,7 @@ const language = {
     },
     "en": {
         "Title": "Hero.js Generator",
-        "Version": "v1.0.6",
+        "Version": "v1.0.7",
         "NavHeader": "Hero.js",
         "GameInfosTitle": "Game Infos",
         "GameInfosGeneral": "General",
