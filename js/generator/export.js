@@ -32,6 +32,11 @@ function gameInfos() {
     const defeatNumber = document.getElementById("defeatNumber")
     const maxSkills = document.getElementById("maxSkills")
     const startNumber = document.getElementById("startNumber")
+    const startPicture = document.getElementById("startPicture")
+    const startBackground = document.getElementById("startBackground")
+    const startAuthor = document.getElementById("startAuthor")
+    const startLanguage = document.getElementById("startLanguage")
+    const startSynopsis = document.getElementById("startSynopsis")
 
     json.title = document.getElementById("title").value
     if (defeatNumber.value != "") { json.defeatNumber = parseInt(defeatNumber.value) }
@@ -43,6 +48,13 @@ function gameInfos() {
     json.showPlayerSkills = document.querySelector('#showPlayerSkills').checked;
     json.showPlayerGold = document.querySelector('#showPlayerGold').checked;
     json.showPlayerInventory = document.querySelector('#showPlayerInventory').checked;
+
+    json.previewPicture = startPicture.value
+    json.previewBackground = startBackground.value
+    json.previewAuthor = startAuthor.value
+    json.previewLanguage = startLanguage.value
+    json.previewSynopsis = startSynopsis.value
+    json.previewDate = new Date().toLocaleDateString()
 
     return json
 }
@@ -110,6 +122,8 @@ function createNotif(text, title) {
 }
 
 function checkJSON(json) {
+    console.log(json)
+
     if (error) { return false }
     if (json.gameInfos.title == undefined || json.gameInfos.title == "") {
         createNotif("No Game Title", "<i class='bx bx-bug'></i> Warning !")
@@ -117,6 +131,26 @@ function checkJSON(json) {
     }
     if (json.gameInfos.startNumber == undefined) {
         createNotif("No Start Number", "<i class='bx bx-bug'></i> Warning !")
+        return false
+    }
+    if (json.gameInfos.previewPicture == undefined || json.previewPicture == "") {
+        createNotif("No Game Cover", "<i class='bx bx-bug'></i> Warning !")
+        return false
+    }
+    if (json.gameInfos.previewBackground == undefined || json.previewBackground == "") {
+        createNotif("No Game Illustration", "<i class='bx bx-bug'></i> Warning !")
+        return false
+    }
+    if (json.gameInfos.previewAuthor == undefined || json.previewAuthor == "") {
+        createNotif("No Game Author", "<i class='bx bx-bug'></i> Warning !")
+        return false
+    }
+    if (json.gameInfos.previewLanguage == undefined || json.previewLanguage == "") {
+        createNotif("No Game Language", "<i class='bx bx-bug'></i> Warning !")
+        return false
+    }
+    if (json.gameInfos.previewSynopsis == undefined || json.previewSynopsis == "") {
+        createNotif("No Game Synopsis", "<i class='bx bx-bug'></i> Warning !")
         return false
     }
 

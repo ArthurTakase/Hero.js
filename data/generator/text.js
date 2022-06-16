@@ -57,7 +57,13 @@ const language = {
         "URL": "Lien (URL)",
         "Name": "Nom",
         "Preview": "Aperçu",
-        "Volume": "Volume"
+        "Volume": "Volume",
+        "StartMenu": "Menu de démarrage",
+        "startPicture": "Jaquette de votre jeu (URL)",
+        "startBackground": "Illustration de votre jeu (URL)",
+        "startAuthor": "Auteur",
+        "startLanguage": "Langue",
+        "startSynopsis": "Synopsis du jeu"
     },
     "en": {
         "Title": "Hero.js Generator",
@@ -117,7 +123,13 @@ const language = {
         "URL": "Link (URL)",
         "Name": "Name",
         "Preview": "Preview",
-        "Volume": "Volume"
+        "Volume": "Volume",
+        "StartMenu": "Start Menu",
+        "startPicture": "Cover of your game (URL)",
+        "startBackground": "Illustration of your game (URL)",
+        "startAuthor": "Author",
+        "startLanguage": "Language",
+        "startSynopsis": "Game Synopsis"
     }
 }
 
@@ -162,7 +174,8 @@ const elementsText = {
     "ColorTableValue": ["ColorValueTable"],
     "Name": ["ItemNameTable", "PictureElemTable", "SkillNameTable", "SoundNameTable"],
     "Preview": ["PictureValueTable", "SoundPreviewTable"],
-    "Volume": ["SoundVolumeTable"]
+    "Volume": ["SoundVolumeTable"],
+    "StartMenu": ["StartContainer"],
 }
 
 const elementsPlaceHolder = {
@@ -177,6 +190,11 @@ const elementsPlaceHolder = {
     "ShowGold": ["itemGold"],
     "NameUnique": ["skillName", "objectName", "pictureName", "soundName"],
     "URL": ["pictureURL", "soundURL"],
+    "startPicture": ["startPicture"],
+    "startBackground": ["startBackground"],
+    "startAuthor": ["startAuthor"],
+    "startLanguage": ["startLanguage"],
+    "startSynopsis": ["startSynopsis"]
 }
 
 function translate(lang) {
