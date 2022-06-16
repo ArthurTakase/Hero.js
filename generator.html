@@ -28,7 +28,7 @@
 
 <body>
 
-    <div id="version">v1.0.5</div>
+    <div id="version"></div>
 
     <!-- ===== SIDEBAR ===== -->
     <div class="nav" id="navbar">
@@ -37,22 +37,22 @@
 
                 <div class="nav__list">
                     <div class="nav__items">
-                        <h3 class="nav__subtitle" onclick="show('index')">Hero.js</h3>
+                        <h3 class="nav__subtitle" onclick="show('index')" id="navHeader"></h3>
 
 
                         <!-- ===== GAME INFOS ===== -->
                         <div class="nav__dropdown" id="infosDropDown">
                             <a class="nav__link" id="infosLink">
                                 <i class='bx bx-info-circle nav__icon' onclick="show('infos')"></i>
-                                <span class="nav__name" onclick="show('infos')">Game Infos</span>
+                                <span class="nav__name" onclick="show('infos')" id="GameInfosTitle"></span>
                                 <i class='bx bx-chevron-down nav__icon nav__dropdown-icon' onclick="showDropDown('infosDropDown')"></i>
                             </a>
 
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
-                                    <a class="nav__dropdown-item" onclick="show('infos')">General</a>
-                                    <a class="nav__dropdown-item" onclick="show('infos-display')">Display</a>
-                                    <a class="nav__dropdown-item" onclick="show('infos-color')">Style</a>
+                                    <a class="nav__dropdown-item" onclick="show('infos')" id="GameInfosGeneral"></a>
+                                    <a class="nav__dropdown-item" onclick="show('infos-display')" id="GameinfosDisplay"></a>
+                                    <a class="nav__dropdown-item" onclick="show('infos-color')" id="GameInfosStyle"></a>
                                 </div>
                             </div>
                         </div>
@@ -61,16 +61,16 @@
                         <div class="nav__dropdown" id="dataDropDown">
                             <a class="nav__link" id="dataLink">
                                 <i class='bx bx-data nav__icon' onclick="show('data')"></i>
-                                <span class="nav__name" onclick="show('data')">Data</span>
+                                <span class="nav__name" onclick="show('data')" id="DataTitle"></span>
                                 <i class='bx bx-chevron-down nav__icon nav__dropdown-icon' onclick="showDropDown('dataDropDown')"></i>
                             </a>
 
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
-                                    <a class="nav__dropdown-item" onclick="show('data')">Skills</a>
-                                    <a class="nav__dropdown-item" onclick="show('data-objects')">Objects</a>
-                                    <a class="nav__dropdown-item" onclick="show('data-pictures')">Pictures</a>
-                                    <a class="nav__dropdown-item" onclick="show('data-sounds')">Sounds</a>
+                                    <a class="nav__dropdown-item" onclick="show('data')" id="DataSkills"></a>
+                                    <a class="nav__dropdown-item" onclick="show('data-objects')" id="DataObjects"></a>
+                                    <a class="nav__dropdown-item" onclick="show('data-pictures')" id="DataPictures"></a>
+                                    <a class="nav__dropdown-item" onclick="show('data-sounds')" id="DataSounds"></a>
                                 </div>
                             </div>
                         </div>
@@ -78,22 +78,22 @@
                         <!-- ===== PLAYER ===== -->
                         <a class="nav__link" onclick="show('player')" id="playerLink">
                             <i class='bx bxs-user nav__icon'></i>
-                            <span class="nav__name">Player</span>
+                            <span class="nav__name" id="PlayerTitle"></span>
                         </a>
 
                         <!-- ===== DIALOGS ===== -->
                         <div class="nav__dropdown" id="dialogDropDown">
                             <a id="dialogLink" class="nav__link">
                                 <i class='bx bx-message-dots nav__icon' onclick="show('dialog')"></i>
-                                <span class="nav__name" onclick="show('dialog')">Dialogs</span>
+                                <span class="nav__name" onclick="show('dialog')" id="DialogTitle"></span>
                                 <i class='bx bx-chevron-down nav__icon nav__dropdown-icon' onclick="showDropDown('dialogDropDown')"></i>
                             </a>
 
                             <div class="nav__dropdown-collapse">
                                 <div class="nav__dropdown-content">
-                                    <a onclick="show('dialog')" class="nav__dropdown-item">Create</a>
-                                    <a onclick="show('dialog-list')" class="nav__dropdown-item">List</a>
-                                    <a onclick="show('dialog-map')" class="nav__dropdown-item">Map</a>
+                                    <a onclick="show('dialog')" class="nav__dropdown-item" id="DialogCreate"></a>
+                                    <a onclick="show('dialog-list')" class="nav__dropdown-item" id="DialogList"></a>
+                                    <a onclick="show('dialog-map')" class="nav__dropdown-item" id="DialogMap"></a>
                                 </div>
                             </div>
                         </div>
@@ -105,16 +105,22 @@
 
             <!-- ===== SAVE ===== -->
             <div clas="bottom__navbar">
+
+                <a class="nav__link" onclick="switchTranslate()">
+                    <span class="nav__icon" id="flag">🇫🇷</span>
+                    <span class="nav__name" id="LanguageTitle"></span>
+                </a>
+
+                <br>
                 <a class="nav__link" id="toggleTheme" onclick="switchTheme()">
                     <i class='bx bx-sun nav__icon'></i>
-                    <span class="nav__name">Theme</span>
+                    <span class="nav__name" id="ThemeTitle"></span>
                 </a>
 
                 <br>
                 <label class="nav__link" for="hero-js-form-json">
                     <i class='bx bx-upload nav__icon'></i>
-                    <!-- Charger un jeu -->
-                    <span class="nav__name">Load</span>
+                    <span class="nav__name" id="LoadTitle"></span>
                 </label>
 
 
@@ -122,14 +128,65 @@
                 <input style="display: none;" type="file" id="hero-js-form-json" accept=".json,.hero" onchange="openJSON(this.files[0])">
                 <a class="nav__link" onclick="submit()">
                     <i class='bx bx-save nav__icon'></i>
-                    <span class="nav__name">Save</span>
+                    <span class="nav__name" id="SaveTitle"></span>
                 </a>
             </div>
         </nav>
     </div>
 
     <!-- ===== HEADERBAR ===== -->
-    <div class="header" id="headerbar"></div>
+    <div class="header" id="headerbar">
+        <div class='header_element header_active' style='font-weight: bold;' id="Home">Home</div>
+        <!--  -->
+        <div onclick="show('infos')" class="header_element">
+            <div class="header_text" id="GeneralSubtitle"></div>
+            <div class="header_bottom"></div>
+        </div>
+        <div onclick="show('infos-display')" class="header_element">
+            <div class="header_text" id="DisplaySubtitle"></div>
+            <div class="header_bottom"></div>
+        </div>
+        <div class="header_element" onclick="show('infos-color')">
+            <div class="header_text" id="StyleSubtitle"></div>
+            <div class="header_bottom"></div>
+        </div>
+        <!--  -->
+        <div onclick="show('data')" class="header_element">
+            <div class="header_text" id="SkillsSubtitle"></div>
+            <div class="header_bottom"></div>
+        </div>
+        <div onclick="show('data-objects')" class="header_element">
+            <div class="header_text" id="ObjectsSubtitle"></div>
+            <div class="header_bottom"></div>
+        </div>
+        <div class="header_element" onclick="show('data-pictures')">
+            <div class="header_text" id="PicturesSubtitle"></div>
+            <div class="header_bottom"></div>
+        </div>
+        <div onclick="show('data-sounds')" class="header_element">
+            <div class="header_text" id="SoundsSubtitle"></div>
+            <div class="header_bottom"></div>
+        </div>
+        <!-- -->
+        <div onclick="show('player')" class="header_element">
+            <div class="header_text" id="PlayerSubtitle"></div>
+            <div class="header_bottom"></div>
+        </div>
+        <!--  -->
+        <div onclick="show('dialog')" class="header_element">
+            <div class="header_text" id="DialogCreateSubtitle"></div>
+            <div class="header_bottom"></div>
+        </div>
+        <div onclick="show('dialog-list')" class="header_element">
+            <div class="header_text" id="DialogListSubtitle"></div>
+            <div class="header_bottom"></div>
+        </div>
+        <div class="header_element" onclick="show('dialog-map')">
+            <div class="header_text" id="DialogMapSubtitle"></div>
+            <div class="header_bottom"></div>
+        </div>
+
+    </div>
 
     <!-- ===== CONTENT ===== -->
     <div class="body_container" id="body_container">
@@ -137,79 +194,20 @@
         <!-- ===== HOME ===== -->
         <section id="index">
             <div class="sub_container">
-                <div class="sub_container_title">Hero.js Generator</div>
-                <span style="text-align: center;">
-                        Hero.js is an <b>OpenSource</b> project of <b>Visual Novel game engine</b>.
-                        The goal of this project is to allow you to create Visual Novels (from a simple Doki Doki to a JDR with fighting system), <b>without coding.</b>
-                        So what are you waiting for to start creating your stories?<br><br>
-                        If you have the skills, you can participate to the development of the project on <a href="https://github.com/ArthurTakase/Heros.js" target="_blank" style="color: var(--accent-color);">github</a>!<br>
-                    </span>
+                <div class="sub_container_title" id="ProjectTitle"></div>
+                <span style="text-align: center;" id="HomeMsg"></span>
                 <div class="img_list">
                     <img onclick="show('infos')" src="img/let's create.png">
                 </div>
             </div>
 
             <div class="sub_container">
-                <div class="sub_container_title">Informations</div>
-                <span style="text-align: center;">
-                    <h3>Shortcuts</h3>
-                    <b>Ctrl + S</b> Save project<br>
-                    <b>Ctrl + D</b> Load project<br>
-                    <b>Ctrl + F</b> Toggle advanced mode<br>
-                    <br><h3>Documentations</h3>
-                    <a style="color: var(--accent-color); text-decoration: none; transition: .2s;" href="https://icy-wind-398.notion.site/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b" target="_blank">🇫🇷 Détails de l'interface de création</a><br>
-                    <a style="color: var(--accent-color); text-decoration: none; transition: .2s;" href="https://icy-wind-398.notion.site/Correction-des-erreurs-classiques-194bd01a71cc4bb29dfcdf958d2926af" target="_blank">🇫🇷 Correction des erreurs classiques</a><br>
-                    <a style="color: var(--accent-color); text-decoration: none; transition: .2s;" href="https://icy-wind-398.notion.site/FAQ-0cf40d6d48d44d1d9f9e4b931041c04a" target="_blank">🇫🇷 FAQ</a>
-                </span>
+                <div class="sub_container_title" id="InformationsTitle"></div>
+                <span style="text-align: center;" id="Informations"></span>
             </div>
 
             <div class="space" style="color: var(--accent-color); width: 100%; text-align: center; padding-top: 1rem; font-size: 3rem; margin-bottom: -1.3rem;">
                 <i class='bx bx-dots-horizontal-rounded'></i>
-            </div>
-
-            <div class="sub_container">
-                <div class="sub_container_title">PatchNote (06/06/2022)</div>
-                <span style="text-align: center;">
-                    <h3>Generator</h3>
-                    Add Light Theme<br>
-                </span>
-            </div>
-
-            <div class="sub_container">
-                <div class="sub_container_title">PatchNote (03/06/2022)</div>
-                <span style="text-align: center;">
-                    <h3>Generator</h3>
-                    Adding documentations in the different parts of the generator<br>
-                    Added a link to go back to the generator home page
-                </span>
-            </div>
-
-            <div class="sub_container">
-                <div class="sub_container_title">PatchNote (01/06/2022)</div>
-                <span style="text-align: center;">
-                    <h3>Generator</h3>
-                    Correction of button audio<br>
-                    automatic update of the preview when a dialog is modified<br>
-                    Change the behavior of the sidebar<br>
-                    Deleting object types<br>
-                    Correction of the error related to the Skills and Effects conditions<br>
-                    Minor bug fixes<br>
-                    <br><h3>Engine</h3>
-                    Change the behavior of the sidebar<br>
-                </span>
-            </div>
-
-            <div class="sub_container">
-                <div class="sub_container_title">PatchNote (21/05/2022)</div>
-                <span style="text-align: center;">
-                    <h3>Generator</h3>
-                    Add notification when dialog is saved.<br>
-                    If player's infos are empty, automatically fill them with 0.<br>
-                    Fix error when previewing a "no background" dialog.<br>
-                    "No Music" instead of "" when edit a dialog without music.<br>
-                    If you load a project without a player, the player tab will be set to "No Player".<br>
-                    No more errors with RANDOM_IN_CLASS and RANDOM_IN_CLASS_UNIQUE.<br>
-                </span>
             </div>
 
         </section>
@@ -218,15 +216,51 @@
         <section id="infos">
             <div class="sub_container">
 
-                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#eaade251e7df4b19bcfc35dd4583be4a" target="_blank" class="help"><i class='bx bx-help-circle'></i> Help</a>
+                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#eaade251e7df4b19bcfc35dd4583be4a" target="_blank" class="help"><i class='bx bx-help-circle'></i></a>
 
-                <div class="sub_container_title">General</div>
+                <div class="sub_container_title" id="GeneralContainer"></div>
 
-                <input type="text" name="title" id="title" placeholder="Game Title" title="Game title" required>
-                <input type="number" name="startNumber" id="startNumber" placeholder="First Dialog" title="First Dialog" required>
-                <input type="number" name="defeatNumber" id="defeatNumber" placeholder="Defeat Dialog (not required)" title="Defeat Dialog (not required)" required>
-                <input type="number" name="maxDice" id="maxDice" placeholder="Max Dice (not required)" title="Max Dice (not required)" required>
-                <input type="number" name="maxSkills" id="maxSkills" placeholder="Max Skills (not required)" title="Max Skills (not required)" required>
+                <input type="text" name="title" id="title" class="required" required>
+                <input type="number" name="startNumber" id="startNumber" class="required" required>
+                <input type="number" name="defeatNumber" id="defeatNumber" required>
+                <input type="number" name="maxDice" id="maxDice" required>
+                <input type="number" name="maxSkills" id="maxSkills" required>
+
+            </div>
+        </section>
+
+        <!-- ===== INFOS DISPLAY ===== -->
+        <section id="infos-display">
+            <div class="sub_container">
+
+                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#e47507ff3f864fbdaf075fdeba560db7" target="_blank" class="help"><i class='bx bx-help-circle'></i></a>
+
+                <div class="sub_container_title" id="DisplayContainer"></div>
+
+                <div class="data check">
+                    <input type="checkbox" name="showPlayerStamina" id="showPlayerStamina" required checked>
+                    <label for="showPlayerStamina" id="ShowStamina"></label>
+                </div>
+
+                <div class="data check">
+                    <input type="checkbox" name="showPlayerAbility" id="showPlayerAbility" required checked>
+                    <label for="showPlayerAbility" id="ShowAbility"></label>
+                </div>
+
+                <div class="data check">
+                    <input type="checkbox" name="showPlayerSkills" id="showPlayerSkills" required checked>
+                    <label for="showPlayerSkills" id="ShowSkills"></label>
+                </div>
+
+                <div class="data check">
+                    <input type="checkbox" name="showPlayerGold" id="showPlayerGold" required checked>
+                    <label for="showPlayerGold" id="ShowGold"></label>
+                </div>
+
+                <div class="data check">
+                    <input type="checkbox" name="showPlayerInventory" id="showPlayerInventory" required checked>
+                    <label for="showPlayerInventory" id="ShowInventory"></label>
+                </div>
 
             </div>
         </section>
@@ -235,9 +269,9 @@
         <section id="infos-color">
             <div class="sub_container">
 
-                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#9949dd896dd34c3a97093ad04f4d443e" target="_blank" class="help"><i class='bx bx-help-circle'></i> Help</a>
+                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#9949dd896dd34c3a97093ad04f4d443e" target="_blank" class="help"><i class='bx bx-help-circle'></i></a>
 
-                <div class="sub_container_title">Color</div>
+                <div class="sub_container_title" id="ColorContainer"></div>
 
                 <div class="switch-color" onclick="advancedColor()"><i class='bx bx-edit-alt'></i></div>
 
@@ -288,46 +322,10 @@
 
             <div class="sub_container">
 
-                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#1a203276ff10487a995f3f1ae1379fca" target="_blank" class="help"><i class='bx bx-help-circle'></i> Help</a>
+                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#1a203276ff10487a995f3f1ae1379fca" target="_blank" class="help"><i class='bx bx-help-circle'></i></a>
 
-                <div class="sub_container_title">Custom CSS</div>
-                <textarea rows="5" name="customCSS" id="customCSS" placeholder="Custom CSS" title="Custom CSS"></textarea>
-            </div>
-        </section>
-
-        <!-- ===== INFOS DISPLAY ===== -->
-        <section id="infos-display">
-            <div class="sub_container">
-
-                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#e47507ff3f864fbdaf075fdeba560db7" target="_blank" class="help"><i class='bx bx-help-circle'></i> Help</a>
-
-                <div class="sub_container_title">Display</div>
-
-                <div class="data check">
-                    <input type="checkbox" name="showPlayerStamina" id="showPlayerStamina" required checked>
-                    <label for="showPlayerStamina">Show Stamina</label>
-                </div>
-
-                <div class="data check">
-                    <input type="checkbox" name="showPlayerAbility" id="showPlayerAbility" required checked>
-                    <label for="showPlayerAbility">Show Ability</label>
-                </div>
-
-                <div class="data check">
-                    <input type="checkbox" name="showPlayerSkills" id="showPlayerSkills" required checked>
-                    <label for="showPlayerSkills">Show Skills</label>
-                </div>
-
-                <div class="data check">
-                    <input type="checkbox" name="showPlayerGold" id="showPlayerGold" required checked>
-                    <label for="showPlayerGold">Show Gold</label>
-                </div>
-
-                <div class="data check">
-                    <input type="checkbox" name="showPlayerInventory" id="showPlayerInventory" required checked>
-                    <label for="showPlayerInventory">Show Inventory</label>
-                </div>
-
+                <div class="sub_container_title" id="CSSContainer"></div>
+                <textarea rows="5" name="customCSS" id="customCSS"></textarea>
             </div>
         </section>
 
@@ -335,14 +333,14 @@
         <section id="data">
             <div class="sub_container">
 
-                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#b6912b1d52914e5ba25cc21ca7a05f34" target="_blank" class="help"><i class='bx bx-help-circle'></i> Help</a>
+                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#b6912b1d52914e5ba25cc21ca7a05f34" target="_blank" class="help"><i class='bx bx-help-circle'></i></a>
 
-                <div class="sub_container_title">Skills</div>
+                <div class="sub_container_title" id="SkillsContainer"></div>
 
                 <div class="grid-4">
-                    <input type="text" name="skillName" id="skillName" placeholder="Skill Name" title="Skill Name" required>
-                    <input type="number" name="skillAbility" id="skillAbility" placeholder="Ability" title="Ability" class="advanced" required>
-                    <input type="number" name="skillStamina" id="skillStamina" placeholder="Stamina" title="Stamina" class="advanced" required>
+                    <input type="text" name="skillName" id="skillName" required>
+                    <input type="number" name="skillAbility" id="skillAbility" class="advanced" required>
+                    <input type="number" name="skillStamina" id="skillStamina" class="advanced" required>
                     <button class="add" onclick="addSkill()"><i class='bx bx-check' ></i></button>
                 </div>
 
@@ -354,15 +352,15 @@
         <section id="data-objects">
             <div class="sub_container">
 
-                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#3dc9e574cbec4866ad981749a1f48c30" target="_blank" class="help"><i class='bx bx-help-circle'></i> Help</a>
+                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#3dc9e574cbec4866ad981749a1f48c30" target="_blank" class="help"><i class='bx bx-help-circle'></i></a>
 
-                <div class="sub_container_title">Objects</div>
+                <div class="sub_container_title" id="ObjectsContainer"></div>
 
                 <div class="grid-4">
-                    <input type="text" name="objectName" id="objectName" placeholder="Object Name" title="Object Name" required>
-                    <input type="number" name="itemAbility" id="itemAbility" placeholder="Ability" title="Ability" class="advanced" required>
-                    <input type="number" name="itemStamina" id="itemStamina" placeholder="Stamina" title="Stamina" class="advanced" required>
-                    <input type="number" name="itemGold" id="itemGold" placeholder="Gold" title="Gold" class="advanced" required>
+                    <input type="text" name="objectName" id="objectName" required>
+                    <input type="number" name="itemAbility" id="itemAbility" class="advanced" required>
+                    <input type="number" name="itemStamina" id="itemStamina" class="advanced" required>
+                    <input type="number" name="itemGold" id="itemGold" class="advanced" required>
                     <input type="number" name="itemExtra" id="itemExtra" placeholder="Extra" title="Extra" class="advanced" required>
                     <button class="add" onclick="addObject()"><i class='bx bx-check' ></i></button>
                 </div>
@@ -375,13 +373,13 @@
         <section id="data-pictures">
             <div class="sub_container">
 
-                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#490953fe4caf459e8596136488c131bf" target="_blank" class="help"><i class='bx bx-help-circle'></i> Help</a>
+                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#490953fe4caf459e8596136488c131bf" target="_blank" class="help"><i class='bx bx-help-circle'></i></a>
 
-                <div class="sub_container_title">Pictures</div>
+                <div class="sub_container_title" id="PicturesContainer"></div>
 
                 <div class="grid-3">
-                    <input type="text" name="pictureName" id="pictureName" placeholder="Picture Name" title="Picture Name" required>
-                    <input type="url" name="pictureURL" id="pictureURL" placeholder="Picture URL" title="Picture URL" required>
+                    <input type="text" name="pictureName" id="pictureName" required>
+                    <input type="url" name="pictureURL" id="pictureURL" required>
                     <button class="add" onclick="addPicture()"><i class='bx bx-check' ></i></button>
                 </div>
 
@@ -393,13 +391,13 @@
         <section id="data-sounds">
             <div class="sub_container">
 
-                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#27f6a136ac0443328f83cf0b8fce0bac" target="_blank" class="help"><i class='bx bx-help-circle'></i> Help</a>
+                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#27f6a136ac0443328f83cf0b8fce0bac" target="_blank" class="help"><i class='bx bx-help-circle'></i></a>
 
-                <div class="sub_container_title">Music & Sounds</div>
+                <div class="sub_container_title" id="SoundsContainer"></div>
 
                 <div class="grid-4">
-                    <input type="text" name="soundName" id="soundName" placeholder="Sound name" title="Sound Name">
-                    <input type="URL" name="soundURL" id="soundURL" placeholder="Sound URL" title="Sound URL">
+                    <input type="text" name="soundName" id="soundName">
+                    <input type="URL" name="soundURL" id="soundURL">
                     <input type="range" id="soundVolume" name="soundVolume" min="0" max="100" step="1" title="Sound Volume">
                     <button class="add" onclick="addSound()"><i class='bx bx-check' ></i></button>
                 </div>
@@ -412,7 +410,7 @@
         <section id="player">
             <div class="sub_container">
 
-                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#cd876193579546f4bd3564c1ad7e2834" target="_blank" class="help"><i class='bx bx-help-circle'></i> Help</a>
+                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#cd876193579546f4bd3564c1ad7e2834" target="_blank" class="help"><i class='bx bx-help-circle'></i></a>
 
                 <div class="sub_container_title">Player</div>
 
@@ -432,14 +430,14 @@
             <!-- ===== DIALOG BODY ===== -->
             <div class="sub_container">
 
-                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#3bad7a39f0d949378a9aa9da244d4c0e" target="_blank" class="help"><i class='bx bx-help-circle'></i> Help</a>
+                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#3bad7a39f0d949378a9aa9da244d4c0e" target="_blank" class="help"><i class='bx bx-help-circle'></i></a>
 
                 <div class="sub_container_title">Dialog</div>
 
                 <input type="text" onchange="Instantpreview()" name="dialogID" id="dialogID" placeholder="ID" title="Dialog ID" value="0">
-                <input type="text" onchange="Instantpreview()" name="dialogTitle" id="dialogTitle" placeholder="Dialog title (not required)" title="Dialog title (not required)">
-                <textarea rows="5" onchange="Instantpreview()" name="dialogBody" id="dialogBody" placeholder="Dialog body (not required)" title="Dialog body (not required)"></textarea>
-                <input type="text" onchange="Instantpreview()" name="dialogAction" id="dialogAction" placeholder="Dialog action (not required)" title="Dialog action (not required)">
+                <input type="text" onchange="Instantpreview()" name="dialogTitle" id="dialogTitle" placeholder="Dialog title" title="Dialog title">
+                <textarea rows="5" onchange="Instantpreview()" name="dialogBody" id="dialogBody" placeholder="Dialog body" title="Dialog body"></textarea>
+                <input type="text" onchange="Instantpreview()" name="dialogAction" id="dialogAction" placeholder="Dialog action" title="Dialog action">
             </div>
 
             <!-- ===== DIALOG DATA ===== -->
@@ -466,18 +464,18 @@
             <!-- ===== DIALOG BUTTONS ===== -->
             <div class="sub_container" id="button_container">
 
-                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#4383615041154e65b2a7e92674da81b4" target="_blank" class="help"><i class='bx bx-help-circle'></i> Help</a>
+                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#4383615041154e65b2a7e92674da81b4" target="_blank" class="help"><i class='bx bx-help-circle'></i></a>
 
                 <div class="sub_container_title">New Button</div>
 
                 <input type="text" name="optionID" id="optionID" placeholder="ID" title="Option ID" value="0">
 
                 <div class="grid-3">
-                    <input type="text" name="optionBody" onchange="Instantpreview()" id="optionBody" placeholder="Button Body" title="Option Body">
+                    <input type="text" name="optionBody" onchange="Instantpreview()" id="optionBody" class="required" placeholder="Button Body" title="Option Body">
                 </div>
 
                 <div class="grid-3">
-                    <input type="number" name="optionGoToIndex" id="optionGoToIndex" placeholder="Go to Index (not required)" title="Go to Index (not required)">
+                    <input type="number" name="optionGoToIndex" id="optionGoToIndex" placeholder="Go to Index" title="Go to Index">
                     <select name="optionSound" id="optionSound">
                         <option>No Sound</option>
                     </select>
@@ -542,7 +540,7 @@
         <section id="dialog-map">
             <div class="sub_container" id="map_container">
 
-                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#5ca36cb20c0249939e297e26a85e7dc5" target="_blank" class="help"><i class='bx bx-help-circle'></i> Help</a>
+                <a href="https://www.notion.so/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b#5ca36cb20c0249939e297e26a85e7dc5" target="_blank" class="help"><i class='bx bx-help-circle'></i></a>
 
                 <div class="sub_container_title">Map</div>
                 You didn't write any dialogue yet.
@@ -555,18 +553,19 @@
     </div>
 
     <div id="edit-menu">
-        <a id="edit-edit"><i class='bx bxs-edit-alt'></i> Edit</a>
-        <a id="edit-remove"><i class='bx bxs-eraser' ></i> Remove</a>
+        <a id="edit-edit"><i class='bx bxs-edit-alt'></i> <span id="EditCmd"></span></a>
+        <a id="edit-remove"><i class='bx bxs-eraser' ></i> <span id="DeleteCmd"></span></a>
     </div>
 
     <div id="remove-modal">
-        <p>Any deletion is final and may cause problems in your game</p>
-        <button onclick="confirmDeletion()">Confirm</button>
+        <p id="DeleteMsg"></p>
+        <button onclick="confirmDeletion()" id="DeleteConfirm"></button>
     </div>
 
     <div id="notif-zone"></div>
 
     <!-- ===== SCRIPTS ===== -->
+    <script src="data/generator/text.js"></script>
     <script src="js/generator/theme.js"></script>
     <script src="js/engine/button.js"></script>
     <script src="js/engine/dialog.js"></script>
@@ -591,6 +590,7 @@
     <script src="js/generator/hotkeys.js"></script>
     <script src="js/generator/random.js"></script>
     <script src="js/generator/navbar.js"></script>
+    <script src="js/generator/patchnote.js"></script>
 </body>
 
 </html>

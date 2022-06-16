@@ -22,30 +22,25 @@
     justify-content: center;
     align-items: center;
     color: var(--text-color);
-    width: 80px;
+    border-top: solid var(--text-color-50) .2rem;
+    transition: .2s;
 }
 
 .header_element:hover {
     cursor: pointer;
+    background-color: var(--header-hover-color);
+    border-color: var(--accent-color);
+    color: var(--header-hover-text);
 }
 
 .header_text {
     margin-top: -5px;
 }
 
-.header_bottom {
-    position: absolute;
-    width: 60px;
-    bottom: 0;
-    background: var(--text-color);
-    height: 5px;
-    border-radius: .5rem .5rem 0 0;
-}
-
-.header_active .header_bottom {
-    background: var(--accent-color);
-}
-
 .header_active {
-    color: var(--accent-color);
+    background-color: var(--header-active-color);
+    border-color: var(--accent-color);
+    color: var(--header-active-text);
+    /* font-weight: bold; */
+    border-width: .4rem;
 }

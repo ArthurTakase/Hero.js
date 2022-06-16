@@ -154,8 +154,6 @@ function editButton(div) {
     const conditionCheck = document.getElementById("conditionIsHere")
     const effectValue = document.getElementById("effectValue")
 
-    console.log(button.conditionData)
-
     switch (b_optionCondition.value) {
         case "GOLD":
         case "EXTRA":
@@ -174,8 +172,6 @@ function editButton(div) {
         default:
             break
     }
-
-    console.log(button.effectData)
 
     switch (b_optionEffect.value) {
         case "REMOVE_OBJECT":

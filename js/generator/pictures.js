@@ -1,10 +1,20 @@
 let pictureJson = {}
 
-function addPictureFromJSON(elements) {
+function updatePictureList() {
     const liste = document.getElementById('pictureList')
+    var lang = localStorage.getItem("lang");
+    var ele = language[lang]["Name"];
+    var col = language[lang]["Preview"];
 
-    if (jsonLen(pictureJson) == 0) { liste.classList.add("table") }
+    if (jsonLen(pictureJson) > 0) { liste.classList.add("table") }
 
+    liste.innerHTML = '<tr class="tableHeader"><th id="PictureElemTable">' + ele + '</th><th id="PictureValueTable">' + col + '</th></tr>'
+    for (picture in pictureJson) {
+        liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePicture + '"><td>' + picture + '</td><td><img class="picture-img" src="' + pictureJson[picture] + '"></td></tr>'
+    }
+}
+
+function addPictureFromJSON(elements) {
     var array = JSON.stringify(elements).split(',')
     array.forEach(element => {
         var newPicture = element.split(":")
@@ -18,26 +28,18 @@ function addPictureFromJSON(elements) {
         pictureJson[name] = url
     })
 
-    liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Preview</th></tr>'
-    for (picture in pictureJson) {
-        liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePicture + '"><td>' + picture + '</td><td><img class="picture-img" src="' + pictureJson[picture] + '"></td></tr>'
-    }
+    updatePictureList()
 }
 
 function addPicture() {
-    const liste = document.getElementById('pictureList')
     var pictureName = document.getElementById('pictureName')
     var pictureURL = document.getElementById('pictureURL')
 
     if (pictureName.value == "" || pictureURL == "") { return }
-    if (jsonLen(pictureJson) == 0) { liste.classList.add("table") }
 
     pictureJson[pictureName.value] = pictureURL.value
 
-    liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Preview</th></tr>'
-    for (picture in pictureJson) {
-        liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePicture + '"><td>' + picture + '</td><td><img class="picture-img" src="' + pictureJson[picture] + '"></td></tr>'
-    }
+    updatePictureList()
 
     pictureName.value = ""
     pictureURL.value = ""

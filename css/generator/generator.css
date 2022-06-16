@@ -79,6 +79,11 @@ body {
     color: var(--text-placeholder-color);
 }
 
+input.required {
+    border-left: var(--accent-color) solid .4rem;
+    border-radius: .2rem .5rem .5rem .2rem;
+}
+
 #dialogID,
 #optionID {
     width: 3rem;
@@ -175,7 +180,7 @@ body {
 
 .add:hover,
 .add:focus {
-    transform: scale(1.1) rotate(-5deg);
+    /* transform: scale(1.1) rotate(-5deg); */
     cursor: pointer;
 }
 
@@ -502,7 +507,6 @@ input[type=range]::-webkit-slider-thumb {
     cursor: help;
     transform: scale(1.1);
     opacity: 1;
-    max-width: 20rem;
 }
 
 .link {

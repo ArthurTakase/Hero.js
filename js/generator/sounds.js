@@ -1,13 +1,15 @@
 let soundJson = {}
 
-function addSoundFromJSON(elements) {
+function updateSoundsList() {
     const liste = document.getElementById('soundList')
+    var lang = localStorage.getItem("lang");
+    var name = language[lang]["Name"];
+    var preview = language[lang]["Preview"];
+    var volume = language[lang]["Volume"];
 
-    if (jsonLen(soundJson) == 0) { liste.classList.add("table") }
+    if (jsonLen(soundJson) > 0) { liste.classList.add("table") }
 
-    for (var key in elements) { soundJson[key] = elements[key] }
-
-    liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Preview</th><th>Volume</th></tr>'
+    liste.innerHTML = '<tr class="tableHeader"><th id="SoundNameTable">' + name + '</th><th id="SoundPreviewTable">' + preview + '</th><th id="SoundVolumeTable">' + volume + '</th></tr>'
     for (sound in soundJson) {
         liste.innerHTML += '<tr class="' + editValue + ' ' + editValueSound + '"><td>' +
             sound +
@@ -17,29 +19,25 @@ function addSoundFromJSON(elements) {
             soundJson[sound][1] +
             '</td></tr>'
     }
+
+}
+
+function addSoundFromJSON(elements) {
+    for (var key in elements) { soundJson[key] = elements[key] }
+
+    updateSoundsList()
 }
 
 function addSound() {
-    const liste = document.getElementById('soundList')
     var soundName = document.getElementById('soundName')
     var soundURL = document.getElementById('soundURL')
     var soundVolume = document.getElementById('soundVolume')
 
     if (soundName.value == "" || soundURL.value == "" || soundVolume.value == "") { return }
-    if (jsonLen(soundJson) == 0) { liste.classList.add("table") }
 
     soundJson[soundName.value] = [soundURL.value, parseInt(soundVolume.value) / 100]
 
-    liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Preview</th><th>Volume</th></tr>'
-    for (sound in soundJson) {
-        liste.innerHTML += '<tr class="' + editValue + ' ' + editValueSound + '"><td>' +
-            sound +
-            '</td><td><audio controls src="' +
-            soundJson[sound][0] +
-            '"></audio></td><td>' +
-            soundJson[sound][1] +
-            '</td></tr>'
-    }
+    updateSoundsList()
 
     soundName.value = ""
     soundURL.value = ""

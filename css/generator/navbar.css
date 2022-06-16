@@ -129,6 +129,16 @@ img {
     cursor: pointer;
 }
 
+#flag {
+    filter: grayscale(85%);
+    transition: .3s;
+    transform: scale(0.9);
+}
+
+.nav__link:hover #flag {
+    filter: grayscale(0);
+}
+
 .nav__icon {
     font-size: 1.3rem;
     margin-right: .5rem;
