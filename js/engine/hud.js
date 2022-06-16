@@ -6,7 +6,6 @@ function setBackground(img) {
 }
 
 function setDefaultHUD() {
-    document.getElementById('home').style.display = "none"
     document.body.style.display = "flex"
     document.body.style.justifyContent = "center"
     document.body.style.alignItems = "center"

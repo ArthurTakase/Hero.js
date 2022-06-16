@@ -184,19 +184,15 @@ function initSound(json) {
     music_fight = new Music(json.sounds.fight)
 }
 
-function initGame(file) {
-    var reader = new FileReader();
-    reader.onload = function(evt) {
-        defaultJSON = JSON.parse(evt.target.result)
-        initDialog(defaultJSON)
-        initGameInfos(defaultJSON)
-        initGameplay(defaultJSON)
-        initPlayer(defaultJSON)
-        initSound(defaultJSON)
-        setColor(defaultJSON)
-        reloadSave(defaultJSON)
-        setDefaultHUD()
-        allDialog[currentNumber].show()
-    };
-    reader.readAsText(file);
+function launchGame() {
+    document.getElementById("startMenu").style.display = "none"
+    document.getElementById("header").style.display = "block"
+    initDialog(defaultJSON)
+    initGameInfos(defaultJSON)
+    initGameplay(defaultJSON)
+    initPlayer(defaultJSON)
+    initSound(defaultJSON)
+    setColor(defaultJSON)
+    setDefaultHUD()
+    allDialog[currentNumber].show()
 }
