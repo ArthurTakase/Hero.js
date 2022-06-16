@@ -11,7 +11,7 @@ const language = {
         "DataSkills": "Compétences",
         "DataObjects": "Objets",
         "DataPictures": "Images",
-        "DataSounds": "Sons",
+        "DataSounds": "Musiques & Sons",
         "PlayerTitle": "Joueur",
         "DialogTitle": "Dialogues",
         "DialogCreate": "Créer",
@@ -53,6 +53,11 @@ const language = {
         "CSSContainer": "CSS Personnalisé",
         "ColorTableElement": "Élément",
         "ColorTableValue": "Valeur",
+        "NameUnique": "Nom (valeur unique)",
+        "URL": "Lien (URL)",
+        "Name": "Nom",
+        "Preview": "Aperçu",
+        "Volume": "Volume"
     },
     "en": {
         "Title": "Hero.js Generator",
@@ -66,7 +71,7 @@ const language = {
         "DataSkills": "Skills",
         "DataObjects": "Objects",
         "DataPictures": "Pictures",
-        "DataSounds": "Sounds",
+        "DataSounds": "Music & Sounds",
         "PlayerTitle": "Player",
         "DialogTitle": "Dialogs",
         "DialogCreate": "Create",
@@ -108,6 +113,11 @@ const language = {
         "CSSContainer": "Custom CSS",
         "ColorTableElement": "Element",
         "ColorTableValue": "Value",
+        "NameUnique": "Name (unique value)",
+        "URL": "Link (URL)",
+        "Name": "Name",
+        "Preview": "Preview",
+        "Volume": "Volume"
     }
 }
 
@@ -120,10 +130,10 @@ const elementsText = {
     "GameinfosDisplay": ["GameinfosDisplay", "DisplaySubtitle", "DisplayContainer"],
     "GameInfosStyle": ["GameInfosStyle", "StyleSubtitle"],
     "DataTitle": ["DataTitle"],
-    "DataSkills": ["DataSkills", "SkillsSubtitle"],
-    "DataObjects": ["DataObjects", "ObjectsSubtitle"],
-    "DataPictures": ["DataPictures", "PicturesSubtitle"],
-    "DataSounds": ["DataSounds", "SoundsSubtitle"],
+    "DataSkills": ["DataSkills", "SkillsSubtitle", "SkillsContainer"],
+    "DataObjects": ["DataObjects", "ObjectsSubtitle", "ObjectsContainer"],
+    "DataPictures": ["DataPictures", "PicturesSubtitle", "PicturesContainer"],
+    "DataSounds": ["DataSounds", "SoundsSubtitle", "SoundsContainer"],
     "PlayerTitle": ["PlayerTitle", "PlayerSubtitle"],
     "DialogTitle": ["DialogTitle"],
     "DialogCreate": ["DialogCreate", "DialogCreateSubtitle"],
@@ -141,15 +151,18 @@ const elementsText = {
     "InformationsTitle": ["InformationsTitle"],
     "Informations": ["Informations"],
     "HomeMsg": ["HomeMsg"],
-    "ShowStamina": ["ShowStamina"],
-    "ShowAbility": ["ShowAbility"],
+    "ShowStamina": ["ShowStamina", "ItemStaminaTable", "SkillStaminaTable"],
+    "ShowAbility": ["ShowAbility", "ItemAbilityTable", "SkillAbilityTable"],
     "ShowSkills": ["ShowSkills"],
-    "ShowGold": ["ShowGold"],
+    "ShowGold": ["ShowGold", "ItemGoldTable"],
     "ShowInventory": ["ShowInventory"],
     "ColorContainer": ["ColorContainer"],
     "CSSContainer": ["CSSContainer"],
     "ColorTableElement": ["ColorElemTable"],
     "ColorTableValue": ["ColorValueTable"],
+    "Name": ["ItemNameTable", "PictureElemTable", "SkillNameTable", "SoundNameTable"],
+    "Preview": ["PictureValueTable", "SoundPreviewTable"],
+    "Volume": ["SoundVolumeTable"]
 }
 
 const elementsPlaceHolder = {
@@ -158,7 +171,12 @@ const elementsPlaceHolder = {
     "DefeatDialog": ["defeatNumber"],
     "MaxDice": ["maxDice"],
     "MaxSkills": ["maxSkills"],
-    "CSSContainer": ["customCSS"]
+    "CSSContainer": ["customCSS"],
+    "ShowStamina": ["skillStamina", "itemStamina"],
+    "ShowAbility": ["skillAbility", "itemAbility"],
+    "ShowGold": ["itemGold"],
+    "NameUnique": ["skillName", "objectName", "pictureName", "soundName"],
+    "URL": ["pictureURL", "soundURL"],
 }
 
 function translate(lang) {

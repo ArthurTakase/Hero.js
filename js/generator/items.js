@@ -2,7 +2,13 @@
 let objectsJson = {}
 
 function reloadObjectList(liste) {
-    liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Ability</th><th>Stamina</th><th>Gold</th><th>Extra</th></tr>'
+    var lang = localStorage.getItem("lang");
+    var name = language[lang]["Name"];
+    var abi = language[lang]["ShowAbility"];
+    var sta = language[lang]["ShowStamina"];
+    var gold = language[lang]["ShowGold"];
+
+    liste.innerHTML = '<tr class="tableHeader"><th id="ItemNameTable">' + name + '</th><th id="ItemAbilityTable">' + abi + '</th><th id="ItemStaminaTable">' + sta + '</th><th id="ItemGoldTable">' + gold + '</th><th>Extra</th></tr>'
     for (object in objectsJson) {
         try {
             liste.innerHTML += '<tr class="' + editValue + ' ' + editValueObject + '"><td>' +

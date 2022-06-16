@@ -1,14 +1,16 @@
 // let skillsList = []
 let skillsJson = {}
 
-function addSkillFromJSON(element) {
+function updateSkillsList() {
     const liste = document.getElementById('skillsList')
+    var lang = localStorage.getItem("lang");
+    var name = language[lang]["Name"];
+    var abi = language[lang]["ShowAbility"];
+    var sta = language[lang]["ShowStamina"];
 
-    if (jsonLen(skillsJson)) { liste.classList.add("table") }
+    if (jsonLen(skillsJson) > 0) { liste.classList.add("table") }
 
-    skillsJson[element.name] = element
-
-    liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Ability</th><th>Stamina</th></tr>'
+    liste.innerHTML = '<tr class="tableHeader"><th id="SkillNameTable">' + name + '</th><th id="SkillAbilityTable">' + abi + '</th><th id="SkillStaminaTable">' + sta + '</th></tr>'
     for (skill in skillsJson) {
         try {
             liste.innerHTML += '<tr class="' + editValue + ' ' + editValueSkill + '"><td>' + skillsJson[skill].name + '</td><td>' + skillsJson[skill].stats[0] + '</td><td>' + skillsJson[skill].stats[1] + '</td></tr>'
@@ -16,15 +18,19 @@ function addSkillFromJSON(element) {
     }
 }
 
+function addSkillFromJSON(element) {
+    skillsJson[element.name] = element
+
+    updateSkillsList()
+}
+
 function addSkill() {
-    const liste = document.getElementById('skillsList')
     var skillName = document.getElementById('skillName')
     var skillAbility = document.getElementById('skillAbility')
     var skillStamina = document.getElementById('skillStamina')
     var json = {}
 
     if (skillAbility.value == "" || skillName.value == "" || skillStamina.value == "") { return }
-    if (jsonLen(skillsJson)) { liste.classList.add("table") }
 
     json.name = skillName.value
     json.stats = [
@@ -34,12 +40,7 @@ function addSkill() {
 
     skillsJson[skillName.value] = json
 
-    liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Ability</th><th>Stamina</th></tr>'
-    for (skill in skillsJson) {
-        try {
-            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueSkill + '"><td>' + skillsJson[skill].name + '</td><td>' + skillsJson[skill].stats[0] + '</td><td>' + skillsJson[skill].stats[1] + '</td></tr>'
-        } catch { continue }
-    }
+    updateSkillsList()
 
     // Reset des valeurs de l'input
     skillName.value = ""

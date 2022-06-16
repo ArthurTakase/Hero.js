@@ -507,7 +507,6 @@ input[type=range]::-webkit-slider-thumb {
     cursor: help;
     transform: scale(1.1);
     opacity: 1;
-    max-width: 20rem;
 }
 
 .link {

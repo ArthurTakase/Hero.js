@@ -45,6 +45,14 @@ const patchnote = [{
             "Quick patchnote system",
             "Complete translation of Game Infos"
         ]
+    },
+    {
+        "date": new Date("2022-06-16"),
+        "bugfixes": ["N.C."],
+        "features": [
+            "translation of the whole 'data' section",
+            "Rewriting of some pieces of code to make it more maintainable"
+        ]
     }
 ]
 
