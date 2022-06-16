@@ -84,6 +84,11 @@ input.required {
     border-radius: .2rem .5rem .5rem .2rem;
 }
 
+textarea.required {
+    border-left: var(--accent-color) solid .4rem;
+    border-radius: .2rem .5rem .5rem .2rem;
+}
+
 #dialogID,
 #optionID {
     width: 3rem;

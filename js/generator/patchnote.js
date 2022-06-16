@@ -51,7 +51,9 @@ const patchnote = [{
         "bugfixes": ["N.C."],
         "features": [
             "translation of the whole 'data' section",
-            "Rewriting of some pieces of code to make it more maintainable"
+            "Rewriting of some pieces of code to make it more maintainable",
+            "Added a start menu for games",
+            "Possibility to configure the start menu from the generator"
         ]
     }
 ]

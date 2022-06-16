@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/engine/navbar.css">
     <link rel="stylesheet" href="css/engine/notification.css">
+    <link rel="stylesheet" href="css/engine/startMenu.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
     <link rel="stylesheet" href="css/engine/heros.css">
@@ -57,7 +58,7 @@
     </div>
 
     <!-- Déclancheur de la navbar (mobile only) -->
-    <header class="header" id="header">
+    <header class="header" id="header" style="display: none; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.432);">
         <div class="header__container">
             <div class="header__toggle">
                 <i class="bx bx-menu" id="header-toggle"></i>
@@ -65,15 +66,38 @@
         </div>
     </header>
 
+    <div id="startMenu" style="display: none;">
+        <img id="startMenuImg">
+        <div id="fadeStart"></div>
+        <div id="StartMenuUp">
+            <img id="sub1" class="subJaquette un">
+            <img id="sub2" class="subJaquette deux">
+            <img id="startMenuJaquette">
+        </div>
+        <div class="startMenuBottom">
+            <div class="startMenuData">
+                <div id="startMenuAuthor"></div>
+                <div id="startMenuName"></div>
+            </div>
+            <div id="startMenuInfos">
+                <div id="startMenuDate"></div>
+                <div id="startMenuLangue"></div>
+            </div>
+            <div id="startMenuDescription"></div>
+            <button id="startMenuPlay" onclick="launchGame()" title="Launch the game"><i class='bx bx-play'></i><span class=startMenuPlayText>Play</span></button>
+        </div>
+        <div onclick="backToHome()" id="startMenuHeroLink"><i class='bx bx-chevrons-left' style="font-size: 2rem;"></i>Back to Hero.js</div>
+    </div>
+
     <!-- Lib Animation -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <!-- Engine Lib -->
+    <script src="js/engine/startMenu.js"></script>
     <script src="js/engine/lib.js"></script>
     <script src="js/engine/fight.js"></script>
     <script src="js/engine/animation.js"></script>
     <script src="js/engine/hud.js"></script>
     <script src="js/engine/save.js"></script>
-    <script src="js/engine/url.js"></script>
     <!-- Engine Objets -->
     <script src="js/engine/button.js"></script>
     <script src="js/engine/dialog.js"></script>
@@ -83,7 +107,7 @@
     <script src="js/engine/sound.js"></script>
     <script src="js/engine/music.js"></script>
     <script src="js/engine/style.js"></script>
-    <!-- Configuration de la partie -->
+    <script src="js/engine/loadJson.js"></script>
     <script src="js/engine/init.js"></script>
     <!-- Index -->
     <script src="js/index/index.js"></script>
