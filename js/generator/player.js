@@ -1,6 +1,6 @@
 let isPlayer = false
-let playerSkills = {}
-let playerObjects = {}
+let playerSkills = []
+let playerObjects = []
 
 function generatePlayer() {
     const section = document.getElementById('player')
@@ -45,12 +45,12 @@ function generatePlayer() {
 function addPlayerSkillFromJSON(element) {
     const liste = document.getElementById('playerSkillsListTable')
 
-    if (jsonLen(playerSkills) == 0) { liste.classList.add("table") }
+    if (playerSkills.length == 0) { liste.classList.add("table") }
 
-    playerSkills[element] = element
+    playerSkills.push(element)
 
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
-    for (skill in playerSkills) { liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePlayerSkill + '"><td>' + skill + '</td></tr>' }
+    for (skill in playerSkills) { liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePlayerSkill + '"><td>' + playerSkills[skill] + '</td></tr>' }
 }
 
 function addPlayerSkill() {
@@ -58,12 +58,12 @@ function addPlayerSkill() {
     const liste = document.getElementById('playerSkillsListTable')
 
     if (skillInput.value == "") { return }
-    if (jsonLen(playerSkills) == 0) { liste.classList.add("table") }
+    if (playerSkills.length == 0) { liste.classList.add("table") }
 
-    playerSkills[skillInput.value] = skillInput.value
+    playerSkills.push(skillInput.value)
 
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
-    for (skill in playerSkills) { liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePlayerSkill + '"><td>' + skill + '</td></tr>' }
+    for (skill in playerSkills) { liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePlayerSkill + '"><td>' + playerSkills[skill] + '</td></tr>' }
 
     skillInput.focus()
 }
@@ -72,9 +72,9 @@ function addPlayerSkill() {
 function addPlayerInventoryFromJSON(element) {
     const liste = document.getElementById('playerInventoryListTable')
 
-    if (jsonLen(playerObjects) == 0) { liste.classList.add("table") }
+    if (playerObjects.length == 0) { liste.classList.add("table") }
 
-    playerObjects[element] = element
+    playerObjects.push(element)
 
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
     for (object in playerObjects) { liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePlayerInv + '"><td>' + playerObjects[object] + '</td></tr>' }
@@ -85,9 +85,9 @@ function addPlayerInventory() {
     const liste = document.getElementById('playerInventoryListTable')
 
     if (item.value == "") { return }
-    if (jsonLen(playerObjects) == 0) { liste.classList.add("table") }
+    if (playerObjects.length == 0) { liste.classList.add("table") }
 
-    playerObjects[item.value] = item.value
+    playerObjects.push(item.value)
 
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
     for (object in playerObjects) { liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePlayerInv + '"><td>' + playerObjects[object] + '</td></tr>' }

@@ -21,7 +21,7 @@ function removeObject(div) {
 
     delete objectsJson[div.firstChild.innerHTML]
 
-    if (jsonLen(objectsJson) == 0) {
+    if (jsonLen(objectsJson) == 2) {
         liste.innerHTML = ""
         liste.classList.remove("table")
     } else { reloadObjectList(liste) }
@@ -80,7 +80,7 @@ function removeSkill(div) {
 
     delete skillsJson[div.firstChild.innerHTML]
 
-    if (jsonLen(skillsJson) == 0) {
+    if (jsonLen(skillsJson) == 2) {
         liste.innerHTML = ""
         liste.classList.remove("table")
     } else {
@@ -121,23 +121,33 @@ function removeButton(div) {
 function removeSkillFromPlayer(div) {
     const liste = document.getElementById('playerSkillsListTable')
 
-    delete playerSkills[div.firstChild.innerHTML]
+    for (skill in playerSkills) {
+        if (playerSkills[skill] == div.firstChild.innerHTML) {
+            playerSkills.splice(skill, 1)
+            break
+        }
+    }
 
-    if (jsonLen(playerSkills) == 0) {
+    if (playerSkills.length == 0) {
         liste.innerHTML = ""
         liste.classList.remove("table")
     } else {
         liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
-        for (skill in playerSkills) { liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePlayerSkill + '"><td>' + skill + '</td></tr>' }
+        for (skill in playerSkills) { liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePlayerSkill + '"><td>' + playerSkills[skill] + '</td></tr>' }
     }
 }
 
 function removeObjectFromPlayer(div) {
     const liste = document.getElementById('playerInventoryListTable')
 
-    delete playerObjects[div.firstChild.innerHTML]
+    for (object in playerObjects) {
+        if (playerObjects[object] == div.firstChild.innerHTML) {
+            playerObjects.splice(object, 1)
+            break
+        }
+    }
 
-    if (jsonLen(playerObjects) == 0) {
+    if (playerObjects.length == 0) {
         liste.innerHTML = ""
         liste.classList.remove("table")
     } else {

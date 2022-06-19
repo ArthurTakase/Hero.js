@@ -24,6 +24,9 @@ function addOptionJSON(option) {
 }
 
 function addOption() {
+
+    console.log("addOption")
+
     const liste = document.getElementById('optionsList')
     var optionID = document.getElementById('optionID')
     var optionBody = document.getElementById('optionBody')

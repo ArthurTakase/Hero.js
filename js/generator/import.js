@@ -115,8 +115,8 @@ function resetAll() {
     isMap = false
     pictureJson = {}
     isPlayer = false
-    playerSkills = {}
-    playerObjects = {}
+    playerSkills = []
+    playerObjects = []
     skillsJson = {}
     soundJson = {}
 
