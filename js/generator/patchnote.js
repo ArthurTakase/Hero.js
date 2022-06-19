@@ -55,6 +55,11 @@ const patchnote = [{
             "Added a start menu for games",
             "Possibility to configure the start menu from the generator"
         ]
+    },
+    {
+        "date": new Date("2022-06-19"),
+        "bugfixes": ["N.C."],
+        "features": ["possibility to give the same skill or object to the player several times"]
     }
 ]
 
