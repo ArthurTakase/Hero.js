@@ -29,6 +29,28 @@ let sound_defeat = null
 let music = null
 let music_fight = null
 
+const conditionID = {
+    "GOLD": 1,
+    "EXTRA": 2,
+    "STAMINA": 3,
+    "ABILITY": 4,
+    "SKILL": 5,
+    "OBJECT": 6,
+    "INPUT": 7
+}
+
+const effectID = {
+    "REMOVE_OBJECT": 1,
+    "ADD_OBJECT": 2,
+    "GOLD": 4,
+    "EXTRA": 6,
+    "STAMINA": 8,
+    "ABILITY": 10,
+    "LIFE": 11,
+    "FIGHT": 13,
+    "RESTART": 14
+}
+
 /***********************************/
 /*          LIB FUNCTIONS          */
 /***********************************/

@@ -37,6 +37,9 @@ function appendCondition() {
                                         </div>'
             updateObjects()
             break
+        case "INPUT":
+            conditionZone.innerHTML += '<input type="text" name="conditionValue" id="conditionValue" placeholder="Input Answer" title="Input Answer" class="advanced">'
+
     }
 }
 

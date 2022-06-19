@@ -24,9 +24,6 @@ function addOptionJSON(option) {
 }
 
 function addOption() {
-
-    console.log("addOption")
-
     const liste = document.getElementById('optionsList')
     var optionID = document.getElementById('optionID')
     var optionBody = document.getElementById('optionBody')
@@ -49,14 +46,14 @@ function addOption() {
 
     // ===== CONDITION =====
     switch (optionCondition.value) {
-        case "GOLD":
-        case "EXTRA":
-        case "STAMINA":
-        case "ABILITY":
+        case conditionID["GOLD"]:
+        case conditionID["EXTRA"]:
+        case conditionID["STAMINA"]:
+        case conditionID["ABILITY"]:
             json.condition = optionCondition.value
             json.conditionData = [true, (isnum(conditionData.value)) ? parseInt(conditionData.value) : conditionData.value]
             break
-        case "SKILL":
+        case conditionID["SKILL"]:
             json.condition = optionCondition.value
             try { json.conditionData = [conditionIsHere.checked, skillsList[conditionData.value].name] } catch (e) {
                 if (conditionData == null || conditionData == undefined || conditionData.value == "")
@@ -64,13 +61,17 @@ function addOption() {
                 json.conditionData = [conditionIsHere.checked, conditionData.value]
             }
             break
-        case "OBJECT":
+        case conditionID["OBJECT"]:
             json.condition = optionCondition.value
             try { json.conditionData = [conditionIsHere.checked, objectsJson[conditionData.value].name] } catch (e) {
                 if (conditionData == null || conditionData == undefined || conditionData == "")
                     return
                 json.conditionData = [conditionIsHere.checked, conditionData.value]
             }
+            break
+        case conditionID["INPUT"]:
+            json.condition = optionCondition.value
+            json.conditionData = [conditionData.value]
             break
         default:
             break

@@ -13,7 +13,7 @@ class Button {
 
 function checkCondition(condition, indexBtn, oldIndexDialog, type) {
     var data = allDialog[oldIndexDialog].buttons[indexBtn].conditionData
-    var temp, temp2
+    var temp
 
     // Verification si le bouton est un random (change l'affichage du bouton en rouge si impossible)
     if (type == "load" && data != null) {
@@ -22,76 +22,77 @@ function checkCondition(condition, indexBtn, oldIndexDialog, type) {
         }
     }
 
+    console.log(condition)
+
     switch (condition) {
-        case null:
-            return true;
-            break
-        case 1: // GOLD [isSup, amount]
+        case conditionID["GOLD"]: // GOLD [isSup, amount]
             temp = setInt(data[1])
             if (data[0] && player.gold >= temp) { return true }
             if (!data[0] && player.gold <= temp) { return true }
             return false
-        case 2: // Extra [isSup, amount]
+        case conditionID["EXTRA"]: // Extra [isSup, amount]
             temp = setInt(data[1])
             if (data[0] && player.extra >= temp) { return true }
             if (!data[0] && player.extra <= temp) { return true }
             return false
-        case 3: // STAMINA [isSup, amount]
+        case conditionID["STAMINA"]: // STAMINA [isSup, amount]
             temp = setInt(data[1])
             if (data[0] && player.stamina >= temp) { return true }
             if (!data[0] && player.stamina <= temp) { return true }
             return false
-        case 4: // ABILITY [isSup, amount]
+        case conditionID["ABILITY"]: // ABILITY [isSup, amount]
             temp = setInt(data[1])
             if (data[0] && player.ability >= temp) { return true }
             if (!data[0] && player.ability <= temp) { return true }
             return false
-        case 5: // SKILL [isHere, type]
+        case conditionID["SKILL"]: // SKILL [isHere, type]
             temp = getFromName(data[1], player.skill)
             if (data[0] && temp != null) { return true }
             if (!data[0] && temp == null) { return true }
             return false
-        case 6: // OBJECT [isHere, name]
+        case conditionID["OBJECT"]: // OBJECT [isHere, name]
             temp = getFromName(data[1], player.inventory)
             if (data[0] && temp != null) { return true }
             if (!data[0] && temp == null) { return true }
             return false
+        case conditionID["INPUT"]:
+            return true
         default:
-            return false
+            return true
     }
 }
 
 function setEffect(effect, indexBtn, oldIndexDialog, data) {
-    var temp, temp2
+    var temp2
     if (data == null)
         data = allDialog[oldIndexDialog].buttons[indexBtn].effectData
 
     switch (effect) {
-        case 1: // REMOVE_OBJECT [inventaire, object]
+        case effectID["REMOVE_OBJECT"]: // REMOVE_OBJECT [inventaire, object]
             removeFromPlayer(data[1], player.inventory)
             return data[1]
-        case 2: // ADD_OBJECT [inventaire, object]
+        case effectID["ADD_OBJECT"]: // ADD_OBJECT [inventaire, object]
             newObject(data[0], inventoryList, player.inventory)
             return data[1]
-        case 4:
+        case effectID["GOLD"]: // GOLD [amount]
             temp2 = setInt(data[0]);
             player.gold += temp2;
             return temp2
-        case 6:
+        case effectID["EXTRA"]: // EXTRA [amount]
             temp2 = setInt(data[0]);
             player.extra += temp2;
             return temp2
-        case 8:
+        case effectID["STAMINA"]: // STAMINA [amount]
             temp2 = setInt(data[0]);
             player.maxStamina += temp2;
             if (player.stamina > player.maxStamina)
                 player.stamina = player.maxStamina
             return temp2
-        case 10:
+        case effectID["ABILITY"]: // ABILITY [amount]
             temp2 = setInt(data[0]);
             player.ability += temp2;
             return temp2
-        case 11:
+        case effectID["LIFE"]:
             temp2 = setInt(data[0])
             player.stamina += temp2
             if (player.stamina > player.maxStamina)
@@ -99,10 +100,10 @@ function setEffect(effect, indexBtn, oldIndexDialog, data) {
             if (player.stamina < 0)
                 player.stamina = 0
             return temp2
-        case 13:
+        case effectID["FIGHT"]:
             launchFight(data);
             return "FIGHT"
-        case 14:
+        case effectID["RESTART"]:
             restart();
             return
         default:
