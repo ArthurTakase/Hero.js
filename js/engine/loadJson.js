@@ -17,6 +17,7 @@ function initGame(file) {
     var reader = new FileReader();
     reader.onload = function(evt) {
         defaultJSON = JSON.parse(evt.target.result)
+        document.body.style.overflow = "hidden"
         startMenu(defaultJSON)
     };
     reader.readAsText(file);
