@@ -1,40 +1,41 @@
 let colorJson = {}
 let colorAdvanced = false
 
-function addColorFromJSON(colorInfos) {
-    var lang = localStorage.getItem("lang");
-    var elem = language[lang]["ColorTableElement"];
-    var col = language[lang]["ColorTableValue"];
+function updateColorTab() {
     const liste = document.getElementById('colorList')
+    var lang = localStorage.getItem("lang");
+    var col = language[lang]["ColorTableValue"];
+    var elem = language[lang]["ColorTableElement"];
 
-    if (jsonLen(colorJson) == 0) { liste.classList.add("table") }
-
-    colorJson[colorInfos[0]] = colorInfos[1]
+    if (jsonLen(colorJson) == 0) {
+        liste.innerHTML = ""
+        liste.classList.remove("table")
+        return
+    }
+    if (jsonLen(colorJson) == 1) { liste.classList.add("table") }
 
     liste.innerHTML = `<tr class="tableHeader"><th id="ColorElemTable">${elem}</th><th id="ColorValueTable">${col}</th></tr>`
     for (color in colorJson) {
-        liste.innerHTML += `<tr class="${editValue} ${editValueColor}"><td>${color}</td><td title="${colorJson[color]}" style="background: ${colorJson[color]}; border-radius: .5rem;"></td></tr>`
+        liste.innerHTML += `<tr class="${editValue} ${editValueColor}">
+                            <td>${color}</td>
+                            <td title="${colorJson[color]}" style="background: ${colorJson[color]}; border-radius: .5rem;"></td></tr>`
     }
 }
 
+function addColorFromJSON(colorInfos) {
+    colorJson[colorInfos[0]] = colorInfos[1]
+    updateColorTab()
+}
+
 function addColor() {
-    const liste = document.getElementById('colorList')
     var elem = document.getElementById('ColorElem')
     var color = document.getElementById('ColorColor')
 
-    var lang = localStorage.getItem("lang");
-    var ele = language[lang]["ColorTableElement"];
-    var col = language[lang]["ColorTableValue"];
-
     if (elem.value == "") { return }
-    if (jsonLen(colorJson) == 0) { liste.classList.add("table") }
 
     colorJson[elem.value] = color.value
 
-    liste.innerHTML = `<tr class="tableHeader"><th id="ColorElemTable">${ele}</th><th id="ColorValueTable">${col}</th></tr>`
-    for (color in colorJson) {
-        liste.innerHTML += `<tr class="${editValue} ${editValueColor}"><td>${color}</td><td title="${colorJson[color]}" style="background: ${colorJson[color]}; border-radius: .5rem;"></td></tr>`
-    }
+    updateColorTab()
 }
 
 function advancedColor() {

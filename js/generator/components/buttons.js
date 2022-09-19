@@ -2,6 +2,29 @@ let optionIDGlobal = 0
 let buttonList = []
 let buttonIsExpand = true
 
+function updateOptionTab() {
+    const liste = document.getElementById('optionsList')
+
+    if (buttonList.length == 0) {
+        liste.innerHTML = ""
+        liste.classList.remove("table")
+        return
+    }
+
+    liste.innerHTML = '<tr class="tableHeader"><th>ID</th><th>Text</th><th>Go To</th></tr>'
+    for (button in buttonList) {
+        if (buttonList[button].goToIndex == undefined) {
+            liste.innerHTML += `<tr class="${editValue} ${editValueButton}">
+                                <td>${button}</td><td>${buttonList[button].text}</td>
+                                <td>Next</td></tr>`
+        } else {
+            liste.innerHTML += `<tr class="${editValue} ${editValueButton}">
+                                <td>${button}</td><td>${buttonList[button].text}</td>
+                                <td>${buttonList[button].goToIndex}</td></tr>`
+        }
+    }
+}
+
 function addOptionJSON(option) {
     const liste = document.getElementById('optionsList')
     const optionID = document.getElementById('optionID')
@@ -13,14 +36,7 @@ function addOptionJSON(option) {
     optionID.value = optionIDGlobal
 
     // ===== TABLEAU =====
-    liste.innerHTML = '<tr class="tableHeader"><th>ID</th><th>Text</th><th>Go To</th></tr>'
-    for (button in buttonList) {
-        if (buttonList[button].goToIndex == undefined) {
-            liste.innerHTML += `<tr class="${editValue} ${editValueButton}"><td>${button}</td><td>${buttonList[button].text}</td><td>Next</td></tr>`
-        } else {
-            liste.innerHTML += `<tr class="${editValue} ${editValueButton}"><td>${button}</td><td>${buttonList[button].text}</td><td>${buttonList[button].goToIndex}</td></tr>`
-        }
-    }
+    updateOptionTab()
 }
 
 function addOption() {
@@ -46,14 +62,14 @@ function addOption() {
 
     // ===== CONDITION =====
     switch (optionCondition.value) {
-        case conditionID["GOLD"]:
-        case conditionID["EXTRA"]:
-        case conditionID["STAMINA"]:
-        case conditionID["ABILITY"]:
+        case "GOLD":
+        case "EXTRA":
+        case "STAMINA":
+        case "ABILITY":
             json.condition = optionCondition.value
             json.conditionData = [true, (isnum(conditionData.value)) ? parseInt(conditionData.value) : conditionData.value]
             break
-        case conditionID["SKILL"]:
+        case "SKILL":
             json.condition = optionCondition.value
             try { json.conditionData = [conditionIsHere.checked, skillsList[conditionData.value].name] } catch (e) {
                 if (conditionData == null || conditionData == undefined || conditionData.value == "")
@@ -61,7 +77,7 @@ function addOption() {
                 json.conditionData = [conditionIsHere.checked, conditionData.value]
             }
             break
-        case conditionID["OBJECT"]:
+        case "OBJECT":
             json.condition = optionCondition.value
             try { json.conditionData = [conditionIsHere.checked, objectsJson[conditionData.value].name] } catch (e) {
                 if (conditionData == null || conditionData == undefined || conditionData == "")
@@ -69,7 +85,7 @@ function addOption() {
                 json.conditionData = [conditionIsHere.checked, conditionData.value]
             }
             break
-        case conditionID["INPUT"]:
+        case "INPUT":
             json.condition = optionCondition.value
             json.conditionData = [conditionData.value]
             break
@@ -105,14 +121,7 @@ function addOption() {
     }
 
     // ===== TABLEAU =====
-    liste.innerHTML = '<tr class="tableHeader"><th>ID</th><th>Text</th><th>Go To</th></tr>'
-    for (button in buttonList) {
-        if (buttonList[button].goToIndex == undefined) {
-            liste.innerHTML += `<tr class="${editValue} ${editValueButton}"><td>${button}</td><td>${buttonList[button].text}</td><td>Next</td></tr>`
-        } else {
-            liste.innerHTML += `<tr class="${editValue} ${editValueButton}"><td>${button}</td><td>${buttonList[button].text}</td><td>${buttonList[button].goToIndex}</td></tr>`
-        }
-    }
+    updateOptionTab()
 
     if (notificationCheck.checked) {
         if (notificationData.value != "") json.notification = notificationData.value

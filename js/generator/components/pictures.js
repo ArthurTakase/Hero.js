@@ -6,6 +6,11 @@ function updatePictureList() {
     var ele = language[lang]["Name"];
     var col = language[lang]["Preview"];
 
+    if (jsonLen(pictureJson) == 0) {
+        liste.innerHTML = ""
+        liste.classList.remove("table")
+        return
+    }
     if (jsonLen(pictureJson) > 0) { liste.classList.add("table") }
 
     liste.innerHTML = `<tr class="tableHeader"><th id="PictureElemTable">${ele}</th><th id="PictureValueTable">${col}</th></tr>`

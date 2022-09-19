@@ -1,33 +1,32 @@
 // let objectsList = []
 let objectsJson = {}
 
-function reloadObjectList(liste) {
+function reloadObjectList() {
+    const liste = document.getElementById('objectList')
     var lang = localStorage.getItem("lang");
     var name = language[lang]["Name"];
     var abi = language[lang]["ShowAbility"];
     var sta = language[lang]["ShowStamina"];
     var gold = language[lang]["ShowGold"];
 
+    if (jsonLen(objectsJson) == 2) {
+        liste.innerHTML = ""
+        liste.classList.remove("table")
+        return
+    }
+    if (jsonLen(objectsJson) > 0) { liste.classList.add("table") }
+
     liste.innerHTML = `<tr class="tableHeader"><th id="ItemNameTable">${name}</th><th id="ItemAbilityTable">${abi}</th><th id="ItemStaminaTable">${sta}</th><th id="ItemGoldTable">${gold}</th><th>Extra</th></tr>`
     for (object in objectsJson) {
         try {
-            liste.innerHTML += `<tr class="${editValue} ${editValueObject}"><td>
-                ${objectsJson[object].name}</td><td>
-                ${objectsJson[object].data[0]}</td><td>
-                ${objectsJson[object].data[1]}</td><td>
-                ${objectsJson[object].data[2]}</td><td>
-                ${objectsJson[object].data[3]}</td></tr>`
+            liste.innerHTML += `<tr class="${editValue} ${editValueObject}"><td>${objectsJson[object].name}</td><td>${objectsJson[object].data[0]}</td><td>${objectsJson[object].data[1]}</td><td>${objectsJson[object].data[2]}</td><td>${objectsJson[object].data[3]}</td></tr>`
         } catch { continue }
     }
 }
 
 function addObjectFromJSON(element) {
-    const liste = document.getElementById('objectList')
-
-    if (jsonLen(objectsJson)) { liste.classList.add("table") }
-
     objectsJson[element.name] = element
-    reloadObjectList(liste)
+    reloadObjectList()
 }
 
 function addObject() {

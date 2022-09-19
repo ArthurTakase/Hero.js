@@ -42,55 +42,71 @@ function generatePlayer() {
     updateObjects()
 }
 
-function addPlayerSkillFromJSON(element) {
+// ------------------------------------------------------------
+// -------------------------- SKILLS --------------------------
+// ------------------------------------------------------------
+
+function updatePlayerSkill() {
     const liste = document.getElementById('playerSkillsListTable')
 
-    if (playerSkills.length == 0) { liste.classList.add("table") }
-
-    playerSkills.push(element)
+    if (playerSkills.length == 0) {
+        liste.innerHTML = ""
+        liste.classList.remove("table")
+        return
+    }
+    if (playerSkills.length == 1) { liste.classList.add("table") }
 
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
     for (skill in playerSkills) { liste.innerHTML += `<tr class="${editValue} ${editValuePlayerSkill}"><td>${playerSkills[skill]}</td></tr>` }
+}
+
+function addPlayerSkillFromJSON(element) {
+    playerSkills.push(element)
+    updatePlayerSkill()
 }
 
 function addPlayerSkill() {
     var skillInput = document.getElementById('playerSkillsList')
-    const liste = document.getElementById('playerSkillsListTable')
 
     if (skillInput.value == "") { return }
-    if (playerSkills.length == 0) { liste.classList.add("table") }
 
     playerSkills.push(skillInput.value)
-
-    liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
-    for (skill in playerSkills) { liste.innerHTML += `<tr class="${editValue} ${editValuePlayerSkill}"><td>${playerSkills[skill]}</td></tr>` }
-
     skillInput.focus()
+
+    updatePlayerSkill()
 }
 
+// ------------------------------------------------------------
+// ----------------------- INVENTORY --------------------------
+// ------------------------------------------------------------
 
-function addPlayerInventoryFromJSON(element) {
+function updatePlayerInventory() {
     const liste = document.getElementById('playerInventoryListTable')
 
-    if (playerObjects.length == 0) { liste.classList.add("table") }
-
-    playerObjects.push(element)
+    if (playerObjects.length == 0) {
+        liste.innerHTML = ""
+        liste.classList.remove("table")
+        return
+    }
+    if (playerObjects.length == 1) { liste.classList.add("table") }
 
     liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
     for (object in playerObjects) { liste.innerHTML += `<tr class="${editValue} ${editValuePlayerInv}"><td>${playerObjects[object]}</td></tr>` }
+}
+
+function addPlayerInventoryFromJSON(element) {
+    playerObjects.push(element)
+
+    updatePlayerInventory()
 }
 
 function addPlayerInventory() {
     var item = document.getElementById('playerInventoryList')
-    const liste = document.getElementById('playerInventoryListTable')
 
     if (item.value == "") { return }
-    if (playerObjects.length == 0) { liste.classList.add("table") }
 
     playerObjects.push(item.value)
-
-    liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
-    for (object in playerObjects) { liste.innerHTML += `<tr class="${editValue} ${editValuePlayerInv}"><td>${playerObjects[object]}</td></tr>` }
-
     item.focus()
+
+    updatePlayerInventory()
 }

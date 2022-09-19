@@ -65,6 +65,11 @@ const patchnote = [{
         "date": new Date("2022-09-18"),
         "bugfixes": ["N.C."],
         "features": ["New home page"]
+    },
+    {
+        "date": new Date("2022-09-19"),
+        "bugfixes": ["Correction of editing and deleting errors"],
+        "features": ["Rewrite many code files to make them more readable"]
     }
 ]
 

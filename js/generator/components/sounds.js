@@ -7,6 +7,11 @@ function updateSoundsList() {
     var preview = language[lang]["Preview"];
     var volume = language[lang]["Volume"];
 
+    if (jsonLen(soundJson) == 0) {
+        liste.innerHTML = ""
+        liste.classList.remove("table")
+        return
+    }
     if (jsonLen(soundJson) > 0) { liste.classList.add("table") }
 
     liste.innerHTML = `<tr class="tableHeader"><th id="SoundNameTable">${name}</th><th id="SoundPreviewTable">${preview}</th><th id="SoundVolumeTable">${volume}</th></tr>`

@@ -8,6 +8,11 @@ function updateSkillsList() {
     var abi = language[lang]["ShowAbility"];
     var sta = language[lang]["ShowStamina"];
 
+    if (jsonLen(skillsJson) == 2) {
+        liste.innerHTML = ""
+        liste.classList.remove("table")
+        return
+    }
     if (jsonLen(skillsJson) > 0) { liste.classList.add("table") }
 
     liste.innerHTML = `<tr class="tableHeader"><th id="SkillNameTable">${name}</th><th id="SkillAbilityTable">${abi}</th><th id="SkillStaminaTable">${sta}</th></tr>`
