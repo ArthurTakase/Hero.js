@@ -39,7 +39,7 @@ class Fight {
             setEffect(4, null, null, [this.reward[2]])
             setEffect(6, null, null, [this.reward[3]])
             allDialog[currentNumber].show(player)
-            anime("jump")
+            anime("jump", document.getElementById('hero-js-all'))
             sound_victory.play()
             if (music) { music.play() }
             if (music_fight) { music_fight.stop() }
@@ -52,7 +52,7 @@ class Fight {
             showPlayerGold = false
             showPlayerInventory = false
             allDialog[defeatNumber].show(player)
-            anime("fadeIn")
+            anime("fadeIn", document.getElementById('hero-js-all'))
             sound_defeat.play()
             return true
         }
@@ -78,7 +78,7 @@ function attack() {
     if (fight.checkVictory()) { return }
 
     player.stamina -= data[1]
-    anime("shake")
+    anime("shake", document.getElementById('hero-js-all'))
     sound_hurt.play()
     fight.show(dice)
 

@@ -152,8 +152,13 @@
     max-width: 35%;
     z-index: 1;
     color: white;
-    padding: 1rem;
+    margin: 1rem;
     transition-duration: .5s;
+    overflow: hidden;
+    height: 18rem;
+    object-fit: cover;
+    position: relative;
+    box-shadow: #00000041 0px 0px 20px 0px;
 }
 
 .homeGame:hover {
@@ -162,14 +167,23 @@
 }
 
 .homeGame img {
+    height: 100%;
+    width: 100%;
     object-fit: cover;
-    border-radius: .5rem;
+    /* border-radius: .5rem; */
 }
 
 .homeGameText {
     font-size: 1.2rem;
     margin-top: .5rem;
     font-weight: bold;
+    position: absolute;
+    border-bottom: solid;
+    background: rgba(226, 226, 236, 0.274);
+    backdrop-filter: blur(20px);
+    padding: .5rem 1rem .1rem 1rem;
+    border-radius: 1rem 1rem 0 0;
+    bottom: 0;
 }
 
 

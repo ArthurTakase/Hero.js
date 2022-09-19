@@ -69,7 +69,12 @@ const patchnote = [{
     {
         "date": new Date("2022-09-19"),
         "bugfixes": ["Correction of editing and deleting errors"],
-        "features": ["Rewrite many code files to make them more readable"]
+        "features": [
+            "Rewrite many code files to make them more readable",
+            "Modification of the CSS of the example games on the home page.",
+            "Added a new condition in the buttons: INPUT. This condition allows the player\
+            to write in a box. If the answer matches with what the creator has configured, the next scene is launched."
+        ]
     }
 ]
 

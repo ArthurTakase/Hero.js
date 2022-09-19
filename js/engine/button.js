@@ -9,6 +9,34 @@ class Button {
         this.notif = notif
         this.sound = sound
     }
+
+    createButton(condition, i, currentNumber) {
+        if (!condition) { return '<button class="hero-js-button hero-js-not-activate">🔒</button>\n' }
+        if (this.condition == conditionID["INPUT"]) { return `<input class="hero-js-button hero-js-activate" placeholder="🖊️ ${this.text}" onchange="checkInput(${currentNumber}, ${i})">\n` }
+        return `<button class="hero-js-button hero-js-activate" onclick="switchDialog(${this.goToIndex}, ${this.condition}, ${i}, ${currentNumber}, ${this.effect}, '${this.notif}')">${this.text}</button>`
+    }
+
+    show() {
+        return `<button class="hero-js-button hero-js-activate"">${this.text}</button>\n`
+    }
+}
+
+function checkInput(currentNumber, i) {
+    console.log(currentNumber, i, "checkInput")
+    try {
+        var button = allDialog[currentNumber].buttons[i]
+        var buttonDiv = document.getElementsByClassName("hero-js-button")[i]
+        var answer = button.conditionData[0]
+        if (answer == buttonDiv.value) {
+            switchDialog(button.goToIndex, button.condition, i, currentNumber, button.effect, button.notif)
+        } else {
+            // faire animation echec
+            console.log("incorrect")
+            anime("shake", buttonDiv)
+        }
+    } catch (e) {
+        console.log(e)
+    }
 }
 
 function checkCondition(condition, indexBtn, oldIndexDialog, type) {
@@ -21,8 +49,6 @@ function checkCondition(condition, indexBtn, oldIndexDialog, type) {
             try { if (data[i].startsWith("RANDOM")) { return true } } catch (e) {}
         }
     }
-
-    console.log(condition)
 
     switch (condition) {
         case conditionID["GOLD"]: // GOLD [isSup, amount]
@@ -55,8 +81,6 @@ function checkCondition(condition, indexBtn, oldIndexDialog, type) {
             if (data[0] && temp != null) { return true }
             if (!data[0] && temp == null) { return true }
             return false
-        case conditionID["INPUT"]:
-            return true
         default:
             return true
     }
@@ -117,24 +141,24 @@ function setNotif(notif, effect, data) {
         return
 
     var notifHTML = `<div id="hero-js-notification"><div class="notif-title"><i class="bx bx-info-circle"></i> Infos</div><div class="notif-body">`
-    if (notif == 'undefined') {
+    if (notif == 'undefined' || notif == undefined) {
         switch (effect) {
-            case 1:
+            case effectID["REMOVE_OBJECT"]:
                 notifHTML += `Remove ${getObjectName(data)}</p></div>`;
                 break
-            case 2:
+            case effectID["ADD_OBJECT"]:
                 notifHTML += `Add ${getObjectName(data)}</p></div>`;
                 break
-            case 4:
+            case effectID["GOLD"]:
                 notifHTML += `+${data} gold(s).</div></div>`;
                 break
-            case 6:
+            case effectID["EXTRA"]:
                 notifHTML += `+${data} extra(s).</div></div>`;
                 break
-            case 8:
+            case effectID["STAMINA"]:
                 notifHTML += `+${data} stamina.</div></div>`;
                 break
-            case 10:
+            case effectID["ABILITY"]:
                 notifHTML += `+${data} ability.</div></div>`;
                 break
             default:
@@ -155,7 +179,7 @@ function switchDialog(indexDialog, condition, indexBtn, oldIndexDialog, effect, 
         if (temp != "FIGHT") {
             allDialog[currentNumber].show(player)
             setNotif(notif, effect, temp)
-            anime(allDialog[currentNumber].animation)
+            anime(allDialog[currentNumber].animation, document.getElementById('hero-js-all'))
         }
     }
 }

@@ -1,6 +1,4 @@
-function anime(anime) {
-    var div = document.getElementById('hero-js-all')
-
+function anime(anime, div) {
     div.style.animation = "none"
 
     setTimeout(function() {
