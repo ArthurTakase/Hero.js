@@ -16,3 +16,5 @@ const showMenu = (headerToggle, navbarId) => {
     } catch (e) {}
 }
 showMenu('header-toggle', 'navbar')
+
+checkStart()
