@@ -60,6 +60,11 @@ const patchnote = [{
         "date": new Date("2022-06-19"),
         "bugfixes": ["N.C."],
         "features": ["possibility to give the same skill or object to the player several times"]
+    },
+    {
+        "date": new Date("2022-09-18"),
+        "bugfixes": ["N.C."],
+        "features": ["New home page"]
     }
 ]
 
@@ -76,6 +81,6 @@ patchnote.forEach(update => {
         return `${it}`
     }).join("<br>")
 
-    container.innerHTML += "<div class='sub_container'><div class='sub_container_title'>PatchNote (" + update.date.toLocaleDateString("fr") +
-        ")</div><span style='text-align: center;'><h3>Features</h3>" + features + "<br><br><h3>BugFixes</h3>" + bugfixes + "</span></div>"
+    container.innerHTML += `<div class='sub_container'><div class='sub_container_title'>PatchNote (${update.date.toLocaleDateString("fr")})</div>
+                            <span style='text-align: center;'><h3>Features</h3>${features}<br><br><h3>BugFixes</h3>${bugfixes}</span></div>`
 });

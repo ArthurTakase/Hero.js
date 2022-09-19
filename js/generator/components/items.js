@@ -8,15 +8,15 @@ function reloadObjectList(liste) {
     var sta = language[lang]["ShowStamina"];
     var gold = language[lang]["ShowGold"];
 
-    liste.innerHTML = '<tr class="tableHeader"><th id="ItemNameTable">' + name + '</th><th id="ItemAbilityTable">' + abi + '</th><th id="ItemStaminaTable">' + sta + '</th><th id="ItemGoldTable">' + gold + '</th><th>Extra</th></tr>'
+    liste.innerHTML = `<tr class="tableHeader"><th id="ItemNameTable">${name}</th><th id="ItemAbilityTable">${abi}</th><th id="ItemStaminaTable">${sta}</th><th id="ItemGoldTable">${gold}</th><th>Extra</th></tr>`
     for (object in objectsJson) {
         try {
-            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueObject + '"><td>' +
-                objectsJson[object].name + '</td><td>' +
-                objectsJson[object].data[0] + '</td><td>' +
-                objectsJson[object].data[1] + '</td><td>' +
-                objectsJson[object].data[2] + '</td><td>' +
-                objectsJson[object].data[3] + '</td></tr>'
+            liste.innerHTML += `<tr class="${editValue} ${editValueObject}"><td>
+                ${objectsJson[object].name}</td><td>
+                ${objectsJson[object].data[0]}</td><td>
+                ${objectsJson[object].data[1]}</td><td>
+                ${objectsJson[object].data[2]}</td><td>
+                ${objectsJson[object].data[3]}</td></tr>`
         } catch { continue }
     }
 }
@@ -39,11 +39,8 @@ function addObject() {
     var objectExtra = document.getElementById('itemExtra')
     var json = {}
 
-    if (objectAbility.value == "" ||
-        objectGold.value == "" ||
-        objectStamina.value == "" ||
-        objectExtra.value == "" ||
-        objectName.value == "") { return }
+    if (objectAbility.value == "" || objectGold.value == "" || objectStamina.value == "" ||
+        objectExtra.value == "" || objectName.value == "") { return }
     if (jsonLen(objectsJson)) { liste.classList.add("table") }
 
     json.name = objectName.value
@@ -65,14 +62,12 @@ function addObject() {
     objectName.value = ""
     objectStamina.value = ""
     objectName.focus()
-
-    // try {document.getElementById('playerInventoryList').innerHTML += "<option>" + json.name + "</option>"} catch(e) {}
 }
 
 function updateObjects() {
     var objectListOption = ""
 
-    for (object in objectsJson) { objectListOption += "<option>" + object + "</option>" }
+    for (object in objectsJson) { objectListOption += `<option>${object}</option>` }
 
     //Ajouter les autres parties à update ici
     const playerList = document.getElementById('playerInventoryList')

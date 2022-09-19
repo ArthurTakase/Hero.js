@@ -11,7 +11,7 @@ function removeColor(div) {
     } else {
         liste.innerHTML = '<tr class="tableHeader"><th>Element</th><th>Color</th></tr>'
         for (color in colorJson) {
-            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueColor + '"><td>' + color + '</td><td title="' + colorJson[color] + '" style="background: ' + colorJson[color] + '; border-radius: .5rem;"></td></tr>'
+            liste.innerHTML += `<tr class="${editValue} ${editValueColor}"><td>${color}</td><td title="${colorJson[color]}" style="background: ${colorJson[color]}; border-radius: .5rem;"></td></tr>`
         }
     }
 }
@@ -39,7 +39,8 @@ function removePicture(div) {
     } else {
         liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Preview</th></tr>'
         for (picture in pictureJson) {
-            liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePicture + '"><td>' + picture + '</td><td><img class="picture-img" src="' + pictureJson[picture] + '"></td></tr>'
+            liste.innerHTML += `<tr class="${editValue} ${editValuePicture}"><td>${picture}</td><td>
+                                <img class="picture-img" src="${pictureJson[picture]}"></td></tr>`
         }
     }
     updatePictures()
@@ -56,13 +57,9 @@ function removeSound(div) {
     } else {
         liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Preview</th><th>Volume</th></tr>'
         for (sound in soundJson) {
-            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueSound + '"><td>' +
-                sound +
-                '</td><td><audio controls src="' +
-                soundJson[sound][0] +
-                '"></audio></td><td>' +
-                soundJson[sound][1] +
-                '</td></tr>'
+            liste.innerHTML += `<tr class="${editValue} ${editValueSound}"><td>${sound}</td>
+                                <td><audio controls src="${soundJson[sound][0]}"></audio>
+                                </td><td>${soundJson[sound][1]}</td></tr>`
         }
     }
     updateSounds()
@@ -87,7 +84,8 @@ function removeSkill(div) {
         liste.innerHTML = '<tr class="tableHeader"><th>Name</th><th>Ability</th><th>Stamina</th></tr>'
         for (skill in skillsJson) {
             try {
-                liste.innerHTML += '<tr class="' + editValue + ' ' + editValueSkill + '"><td>' + skillsJson[skill].name + '</td><td>' + skillsJson[skill].stats[0] + '</td><td>' + skillsJson[skill].stats[1] + '</td></tr>'
+                liste.innerHTML += `<tr class="${editValue} ${editValueSkill}"><td>${skillsJson[skill].name}</td>
+                                    <td>${skillsJson[skill].stats[0]}</td><td>${skillsJson[skill].stats[1]}</td></tr>`
             } catch (e) { continue; }
         }
     }
@@ -108,9 +106,12 @@ function removeButton(div) {
         liste.innerHTML = '<tr class="tableHeader"><th>ID</th><th>Text</th><th>Go To</th></tr>'
         for (button in buttonList) {
             if (buttonList[button].goToIndex == undefined) {
-                liste.innerHTML += '<tr class="' + editValue + ' ' + editValueButton + '"><td>' + button + '</td><td>' + buttonList[button].text + '</td><td>Next</td></tr>'
+                liste.innerHTML += `<tr class="${editValue} ${editValueButton}"><td>${button}</td>
+                                    <td>${buttonList[button].text}</td><td>Next</td></tr>`
             } else {
-                liste.innerHTML += '<tr class="' + editValue + ' ' + editValueButton + '"><td>' + button + '</td><td>' + buttonList[button].text + '</td><td>' + buttonList[button].goToIndex + '</td></tr>'
+                liste.innerHTML += `<tr class="${editValue} ${editValueButton}"><td>${button}</td>
+                                    <td>${buttonList[button].text}</td>
+                                    <td>${buttonList[button].goToIndex}</td></tr>`
             }
         }
     }
@@ -133,7 +134,7 @@ function removeSkillFromPlayer(div) {
         liste.classList.remove("table")
     } else {
         liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
-        for (skill in playerSkills) { liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePlayerSkill + '"><td>' + playerSkills[skill] + '</td></tr>' }
+        for (skill in playerSkills) { liste.innerHTML += `<tr class="${editValue} ${editValuePlayerSkill}"><td>${playerSkills[skill]}</td></tr>` }
     }
 }
 
@@ -152,7 +153,7 @@ function removeObjectFromPlayer(div) {
         liste.classList.remove("table")
     } else {
         liste.innerHTML = '<tr class="tableHeader"><th>Name</th></tr>'
-        for (object in playerObjects) { liste.innerHTML += '<tr class="' + editValue + ' ' + editValuePlayerInv + '"><td>' + playerObjects[object] + '</td></tr>' }
+        for (object in playerObjects) { liste.innerHTML += `<tr class="${editValue} ${editValuePlayerInv}"><td>${playerObjects[object]}</td></tr>` }
     }
 }
 

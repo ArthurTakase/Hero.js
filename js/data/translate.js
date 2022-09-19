@@ -214,7 +214,7 @@ function translate(lang) {
             try {
                 document.getElementById(it).innerHTML = elementTranslated
             } catch (e) {
-                console.log("error on element " + it + " : " + e)
+                console.log(`error on element ${it} : ${e}`)
             }
         });
     }
@@ -228,7 +228,7 @@ function translate(lang) {
                 document.getElementById(it).placeholder = elementTranslated
                 document.getElementById(it).title = elementTranslated
             } catch (e) {
-                console.log("error on element " + it + " : " + e)
+                console.log(`error on element ${it} : ${e}`)
             }
         });
     }

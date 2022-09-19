@@ -117,8 +117,7 @@ function getcolor() {
 function createNotif(text, title) {
     var notif = document.getElementById('notif-zone')
 
-    notif.innerHTML = '<div class="hero-js-notification">\
-    <div class="notif-title">' + title + '</div><div class="notif-body">' + text + '</div></div>'
+    notif.innerHTML = `<div class="hero-js-notification"><div class="notif-title">${title}</div><div class="notif-body">${text}</div></div>`
 }
 
 function checkJSON(json) {

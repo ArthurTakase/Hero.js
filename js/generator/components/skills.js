@@ -10,10 +10,10 @@ function updateSkillsList() {
 
     if (jsonLen(skillsJson) > 0) { liste.classList.add("table") }
 
-    liste.innerHTML = '<tr class="tableHeader"><th id="SkillNameTable">' + name + '</th><th id="SkillAbilityTable">' + abi + '</th><th id="SkillStaminaTable">' + sta + '</th></tr>'
+    liste.innerHTML = `<tr class="tableHeader"><th id="SkillNameTable">${name}</th><th id="SkillAbilityTable">${abi}</th><th id="SkillStaminaTable">${sta}</th></tr>`
     for (skill in skillsJson) {
         try {
-            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueSkill + '"><td>' + skillsJson[skill].name + '</td><td>' + skillsJson[skill].stats[0] + '</td><td>' + skillsJson[skill].stats[1] + '</td></tr>'
+            liste.innerHTML += `<tr class="${editValue} ${editValueSkill}"><td>${skillsJson[skill].name}</td><td>${skillsJson[skill].stats[0]}</td><td>${skillsJson[skill].stats[1]}</td></tr>`
         } catch { continue }
     }
 }
@@ -47,14 +47,12 @@ function addSkill() {
     skillAbility.value = ""
     skillStamina.value = ""
     skillName.focus()
-
-    // try {document.getElementById('playerSkillsList').innerHTML += "<option>" + json.name + "</option>"} catch(e) {}
 }
 
 function updateSkills() {
     var skillsListOption = ""
 
-    for (skill in skillsJson) { skillsListOption += "<option>" + skill + "</option>" }
+    for (skill in skillsJson) { skillsListOption += `<option>${skill}</option>` }
 
     //Ajouter les autres parties à update ici
     const playerList = document.getElementById('playerSkillsList')

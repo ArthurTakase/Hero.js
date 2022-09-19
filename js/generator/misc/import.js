@@ -89,11 +89,11 @@ function setValueFromJSON(json) {
 
     } else {
         const player = document.getElementById('player')
-        player.innerHTML = '<div class="sub_container">\
-            <div class="sub_container_title">Player</div>\
-            Creating a player is mandatory if you want to use skills, items or even conditions on the dialog.\
-            <button onclick="generatePlayer()" class="big-btn">Create new Player</button>\
-        </div>'
+        player.innerHTML = `<div class="sub_container">
+                                <div class="sub_container_title">Player</div>
+                                Creating a player is mandatory if you want to use skills, items or even conditions on the dialog.
+                                <button onclick="generatePlayer()" class="big-btn">Create new Player</button>
+                            </div>`
     }
 
     json.dialogs.forEach(element => {

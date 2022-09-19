@@ -116,33 +116,32 @@ function setNotif(notif, effect, data) {
     if (notif == 'false')
         return
 
-    var notifHTML = '<div id="hero-js-notification">\
-                            <div class="notif-title"><i class="bx bx-info-circle"></i> Infos</div><div class="notif-body">'
+    var notifHTML = `<div id="hero-js-notification"><div class="notif-title"><i class="bx bx-info-circle"></i> Infos</div><div class="notif-body">`
     if (notif == 'undefined') {
         switch (effect) {
             case 1:
-                notifHTML += "Remove " + getObjectName(data) + "</p></div>";
+                notifHTML += `Remove ${getObjectName(data)}</p></div>`;
                 break
             case 2:
-                notifHTML += "Add " + getObjectName(data) + "</p></div>";
+                notifHTML += `Add ${getObjectName(data)}</p></div>`;
                 break
             case 4:
-                notifHTML += "+" + data + " gold(s).</div></div>";
+                notifHTML += `+${data} gold(s).</div></div>`;
                 break
             case 6:
-                notifHTML += "+" + data + " extra(s).</div></div>";
+                notifHTML += `+${data} extra(s).</div></div>`;
                 break
             case 8:
-                notifHTML += "+" + data + " stamina.</div></div>";
+                notifHTML += `+${data} stamina.</div></div>`;
                 break
             case 10:
-                notifHTML += "+" + data + " ability.</div></div>";
+                notifHTML += `+${data} ability.</div></div>`;
                 break
             default:
                 return
         }
     } else
-        notifHTML += notif + '</div></div>'
+        notifHTML += `${notif}</div></div>`
     document.getElementById('hero-js-all').innerHTML += notifHTML
 }
 

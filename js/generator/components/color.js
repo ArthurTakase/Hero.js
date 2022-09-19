@@ -1,4 +1,3 @@
-// let colorList = []
 let colorJson = {}
 let colorAdvanced = false
 
@@ -12,9 +11,9 @@ function addColorFromJSON(colorInfos) {
 
     colorJson[colorInfos[0]] = colorInfos[1]
 
-    liste.innerHTML = '<tr class="tableHeader"><th id="ColorElemTable">' + elem + '</th><th id="ColorValueTable">' + col + '</th></tr>'
+    liste.innerHTML = `<tr class="tableHeader"><th id="ColorElemTable">${elem}</th><th id="ColorValueTable">${col}</th></tr>`
     for (color in colorJson) {
-        liste.innerHTML += '<tr class="' + editValue + ' ' + editValueColor + '"><td>' + color + '</td><td title="' + colorJson[color] + '" style="background: ' + colorJson[color] + '; border-radius: .5rem;"></td></tr>'
+        liste.innerHTML += `<tr class="${editValue} ${editValueColor}"><td>${color}</td><td title="${colorJson[color]}" style="background: ${colorJson[color]}; border-radius: .5rem;"></td></tr>`
     }
 }
 
@@ -31,11 +30,10 @@ function addColor() {
     if (jsonLen(colorJson) == 0) { liste.classList.add("table") }
 
     colorJson[elem.value] = color.value
-        // colorList = []
 
-    liste.innerHTML = '<tr class="tableHeader"><th id="ColorElemTable">' + ele + '</th><th id="ColorValueTable">' + col + '</th></tr>'
+    liste.innerHTML = `<tr class="tableHeader"><th id="ColorElemTable">${ele}</th><th id="ColorValueTable">${col}</th></tr>`
     for (color in colorJson) {
-        liste.innerHTML += '<tr class="' + editValue + ' ' + editValueColor + '"><td>' + color + '</td><td title="' + colorJson[color] + '" style="background: ' + colorJson[color] + '; border-radius: .5rem;"></td></tr>'
+        liste.innerHTML += `<tr class="${editValue} ${editValueColor}"><td>${color}</td><td title="${colorJson[color]}" style="background: ${colorJson[color]}; border-radius: .5rem;"></td></tr>`
     }
 }
 

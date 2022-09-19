@@ -8,9 +8,9 @@ function appendCondition() {
 
     var conditionSelectCopy = conditionSelect.outerHTML
     conditionSelectCopy = conditionSelectCopy.replace('<option selected="">', '<option>')
-    conditionSelectCopy = conditionSelectCopy.replace('<option>' + element + '</option>', '<option selected>' + element + '</option>')
+    conditionSelectCopy = conditionSelectCopy.replace(`<option>${element}</option>`, `<option selected>${element}</option>`)
 
-    conditionZone.innerHTML = '<div class="grid-title">Condition</div>' + conditionSelectCopy
+    conditionZone.innerHTML = `<div class="grid-title">Condition</div>${conditionSelectCopy}`
 
     switch (element) {
         case "No Condition":
@@ -50,9 +50,9 @@ function appendEffect() {
 
     var effectSelectCopy = effectSelect.outerHTML
     effectSelectCopy = effectSelectCopy.replace('<option selected="">', '<option>')
-    effectSelectCopy = effectSelectCopy.replace('<option>' + element + '</option>', '<option selected>' + element + '</option>')
+    effectSelectCopy = effectSelectCopy.replace(`<option>${element}</option>`, `<option selected>${element}</option>`)
 
-    effectZone.innerHTML = '<div class="grid-title">Effect</div>' + effectSelectCopy
+    effectZone.innerHTML = `<div class="grid-title">Effect</div>${effectSelectCopy}`
 
     switch (element) {
         case "REMOVE_OBJECT":
@@ -152,12 +152,7 @@ function updateDialogList() {
     liste.innerHTML = '<tr class="tableHeader"><th>ID</th><th>Title</th><th>Body</th></tr>'
 
     for (dialog in dialogList) {
-        liste.innerHTML += '<tr class="preview-button ' + editValue + ' ' + editValueDialog + '" onclick="preview(\'preview\', ' + dialog + ')"><td>' +
-            dialog +
-            '</td><td>' +
-            dialogList[dialog].title +
-            '</td><td>' +
-            dialogList[dialog].body +
-            '</td></tr>'
+        liste.innerHTML += `<tr class="preview-button ${editValue} ${editValueDialog}" onclick="preview(\'preview\', ${dialog})">
+                            <td>${dialog}</td><td>${dialogList[dialog].title}</td><td>${dialogList[dialog].body}</td></tr>`
     }
 }

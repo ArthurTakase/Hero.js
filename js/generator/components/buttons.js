@@ -16,9 +16,9 @@ function addOptionJSON(option) {
     liste.innerHTML = '<tr class="tableHeader"><th>ID</th><th>Text</th><th>Go To</th></tr>'
     for (button in buttonList) {
         if (buttonList[button].goToIndex == undefined) {
-            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueButton + '"><td>' + button + '</td><td>' + buttonList[button].text + '</td><td>Next</td></tr>'
+            liste.innerHTML += `<tr class="${editValue} ${editValueButton}"><td>${button}</td><td>${buttonList[button].text}</td><td>Next</td></tr>`
         } else {
-            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueButton + '"><td>' + button + '</td><td>' + buttonList[button].text + '</td><td>' + buttonList[button].goToIndex + '</td></tr>'
+            liste.innerHTML += `<tr class="${editValue} ${editValueButton}"><td>${button}</td><td>${buttonList[button].text}</td><td>${buttonList[button].goToIndex}</td></tr>`
         }
     }
 }
@@ -108,9 +108,9 @@ function addOption() {
     liste.innerHTML = '<tr class="tableHeader"><th>ID</th><th>Text</th><th>Go To</th></tr>'
     for (button in buttonList) {
         if (buttonList[button].goToIndex == undefined) {
-            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueButton + '"><td>' + button + '</td><td>' + buttonList[button].text + '</td><td>Next</td></tr>'
+            liste.innerHTML += `<tr class="${editValue} ${editValueButton}"><td>${button}</td><td>${buttonList[button].text}</td><td>Next</td></tr>`
         } else {
-            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueButton + '"><td>' + button + '</td><td>' + buttonList[button].text + '</td><td>' + buttonList[button].goToIndex + '</td></tr>'
+            liste.innerHTML += `<tr class="${editValue} ${editValueButton}"><td>${button}</td><td>${buttonList[button].text}</td><td>${buttonList[button].goToIndex}</td></tr>`
         }
     }
 
