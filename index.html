@@ -6,7 +6,9 @@
     <!-- <script src="https://kit.fontawesome.com/f4ace78f68.js" crossorigin="anonymous"></script> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/engine/color.css">
-    <link rel="stylesheet" href="css/index.css">
+    <!-- <link rel="stylesheet" href="css/index.css"> -->
+    <link rel="stylesheet" href="css/newIndex.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/engine/navbar.css">
     <link rel="stylesheet" href="css/engine/notification.css">
     <link rel="stylesheet" href="css/engine/startMenu.css">
@@ -21,19 +23,27 @@
 
     <!-- Menu Index (disparait une fois le jeu lancé) -->
     <section class="home" id="home">
-        <div class="home__container bd-grid">
-            <div class="home__img" id="home__img"></div>
 
-            <div class="home__data">
-                <h1 class="home__title">Hero.js</h1>
-                <p class="home__description">Et si vous deveniez un créateur ?</p>
-
-                <label class="home__button" for="hero-js-form-json">Charger un jeu</label>
+        <section class="homeContainer" id="homeUn">
+            <a href="https://github.com/ArthurTakase/Heros.js"><i class='bx bxl-github'></i></a>
+            <div class="homeNameText">HERO.JS</div>
+            <img src="img/monika.png" id="homeImg" alt="">
+            <div id="home__buttons">
+                <label class="home__button" for="hero-js-form-json">Jouer</label>
                 <input style="display: none;" type="file" id="hero-js-form-json" accept=".json,.hero" onchange="initGame(this.files[0])">
-                <a href="generator.html" class="home__button">Créer votre jeu</a>
+                <a href="generator.html" class="home__button">Créer</a>
             </div>
-        </div>
-        <div class="bottom-text" id="home__bottom">Participez au développement sur <a href="https://github.com/ArthurTakase/Heros.js" target="_blank">Github</a> !</div>
+        </section>
+
+        <section class="homeContainer" id="homeTrois">
+            <div class="homeNameText">JEUX</div>
+            <a href="https://arthurtakase.github.io/Heros.js?game=https://arthurtakase.github.io/Heros.js/exemples/exemple.json" target="_blank" class="homeGame">
+                <img src="https://media.discordapp.net/attachments/513278653254336513/1013773150925901984/274534414_635556697702182_2984125345401364184_n.jpg?width=635&height=681" alt="">
+                <div class="homeGameText">Fichier de test #1</div>
+            </a>
+
+        </section>
+
     </section>
 
     <!-- Zone de jeu -->
@@ -98,6 +108,7 @@
     <script src="js/engine/animation.js"></script>
     <script src="js/engine/hud.js"></script>
     <script src="js/engine/save.js"></script>
+    <script src="js/generator/display/navbar.js"></script>
     <!-- Engine Objets -->
     <script src="js/engine/button.js"></script>
     <script src="js/engine/dialog.js"></script>
@@ -110,9 +121,7 @@
     <script src="js/engine/loadJson.js"></script>
     <script src="js/engine/init.js"></script>
     <!-- Index -->
-    <script src="js/index/index.js"></script>
     <script src="js/index/navbar.js"></script>
-    <script src="js/generator/navbar.js"></script>
 </body>
 
 </html>

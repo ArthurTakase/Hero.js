@@ -1,35 +1,18 @@
 var dialogIDGlobal = 0
 var dialogList = []
 
-const selectCondition = {
-    "No Condition": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option selected>No Condition</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>SKILL</option><option>OBJECT</option></select>',
-    "GOLD": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option>No Condition</option><option selected>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>SKILL</option><option>OBJECT</option></select>',
-    "EXTRA": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option>No Condition</option><option>GOLD</option><option selected>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>SKILL</option><option>OBJECT</option></select>',
-    "STAMINA": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option>No Condition</option><option>GOLD</option><option>EXTRA</option><option selected>STAMINA</option><option>ABILITY</option><option>SKILL</option><option>OBJECT</option></select>',
-    "ABILITY": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option>No Condition</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option selected>ABILITY</option><option>SKILL</option><option>OBJECT</option></select>',
-    "SKILL": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option>No Condition</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option selected>SKILL</option><option>OBJECT</option></select>',
-    "OBJECT": '<select name="optionCondition" id="optionCondition" onchange="appendCondition()"><option>No Condition</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>SKILL</option><option selected>OBJECT</option></select>'
-}
-
-const selectEffect = {
-    "No Effect": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option selected>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
-    "REMOVE_OBJECT": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option selected>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
-    "ADD_OBJECT": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option selected>ADD_OBJECT</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
-    "GOLD": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option selected>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
-    "EXTRA": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option selected>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
-    "STAMINA": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option>EXTRA</option><option selected>STAMINA</option><option>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
-    "ABILITY": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option selected>ABILITY</option><option>LIFE</option><option>RESTART</option></select>',
-    "LIFE": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option selected>LIFE</option><option>RESTART</option></select>',
-    "RESTART": '<select name="optionEffect" id="optionEffect" onchange="appendEffect()"><option>No Effect</option><option>REMOVE_OBJECT</option><option>ADD_OBJECT</option><option>GOLD</option><option>EXTRA</option><option>STAMINA</option><option>ABILITY</option><option>LIFE</option><option selected>RESTART</option></select>',
-}
-
 function appendCondition() {
     const conditionZone = document.getElementById('optionConditionZone')
     var conditionSelect = document.getElementById('optionCondition')
+    var element = conditionSelect.value
 
-    conditionZone.innerHTML = '<div class="grid-title">Condition</div>' + selectCondition[conditionSelect.value]
+    var conditionSelectCopy = conditionSelect.outerHTML
+    conditionSelectCopy = conditionSelectCopy.replace('<option selected="">', '<option>')
+    conditionSelectCopy = conditionSelectCopy.replace(`<option>${element}</option>`, `<option selected>${element}</option>`)
 
-    switch (conditionSelect.value) {
+    conditionZone.innerHTML = `<div class="grid-title">Condition</div>${conditionSelectCopy}`
+
+    switch (element) {
         case "No Condition":
             break
         case "GOLD":
@@ -54,16 +37,24 @@ function appendCondition() {
                                         </div>'
             updateObjects()
             break
+        case "INPUT":
+            conditionZone.innerHTML += '<input type="text" name="conditionValue" id="conditionValue" placeholder="Input Answer" title="Input Answer" class="advanced">'
+
     }
 }
 
 function appendEffect() {
     const effectZone = document.getElementById('optionEffectZone')
     const effectSelect = document.getElementById('optionEffect')
+    var element = effectSelect.value
 
-    effectZone.innerHTML = '<div class="grid-title">Effect</div>' + selectEffect[effectSelect.value]
+    var effectSelectCopy = effectSelect.outerHTML
+    effectSelectCopy = effectSelectCopy.replace('<option selected="">', '<option>')
+    effectSelectCopy = effectSelectCopy.replace(`<option>${element}</option>`, `<option selected>${element}</option>`)
 
-    switch (effectSelect.value) {
+    effectZone.innerHTML = `<div class="grid-title">Effect</div>${effectSelectCopy}`
+
+    switch (element) {
         case "REMOVE_OBJECT":
         case "ADD_OBJECT":
             effectZone.innerHTML += '<select name="effectValue" id="effectValue" title="Effect Value"></select>'
@@ -161,12 +152,7 @@ function updateDialogList() {
     liste.innerHTML = '<tr class="tableHeader"><th>ID</th><th>Title</th><th>Body</th></tr>'
 
     for (dialog in dialogList) {
-        liste.innerHTML += '<tr class="preview-button ' + editValue + ' ' + editValueDialog + '" onclick="preview(\'preview\', ' + dialog + ')"><td>' +
-            dialog +
-            '</td><td>' +
-            dialogList[dialog].title +
-            '</td><td>' +
-            dialogList[dialog].body +
-            '</td></tr>'
+        liste.innerHTML += `<tr class="preview-button ${editValue} ${editValueDialog}" onclick="preview(\'preview\', ${dialog})">
+                            <td>${dialog}</td><td>${dialogList[dialog].title}</td><td>${dialogList[dialog].body}</td></tr>`
     }
 }

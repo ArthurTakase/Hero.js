@@ -252,6 +252,10 @@
     overflow-x: scroll;
 }
 
+input.hero-js-button {
+    text-align: center;
+}
+
 .hero-js-button {
     flex: 1;
     text-decoration: none;

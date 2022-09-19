@@ -1,7 +1,9 @@
+const version = "v1.0.10"
+
 const language = {
     "fr": {
         "Title": "Générateur Hero.js",
-        "Version": "v1.0.7",
+        "Version": version,
         "NavHeader": "Hero.js",
         "GameInfosTitle": "Informations",
         "GameInfosGeneral": "Préférences",
@@ -67,7 +69,7 @@ const language = {
     },
     "en": {
         "Title": "Hero.js Generator",
-        "Version": "v1.0.7",
+        "Version": version,
         "NavHeader": "Hero.js",
         "GameInfosTitle": "Game Infos",
         "GameInfosGeneral": "General",
@@ -212,7 +214,7 @@ function translate(lang) {
             try {
                 document.getElementById(it).innerHTML = elementTranslated
             } catch (e) {
-                console.log("error on element " + it + " : " + e)
+                // console.log(`error on element ${it} : ${e}`)
             }
         });
     }
@@ -226,7 +228,7 @@ function translate(lang) {
                 document.getElementById(it).placeholder = elementTranslated
                 document.getElementById(it).title = elementTranslated
             } catch (e) {
-                console.log("error on element " + it + " : " + e)
+                // console.log(`error on element ${it} : ${e}`)
             }
         });
     }

@@ -4,7 +4,7 @@ function editColor(div) {
     const elem = document.getElementById('ColorElem')
     const color = document.getElementById('ColorColor')
 
-    elem.value = div.firstChild.innerHTML
+    elem.value = div.firstElementChild.innerHTML
     color.value = div.lastChild.title
 
     window.scrollTo(0, 0);
@@ -18,6 +18,9 @@ function editSkill(div) {
         document.getElementById("skillAbility"),
         document.getElementById("skillStamina")
     ]
+
+    console.log(children)
+
     for (i = 0; i < children.length; i++)
         page_div[i].value = children[i].innerHTML
 
@@ -35,8 +38,12 @@ function editObject(div) {
         document.getElementById("itemExtra")
     ]
 
-    for (var i = 0; i < children.length; i++)
+    console.log(children)
+
+    for (var i = 0; i < children.length; i++) {
+        console.log(children[i].innerHTML)
         pages_div[i].value = children[i].innerHTML
+    }
 
     window.scrollTo(0, 0);
 }
@@ -45,8 +52,8 @@ function editPicture(div) {
     const name = document.getElementById("pictureName")
     const url = document.getElementById("pictureURL")
 
-    name.value = div.firstChild.innerHTML
-    url.value = div.lastChild.firstChild.src
+    name.value = div.firstElementChild.innerHTML
+    url.value = div.lastChild.firstElementChild.src
 
     window.scrollTo(0, 0);
 }
@@ -57,8 +64,8 @@ function editSound(div) {
     const volume = document.getElementById("soundVolume")
 
     name.value = div.childNodes[0].innerHTML
-    url.value = div.childNodes[1].firstChild.src
-    try { volume.value = parseInt(div.childNodes[2].innerHTML) } catch { volume.value = 50 }
+    url.value = div.childNodes[1].firstElementChild.src
+    try { volume.value = parseFloat(div.childNodes[2].innerHTML) * 100 } catch { volume.value = 50 }
 
     window.scrollTo(0, 0);
 }
@@ -106,8 +113,7 @@ function editDialog(div) {
     const picture = document.getElementById("dialogImage")
     const animation = document.getElementById("dialogAnimation")
 
-
-    var id = parseInt(div.firstChild.innerHTML)
+    var id = parseInt(div.firstElementChild.innerHTML)
     var dialog = dialogList[id]
 
     zoneId.value = id
@@ -134,7 +140,7 @@ function editButton(div) {
     const b_optionCondition = document.getElementById("optionCondition")
     const b_optionEffect = document.getElementById("optionEffect")
 
-    var id = parseInt(div.firstChild.innerHTML)
+    var id = parseInt(div.firstElementChild.innerHTML)
     try {
         var button = dialogList[parseInt(zoneId.value)].buttons[id]
     } catch { var button = buttonList[id] }

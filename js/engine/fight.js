@@ -11,28 +11,24 @@ class Fight {
     }
 
     show(dice) {
-        var img = '<div class="hero-js-dialog-img"><img src="' + this.img + '">\
-        <div id="fight-stats">🗡️' + this.ability + '  ❤️' + this.stamina + '  ⭐️' + this.zoneEffect + '</div>\
-        </div>'
-        var buttons = '<button class="hero-js-button hero-js-activate" onclick="attack()">Attack</button>\n'
-            // buttons += '<button class="hero-js-button hero-js-not-activate">Fuir</button>\n'
-        var title = '<div class="hero-js-dialog-header">' + this.title + '</div>'
+        var img = `<div class="hero-js-dialog-img"><img src="${this.img}">
+                <div id="fight-stats">🗡️${this.ability}  ❤️${this.stamina} ⭐️${this.zoneEffect}</div></div>`
 
-        var diceElem = '<div id="dice">\
-                        <div class="face" id="face-top">6</div>\
-                        <div class="face" id="face-front">' + dice + '</div>\
-                        <div class="face" id="face-right">5</div>\
-                        <div class="face" id="face-back">4</div>\
-                        <div class="face" id="face-left">3</div>\
-                        <div class="face" id="face-bottom">2</div>\
-                    </div>'
+        var buttons = '<button class="hero-js-button hero-js-activate" onclick="attack()">Attack</button>'
+            // buttons += '<button class="hero-js-button hero-js-not-activate">Fuir</button>\n'
+        var title = `<div class="hero-js-dialog-header">${this.title}</div>`
+
+        var diceElem = `<div id="dice">
+                        <div class="face" id="face-top">6</div>
+                        <div class="face" id="face-front">${dice}</div>
+                        <div class="face" id="face-right">5</div>
+                        <div class="face" id="face-back">4</div>
+                        <div class="face" id="face-left">3</div>
+                        <div class="face" id="face-bottom">2</div>
+                    </div>`
         setBackground(this.background)
-        document.getElementById('hero-js-all').innerHTML = img +
-            '<div class="hero-js-dialog">' +
-            diceElem +
-            title +
-            '<div class="hero-js-dialog-button-zone">' + buttons + '</div>\
-                                                        </div>'
+        document.getElementById('hero-js-all').innerHTML = `${img}<div class="hero-js-dialog">${diceElem}${title}
+                                                            <div class="hero-js-dialog-button-zone">${buttons}</div></div>`
         if (player != null) { player.show() }
     }
 
@@ -43,7 +39,7 @@ class Fight {
             setEffect(4, null, null, [this.reward[2]])
             setEffect(6, null, null, [this.reward[3]])
             allDialog[currentNumber].show(player)
-            anime("jump")
+            anime("jump", document.getElementById('hero-js-all'))
             sound_victory.play()
             if (music) { music.play() }
             if (music_fight) { music_fight.stop() }
@@ -56,7 +52,7 @@ class Fight {
             showPlayerGold = false
             showPlayerInventory = false
             allDialog[defeatNumber].show(player)
-            anime("fadeIn")
+            anime("fadeIn", document.getElementById('hero-js-all'))
             sound_defeat.play()
             return true
         }
@@ -82,7 +78,7 @@ function attack() {
     if (fight.checkVictory()) { return }
 
     player.stamina -= data[1]
-    anime("shake")
+    anime("shake", document.getElementById('hero-js-all'))
     sound_hurt.play()
     fight.show(dice)
 

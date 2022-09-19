@@ -12,9 +12,9 @@ function graph() {
 
     dialogGraphList = "digraph {"
     for (dialog in dialogList) {
-        if (dialogList[dialog].buttons == undefined || dialogList[dialog].buttons.length == 0) { dialogGraphList += dialog + "\n" }
+        if (dialogList[dialog].buttons == undefined || dialogList[dialog].buttons.length == 0) { dialogGraphList += `${dialog}\n` }
         for (button in dialogList[dialog].buttons) {
-            if (dialogList[dialog].buttons[button].goToIndex == undefined) { dialogGraphList += dialog + "->" + parseInt(parseInt(dialog) + 1) + "\n" } else { dialogGraphList += dialog + "->" + dialogList[dialog].buttons[button].goToIndex + "\n" }
+            if (dialogList[dialog].buttons[button].goToIndex == undefined) { dialogGraphList += `${dialog}->${parseInt(parseInt(dialog) + 1)}\n` } else { dialogGraphList += `${dialog}->${dialogList[dialog].buttons[button].goToIndex}\n` }
         }
     }
     dialogGraphList += "}"

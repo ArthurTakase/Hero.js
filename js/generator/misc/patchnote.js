@@ -55,6 +55,26 @@ const patchnote = [{
             "Added a start menu for games",
             "Possibility to configure the start menu from the generator"
         ]
+    },
+    {
+        "date": new Date("2022-06-19"),
+        "bugfixes": ["N.C."],
+        "features": ["possibility to give the same skill or object to the player several times"]
+    },
+    {
+        "date": new Date("2022-09-18"),
+        "bugfixes": ["N.C."],
+        "features": ["New home page"]
+    },
+    {
+        "date": new Date("2022-09-19"),
+        "bugfixes": ["Correction of editing and deleting errors"],
+        "features": [
+            "Rewrite many code files to make them more readable",
+            "Modification of the CSS of the example games on the home page.",
+            "Added a new condition in the buttons: INPUT. This condition allows the player\
+            to write in a box. If the answer matches with what the creator has configured, the next scene is launched."
+        ]
     }
 ]
 
@@ -71,6 +91,6 @@ patchnote.forEach(update => {
         return `${it}`
     }).join("<br>")
 
-    container.innerHTML += "<div class='sub_container'><div class='sub_container_title'>PatchNote (" + update.date.toLocaleDateString("fr") +
-        ")</div><span style='text-align: center;'><h3>Features</h3>" + features + "<br><br><h3>BugFixes</h3>" + bugfixes + "</span></div>"
+    container.innerHTML += `<div class='sub_container'><div class='sub_container_title'>PatchNote (${update.date.toLocaleDateString("fr")})</div>
+                            <span style='text-align: center;'><h3>Features</h3>${features}<br><br><h3>BugFixes</h3>${bugfixes}</span></div>`
 });

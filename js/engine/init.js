@@ -11,73 +11,14 @@ function initDialog(json) {
         // Génération des boutons
         try {
             for (b in currentDialog.buttons) {
-                // Conditions des boutons
-                switch (currentDialog.buttons[b].condition) {
-                    case "GOLD":
-                        tempCondition = 1;
-                        break
-                    case "EXTRA":
-                        tempCondition = 2;
-                        break
-                    case "STAMINA":
-                        tempCondition = 3;
-                        break
-                    case "ABILITY":
-                        tempCondition = 4;
-                        break
-                    case "SKILL":
-                        tempCondition = 5;
-                        break
-                    case "OBJECT":
-                        tempCondition = 6;
-                        break
-                    default:
-                        tempCondition = null;
-                        break
-                }
-
-                // Effets des boutons
-                switch (currentDialog.buttons[b].effect) {
-                    case "REMOVE_OBJECT":
-                        tempEffect = 1;
-                        break
-                    case "ADD_OBJECT":
-                        tempEffect = 2;
-                        break
-                    case "GOLD":
-                        tempEffect = 4;
-                        break
-                    case "EXTRA":
-                        tempEffect = 6;
-                        break
-                    case "STAMINA":
-                        tempEffect = 8;
-                        break
-                    case "ABILITY":
-                        tempEffect = 10;
-                        break
-                    case "LIFE":
-                        tempEffect = 11;
-                        break
-                    case "FIGHT":
-                        tempEffect = 13;
-                        break
-                    case "RESTART":
-                        tempEffect = 14;
-                        break
-                    default:
-                        tempEffect = null;
-                        break
-                }
-
                 // Création du bouton
                 allButtons.push(
                     new Button(
                         currentDialog.buttons[b].text,
                         currentDialog.buttons[b].goToIndex,
-                        tempCondition,
+                        conditionID[currentDialog.buttons[b].condition],
                         currentDialog.buttons[b].conditionData,
-                        tempEffect,
+                        effectID[currentDialog.buttons[b].effect],
                         currentDialog.buttons[b].effectData,
                         currentDialog.buttons[b].notification,
                         new Sound(((Array.isArray(currentDialog.buttons[b].sound)) ? currentDialog.buttons[b].sound : json.data.sounds[currentDialog.buttons[b].sound]))

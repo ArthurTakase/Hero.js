@@ -47,20 +47,20 @@ class Player {
         var playerHTML = ''
 
         if (showPlayerStamina != false)
-            playerHTML += '<a class="nav__link"><i class="bx bx-heart nav__icon"></i><span class="nav__name">' + this.stamina + '/' + this.maxStamina + '</span></a>'
+            playerHTML += `<a class="nav__link"><i class="bx bx-heart nav__icon"></i><span class="nav__name">${this.stamina}/${this.maxStamina}</span></a>`
 
         if (showPlayerAbility != false)
-            playerHTML += '<a class="nav__link"><i class="bx bxs-zap nav__icon"></i><span class="nav__name">' + this.ability + '</span></a>'
+            playerHTML += `<a class="nav__link"><i class="bx bxs-zap nav__icon"></i><span class="nav__name">${this.ability}</span></a>`
 
         if (showPlayerGold != false)
-            playerHTML += '<a class="nav__link"><i class="bx bx-euro nav__icon" ></i><span class="nav__name">' + this.gold + '</span></a>'
+            playerHTML += `<a class="nav__link"><i class="bx bx-euro nav__icon" ></i><span class="nav__name">${this.gold}</span></a>`
 
         if (showPlayerSkills != false) {
             playerHTML += `<div class="nav__dropdown" id="skillDropDown" onclick="showDropDown('skillDropDown')"><a class="nav__link"><i class="bx bx-dna nav__icon"></i>\
                         <span class="nav__name">Skills</span><i class="bx bx-chevron-down nav__icon nav__dropdown-icon"></i>\
                         </a><div class="nav__dropdown-collapse"><div class="nav__dropdown-content">`
             for (var i = 0; i != this.skill.length; i++)
-                playerHTML += '<a class="nav__dropdown-item">' + this.skill[i].name + '</a>'
+                playerHTML += `<a class="nav__dropdown-item">${this.skill[i].name}</a>`
             playerHTML += '</div></div></div>'
         }
 
@@ -69,7 +69,7 @@ class Player {
                         <span class="nav__name">Inventory</span><i class="bx bx-chevron-down nav__icon nav__dropdown-icon"></i>\
                         </a><div class="nav__dropdown-collapse"><div class="nav__dropdown-content">`
             for (var j = 0; j != this.inventory.length; j++)
-                playerHTML += '<a class="nav__dropdown-item">' + this.inventory[j].name + '</a>'
+                playerHTML += `<a class="nav__dropdown-item">${this.inventory[j].name}</a>`
             playerHTML += '</div></div></div>'
         }
 

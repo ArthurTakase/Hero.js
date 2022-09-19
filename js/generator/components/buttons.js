@@ -2,6 +2,29 @@ let optionIDGlobal = 0
 let buttonList = []
 let buttonIsExpand = true
 
+function updateOptionTab() {
+    const liste = document.getElementById('optionsList')
+
+    if (buttonList.length == 0) {
+        liste.innerHTML = ""
+        liste.classList.remove("table")
+        return
+    }
+
+    liste.innerHTML = '<tr class="tableHeader"><th>ID</th><th>Text</th><th>Go To</th></tr>'
+    for (button in buttonList) {
+        if (buttonList[button].goToIndex == undefined) {
+            liste.innerHTML += `<tr class="${editValue} ${editValueButton}">
+                                <td>${button}</td><td>${buttonList[button].text}</td>
+                                <td>Next</td></tr>`
+        } else {
+            liste.innerHTML += `<tr class="${editValue} ${editValueButton}">
+                                <td>${button}</td><td>${buttonList[button].text}</td>
+                                <td>${buttonList[button].goToIndex}</td></tr>`
+        }
+    }
+}
+
 function addOptionJSON(option) {
     const liste = document.getElementById('optionsList')
     const optionID = document.getElementById('optionID')
@@ -13,14 +36,7 @@ function addOptionJSON(option) {
     optionID.value = optionIDGlobal
 
     // ===== TABLEAU =====
-    liste.innerHTML = '<tr class="tableHeader"><th>ID</th><th>Text</th><th>Go To</th></tr>'
-    for (button in buttonList) {
-        if (buttonList[button].goToIndex == undefined) {
-            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueButton + '"><td>' + button + '</td><td>' + buttonList[button].text + '</td><td>Next</td></tr>'
-        } else {
-            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueButton + '"><td>' + button + '</td><td>' + buttonList[button].text + '</td><td>' + buttonList[button].goToIndex + '</td></tr>'
-        }
-    }
+    updateOptionTab()
 }
 
 function addOption() {
@@ -69,6 +85,10 @@ function addOption() {
                 json.conditionData = [conditionIsHere.checked, conditionData.value]
             }
             break
+        case "INPUT":
+            json.condition = optionCondition.value
+            json.conditionData = [conditionData.value]
+            break
         default:
             break
     }
@@ -101,14 +121,7 @@ function addOption() {
     }
 
     // ===== TABLEAU =====
-    liste.innerHTML = '<tr class="tableHeader"><th>ID</th><th>Text</th><th>Go To</th></tr>'
-    for (button in buttonList) {
-        if (buttonList[button].goToIndex == undefined) {
-            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueButton + '"><td>' + button + '</td><td>' + buttonList[button].text + '</td><td>Next</td></tr>'
-        } else {
-            liste.innerHTML += '<tr class="' + editValue + ' ' + editValueButton + '"><td>' + button + '</td><td>' + buttonList[button].text + '</td><td>' + buttonList[button].goToIndex + '</td></tr>'
-        }
-    }
+    updateOptionTab()
 
     if (notificationCheck.checked) {
         if (notificationData.value != "") json.notification = notificationData.value
