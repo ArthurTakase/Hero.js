@@ -75,6 +75,14 @@ const patchnote = [{
             "Added a new condition in the buttons: INPUT. This condition allows the player\
             to write in a box. If the answer matches with what the creator has configured, the next scene is launched."
         ]
+    },
+    {
+        "date": new Date("2022-09-20"),
+        "bugfixes": [
+            "INPUT conditions are not case sensitive anymore.",
+            "Fixed cookie selection errors when reloading the generator"
+        ],
+        "features": ["N.C."]
     }
 ]
 
