@@ -234,9 +234,8 @@ function translate(lang) {
     }
 }
 
-function switchTranslate() {
-    let lang = localStorage.getItem("lang")
+function switchTranslate(lang) {
+    if (lang == undefined) lang = localStorage.getItem('lang') == 'fr' ? 'en' : 'fr';
 
-    if (lang == "fr" || lang == null) translate("en")
-    if (lang == "en") translate("fr")
+    translate(lang)
 }
