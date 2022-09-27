@@ -18,12 +18,41 @@
     <link rel="stylesheet" href="css/generator/edit.css">
     <link rel="stylesheet" href="css/generator/notification.css">
     <link rel="stylesheet" href="css/generator/preview.css">
+    <link rel="stylesheet" href="css/generator/reload.css">
     <!-- ===== LIB ===== -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <script src="//d3js.org/d3.v5.min.js"></script>
     <script src="https://unpkg.com/@hpcc-js/wasm@0.3.11/dist/index.min.js"></script>
     <script src="https://unpkg.com/d3-graphviz@3.0.5/build/d3-graphviz.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- ===== SCRIPTS ===== -->
+    <script defer src="js/data/translate.js"></script>
+    <script defer src="js/engine/button.js"></script>
+    <script defer src="js/engine/dialog.js"></script>
+    <script defer src="js/engine/sound.js"></script>
+    <script defer src="js/generator/misc/lib.js"></script>
+    <script defer src="js/generator/components/color.js"></script>
+    <script defer src="js/generator/components/skills.js"></script>
+    <script defer src="js/generator/components/items.js"></script>
+    <script defer src="js/generator/components/pictures.js"></script>
+    <script defer src="js/generator/components/sounds.js"></script>
+    <script defer src="js/generator/components/player.js"></script>
+    <script defer src="js/generator/components/dialogs.js"></script>
+    <script defer src="js/generator/components/buttons.js"></script>
+    <script defer src="js/generator/components/map.js"></script>
+    <script defer src="js/generator/display/theme.js"></script>
+    <script defer src="js/generator/display/preview.js"></script>
+    <script defer src="js/generator/display/show.js"></script>
+    <script defer src="js/generator/display/navbar.js"></script>
+    <script defer src="js/generator/misc/export.js"></script>
+    <script defer src="js/generator/misc/edit.js"></script>
+    <script defer src="js/generator/misc/import.js"></script>
+    <script defer src="js/generator/misc/remove.js"></script>
+    <script defer src="js/generator/misc/rightClick.js"></script>
+    <script defer src="js/generator/misc/hotkeys.js"></script>
+    <script defer src="js/generator/misc/random.js"></script>
+    <script defer src="js/generator/misc/patchnote.js"></script>
+    <script defer src="js/generator/misc/localStorage.js"></script>
 </head>
 
 <body>
@@ -118,17 +147,22 @@
                 </a>
 
                 <br>
-                <label class="nav__link" for="hero-js-form-json">
-                    <i class='bx bx-upload nav__icon'></i>
-                    <span class="nav__name" id="LoadTitle"></span>
-                </label>
+                <a class="nav__link" onclick="save()">
+                    <i class='bx bx-save nav__icon'></i>
+                    <span class="nav__name" id="SaveTitle"></span>
+                </a>
 
+                <br>
+                <label class="nav__link" for="hero-js-form-json">
+                    <i class='bx bx-import nav__icon'></i>
+                    <span class="nav__name" id="ImportTitle"></span>
+                </label>
 
                 <br>
                 <input style="display: none;" type="file" id="hero-js-form-json" accept=".json,.hero" onchange="openJSON(this.files[0])">
                 <a class="nav__link" onclick="submit()">
-                    <i class='bx bx-save nav__icon'></i>
-                    <span class="nav__name" id="SaveTitle"></span>
+                    <i class='bx bx-export nav__icon'></i>
+                    <span class="nav__name" id="ExportTitle"></span>
                 </a>
             </div>
         </nav>
@@ -196,9 +230,11 @@
             <div class="sub_container">
                 <div class="sub_container_title" id="ProjectTitle"></div>
                 <span style="text-align: center;" id="HomeMsg"></span>
-                <div class="img_list">
-                    <img onclick="show('infos')" src="img/let's create.png">
-                </div>
+            </div>
+
+            <div class="sub_container" id="loadContainer">
+                <div class="sub_container_title" id="LoadTitle"></div>
+                <div id="loadSection"></div>
             </div>
 
             <div class="sub_container">
@@ -574,34 +610,6 @@
     </div>
 
     <div id="notif-zone"></div>
-
-    <!-- ===== SCRIPTS ===== -->
-    <script src="js/data/translate.js"></script>
-    <script src="js/engine/button.js"></script>
-    <script src="js/engine/dialog.js"></script>
-    <script src="js/engine/sound.js"></script>
-    <script src="js/generator/misc/lib.js"></script>
-    <script src="js/generator/components/color.js"></script>
-    <script src="js/generator/components/skills.js"></script>
-    <script src="js/generator/components/items.js"></script>
-    <script src="js/generator/components/pictures.js"></script>
-    <script src="js/generator/components/sounds.js"></script>
-    <script src="js/generator/components/player.js"></script>
-    <script src="js/generator/components/dialogs.js"></script>
-    <script src="js/generator/components/buttons.js"></script>
-    <script src="js/generator/components/map.js"></script>
-    <script src="js/generator/display/theme.js"></script>
-    <script src="js/generator/display/preview.js"></script>
-    <script src="js/generator/display/show.js"></script>
-    <script src="js/generator/display/navbar.js"></script>
-    <script src="js/generator/misc/export.js"></script>
-    <script src="js/generator/misc/import.js"></script>
-    <script src="js/generator/misc/edit.js"></script>
-    <script src="js/generator/misc/remove.js"></script>
-    <script src="js/generator/misc/rightClick.js"></script>
-    <script src="js/generator/misc/hotkeys.js"></script>
-    <script src="js/generator/misc/random.js"></script>
-    <script src="js/generator/misc/patchnote.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,56 @@
+#loadSection {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.homeGame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    text-align: center;
+    border-radius: .5rem;
+    flex: 1 25%;
+    min-width: 20%;
+    z-index: 1;
+    color: var(--accent-color);
+    margin: 1rem;
+    height: 10rem;
+    object-fit: cover;
+    position: relative;
+}
+
+.homeGame img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition-duration: .2s;
+    border-radius: .5rem;
+}
+
+.homeGame img:hover {
+    scale: 1.01;
+}
+
+.homeGameText {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.homeGameDate {
+    font-size: .9rem;
+}
+
+.homeGameAll {
+    position: absolute;
+    bottom: -10%;
+    background: var(--body-color-50);
+    backdrop-filter: blur(50px);
+    border: solid var(--accent-color);
+    padding: .5rem;
+    border-radius: .5rem;
+    box-shadow: #00000041 0px 0px 20px 0px;
+}

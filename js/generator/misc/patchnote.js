@@ -83,6 +83,24 @@ const patchnote = [{
             "Fixed cookie selection errors when reloading the generator"
         ],
         "features": ["N.C."]
+    },
+    {
+        "date": new Date("2022-09-27"),
+        "bugfixes": [
+            "Added new safeguards on the project's save.",
+            "Added 'defer' on script tags.",
+            "Changed the save to export button.",
+            "Removed the 'Start a Game' picture.",
+            "Removed useless console.log().",
+            "Dates are now in 'fr' format.",
+            "Handle mport on preview elements (previewPicture, previewAuthor...)"
+        ],
+        "features": [
+            "Added a function to save games in the browser.",
+            "Possibility to continue a project from the browser's cookies.",
+            "Added shortcut Ctrl + E for export.",
+            "Added animation to make the generator more enjoyable"
+        ]
     }
 ]
 

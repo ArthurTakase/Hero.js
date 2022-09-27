@@ -54,7 +54,7 @@ function gameInfos() {
     json.previewAuthor = startAuthor.value
     json.previewLanguage = startLanguage.value
     json.previewSynopsis = startSynopsis.value
-    json.previewDate = new Date().toLocaleDateString()
+    json.previewDate = new Date().toLocaleDateString("fr")
 
     return json
 }
@@ -121,10 +121,8 @@ function createNotif(text, title) {
 }
 
 function checkJSON(json) {
-    console.log(json)
-
     if (error) { return false }
-    if (json.gameInfos.title == undefined || json.gameInfos.title == "") {
+    if (!json.gameInfos.title) {
         createNotif("No Game Title", "<i class='bx bx-bug'></i> Warning !")
         return false
     }
@@ -132,23 +130,23 @@ function checkJSON(json) {
         createNotif("No Start Number", "<i class='bx bx-bug'></i> Warning !")
         return false
     }
-    if (json.gameInfos.previewPicture == undefined || json.previewPicture == "") {
+    if (!json.gameInfos.previewPicture) {
         createNotif("No Game Cover", "<i class='bx bx-bug'></i> Warning !")
         return false
     }
-    if (json.gameInfos.previewBackground == undefined || json.previewBackground == "") {
+    if (!json.gameInfos.previewBackground) {
         createNotif("No Game Illustration", "<i class='bx bx-bug'></i> Warning !")
         return false
     }
-    if (json.gameInfos.previewAuthor == undefined || json.previewAuthor == "") {
+    if (!json.gameInfos.previewAuthor) {
         createNotif("No Game Author", "<i class='bx bx-bug'></i> Warning !")
         return false
     }
-    if (json.gameInfos.previewLanguage == undefined || json.previewLanguage == "") {
+    if (!json.gameInfos.previewLanguage) {
         createNotif("No Game Language", "<i class='bx bx-bug'></i> Warning !")
         return false
     }
-    if (json.gameInfos.previewSynopsis == undefined || json.previewSynopsis == "") {
+    if (!json.gameInfos.previewSynopsis) {
         createNotif("No Game Synopsis", "<i class='bx bx-bug'></i> Warning !")
         return false
     }
@@ -156,7 +154,7 @@ function checkJSON(json) {
     return true
 }
 
-function submit() {
+function createJSON() {
     var json = {}
 
     json.data = data()
@@ -165,6 +163,12 @@ function submit() {
     if (isPlayer) { json.player = player() }
     json.color = getcolor()
     json.dialogs = dialogList
+
+    return json
+}
+
+function submit() {
+    var json = createJSON()
 
     if (checkJSON(json)) { exportJSON(json) }
 }

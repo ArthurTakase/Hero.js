@@ -8,9 +8,6 @@
 
 
 function startMenu(json) {
-
-    console.log(json)
-
     const startMenu = document.getElementById("startMenu")
     const startImg = document.getElementById("startMenuImg")
     const jaquette = document.getElementById("startMenuJaquette")

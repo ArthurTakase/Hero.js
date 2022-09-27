@@ -1,6 +1,11 @@
 $(document).bind('keydown', function(e) {
     if (e.ctrlKey && (e.which == "s".charCodeAt(0) || e.which == "S".charCodeAt(0))) {
         e.preventDefault();
+        save()
+    }
+
+    if (e.ctrlKey && (e.which == "e".charCodeAt(0) || e.which == "E".charCodeAt(0))) {
+        e.preventDefault();
         submit()
     }
 

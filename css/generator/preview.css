@@ -143,6 +143,18 @@
     transition-duration: 0.2s;
     transform: scale(0.4) translateY(75%) translateX(75%);
     overflow: hidden;
+    animation: .3s slideLeftPreview;
+}
+
+@keyframes slideLeftPreview {
+    0% {
+        translate: 20px;
+        opacity: 0;
+    }
+    100% {
+        translate: 0px;
+        opacity: 1;
+    }
 }
 
 #preview:hover,

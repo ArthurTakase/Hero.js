@@ -28,14 +28,8 @@ function checkInput(currentNumber, i) {
         var answer = button.conditionData[0]
         if (answer.toLowerCase() == buttonDiv.value.toLowerCase()) {
             switchDialog(button.goToIndex, button.condition, i, currentNumber, button.effect, button.notif)
-        } else {
-            // faire animation echec
-            console.log("incorrect")
-            anime("shake", buttonDiv)
-        }
-    } catch (e) {
-        console.log(e)
-    }
+        } else { anime("shake", buttonDiv) }
+    } catch (e) {}
 }
 
 function checkCondition(condition, indexBtn, oldIndexDialog, type) {

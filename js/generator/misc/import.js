@@ -11,6 +11,11 @@ function setValueFromJSON(json) {
     const showGold = document.getElementById("showPlayerGold")
     const showInventory = document.getElementById("showPlayerInventory")
     const css = document.getElementById("customCSS")
+    const startPicture = document.getElementById("startPicture")
+    const startBackground = document.getElementById("startBackground")
+    const startAuthor = document.getElementById("startAuthor")
+    const startLanguage = document.getElementById("startLanguage")
+    const startSynopsis = document.getElementById("startSynopsis")
 
     // Game Infos - General
     gameTitle.value = json.gameInfos.title
@@ -18,6 +23,14 @@ function setValueFromJSON(json) {
     defeatNumber.value = json.gameInfos.defeatNumber
     maxDice.value = json.gameInfos.maxDice
     maxSkills.value = json.gameInfos.maxSkill
+
+    try {
+        startPicture.value = json.gameInfos.previewPicture
+        startBackground.value = json.gameInfos.previewBackground
+        startAuthor.value = json.gameInfos.previewAuthor
+        startLanguage.value = json.gameInfos.previewLanguage
+        startSynopsis.value = json.gameInfos.previewSynopsis
+    } catch (e) { console.log("coucou") }
 
     // Game Infos - Display
     showStamina.checked = json.gameInfos.showPlayerStamina
@@ -122,7 +135,7 @@ function resetAll() {
 
     document.getElementById('player').innerHTML = ""
     document.getElementById("title").value = ""
-    document.getElementById("startNumber").value = ""
+    document.getElementById("startNumber").value = "0"
     document.getElementById("defeatNumber").value = ""
     document.getElementById("maxDice").value = ""
     document.getElementById("maxSkills").value = ""
@@ -137,6 +150,11 @@ function resetAll() {
     document.getElementById('pictureList').innerHTML = ""
     document.getElementById('objectList').innerHTML = ""
     document.getElementById('colorList').innerHTML = ""
+    document.getElementById("startPicture").value = ""
+    document.getElementById("startBackground").value = ""
+    document.getElementById("startAuthor").value = ""
+    document.getElementById("startLanguage").value = ""
+    document.getElementById("startSynopsis").value = ""
 
     resetDialog()
     Instantpreview()
@@ -159,3 +177,5 @@ function openFile() {
     var input = document.getElementById('hero-js-form-json');
     input.click();
 }
+
+resetAll()
