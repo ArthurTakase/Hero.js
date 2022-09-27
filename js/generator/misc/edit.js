@@ -19,8 +19,6 @@ function editSkill(div) {
         document.getElementById("skillStamina")
     ]
 
-    console.log(children)
-
     for (i = 0; i < children.length; i++)
         page_div[i].value = children[i].innerHTML
 
@@ -38,12 +36,7 @@ function editObject(div) {
         document.getElementById("itemExtra")
     ]
 
-    console.log(children)
-
-    for (var i = 0; i < children.length; i++) {
-        console.log(children[i].innerHTML)
-        pages_div[i].value = children[i].innerHTML
-    }
+    for (var i = 0; i < children.length; i++) { pages_div[i].value = children[i].innerHTML }
 
     window.scrollTo(0, 0);
 }

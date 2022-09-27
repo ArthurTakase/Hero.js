@@ -22,21 +22,14 @@ class Button {
 }
 
 function checkInput(currentNumber, i) {
-    console.log(currentNumber, i, "checkInput")
     try {
         var button = allDialog[currentNumber].buttons[i]
         var buttonDiv = document.getElementsByClassName("hero-js-button")[i]
         var answer = button.conditionData[0]
-        if (answer == buttonDiv.value) {
+        if (answer.toLowerCase() == buttonDiv.value.toLowerCase()) {
             switchDialog(button.goToIndex, button.condition, i, currentNumber, button.effect, button.notif)
-        } else {
-            // faire animation echec
-            console.log("incorrect")
-            anime("shake", buttonDiv)
-        }
-    } catch (e) {
-        console.log(e)
-    }
+        } else { anime("shake", buttonDiv) }
+    } catch (e) {}
 }
 
 function checkCondition(condition, indexBtn, oldIndexDialog, type) {

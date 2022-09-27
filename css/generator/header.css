@@ -24,6 +24,18 @@
     color: var(--text-color);
     border-top: solid var(--text-color-50) .2rem;
     transition: .2s;
+    animation: .3s fadeInHeader;
+}
+
+@keyframes fadeInHeader {
+    0% {
+        /* translate: 0px -20px; */
+        opacity: 0;
+    }
+    100% {
+        /* translate: 0px 0px; */
+        opacity: 1;
+    }
 }
 
 .header_element:hover {

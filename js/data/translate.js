@@ -1,4 +1,4 @@
-const version = "v1.0.10"
+const version = "v1.0.12"
 
 const language = {
     "fr": {
@@ -21,8 +21,9 @@ const language = {
         "DialogMap": "Carte",
         "LanguageTitle": "Langue",
         "ThemeTitle": "Thèmes",
-        "LoadTitle": "Charger",
         "SaveTitle": "Sauvegarder",
+        "ExportTitle": "Exporter",
+        "ImportTitle": "Importer",
         "DeleteMsg": "Toute suppression est définitive et peut entrainer des problèmes dans votre jeu.",
         "DeleteConfirm": "Confirmer",
         "EditCmd": "Editer",
@@ -31,7 +32,8 @@ const language = {
         "InformationsTitle": "Informations",
         "Informations": "<h3>Raccourcis</h3>\
                         <b>Ctrl + S</b> Sauvegarder le projet<br>\
-                        <b>Ctrl + D</b> Charger un projet<br>\
+                        <b>Ctrl + D</b> Importer un projet<br>\
+                        <b>Ctrl + E</b> Exporter le projet<br>\
                         <b>Ctrl + F</b> Activer le mode avancé<br>\
                         <br><h3>Documentations</h3>\
                         <a style='color: var(--accent-color); text-decoration: none; transition: .2s;' href='https://icy-wind-398.notion.site/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b' target='_blank'>🇫🇷 Détails de l'interface de création</a><br>\
@@ -41,6 +43,7 @@ const language = {
                         Le but de ce projet est de permettre à tout le monde de créer facilement ses jeux (d\'un simple Doki Doki à un JDR avec systeme de combat), <b>sans coder</b>.\
                         Alors qu\'attendez-vous pour écrire vos histoire ?<br><br>\
                         Si vous avez le compétences nécessaires, vous pouvez participer au développement du projet sur <a href="https://github.com/ArthurTakase/Heros.js" target="_blank" style="color: var(--accent-color);">github</a>!<br>',
+        "LoadTitle": "Reprendre un projet",
         "GameTitle": "Nom du jeu",
         "FirstDialog": "ID du premier dialogue",
         "DefeatDialog": "ID du dialogue de défaite (JDR)",
@@ -87,8 +90,9 @@ const language = {
         "DialogMap": "Map",
         "LanguageTitle": "Language",
         "ThemeTitle": "Themes",
-        "LoadTitle": "Load",
         "SaveTitle": "Save",
+        "ExportTitle": "Export",
+        "ImportTitle": "Import",
         "DeleteMsg": "Any deletion is final and may cause problems in your game.",
         "DeleteConfirm": "Confirm",
         "EditCmd": "Edit",
@@ -97,7 +101,8 @@ const language = {
         "InformationsTitle": "Informations",
         "Informations": "<h3>Shortcuts</h3>\
                         <b>Ctrl + S</b> Save project<br>\
-                        <b>Ctrl + D</b> Load project<br>\
+                        <b>Ctrl + D</b> Import project<br>\
+                        <b>Ctrl + E</b> Export project<br>\
                         <b>Ctrl + F</b> Toggle advanced mode<br>\
                         <br><h3>Documentations</h3>\
                         <a style='color: var(--accent-color); text-decoration: none; transition: .2s;' href='https://icy-wind-398.notion.site/D-tails-de-l-interface-de-cr-ation-c8542e3a1a624e979badac7de1285f8b' target='_blank'>🇫🇷 Détails de l'interface de création</a><br>\
@@ -107,6 +112,7 @@ const language = {
                         The goal of this project is to allow you to create Visual Novels (from a simple Doki Doki to a RPG with fighting system), <b>without coding.</b>\
                         So what are you waiting for to start creating your stories?<br><br>\
                         If you have the skills, you can participate to the development of the project on <a href="https://github.com/ArthurTakase/Heros.js" target="_blank" style="color: var(--accent-color);">github</a>!<br>',
+        "LoadTitle": "Resume a project",
         "GameTitle": "Game title",
         "FirstDialog": "First dialog ID",
         "DefeatDialog": "Defeat dialog ID (RPG)",
@@ -155,13 +161,15 @@ const elementsText = {
     "DialogMap": ["DialogMap", "DialogMapSubtitle"],
     "LanguageTitle": ["LanguageTitle"],
     "ThemeTitle": ["ThemeTitle"],
-    "LoadTitle": ["LoadTitle"],
     "SaveTitle": ["SaveTitle"],
+    "ExportTitle": ["ExportTitle"],
+    "ImportTitle": ["ImportTitle"],
     "DeleteMsg": ["DeleteMsg"],
     "DeleteConfirm": ["DeleteConfirm"],
     "EditCmd": ["EditCmd"],
     "DeleteCmd": ["DeleteCmd"],
     "Home": ["Home"],
+    "LoadTitle": ["LoadTitle"],
     "InformationsTitle": ["InformationsTitle"],
     "Informations": ["Informations"],
     "HomeMsg": ["HomeMsg"],
@@ -213,9 +221,7 @@ function translate(lang) {
         element.forEach(it => {
             try {
                 document.getElementById(it).innerHTML = elementTranslated
-            } catch (e) {
-                // console.log(`error on element ${it} : ${e}`)
-            }
+            } catch (e) {}
         });
     }
 
@@ -227,16 +233,13 @@ function translate(lang) {
             try {
                 document.getElementById(it).placeholder = elementTranslated
                 document.getElementById(it).title = elementTranslated
-            } catch (e) {
-                // console.log(`error on element ${it} : ${e}`)
-            }
+            } catch (e) {}
         });
     }
 }
 
-function switchTranslate() {
-    let lang = localStorage.getItem("lang")
+function switchTranslate(lang) {
+    if (lang == undefined) lang = localStorage.getItem('lang') == 'fr' ? 'en' : 'fr';
 
-    if (lang == "fr" || lang == null) translate("en")
-    if (lang == "en") translate("fr")
+    translate(lang)
 }

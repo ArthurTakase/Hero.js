@@ -1,10 +1,12 @@
 const icon = document.getElementById("toggleTheme");
 
-function switchTheme() {
+function switchTheme(theme) {
     var lang = localStorage.getItem("lang");
     var title = language[lang]["ThemeTitle"];
 
-    if (localStorage.getItem("theme") === "theme-dark") {
+    if (theme == undefined) theme = localStorage.getItem('theme') == 'theme-dark' ? 'theme-light' : 'theme-dark';
+
+    if (theme === "theme-light") {
         localStorage.setItem("theme", "theme-light");
         document.documentElement.className = "theme-light";
         icon.innerHTML = `<i class="bx bx-sun nav__icon" ></i><span class="nav__name" id="ThemeTitle">${title}</span>`;
@@ -16,16 +18,6 @@ function switchTheme() {
 }
 
 (function() {
-
-    if (localStorage.getItem('lang') === 'fr') {
-        switchTranslate('fr');
-    } else {
-        switchTranslate('en');
-    }
-
-    if (localStorage.getItem('theme') === 'theme-dark') {
-        switchTheme('theme-dark');
-    } else {
-        switchTheme('theme-light');
-    }
+    switchTranslate(localStorage.getItem('lang'));
+    switchTheme(localStorage.getItem('theme'));
 })();

@@ -9,6 +9,7 @@
     --text-color-light: #c2c2ca;
     --text-placeholder-color: #a2a0a657;
     --body-color: #202025;
+    --body-color-50: rgba(32, 32, 37, 0.60);
     --container-dark: #26272f;
     --white-5: #ffffff04;
     --edit-hover: #4b4c58;
@@ -33,6 +34,7 @@
     --text-color-light: #ffffff;
     --text-placeholder-color: #966674;
     --body-color: #f9f9f9;
+    --body-color-50: rgba(249, 249, 249, 0.50);
     --container-dark: #ffffff;
     --white-5: #fae6f1;
     --edit-hover: #f8d6e8;

@@ -3,6 +3,8 @@ let pictureJson = {}
 function updatePictureList() {
     const liste = document.getElementById('pictureList')
     var lang = localStorage.getItem("lang");
+
+    console.log(language)
     var ele = language[lang]["Name"];
     var col = language[lang]["Preview"];
 
