@@ -1,4 +1,4 @@
-const version = "v1.0.2"
+const version = "v1.0.21"
 
 const language = {
     "fr": {
