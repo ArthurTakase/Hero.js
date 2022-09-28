@@ -64,8 +64,8 @@ const language = {
         "Preview": "Aperçu",
         "Volume": "Volume",
         "StartMenu": "Menu de démarrage",
-        "startPicture": "Jaquette de votre jeu (URL)",
-        "startBackground": "Illustration de votre jeu (URL)",
+        "startPicture": "Pas de jaquette",
+        "startBackground": "Pas d'illustration",
         "startAuthor": "Auteur",
         "startLanguage": "Langue",
         "startSynopsis": "Synopsis du jeu"
@@ -133,8 +133,8 @@ const language = {
         "Preview": "Preview",
         "Volume": "Volume",
         "StartMenu": "Start Menu",
-        "startPicture": "Cover of your game (URL)",
-        "startBackground": "Illustration of your game (URL)",
+        "startPicture": "No cover picture",
+        "startBackground": "No background picture",
         "startAuthor": "Author",
         "startLanguage": "Language",
         "startSynopsis": "Game Synopsis"
@@ -186,6 +186,8 @@ const elementsText = {
     "Preview": ["PictureValueTable", "SoundPreviewTable"],
     "Volume": ["SoundVolumeTable"],
     "StartMenu": ["StartContainer"],
+    "startPicture": ["startPicture"],
+    "startBackground": ["startBackground"]
 }
 
 const elementsPlaceHolder = {
@@ -200,8 +202,6 @@ const elementsPlaceHolder = {
     "ShowGold": ["itemGold"],
     "NameUnique": ["skillName", "objectName", "pictureName", "soundName"],
     "URL": ["pictureURL", "soundURL"],
-    "startPicture": ["startPicture"],
-    "startBackground": ["startBackground"],
     "startAuthor": ["startAuthor"],
     "startLanguage": ["startLanguage"],
     "startSynopsis": ["startSynopsis"]

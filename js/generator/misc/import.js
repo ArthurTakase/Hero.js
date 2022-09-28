@@ -11,8 +11,8 @@ function setValueFromJSON(json) {
     const showGold = document.getElementById("showPlayerGold")
     const showInventory = document.getElementById("showPlayerInventory")
     const css = document.getElementById("customCSS")
-    const startPicture = document.getElementById("startPicture")
-    const startBackground = document.getElementById("startBackground")
+    const startPicture = document.getElementById("startPictureElem")
+    const startBackground = document.getElementById("startBackgroundElem")
     const startAuthor = document.getElementById("startAuthor")
     const startLanguage = document.getElementById("startLanguage")
     const startSynopsis = document.getElementById("startSynopsis")
@@ -23,14 +23,6 @@ function setValueFromJSON(json) {
     defeatNumber.value = json.gameInfos.defeatNumber
     maxDice.value = json.gameInfos.maxDice
     maxSkills.value = json.gameInfos.maxSkill
-
-    try {
-        startPicture.value = json.gameInfos.previewPicture
-        startBackground.value = json.gameInfos.previewBackground
-        startAuthor.value = json.gameInfos.previewAuthor
-        startLanguage.value = json.gameInfos.previewLanguage
-        startSynopsis.value = json.gameInfos.previewSynopsis
-    } catch (e) {}
 
     // Game Infos - Display
     showStamina.checked = json.gameInfos.showPlayerStamina
@@ -67,6 +59,16 @@ function setValueFromJSON(json) {
     if (json.data && json.data.pictures) {
         if (jsonLen(json.data.pictures) != 0)
             addPictureFromJSON(json.data.pictures)
+    }
+
+    try {
+        startPicture.value = json.gameInfos.previewPicture
+        startBackground.value = json.gameInfos.previewBackground
+        startAuthor.value = json.gameInfos.previewAuthor
+        startLanguage.value = json.gameInfos.previewLanguage
+        startSynopsis.value = json.gameInfos.previewSynopsis
+    } catch (e) {
+        console.log(e)
     }
 
     // Data - Sounds
@@ -150,8 +152,8 @@ function resetAll() {
     document.getElementById('pictureList').innerHTML = ""
     document.getElementById('objectList').innerHTML = ""
     document.getElementById('colorList').innerHTML = ""
-    document.getElementById("startPicture").value = ""
-    document.getElementById("startBackground").value = ""
+    document.getElementById('startPictureElem').value = "No Game Cover"
+    document.getElementById('startBackgroundElem').value = "No Game Illustration"
     document.getElementById("startAuthor").value = ""
     document.getElementById("startLanguage").value = ""
     document.getElementById("startSynopsis").value = ""

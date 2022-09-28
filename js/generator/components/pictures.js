@@ -17,6 +17,8 @@ function updatePictureList() {
     for (picture in pictureJson) {
         liste.innerHTML += `<tr class="${editValue} ${editValuePicture}"><td>${picture}</td><td><img class="picture-img" src="${pictureJson[picture]}"></td></tr>`
     }
+
+    updatePictures()
 }
 
 function addPictureFromJSON(elements) {
@@ -51,9 +53,20 @@ function updatePictures() {
     //Ajouter les autres parties à update ici
     const backgroundList = document.getElementById('dialogBackground')
     const pictureList = document.getElementById('dialogImage')
+    const startPicture = document.getElementById('startPictureElem')
+    const startBackground = document.getElementById('startBackgroundElem')
+
+    var currentStartPicture = startPicture.value
+    var currentStartBackground = startBackground.value
 
     try { pictureList.innerHTML = `<option>No Picture</option>${objectListOption}` } catch (e) {}
     try { backgroundList.innerHTML = `<option>No Background</option>${objectListOption}` } catch (e) {}
+    try { startPicture.innerHTML = `<option>No Game Cover</option>${objectListOption}` } catch (e) {}
+    try { startBackground.innerHTML = `<option>No Game Illustration</option>${objectListOption}` } catch (e) {}
+
+    if (pictureJson[currentStartPicture] != undefined) { startPicture.value = currentStartPicture } else { startPicture.value = "No Game Cover" }
+    if (pictureJson[currentStartBackground] != undefined) { startBackground.value = currentStartBackground } else { startBackground.value = "No Game Illustration" }
+
 }
 
 function uploadPicture(file) {
