@@ -8,9 +8,7 @@ function removeColor(div) {
 function removeObject(div) {
     delete objectsJson[div.firstElementChild.innerHTML]
 
-    console.log(div.firstElementChild.innerHTML)
     reloadObjectList()
-    console.log(objectsJson)
     updateObjects()
 }
 

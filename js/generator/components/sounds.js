@@ -57,3 +57,10 @@ function updateSounds() {
     try { musicList.innerHTML = `<option>No Music</option>${objectListOption}` } catch (e) {}
     try { soundList.innerHTML = `<option>No Sound</option>${objectListOption}` } catch (e) {}
 }
+
+function uploadSound(file) {
+    fileTo64(file, function(baseSound) {
+        soundJson[file.name.replace(/\.[^/.]+$/, "")] = [baseSound.toString(), 0.5]
+        updateSoundsList()
+    })
+}
