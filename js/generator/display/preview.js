@@ -37,6 +37,8 @@ function Instantpreview() {
         dialogAnimation.value
     )
 
+    console.log(dialog)
+
     dialog.preview("instantPreview", 0)
 
 }
