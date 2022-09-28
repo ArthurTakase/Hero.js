@@ -22,10 +22,10 @@ function startMenu(json) {
     document.getElementById('home').style.display = "none"
     startMenu.style.display = "flex"
 
-    startImg.src = json.gameInfos.previewBackground
-    sub1.src = json.gameInfos.previewPicture
-    sub2.src = json.gameInfos.previewPicture
-    jaquette.src = json.gameInfos.previewPicture
+    startImg.src = json.data.pictures[json.gameInfos.previewBackground]
+    sub1.src = json.data.pictures[json.gameInfos.previewPicture]
+    sub2.src = json.data.pictures[json.gameInfos.previewPicture]
+    jaquette.src = json.data.pictures[json.gameInfos.previewPicture]
     author.innerHTML = json.gameInfos.previewAuthor
     name.innerHTML = json.gameInfos.title
     date.innerHTML = json.gameInfos.previewDate

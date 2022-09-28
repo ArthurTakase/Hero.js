@@ -101,7 +101,7 @@ function removeGameFromDB(name) {
 
 function addLocalGame(json) {
     loadSection.innerHTML += `<a class="homeGame">
-                                <img src="${json.gameInfos.previewPicture}" onclick="load('${json.gameInfos.title}')">
+                                <img src="${json.data.pictures[json.gameInfos.previewPicture]}" onclick="load('${json.gameInfos.title}')">
                                 <div class="homeGameAll" onclick="load('${json.gameInfos.title}')">
                                     <div class="homeGameText">${json.gameInfos.title}</div>
                                     <div class="homeGameDate">${json.gameInfos.previewDate}</div>
@@ -117,7 +117,10 @@ function load(name) {
         addDefaultValues()
         setValueFromJSON(json)
         show('infos')
-    } catch (e) {}
+    } catch (e) {
+        console.error(e)
+        createNotif(`'${name}' not found`, "<i class='bx bx-info-circle'></i> Infos")
+    }
 }
 
 createDatabase()

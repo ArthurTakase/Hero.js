@@ -108,7 +108,8 @@ const patchnote = [{
         "features": [
             "Move data to an IndexedDB database (much more storage).",
             "Added an upload option for images and sounds (conversion to File, base64 and writing in JSON)",
-            "You no longer need a file host for your assets, Hero.Js works 100% offline."
+            "You no longer need a file host for your assets, Hero.Js works 100% offline.",
+            "Ability to choose the cover image or illustration from the game database"
         ]
     }
 ]

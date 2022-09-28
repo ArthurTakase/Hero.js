@@ -32,8 +32,8 @@ function gameInfos() {
     const defeatNumber = document.getElementById("defeatNumber")
     const maxSkills = document.getElementById("maxSkills")
     const startNumber = document.getElementById("startNumber")
-    const startPicture = document.getElementById("startPicture")
-    const startBackground = document.getElementById("startBackground")
+    const startPicture = document.getElementById('startPictureElem')
+    const startBackground = document.getElementById('startBackgroundElem')
     const startAuthor = document.getElementById("startAuthor")
     const startLanguage = document.getElementById("startLanguage")
     const startSynopsis = document.getElementById("startSynopsis")
@@ -130,11 +130,11 @@ function checkJSON(json) {
         createNotif("No Start Number", "<i class='bx bx-bug'></i> Warning !")
         return false
     }
-    if (!json.gameInfos.previewPicture) {
+    if (json.gameInfos.previewPicture == "No Game Cover") {
         createNotif("No Game Cover", "<i class='bx bx-bug'></i> Warning !")
         return false
     }
-    if (!json.gameInfos.previewBackground) {
+    if (json.gameInfos.previewBackground == "No Game Illustration") {
         createNotif("No Game Illustration", "<i class='bx bx-bug'></i> Warning !")
         return false
     }

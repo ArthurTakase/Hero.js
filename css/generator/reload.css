@@ -5,6 +5,10 @@
     overflow-y: scroll;
 }
 
+#loadSection::-webkit-scrollbar {
+    display: none;
+}
+
 .homeGame {
     display: flex;
     justify-content: center;
