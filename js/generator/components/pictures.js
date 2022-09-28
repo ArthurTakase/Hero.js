@@ -3,8 +3,6 @@ let pictureJson = {}
 function updatePictureList() {
     const liste = document.getElementById('pictureList')
     var lang = localStorage.getItem("lang");
-
-    console.log(language)
     var ele = language[lang]["Name"];
     var col = language[lang]["Preview"];
 
@@ -22,18 +20,10 @@ function updatePictureList() {
 }
 
 function addPictureFromJSON(elements) {
-    var array = JSON.stringify(elements).split(',')
-    array.forEach(element => {
-        var newPicture = element.split(":")
-        var name = newPicture[0].replaceAll('"', '')
-        name = name.replaceAll('{', '')
-
-        var url = newPicture[1] + ":" + newPicture[2]
-        url = url.replaceAll('"', '')
-        url = url.replaceAll('}', '')
-
-        pictureJson[name] = url
-    })
+    Object.keys(elements).forEach(function(k) {
+        var element = elements[k]
+        pictureJson[k] = element
+    });
 
     updatePictureList()
 }
@@ -64,4 +54,11 @@ function updatePictures() {
 
     try { pictureList.innerHTML = `<option>No Picture</option>${objectListOption}` } catch (e) {}
     try { backgroundList.innerHTML = `<option>No Background</option>${objectListOption}` } catch (e) {}
+}
+
+function uploadPicture(file) {
+    fileTo64(file, function(baseImg) {
+        pictureJson[file.name.replace(/\.[^/.]+$/, "")] = baseImg.toString()
+        updatePictureList()
+    })
 }

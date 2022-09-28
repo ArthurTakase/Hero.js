@@ -52,7 +52,8 @@
     <script defer src="js/generator/misc/hotkeys.js"></script>
     <script defer src="js/generator/misc/random.js"></script>
     <script defer src="js/generator/misc/patchnote.js"></script>
-    <script defer src="js/generator/misc/localStorage.js"></script>
+    <script defer src="js/generator/misc/indexedDB.js"></script>
+    <script defer src="js/generator/misc/convert.js"></script>
 </head>
 
 <body>
@@ -147,7 +148,7 @@
                 </a>
 
                 <br>
-                <a class="nav__link" onclick="save()">
+                <a class="nav__link" onclick="addGameToDB()">
                     <i class='bx bx-save nav__icon'></i>
                     <span class="nav__name" id="SaveTitle"></span>
                 </a>
@@ -157,9 +158,9 @@
                     <i class='bx bx-import nav__icon'></i>
                     <span class="nav__name" id="ImportTitle"></span>
                 </label>
+                <input style="display: none;" type="file" id="hero-js-form-json" accept=".json,.hero" onchange="openJSON(this.files[0])">
 
                 <br>
-                <input style="display: none;" type="file" id="hero-js-form-json" accept=".json,.hero" onchange="openJSON(this.files[0])">
                 <a class="nav__link" onclick="submit()">
                     <i class='bx bx-export nav__icon'></i>
                     <span class="nav__name" id="ExportTitle"></span>
@@ -427,7 +428,10 @@
                     <input type="text" name="pictureName" id="pictureName" required>
                     <input type="url" name="pictureURL" id="pictureURL" required>
                     <button class="add" onclick="addPicture()"><i class='bx bx-check' ></i></button>
+                    <label class="add" for="uploadPictureForm" title="Upload your file"><i class='bx bx-cloud-upload'></i></label>
                 </div>
+
+                <input style="display: none;" type="file" id="uploadPictureForm" accept="image/*" onchange="uploadPicture(this.files[0])"><br>
 
                 <table id="pictureList"></table>
             </div>
@@ -446,7 +450,10 @@
                     <input type="URL" name="soundURL" id="soundURL">
                     <input type="range" id="soundVolume" name="soundVolume" min="0" max="100" step="1" title="Sound Volume">
                     <button class="add" onclick="addSound()"><i class='bx bx-check' ></i></button>
+                    <label class="add" for="uploadSoundForm" title="Upload your file"><i class='bx bx-cloud-upload'></i></label>
                 </div>
+
+                <input style="display: none;" type="file" id="uploadSoundForm" accept="audio/*" onchange="uploadSound(this.files[0])"><br>
 
                 <table id="soundList"></table>
             </div>

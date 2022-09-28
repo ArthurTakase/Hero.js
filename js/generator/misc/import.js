@@ -30,7 +30,7 @@ function setValueFromJSON(json) {
         startAuthor.value = json.gameInfos.previewAuthor
         startLanguage.value = json.gameInfos.previewLanguage
         startSynopsis.value = json.gameInfos.previewSynopsis
-    } catch (e) { console.log("coucou") }
+    } catch (e) {}
 
     // Game Infos - Display
     showStamina.checked = json.gameInfos.showPlayerStamina

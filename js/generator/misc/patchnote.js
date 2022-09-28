@@ -101,6 +101,15 @@ const patchnote = [{
             "Added shortcut Ctrl + E for export.",
             "Added animation to make the generator more enjoyable"
         ]
+    },
+    {
+        "date": new Date("2022-09-28"),
+        "bugfixes": ["N.C."],
+        "features": [
+            "Move data to an IndexedDB database (much more storage).",
+            "Added an upload option for images and sounds (conversion to File, base64 and writing in JSON)",
+            "You no longer need a file host for your assets, Hero.Js works 100% offline."
+        ]
     }
 ]
 
