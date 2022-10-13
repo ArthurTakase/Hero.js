@@ -111,6 +111,13 @@ const patchnote = [{
             "You no longer need a file host for your assets, Hero.Js works 100% offline.",
             "Ability to choose the cover image or illustration from the game database"
         ]
+    },
+    {
+        "date": new Date("2022-10-13"),
+        "bugfixes": ["N.C."],
+        "features": [
+            "New random system. Ex: RANDOM(2,10), RANDOM(10), RANDOM(2,DICE), RANDOM(DICE)"
+        ]
     }
 ]
 
