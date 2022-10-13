@@ -1,19 +1,14 @@
 class Dialog {
-    constructor(title, dialog, action, buttons, img, background, music, animation) {
+    constructor(title, dialog, buttons, img, background, music, animation) {
         this.title = title // str
         this.dialog = dialog //str
-        this.action = action // str
         this.buttons = buttons // Liste:str
-
-        console.log({ background, img })
 
         try {
             var d_background = (background.substring(0, 4) == "http" || background.substring(0, 4) == "data") ? background : defaultJSON.data.pictures[background]
         } catch { var d_background = undefined }
         try { var d_img = (img.substring(0, 4) == "http" || img.substring(0, 4) == "data") ? img : defaultJSON.data.pictures[img] } catch { var d_img = undefined }
         try { var d_music = (Array.isArray(music) ? music : defaultJSON.data.sounds[music]) } catch { var d_music = undefined }
-
-        console.log({ d_background, d_img })
 
         this.img = d_img // str
         this.background = d_background // str
@@ -40,7 +35,6 @@ class Dialog {
         } else { zone.style.background = "var(--soft-background)" }
         if (this.img != null) { img = `<div class="hero-js-dialog-img"><img src="${this.img}"></div>` }
         if (this.title != null) { title = `<div class="hero-js-dialog-header">${this.title}</div>` }
-        if (this.action != null) { action = `<div class="hero-js-dialog-action">${this.action}</div>` }
         for (var i = 0; i != this.buttons.length; i++) { buttons += this.buttons[i].show() }
         if (this.dialog != null) { dialog = `<div class="hero-js-dialog-body">${this.dialog}</div>` }
 

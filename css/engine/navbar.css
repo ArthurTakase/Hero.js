@@ -188,6 +188,7 @@
         left: 0;
         padding: 1.2rem 1.5rem 0;
         width: 68px;
+        opacity: .6;
         /* Reduced navbar */
     }
     .nav__items {
@@ -207,6 +208,7 @@
     /* Navbar expanded */
     .nav:hover {
         width: var(--nav-width);
+        opacity: 1;
     }
     /* Visible elements */
     .nav:hover .nav__logo-name {

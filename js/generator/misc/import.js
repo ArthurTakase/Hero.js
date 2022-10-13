@@ -67,9 +67,7 @@ function setValueFromJSON(json) {
         startAuthor.value = json.gameInfos.previewAuthor
         startLanguage.value = json.gameInfos.previewLanguage
         startSynopsis.value = json.gameInfos.previewSynopsis
-    } catch (e) {
-        console.log(e)
-    }
+    } catch (e) {}
 
     // Data - Sounds
     if (json.data && json.data.sounds) {

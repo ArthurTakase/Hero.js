@@ -91,7 +91,7 @@ const patchnote = [{
             "Added 'defer' on script tags.",
             "Changed the save to export button.",
             "Removed the 'Start a Game' picture.",
-            "Removed useless console.log().",
+            "Removed useless console log.",
             "Dates are now in 'fr' format.",
             "Handle mport on preview elements (previewPicture, previewAuthor...)"
         ],
@@ -110,6 +110,16 @@ const patchnote = [{
             "Added an upload option for images and sounds (conversion to File, base64 and writing in JSON)",
             "You no longer need a file host for your assets, Hero.Js works 100% offline.",
             "Ability to choose the cover image or illustration from the game database"
+        ]
+    },
+    {
+        "date": new Date("2022-10-13"),
+        "bugfixes": [
+            "Fixed a bug that blocked the display of the player's skills"
+        ],
+        "features": [
+            "New random system. Ex: RANDOM(2,10), RANDOM(10), RANDOM(2,DICE), RANDOM(DICE)",
+            "New css for in game dialogs"
         ]
     }
 ]

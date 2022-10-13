@@ -4,7 +4,7 @@
 
 let defaultJSON = null
 let gameTitle
-let beginNumber
+let beginNumber = 0
 let currentNumber
 let defeatNumber
 let maxDice
@@ -85,24 +85,25 @@ function getFromName(item, list) {
     return null
 }
 
-function randomInRange(min, max) {
-    return Math.floor(Math.random() * max) + min
+function randomNumber(value) {
+    var temp = value.split("(")[1].split(")")[0].split(",")
+
+    if (temp.length == 1) {
+        temp.push(temp[0])
+        temp[0] = "0"
+    }
+
+    if (temp[0] === "DICE") temp[0] = `${maxDice}`
+    if (temp[1] === "DICE") temp[1] = `${maxDice}`
+
+    return Math.floor(Math.random() * (parseInt(temp[1]) - parseInt(temp[0]) + 1)) + parseInt(temp[0])
 }
 
 function setInt(objetValue) {
     if (typeof objetValue === 'string') {
-        if (objetValue.startsWith("RANDOM")) {
-            var value = objetValue.split(',')
-            if (value[2] == "DICE") {
-                return randomInRange(parseInt(value[1]), maxDice + 1)
-            } else {
-                return randomInRange(parseInt(value[1]), parseInt(value[2]) + 1)
-            }
-        }
+        if (objetValue.startsWith("RANDOM")) return randomNumber(objetValue)
         return -1
-    } else {
-        return objetValue
-    }
+    } else { return objetValue }
 }
 
 function removeFromPlayer(object, list) {
