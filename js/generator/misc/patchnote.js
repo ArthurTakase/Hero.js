@@ -91,7 +91,7 @@ const patchnote = [{
             "Added 'defer' on script tags.",
             "Changed the save to export button.",
             "Removed the 'Start a Game' picture.",
-            "Removed useless console.log().",
+            "Removed useless console log.",
             "Dates are now in 'fr' format.",
             "Handle mport on preview elements (previewPicture, previewAuthor...)"
         ],
@@ -114,7 +114,9 @@ const patchnote = [{
     },
     {
         "date": new Date("2022-10-13"),
-        "bugfixes": ["N.C."],
+        "bugfixes": [
+            "Fixed a bug that blocked the display of the player's skills"
+        ],
         "features": [
             "New random system. Ex: RANDOM(2,10), RANDOM(10), RANDOM(2,DICE), RANDOM(DICE)"
         ]

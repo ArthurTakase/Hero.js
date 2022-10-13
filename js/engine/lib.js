@@ -4,10 +4,10 @@
 
 let defaultJSON = null
 let gameTitle
-let beginNumber
+let beginNumber = 0
 let currentNumber
 let defeatNumber
-let maxDice = 10
+let maxDice
 let maxSkill
 let allDialog = []
 let skillList = []

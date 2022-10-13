@@ -5,15 +5,11 @@ class Dialog {
         this.action = action // str
         this.buttons = buttons // Liste:str
 
-        console.log({ background, img })
-
         try {
             var d_background = (background.substring(0, 4) == "http" || background.substring(0, 4) == "data") ? background : defaultJSON.data.pictures[background]
         } catch { var d_background = undefined }
         try { var d_img = (img.substring(0, 4) == "http" || img.substring(0, 4) == "data") ? img : defaultJSON.data.pictures[img] } catch { var d_img = undefined }
         try { var d_music = (Array.isArray(music) ? music : defaultJSON.data.sounds[music]) } catch { var d_music = undefined }
-
-        console.log({ d_background, d_img })
 
         this.img = d_img // str
         this.background = d_background // str

@@ -11,12 +11,12 @@ class Player {
     }
 
     setSkill(skill) {
-        if (skill == null) { return }
-        if (this.skill.length < maxSkill) {
-            this.skill.push(skill);
-            this.ability += skill.bonusAbility
-            this.stamina += skill.bonusStamina
-        }
+        console.log(skill)
+        if (skill == null) return
+        if (maxSkill != undefined && this.skill.length > maxSkill) return
+        this.skill.push(skill);
+        this.ability += skill.bonusAbility
+        this.stamina += skill.bonusStamina
     }
 
     setStuffBonus(object) {
@@ -59,8 +59,10 @@ class Player {
             playerHTML += `<div class="nav__dropdown" id="skillDropDown" onclick="showDropDown('skillDropDown')"><a class="nav__link"><i class="bx bx-dna nav__icon"></i>\
                         <span class="nav__name">Skills</span><i class="bx bx-chevron-down nav__icon nav__dropdown-icon"></i>\
                         </a><div class="nav__dropdown-collapse"><div class="nav__dropdown-content">`
-            for (var i = 0; i != this.skill.length; i++)
-                playerHTML += `<a class="nav__dropdown-item">${this.skill[i].name}</a>`
+
+            this.skill.map(s => {
+                playerHTML += `<a class="nav__dropdown-item" title="Ability [${s.bonusAbility}] / Stamina [${s.bonusStamina}]">${s.name}</a>`
+            })
             playerHTML += '</div></div></div>'
         }
 
@@ -68,8 +70,9 @@ class Player {
             playerHTML += `<div class="nav__dropdown" id="inventoryDropDown" onclick="showDropDown('inventoryDropDown')"><a class="nav__link"><i class="bx bx-briefcase-alt-2 nav__icon"></i>\
                         <span class="nav__name">Inventory</span><i class="bx bx-chevron-down nav__icon nav__dropdown-icon"></i>\
                         </a><div class="nav__dropdown-collapse"><div class="nav__dropdown-content">`
-            for (var j = 0; j != this.inventory.length; j++)
-                playerHTML += `<a class="nav__dropdown-item">${this.inventory[j].name}</a>`
+            this.inventory.map(o => {
+                playerHTML += `<a class="nav__dropdown-item" title="Ability [${o.bonusAbility}] / Stamina [${o.bonusStamina}] / Gold [${o.bonusGold}] / Extra [${o.bonusExtra}]">${o.name}</a>`
+            })
             playerHTML += '</div></div></div>'
         }
 

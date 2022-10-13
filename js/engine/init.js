@@ -104,13 +104,18 @@ function initPlayer(json) {
     for (i in json.player.inventory)
         newObject(json.player.inventory[i], inventoryList, player.inventory)
 
-    // Généation des compétences du joueur
+
+    console.log("json.player.skills -> " + json.player.skills)
+        // Généation des compétences du joueur
     for (k in json.player.skills) {
+        console.log(json.player.skills[k])
         if (json.player.skills[k] == "RANDOM_IN_CLASS") {
             player.setSkill(randomFromList(skillList))
         } else if (json.player.skills[k] == "RANDOM_IN_CLASS_UNIQUE") {
             player.setSkill(randomFromListUnique(skillList, player.skill))
         } else {
+            console.log("json.player.skills[k] -> " + json.player.skills[k])
+            console.log("from list -> " + getFromName(json.player.skills[k], skillList))
             player.setSkill(getFromName(json.player.skills[k], skillList))
         }
     }
