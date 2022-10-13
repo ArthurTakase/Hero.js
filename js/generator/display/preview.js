@@ -29,7 +29,6 @@ function Instantpreview() {
     var dialog = new Dialog(
         dialogTitle.value,
         dialogBody.value,
-        dialogAction.value,
         allButtons,
         img,
         background,
@@ -69,7 +68,6 @@ function preview(div, id) {
     var dialog = new Dialog(
         currentDialog.title,
         currentDialog.body,
-        currentDialog.action,
         allButtons,
         img,
         background,

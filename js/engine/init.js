@@ -32,7 +32,6 @@ function initDialog(json) {
             new Dialog(
                 currentDialog.title,
                 currentDialog.body,
-                currentDialog.action,
                 allButtons,
                 currentDialog.img,
                 currentDialog.background,

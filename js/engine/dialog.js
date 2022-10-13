@@ -1,8 +1,7 @@
 class Dialog {
-    constructor(title, dialog, action, buttons, img, background, music, animation) {
+    constructor(title, dialog, buttons, img, background, music, animation) {
         this.title = title // str
         this.dialog = dialog //str
-        this.action = action // str
         this.buttons = buttons // Liste:str
 
         try {
@@ -36,7 +35,6 @@ class Dialog {
         } else { zone.style.background = "var(--soft-background)" }
         if (this.img != null) { img = `<div class="hero-js-dialog-img"><img src="${this.img}"></div>` }
         if (this.title != null) { title = `<div class="hero-js-dialog-header">${this.title}</div>` }
-        if (this.action != null) { action = `<div class="hero-js-dialog-action">${this.action}</div>` }
         for (var i = 0; i != this.buttons.length; i++) { buttons += this.buttons[i].show() }
         if (this.dialog != null) { dialog = `<div class="hero-js-dialog-body">${this.dialog}</div>` }
 
