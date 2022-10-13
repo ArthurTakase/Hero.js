@@ -118,7 +118,8 @@ const patchnote = [{
             "Fixed a bug that blocked the display of the player's skills"
         ],
         "features": [
-            "New random system. Ex: RANDOM(2,10), RANDOM(10), RANDOM(2,DICE), RANDOM(DICE)"
+            "New random system. Ex: RANDOM(2,10), RANDOM(10), RANDOM(2,DICE), RANDOM(DICE)",
+            "New css for in game dialogs"
         ]
     }
 ]
