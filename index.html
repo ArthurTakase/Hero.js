@@ -2,126 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <!-- <script src="https://kit.fontawesome.com/f4ace78f68.js" crossorigin="anonymous"></script> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/engine/color.css">
-    <!-- <link rel="stylesheet" href="css/index.css"> -->
-    <link rel="stylesheet" href="css/newIndex.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/engine/navbar.css">
-    <link rel="stylesheet" href="css/engine/notification.css">
-    <link rel="stylesheet" href="css/engine/startMenu.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-
-    <link rel="stylesheet" href="css/engine/heros.css">
-    <link rel="icon" type="image/png" href="img/icon.png" />
-    <title>Hero.js</title>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Vite + React</title>
 </head>
 
 <body>
-
-    <!-- Menu Index (disparait une fois le jeu lancé) -->
-    <section class="home" id="home">
-
-        <section class="homeContainer" id="homeUn">
-            <a href="https://github.com/ArthurTakase/Heros.js"><i class='bx bxl-github'></i></a>
-            <div class="homeNameText">HERO.JS</div>
-            <img src="img/monika.png" id="homeImg" alt="">
-            <div id="home__buttons">
-                <label class="home__button" for="hero-js-form-json">Jouer</label>
-                <input style="display: none;" type="file" id="hero-js-form-json" accept=".json,.hero" onchange="initGame(this.files[0])">
-                <a href="generator.html" class="home__button">Créer</a>
-            </div>
-        </section>
-
-        <section class="homeContainer" id="homeTrois">
-            <div class="homeNameText">JEUX</div>
-            <a href="https://arthurtakase.github.io/Heros.js?game=https://arthurtakase.github.io/Heros.js/exemples/exemple.json" target="_blank" class="homeGame">
-                <img src="https://media.discordapp.net/attachments/513278653254336513/1013773150925901984/274534414_635556697702182_2984125345401364184_n.jpg?width=635&height=681" alt="">
-                <div class="homeGameText">Fichier de test #1</div>
-            </a>
-
-        </section>
-
-    </section>
-
-    <!-- Zone de jeu -->
-    <div id='hero-js-all' class='hero-js-default' style="display: none;"></div>
-
-    <!-- Barre de menu -->
-    <div class="nav" id="navbar" style="display: none;">
-        <nav class="nav__container">
-            <div>
-                <a class="nav__link nav__logo"><span class="nav__logo-name">HERO.JS</span></a>
-                <div class="nav__list">
-                    <div class="nav__items" id="player__data">
-                        <!-- AJOUTER LES TRUCS ICI -->
-                    </div>
-                </div>
-            </div>
-            <a class="nav__link nav__logout" onclick="save()" style="cursor: pointer;">
-                <i class="bx bx-save nav__icon"></i>
-                <span class="nav__name">Save</span>
-            </a>
-        </nav>
-    </div>
-
-    <!-- Déclancheur de la navbar (mobile only) -->
-    <header class="header" id="header" style="display: none; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.432);">
-        <div class="header__container">
-            <div class="header__toggle">
-                <i class="bx bx-menu" id="header-toggle"></i>
-            </div>
-        </div>
-    </header>
-
-    <div id="startMenu" style="display: none;">
-        <img id="startMenuImg">
-        <div id="fadeStart"></div>
-        <div id="StartMenuUp">
-            <img id="sub1" class="subJaquette un">
-            <img id="sub2" class="subJaquette deux">
-            <img id="startMenuJaquette">
-        </div>
-        <div class="startMenuBottom">
-            <div class="startMenuData">
-                <div id="startMenuAuthor"></div>
-                <div id="startMenuName"></div>
-            </div>
-            <div id="startMenuInfos">
-                <div id="startMenuDate"></div>
-                <div id="startMenuLangue"></div>
-            </div>
-            <div id="startMenuDescription"></div>
-            <button id="startMenuPlay" onclick="launchGame()" title="Launch the game"><i class='bx bx-play'></i><span class=startMenuPlayText>Play</span></button>
-        </div>
-        <div onclick="backToHome()" id="startMenuHeroLink"><i class='bx bx-chevrons-left' style="font-size: 2rem;"></i>Back to Hero.js</div>
-    </div>
-
-    <!-- Lib Animation -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-    <!-- Engine Lib -->
-    <script src="js/engine/startMenu.js"></script>
-    <script src="js/engine/lib.js"></script>
-    <script src="js/engine/fight.js"></script>
-    <script src="js/engine/animation.js"></script>
-    <script src="js/engine/hud.js"></script>
-    <script src="js/engine/save.js"></script>
-    <script src="js/generator/display/navbar.js"></script>
-    <!-- Engine Objets -->
-    <script src="js/engine/button.js"></script>
-    <script src="js/engine/dialog.js"></script>
-    <script src="js/engine/object.js"></script>
-    <script src="js/engine/skill.js"></script>
-    <script src="js/engine/player.js"></script>
-    <script src="js/engine/sound.js"></script>
-    <script src="js/engine/music.js"></script>
-    <script src="js/engine/style.js"></script>
-    <script src="js/engine/loadJson.js"></script>
-    <script src="js/engine/init.js"></script>
-    <!-- Index -->
-    <script src="js/index/navbar.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
 </body>
 
 </html>

@@ -1,0 +1,63 @@
+@import "variables";
+nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    background: $navbar-collapse-color;
+    color: $text-color;
+    width: 100%;
+    align-items: center;
+    padding: 0.2rem;
+    padding-bottom: 0;
+    padding-top: 0;
+    // height: 1.6rem;
+    // gap: 1rem;
+    font-size: 1rem;
+    article {
+        .navTitle {
+            padding-left: 0.2rem;
+            padding-right: 0.3rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+            border-top: 0.3rem solid $navbar-collapse-color;
+            border-bottom: 0.3rem solid $navbar-collapse-color;
+        }
+        .dropdown {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            transition: 0.2s ease-in-out;
+            margin-left: -0.2rem;
+            min-width: 6rem;
+            button {
+                text-align: left;
+                display: none;
+                background: $accent-color;
+                color: $text-color;
+                border: none;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: 0.2s ease-in-out;
+                padding: 0.2rem;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+                &:hover {
+                    translate: 0.3rem;
+                    font-weight: bold;
+                }
+            }
+        }
+        &:hover {
+            .navTitle {
+                border-top: 0.3rem solid $accent-color;
+            }
+            .dropdown {
+                button {
+                    display: block;
+                }
+            }
+        }
+    }
+}

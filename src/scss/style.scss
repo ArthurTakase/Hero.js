@@ -1,0 +1,17 @@
+@import "variables";
+html,
+body {
+    padding: 0;
+    margin: 0;
+    margin-top: 1.6rem;
+    background: $body-color;
+    color: $text-color;
+}
+
+* {
+    font-family: $font;
+}
+
+*.WIP {
+    cursor: not-allowed !important;
+}

@@ -1,0 +1,23 @@
+{
+    "welcome": "HeroJS v2",
+    "files": "Fichier",
+    "project": "Projet",
+    "pictures": "Images",
+    "sounds": "Sons",
+    "data": "Données",
+    "theme": "Thème",
+    "save": "Sauvegarder",
+    "import": "Importer",
+    "export": "Exporter",
+    "language": "Langue",
+    "general": "Général",
+    "startMenu": "Menu de démarrage",
+    "display": "Affichage",
+    "style": "Style",
+    "list": "Liste",
+    "add": "Ajouter",
+    "skills": "Compétences",
+    "items": "Objets",
+    "player": "Joueur",
+    "new": "Nouveau"
+}
