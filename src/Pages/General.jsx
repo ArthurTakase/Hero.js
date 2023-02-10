@@ -1,7 +1,7 @@
 import Window from '../Components/Window'
 import { Input } from '../Components/Input'
 import { data, lang } from '../App'
-import '../scss/general.scss'
+import '../scss/window_behavior.scss'
 
 export default function General({ refs }) {
     const txt = lang[localStorage.getItem("lang")]
@@ -11,12 +11,11 @@ export default function General({ refs }) {
             if (refs.input.general.gameTitle.current.value == "") { return { value: "error", msg: `"${txt.gameTitle}" ${txt.required}` } }
             if (refs.input.general.firstDialogID.current.value == "") { return { value: "error", msg: `"${txt.firstDialogID}" ${txt.required}` } }
             
-            data.general = {}
-            data.general.gameTitle = refs.input.general.gameTitle.current.value
-            data.general.firstDialogID = parseInt(refs.input.general.firstDialogID.current.value)
-            data.general.defeatDialogID = parseInt(refs.input.general.defeatDialogID.current.value)
-            data.general.MaxDice = parseInt(refs.input.general.MaxDice.current.value)
-            data.general.MaxSkill = parseInt(refs.input.general.MaxSkill.current.value)
+            data.gameInfos.title = refs.input.general.gameTitle.current.value
+            data.gameInfos.startNumber = parseInt(refs.input.general.firstDialogID.current.value)
+            data.gameInfos.defeatNumber = parseInt(refs.input.general.defeatDialogID.current.value)
+            data.gameInfos.MaxDice = parseInt(refs.input.general.MaxDice.current.value)
+            data.gameInfos.MaxSkills = parseInt(refs.input.general.MaxSkill.current.value)
 
             return { value: "success", msg: txt.successSave }
         }

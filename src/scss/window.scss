@@ -10,19 +10,16 @@
     overflow: auto;
     width: 25rem;
     height: fit-content;
-    max-height: 80vh;
-    max-height: 30rem;
     position: absolute;
     box-shadow: 0rem 0rem 1rem 0.5rem rgba(0, 0, 0, 0.2);
     background: rgba($navbar-collapse-color, 0.9);
     backdrop-filter: blur(20px);
     scrollbar-width: none;
+    border-radius: 0.5rem;
     &::-webkit-scrollbar {
         display: none;
     }
     .header {
-        border-top-right-radius: 0.5rem;
-        border-top-left-radius: 0.5rem;
         background: $accent-color;
         display: flex;
         height: 1.7rem;

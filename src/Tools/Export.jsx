@@ -7,9 +7,8 @@ export function exportJSON() {
     function check() {
         console.log(data)
         try {
-            if (!data.general) { return { value: "error", msg: `"${txt.general}" ${txt.required}` } }
-            if (data.general.gameTitle === "") { return { value: "error", msg: `"${txt.gameTitle}" ${txt.required}` } }
-            if (data.general.firstDialogID == undefined) { return { value: "error", msg: `"${txt.firstDialogID}" ${txt.required}` } }
+            if (data.gameInfos.title === "") { return { value: "error", msg: `"${txt.gameTitle}" ${txt.required}` } }
+            if (data.gameInfos.startNumber == undefined) { return { value: "error", msg: `"${txt.firstDialogID}" ${txt.required}` } }
     
             return { value: "success", msg: txt.successExport }
         }
@@ -23,7 +22,7 @@ export function exportJSON() {
         const jsonString = `data:text/json;chatset=utf-8,${ encodeURIComponent(JSON.stringify(data)) }`
         const link = document.createElement("a")
         link.href = jsonString
-        link.download = `${data.general.gameTitle}.json`
+        link.download = `${data.gameInfos.title}.json`
         link.click()
 
         toast.success(ret.msg, {

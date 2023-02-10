@@ -5,7 +5,6 @@ import 'react-toastify/dist/ReactToastify.css'
 import Navbar from './Components/Navbar'
 import Display from './Pages/Display'
 import General from './Pages/General'
-import StartMenu from './Pages/StartMenu'
 
 import en_translate from "./Translate/en.json"
 import fr_translate from "./Translate/fr.json"
@@ -15,14 +14,16 @@ export const lang = {
     fr: fr_translate
 }
 
-export const data = {}
+export const data = {
+    gameInfos: {},
+
+}
 
 export default function App() {
     const txt = lang[localStorage.getItem("lang")]
     const refs = {
         window: {
             general: useRef(null),
-            startMenu: useRef(null),
             display: useRef(null)
         },
         input: {
@@ -32,6 +33,13 @@ export default function App() {
                 defeatDialogID: useRef(null),
                 MaxDice: useRef(null),
                 MaxSkill: useRef(null)
+            },
+            display: {
+                showStamina: useRef(null),
+                showAbility: useRef(null),
+                showSkills: useRef(null),
+                showGold: useRef(null),
+                showInventory: useRef(null),
             }
         }
     }
@@ -52,7 +60,6 @@ export default function App() {
             />
             <Navbar refs={refs} />
             <General refs={refs} />
-            <StartMenu refs={refs} />
             <Display refs={refs} />
         </>
     )

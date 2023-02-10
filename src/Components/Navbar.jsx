@@ -35,7 +35,7 @@ export default function Navbar({ refs }) {
                 <div className="navTitle">{txt.project}<i className='bx bx-chevron-down'></i></div>
                 <div className="dropdown">
                     <button onClick={() => { openWindow(refs.window.general) }} >{txt.general}</button>
-                    <button onClick={() => { openWindow(refs.window.startMenu) }} >{txt.startMenu}</button>
+                    <button className="WIP" >{txt.startMenu}</button>
                     <button onClick={() => { openWindow(refs.window.display) }} >{txt.display}</button>
                     <button className="WIP">{txt.style}</button>
                 </div>
