@@ -1,7 +1,7 @@
-import React from 'react';
-import Draggable from 'react-draggable';
+import React from 'react'
+import Draggable from 'react-draggable'
 import '../scss/window.scss'
-import { toast } from 'react-toastify';
+import { toast } from 'react-toastify'
 
 export default function Window({ children, title, r, refs, saveFunc }) {
     function close() {
@@ -25,7 +25,7 @@ export default function Window({ children, title, r, refs, saveFunc }) {
                 draggable: true,
                 progress: undefined,
                 theme: "dark",
-            });
+            })
         } else {
             toast.error(ret.msg, {
                 position: "top-right",
@@ -36,7 +36,7 @@ export default function Window({ children, title, r, refs, saveFunc }) {
                 draggable: true,
                 progress: undefined,
                 theme: "dark",
-            });
+            })
         }
     }
 

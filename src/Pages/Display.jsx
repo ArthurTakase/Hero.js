@@ -1,4 +1,4 @@
-import Window from '../Components/Window';
+import Window from '../Components/Window'
 
 export default function Display({ refs }) {
     return (

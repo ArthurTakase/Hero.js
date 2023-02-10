@@ -1,14 +1,14 @@
-import React, { useRef } from 'react';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useRef } from 'react'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
-import Navbar from './Components/Navbar';
-import Display from './Pages/Display';
-import General from './Pages/General';
-import StartMenu from './Pages/StartMenu';
+import Navbar from './Components/Navbar'
+import Display from './Pages/Display'
+import General from './Pages/General'
+import StartMenu from './Pages/StartMenu'
 
-import en_translate from "./Translate/en.json";
-import fr_translate from "./Translate/fr.json";
+import en_translate from "./Translate/en.json"
+import fr_translate from "./Translate/fr.json"
 
 export const lang = {
     en: en_translate,
@@ -18,7 +18,7 @@ export const lang = {
 export const data = {}
 
 export default function App() {
-    const txt = lang[localStorage.getItem("lang")];
+    const txt = lang[localStorage.getItem("lang")]
     const refs = {
         window: {
             general: useRef(null),
