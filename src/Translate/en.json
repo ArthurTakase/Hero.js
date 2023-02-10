@@ -19,5 +19,7 @@
     "skills": "Skills",
     "items": "Items",
     "player": "Player",
-    "new": "New"
+    "new": "New",
+    "warning_translate": "Be careful, changing the language will refresh the page! Don't forget to save before doing this.",
+    "browser_projects": "Browser Projects"
 }

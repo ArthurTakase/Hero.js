@@ -19,5 +19,7 @@
     "skills": "Compétences",
     "items": "Objets",
     "player": "Joueur",
-    "new": "Nouveau"
+    "new": "Nouveau",
+    "warning_translate": "Attention, changer la langue actualise la page ! N'oubliez pas de sauvegarder avant d'effectuer cette action.",
+    "browser_projects": "Projets du navigateur"
 }
