@@ -12,3 +12,50 @@
     gap: 0.6rem;
     padding-bottom: 1rem;
 }
+
+.picture {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    transition: 0.2s ease-in-out;
+    .pic {
+        height: 10rem;
+        min-width: 9rem;
+        max-width: 13rem;
+        border-radius: 0.5rem;
+        position: relative;
+        transition: 0.2s ease-in-out;
+        overflow: hidden;
+        p {
+            padding-left: 0.2rem;
+            padding-right: 0.2rem;
+            position: absolute;
+            font-size: 0.9rem;
+            bottom: 0;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            backdrop-filter: blur(10px);
+            word-wrap: break-word;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            transition: 0.2s ease-in-out;
+        }
+        &:hover {
+            img {
+                object-fit: contain;
+            }
+        }
+    }
+}

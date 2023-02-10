@@ -11,37 +11,18 @@ export default function Picture({ refs }) {
     function handleChange(event) {
         const file = event.target.files[0]
         uploadPicture(file, function(baseImg) {
-            console.log(file.name.replace(/\.[^/.]+$/, ""))
-            console.log(baseImg.toString())
             data.data.pictures[file.name.replace(/\.[^/.]+$/, "")] = baseImg.toString()
 
-            setPictures(<>
-                {pictures}
-                <div className="picture">
-                    <img src={baseImg} />
-                </div>
-            </>)
+            const p = Object.keys(data.data.pictures).map((picture, index) => {
+                return (
+                    <div className="pic" key={index}>
+                        <p>{picture}</p>
+                        <img src={data.data.pictures[picture]} />
+                    </div>
+                )
+            })
 
-            // console.log(data.data.pictures)
-            // const p = Object.keys(data.data.pictures).map((picture, index) => {
-            //     console.log(picture, index)
-            //     return (
-            //         <div className="picture" key={index}>
-            //             <img src={picture} />
-            //         </div>
-            //     )
-            // })
-
-            // const p = data.data.pictures.map((picture, index) => {
-            //     console.log(picture, index)
-            //     return (
-            //         <div className="picture" key={picture}>
-            //             <img src={index} />
-            //         </div>
-            //     )
-            // })
-
-            // setPictures(p)
+            setPictures(p)
         })
     }
 
