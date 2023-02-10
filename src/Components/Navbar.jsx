@@ -41,32 +41,16 @@ export default function Navbar({ refs }) {
                 </div>
             </article>
             <article>
-                <div className="navTitle">{txt.pictures}<i className='bx bx-chevron-down'></i></div>
-                <div className="dropdown">
-                    <button className="WIP">{txt.list}</button>
-                    <button className="WIP">{txt.add}</button>
-                </div>
+                <div className="navTitle" onClick={() => { openWindow(refs.window.picture) }}>{txt.pictures}</div>
             </article>
             <article>
-                <div className="navTitle">{txt.sounds}<i className='bx bx-chevron-down'></i></div>
-                <div className="dropdown">
-                    <button className="WIP">{txt.list}</button>
-                    <button className="WIP">{txt.add}</button>
-                </div>
+                <div className="navTitle WIP">{txt.sounds}</div>
             </article>
             <article>
-                <div className="navTitle">{txt.skills}<i className='bx bx-chevron-down'></i></div>
-                <div className="dropdown">
-                    <button className="WIP">{txt.list}</button>
-                    <button className="WIP">{txt.add}</button>
-                </div>
+                <div className="navTitle WIP">{txt.skills}</div>
             </article>
             <article>
-                <div className="navTitle">{txt.items}<i className='bx bx-chevron-down'></i></div>
-                <div className="dropdown">
-                    <button className="WIP">{txt.list}</button>
-                    <button className="WIP">{txt.add}</button>
-                </div>
+                <div className="navTitle WIP">{txt.items}</div>
             </article>
             <article>
                 <div className="navTitle WIP">{txt.player}</div>

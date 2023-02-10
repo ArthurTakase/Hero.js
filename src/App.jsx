@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import Navbar from './Components/Navbar'
 import Display from './Pages/Display'
 import General from './Pages/General'
+import Picture from './Pages/Picture'
 
 import en_translate from "./Translate/en.json"
 import fr_translate from "./Translate/fr.json"
@@ -16,7 +17,9 @@ export const lang = {
 
 export const data = {
     gameInfos: {},
-
+    data: {
+        pictures: {}
+    }
 }
 
 export default function App() {
@@ -24,7 +27,8 @@ export default function App() {
     const refs = {
         window: {
             general: useRef(null),
-            display: useRef(null)
+            display: useRef(null),
+            picture: useRef(null),
         },
         input: {
             general: {
@@ -61,6 +65,7 @@ export default function App() {
             <Navbar refs={refs} />
             <General refs={refs} />
             <Display refs={refs} />
+            <Picture refs={refs} />
         </>
     )
 }

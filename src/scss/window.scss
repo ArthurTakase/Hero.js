@@ -16,6 +16,17 @@
     backdrop-filter: blur(20px);
     scrollbar-width: none;
     border-radius: 0.5rem;
+    animation: ease-in-out 0.2s fade-in;
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            translate: 0 0.2rem;
+        }
+        to {
+            opacity: 1;
+            translate: 0 0;
+        }
+    }
     &::-webkit-scrollbar {
         display: none;
     }
@@ -35,16 +46,25 @@
             border-radius: 0.5rem;
             display: flex;
             position: absolute;
-            right: 0;
+            right: 0.2rem;
+            gap: 0.3rem;
             .button {
                 border-radius: 0.5rem;
                 border: none;
-                background: $accent-color;
+                background: none;
                 color: $text-color;
                 font-size: 1rem;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 cursor: pointer;
-                &:hover {
-                    background: darken($accent-color, 5);
+                height: 1.7rem;
+                i {
+                    font-size: 1.2rem;
+                    &:hover {
+                        color: darken($text-color, 20%);
+                    }
                 }
             }
         }

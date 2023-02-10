@@ -3,7 +3,7 @@ import Draggable from 'react-draggable'
 import '../scss/window.scss'
 import { toast } from 'react-toastify'
 
-export default function Window({ children, title, r, refs, saveFunc }) {
+export default function Window({ children, title, r, refs, saveFunc, uploadFunc }) {
     function close() {
         r.current.style.display = "none"
     }
@@ -48,6 +48,10 @@ export default function Window({ children, title, r, refs, saveFunc }) {
                         <div className="title">{title}</div>
                         <div className="buttons">
                             {saveFunc ? <button className="button" onClick={() => { save(saveFunc) }} ><i className='bx bx-save'></i></button> : <></>}
+                            {uploadFunc ? <>
+                                <label className="button" htmlFor="uploadPictureForm" title="Upload your file"><i className='bx bx-cloud-upload'></i></label>
+                                <input style={{display: "none"}} type="file" id="uploadPictureForm" accept="image/*" onChange={uploadFunc} />
+                            </> : <></>}
                             <button className="button" onClick={() => { close() }} ><i className='bx bx-x'></i></button>
                         </div>
                     </div>
