@@ -2,36 +2,23 @@ import React from 'react';
 import Draggable from 'react-draggable';
 import '../scss/window.scss'
 
-export default function Window({ children, title, r }) {
+export default function Window({ children, title, r, refs }) {
     function close() {
         r.current.style.display = "none"
     }
 
     function forward() {
-        var layer = r.current.style.zIndex
-        if (layer === "") layer = 1
-        if (layer === "20") return
-
-        r.current.style.zIndex = parseInt(layer) + 1
-    }
-
-    function backward() {
-        var layer = r.current.style.zIndex
-        if (layer === "") layer = 1
-        if (layer === "0") return;
-
-        r.current.style.zIndex = parseInt(layer) - 1
+        for (const ref in refs) { refs[ref].current.style.zIndex = 0 }
+        r.current.style.zIndex = 1
     }
 
     return (
-        <div ref={r} className="drag">
+        <div ref={r} className="drag" onClick={() => { forward() }}>
             <Draggable>
                 <div className="window">
                     <div className="header">
                         <div className="title">{title}</div>
                         <div className="buttons">
-                            <button className="button" onClick={() => { forward() }} ><i className='bx bx-layer-plus'></i></button>
-                            <button className="button" onClick={() => { backward() }} ><i className='bx bx-layer-minus'></i></button>
                             <button className="button" onClick={() => { close() }} ><i className='bx bx-x'></i></button>
                         </div>
                     </div>

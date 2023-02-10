@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import Navbar from './Components/Navbar';
-import Window from './Components/Window';
+import Display from './Pages/Display';
+import General from './Pages/General';
+import StartMenu from './Pages/StartMenu';
 import en_translate from "./Translate/en.json";
 import fr_translate from "./Translate/fr.json";
 
@@ -20,15 +22,9 @@ export default function App() {
     return (
         <>
             <Navbar refs={refs} />
-            <Window title={txt.general} r={refs.general}>
-                <div>{txt.welcome}</div>
-            </Window>
-            <Window title={txt.startMenu} r={refs.startMenu}>
-                <div>{txt.welcome}</div>
-            </Window>
-            <Window title={txt.display} r={refs.display}>
-                <div>{txt.welcome}</div>
-            </Window>
+            <General refs={refs} />
+            <StartMenu refs={refs} />
+            <Display refs={refs} />
         </>
     )
 }
