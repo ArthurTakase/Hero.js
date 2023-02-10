@@ -21,5 +21,15 @@
     "player": "Player",
     "new": "New",
     "warning_translate": "Be careful, changing the language will refresh the page! Don't forget to save before doing this.",
-    "browser_projects": "Browser Projects"
+    "browser_projects": "Browser Projects",
+    "gameTitle": "Game Title",
+    "firstDialogID": "First Dialog Id",
+    "defeatDialogID": "Defeat Dialog Id",
+    "maxDiceValue": "Max Dice Value",
+    "maxSkill": "Max Skill for player",
+    "successSave": "Project saved successfully!",
+    "errorSave": "Error while saving the project",
+    "required": "is required",
+    "successExport": "Project exported successfully!",
+    "errorExport": "Error while exporting the project"
 }

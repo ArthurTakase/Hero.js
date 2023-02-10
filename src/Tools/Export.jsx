@@ -1,18 +1,20 @@
-import { data } from "../App"
+import { data, lang } from "../App"
 import { toast } from 'react-toastify'
 
 export function exportJSON() {
+    const txt = lang[localStorage.getItem("lang")]
+
     function check() {
         console.log(data)
         try {
-            if (!data.general) { return { value: "error", msg: "General is empty" } }
-            if (data.general.gameTitle === "") { return { value: "error", msg: "Game title is empty" } }
-            if (data.general.firstDialogID == undefined) { return { value: "error", msg: "First dialog ID is empty" } }
+            if (!data.general) { return { value: "error", msg: `"${txt.general}" ${txt.required}` } }
+            if (data.general.gameTitle === "") { return { value: "error", msg: `"${txt.gameTitle}" ${txt.required}` } }
+            if (data.general.firstDialogID == undefined) { return { value: "error", msg: `"${txt.firstDialogID}" ${txt.required}` } }
     
-            return { value: "success", msg: "Exported" }
+            return { value: "success", msg: txt.successExport }
         }
         catch (e) {
-            return { value: "error", msg: "An error occured" }
+            return { value: "error", msg: txt.errorExport }
         }
     }
 
