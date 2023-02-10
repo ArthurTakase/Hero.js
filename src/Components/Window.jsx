@@ -8,7 +8,7 @@ export default function Window({ children, title, r, refs }) {
     }
 
     function forward() {
-        for (const ref in refs) { refs[ref].current.style.zIndex = 0 }
+        for (const ref in refs.window) { refs.window[ref].current.style.zIndex = 0 }
         r.current.style.zIndex = 1
     }
 

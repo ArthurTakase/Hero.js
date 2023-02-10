@@ -10,17 +10,29 @@
     overflow: auto;
     width: 25rem;
     height: 25rem;
+    max-height: 30rem;
     position: absolute;
     box-shadow: 0rem 0rem 1rem 0.5rem rgba(0, 0, 0, 0.2);
+    background: rgba($navbar-collapse-color, 0.9);
+    backdrop-filter: blur(20px);
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
     .header {
         border-top-right-radius: 0.5rem;
         border-top-left-radius: 0.5rem;
         background: $accent-color;
         display: flex;
-        position: relative;
+        // position: relative;
         height: 1.7rem;
+        top: 0;
+        position: sticky;
+        width: 100%;
+        box-shadow: 0rem 0rem 1rem 0.5rem rgba(0, 0, 0, 0.2);
         .title {
             padding-left: 0.5rem;
+            font-weight: bold;
         }
         .buttons {
             border-radius: 0.5rem;
@@ -43,8 +55,6 @@
     .content {
         height: calc(100% - 2.7rem);
         padding: 0.5rem;
-        background: rgba($navbar-collapse-color, 0.9);
-        backdrop-filter: blur(20px);
         color: $text-color;
     }
 }

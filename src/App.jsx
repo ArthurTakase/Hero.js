@@ -14,9 +14,20 @@ export const lang = {
 export default function App() {
     const txt = lang[localStorage.getItem("lang")];
     const refs = {
-        general: useRef(null),
-        startMenu: useRef(null),
-        display: useRef(null)
+        window: {
+            general: useRef(null),
+            startMenu: useRef(null),
+            display: useRef(null)
+        },
+        input: {
+            general: {
+                gameTitle: useRef(null),
+                firstDialogID: useRef(null),
+                defeatDialogID: useRef(null),
+                MaxDice: useRef(null),
+                MaxSkill: useRef(null)
+            }
+        }
     }
 
     return (
