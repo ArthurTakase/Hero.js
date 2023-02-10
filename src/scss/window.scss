@@ -9,7 +9,8 @@
     resize: both;
     overflow: auto;
     width: 25rem;
-    height: 25rem;
+    height: fit-content;
+    max-height: 80vh;
     max-height: 30rem;
     position: absolute;
     box-shadow: 0rem 0rem 1rem 0.5rem rgba(0, 0, 0, 0.2);
