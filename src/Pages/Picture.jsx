@@ -1,4 +1,4 @@
-import Window from '../Components/Window'
+import Header from '../Components/Header'
 import { data, lang } from '../App'
 import '../scss/window_behavior.scss'
 import { uploadPicture } from '../Tools/UploadPicture'
@@ -27,10 +27,11 @@ export default function Picture({ refs }) {
     }
 
     return (
-        <Window title="Pictures" r={refs.window.picture} refs={refs} uploadFunc={handleChange}>
-            <div className="picture">
+        <>
+            <Header title="Pictures" r={refs.window.picture} uploadFunc={handleChange} />
+            <div className="picture content" ref={refs.window.picture}>
                 {pictures}
             </div>
-        </Window>
+        </>
     )
 }

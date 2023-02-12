@@ -14,7 +14,7 @@ export default function Navbar({ refs }) {
     }
 
     function openWindow(ref) {
-        ref.current.style.display = "block"
+        ref.current.parentNode.style.display = "block"
     }
 
     return (

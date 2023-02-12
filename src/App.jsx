@@ -21,7 +21,6 @@ export const data = {
 }
 
 export default function App() {
-    const txt = lang[localStorage.getItem("lang")]
     const refs = {
         window: {
             general: useRef(null),
@@ -34,7 +33,7 @@ export default function App() {
                 firstDialogID: useRef(null),
                 defeatDialogID: useRef(null),
                 MaxDice: useRef(null),
-                MaxSkill: useRef(null)
+                MaxSkill: useRef(null),
             },
             display: {
                 showStamina: useRef(null),
@@ -60,7 +59,7 @@ export default function App() {
                 pauseOnHover
                 theme="dark"
             />
-            <Navbar refs={refs} />
+            {/* <Navbar refs={refs} /> */}
             <Grid refs={refs} data={data} />
         </>
     )

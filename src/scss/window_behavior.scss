@@ -21,8 +21,8 @@
     transition: 0.2s ease-in-out;
     .pic {
         height: 10rem;
-        min-width: 9rem;
-        max-width: 13rem;
+        min-width: 8.5rem;
+        max-width: 12rem;
         border-radius: 0.5rem;
         position: relative;
         transition: 0.2s ease-in-out;
@@ -53,6 +53,9 @@
             transition: 0.2s ease-in-out;
         }
         &:hover {
+            cursor: pointer;
+            // max-width: 50rem;
+            box-shadow: inset 0 0 0 20rem rgba($accent-color, 0.3);
             img {
                 object-fit: contain;
             }
