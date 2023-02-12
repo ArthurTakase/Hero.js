@@ -3,9 +3,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import Navbar from './Components/Navbar'
-import Display from './Pages/Display'
-import General from './Pages/General'
-import Picture from './Pages/Picture'
+import Grid from './Components/Grid'
 
 import en_translate from "./Translate/en.json"
 import fr_translate from "./Translate/fr.json"
@@ -63,9 +61,7 @@ export default function App() {
                 theme="dark"
             />
             <Navbar refs={refs} />
-            <General refs={refs} />
-            <Display refs={refs} />
-            <Picture refs={refs} />
+            <Grid refs={refs} data={data} />
         </>
     )
 }
