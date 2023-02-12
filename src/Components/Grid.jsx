@@ -2,6 +2,7 @@ import GridLayout, { Responsive as ResponsiveGridLayout } from "react-grid-layou
 import Display from '../Pages/Display'
 import General from '../Pages/General'
 import Picture from '../Pages/Picture'
+import File from '../Pages/File'
 
 import '../scss/grid.scss'
 import '/node_modules/react-grid-layout/css/styles.css'
@@ -10,9 +11,10 @@ import '/node_modules/react-resizable/css/styles.css'
 export default function Grid({ refs, data })
 {
     const layout = [
-        { i: "general", x: 0, y: 0, w: 8, h: 12 },
-        { i: "display", x: 0, y: 1, w: 8, h: 6 },
-        { i: "picture", x: 0, y: 2, w: 25, h: 6 },
+        { i: "file", x: 0, y: 0, w: 18, h: 2 },
+        { i: "general", x: 0, y: 1, w: 18, h: 18 },
+        { i: "display", x: 0, y: 2, w: 18, h: 9 },
+        { i: "picture", x: 0, y: 3, w: 50, h: 10 },
     ];
 
     return (
@@ -20,8 +22,8 @@ export default function Grid({ refs, data })
         <GridLayout
             className="layout"
             layout={layout}
-            cols={50}
-            rowHeight={30}
+            cols={100}
+            rowHeight={15}
             width={1920}
             onLayoutChange={(layout) => {}}
         >
@@ -33,6 +35,9 @@ export default function Grid({ refs, data })
             </div>
             <div className="gidDiv" key="display" >
                 <Display refs={refs} data={data} />
+            </div>
+            <div className="gidDiv" key="file" >
+                <File refs={refs} data={data} />
             </div>
         </GridLayout>
         </>
