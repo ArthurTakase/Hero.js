@@ -3,8 +3,9 @@ import { data, lang } from '../App'
 import '../scss/window_behavior.scss'
 import { uploadPicture } from '../Tools/UploadPicture'
 import { useState } from 'react'
+import Image from '../Components/Image'
 
-export default function Picture({ refs }) {
+export default function Picture({ refs, states }) {
     const txt = lang[localStorage.getItem("lang")]
     const [pictures, setPictures] = useState(<></>)
 
@@ -14,12 +15,7 @@ export default function Picture({ refs }) {
             data.data.pictures[file.name.replace(/\.[^/.]+$/, "")] = baseImg.toString()
 
             const p = Object.keys(data.data.pictures).map((picture, index) => {
-                return (
-                    <div className="pic" key={index}>
-                        <p>{picture}</p>
-                        <img src={data.data.pictures[picture]} />
-                    </div>
-                )
+                return ( <Image pictureUrl={data.data.pictures[picture]} pictureName={picture} key={index} states={states} /> )
             })
 
             setPictures(p)

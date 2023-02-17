@@ -19,48 +19,6 @@
     flex-wrap: wrap;
     gap: 0.6rem;
     transition: 0.2s ease-in-out;
-    .pic {
-        height: 10rem;
-        min-width: 8.5rem;
-        max-width: 12rem;
-        border-radius: 0.5rem;
-        position: relative;
-        transition: 0.2s ease-in-out;
-        overflow: hidden;
-        p {
-            padding-left: 0.2rem;
-            padding-right: 0.2rem;
-            position: absolute;
-            font-size: 0.9rem;
-            bottom: 0;
-            padding: 0;
-            margin: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            text-align: center;
-            border-bottom-left-radius: 0.5rem;
-            border-bottom-right-radius: 0.5rem;
-            backdrop-filter: blur(10px);
-            word-wrap: break-word;
-            text-overflow: ellipsis;
-            overflow: hidden;
-        }
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 0.5rem;
-            transition: 0.2s ease-in-out;
-        }
-        &:hover {
-            cursor: pointer;
-            // max-width: 50rem;
-            box-shadow: inset 0 0 0 20rem rgba($accent-color, 0.3);
-            img {
-                object-fit: contain;
-            }
-        }
-    }
 }
 
 .file {
@@ -70,13 +28,8 @@
     justify-content: center;
     align-items: center;
     gap: 0.6rem;
-    // background: $accent-color;
-    // translate: 0 -1.7rem;
-    // position: fixed;
-    // z-index: 1;
     padding-top: 0 !important;
     min-height: calc(100%) !important;
-    // border: solid red;
     padding-left: 0.5rem !important;
     padding-right: 0.5rem !important;
     button {
@@ -88,15 +41,12 @@
         font-size: 1rem;
         cursor: pointer;
         transition: 0.2s ease-in-out;
-        // padding: 0.1rem;
         padding-left: 0.3rem;
         padding-right: 0.3rem;
         min-width: fit-content;
-        // max-width: 100%;
         flex: 1;
         height: 1.45rem;
         &:hover {
-            // translate: 0.3rem;
             scale: 1.05;
             font-weight: bold;
         }

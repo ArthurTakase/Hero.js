@@ -1,9 +1,9 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
-import Navbar from './Components/Navbar'
 import Grid from './Components/Grid'
+import Modal from './Components/Modal'
 
 import en_translate from "./Translate/en.json"
 import fr_translate from "./Translate/fr.json"
@@ -45,6 +45,20 @@ export default function App() {
         }
     }
 
+    const [open, setOpen] = useState(false);
+    const [modalContent, setModalContent] = useState(<></>);
+
+    const states = {
+        set: {
+            setOpen: setOpen,
+            setModalContent: setModalContent
+        },
+        get: {
+            open: open,
+            modalContent: modalContent
+        }
+    }
+
     return (
         <>
             <ToastContainer
@@ -59,8 +73,8 @@ export default function App() {
                 pauseOnHover
                 theme="dark"
             />
-            {/* <Navbar refs={refs} /> */}
-            <Grid refs={refs} data={data} />
+            <Grid refs={refs} data={data} states={states} />
+            <Modal states={states}  />
         </>
     )
 }
