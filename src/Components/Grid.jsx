@@ -15,10 +15,10 @@ export default function Grid({ refs, data, states })
         { i: "general", x: 0, y: 1, w: 18, h: 18 },
         { i: "display", x: 0, y: 2, w: 18, h: 9 },
         { i: "picture", x: 0, y: 37, w: 34, h: 10 },
-        { i: "data", x: 34, y: 37, w: 34, h: 10 },
-        { i: "preview", x: 68, y: 37, w: 32, h: 10 },
-        { i: "map", x: 18, y: 0, w: 50, h: 29 },
-        { i: "create", x: 68, y: 0, w: 32, h: 29 },
+        // { i: "data", x: 34, y: 37, w: 34, h: 10 },
+        // { i: "preview", x: 68, y: 37, w: 32, h: 10 },
+        // { i: "map", x: 18, y: 0, w: 50, h: 29 },
+        // { i: "create", x: 68, y: 0, w: 32, h: 29 },
     ];
 
     return (
@@ -42,7 +42,7 @@ export default function Grid({ refs, data, states })
             <div className="gidDiv" key="file" >
                 <File refs={refs} data={data} />
             </div>
-            <div className="gidDiv" key="preview" >
+            {/* <div className="gidDiv" key="preview" >
                 <Picture refs={refs} data={data} />
             </div>
             <div className="gidDiv" key="data" >
@@ -53,7 +53,7 @@ export default function Grid({ refs, data, states })
             </div>
             <div className="gidDiv" key="map" >
                 <Picture refs={refs} data={data} />
-            </div>
+            </div> */}
         </GridLayout>
         </>
              

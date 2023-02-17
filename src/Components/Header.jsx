@@ -45,7 +45,7 @@ export default function Header({ title, r, saveFunc, uploadFunc }) {
                 {saveFunc ? <button className="button" onClick={() => { save(saveFunc) }} ><i className='bx bx-save'></i></button> : <></>}
                 {uploadFunc ? <>
                     <label className="button" htmlFor="uploadPictureForm" title="Upload your file"><i className='bx bx-cloud-upload'></i></label>
-                    <input style={{display: "none"}} type="file" id="uploadPictureForm" accept="image/*" onChange={uploadFunc} />
+                    <input style={{display: "none"}} type="file" id="uploadPictureForm" accept="image/*" onChange={uploadFunc} multiple />
                 </> : <></>}
                 {/* <button className="button" onClick={() => { close() }} ><i className='bx bx-x'></i></button> */}
             </div>

@@ -10,16 +10,20 @@ export default function Picture({ refs, states }) {
     const [pictures, setPictures] = useState(<></>)
 
     function handleChange(event) {
-        const file = event.target.files[0]
-        uploadPicture(file, function(baseImg) {
-            data.data.pictures[file.name.replace(/\.[^/.]+$/, "")] = baseImg.toString()
+        const files = event.target.files
 
-            const p = Object.keys(data.data.pictures).map((picture, index) => {
-                return ( <Image pictureUrl={data.data.pictures[picture]} pictureName={picture} key={index} states={states} /> )
+        Array.from(files).forEach(file => {
+            uploadPicture(file, function(baseImg) {
+                data.data.pictures[file.name.replace(/\.[^/.]+$/, "")] = baseImg.toString()
+                
+                const p = Object.keys(data.data.pictures).map((picture, index) => {
+                    return ( <Image pictureUrl={data.data.pictures[picture]} pictureName={picture} key={index} states={states} /> )
+                })
+        
+                setPictures(p)
             })
+        });
 
-            setPictures(p)
-        })
     }
 
     return (
