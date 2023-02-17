@@ -1,7 +1,7 @@
-import GridLayout, { Responsive as ResponsiveGridLayout } from "react-grid-layout";
+import GridLayout from "react-grid-layout";
 import Display from '../Pages/Display'
 import General from '../Pages/General'
-import Picture from '../Pages/Picture'
+import Assets from '../Pages/Assets'
 import File from '../Pages/File'
 
 import '../scss/grid.scss'
@@ -14,7 +14,7 @@ export default function Grid({ refs, data, states })
         { i: "file", x: 0, y: 0, w: 18, h: 2 },
         { i: "general", x: 0, y: 1, w: 18, h: 18 },
         { i: "display", x: 0, y: 2, w: 18, h: 9 },
-        { i: "picture", x: 0, y: 37, w: 34, h: 10 },
+        { i: "assets", x: 0, y: 37, w: 34, h: 10 },
         // { i: "data", x: 34, y: 37, w: 34, h: 10 },
         // { i: "preview", x: 68, y: 37, w: 32, h: 10 },
         // { i: "map", x: 18, y: 0, w: 50, h: 29 },
@@ -33,8 +33,8 @@ export default function Grid({ refs, data, states })
             <div className="gidDiv" key="general" >
                 <General refs={refs} data={data} />
             </div>
-            <div className="gidDiv" key="picture" >
-                <Picture refs={refs} data={data} states={states} />
+            <div className="gidDiv" key="assets" >
+                <Assets refs={refs} data={data} states={states} />
             </div>
             <div className="gidDiv" key="display" >
                 <Display refs={refs} data={data} />

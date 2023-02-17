@@ -1,9 +1,9 @@
 @import "variables";
 .pic {
     flex: 1;
-    height: 8rem;
-    min-width: 8.5rem;
-    max-width: 12rem;
+    height: 6.5rem;
+    min-width: 6.5rem;
+    max-width: 8.5rem;
     border-radius: 0.5rem;
     position: relative;
     transition: 0.2s ease-in-out;
@@ -14,18 +14,17 @@
         position: absolute;
         font-size: 0.9rem;
         bottom: 0;
-        padding: 0;
+        padding: 0.2rem;
         margin: 0;
-        width: 100%;
+        width: calc(100% - 0.4rem);
         background: rgba(0, 0, 0, 0.5);
         text-align: center;
-        border-bottom-left-radius: 0.5rem;
-        border-bottom-right-radius: 0.5rem;
         backdrop-filter: blur(10px);
-        word-wrap: break-word;
+        white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
         z-index: 2;
+        transition: 0.2s ease-in-out;
     }
     img {
         width: 100%;
@@ -45,16 +44,21 @@
 
 .modal {
     background: rgba(0, 0, 0, 0.397);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
+    width: 100% !important;
+    height: 100% !important;
+    .ModalTitle {
+        text-align: center;
+        font-weight: bold;
+    }
+    audio {
+        border-radius: 0.5rem;
+    }
     .rodal-dialog {
-        background: $body-color;
-        padding: 0;
-        width: fit-content !important;
-        height: fit-content !important;
-        min-width: 300px;
-        // min-height: 200px;
-        max-height: 80vh;
-        max-width: 80vw;
+        width: unset !important;
+        height: unset !important;
+        background: rgba(0, 0, 0, 0.397);
+        padding: 2rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -66,6 +70,5 @@
         height: 100%;
         object-fit: contain;
         border-radius: 0.5rem;
-        // transition: 0.2s ease-in-out;
     }
 }

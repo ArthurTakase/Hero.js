@@ -26,7 +26,7 @@ export default function General({ refs }) {
 
     return (
         <>
-        <Header title="General" r={refs.window.general} saveFunc={save} />
+        <Header title="General" saveFunc={save} />
         <div className="general content" ref={refs.window.general}>
             <Input type="text" placeholder={txt.gameTitle} label={txt.gameTitle} r={refs.input.general.gameTitle} required={true} />
             <Input type="number" placeholder={txt.firstDialogID} label={txt.firstDialogID} r={refs.input.general.firstDialogID} required={true} value={0} />

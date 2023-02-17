@@ -6,7 +6,7 @@ export default function Modal({ states })
 
 
     return (
-        <Rodal visible={states.get.open} onClose={() => { states.set.setOpen(false) }} closeOnEsc className="modal">
+        <Rodal visible={states.get.open} onClose={() => { states.set.setOpen(false) }} closeOnEsc className="modal" animation="slideDown">
             {states.get.modalContent}
         </Rodal>
     )

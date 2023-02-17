@@ -16,7 +16,8 @@ export const lang = {
 export const data = {
     gameInfos: {},
     data: {
-        pictures: {}
+        pictures: {},
+        sounds: {},
     }
 }
 
@@ -25,7 +26,7 @@ export default function App() {
         window: {
             general: useRef(null),
             display: useRef(null),
-            picture: useRef(null),
+            assets: useRef(null),
         },
         input: {
             general: {

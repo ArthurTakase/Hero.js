@@ -1,4 +1,4 @@
-export function uploadPicture(file, _callback) {
+export function uploadFile(file, _callback) {
     var reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = function() {

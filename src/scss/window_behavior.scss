@@ -15,10 +15,41 @@
 
 .picture {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     gap: 0.6rem;
-    transition: 0.2s ease-in-out;
+    .Collapsible {
+        width: 100%;
+        .Collapsible__trigger {
+            display: flex;
+            width: calc(100% - 0.5rem);
+            background: darken($accent-color, 10%);
+            border-top-right-radius: 0.5rem;
+            border-top-left-radius: 0.5rem;
+            padding-left: 0.5rem;
+            padding-top: 0.2rem;
+            padding-bottom: 0.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+            &.is-closed {
+                border-bottom-right-radius: 0.5rem;
+                border-bottom-left-radius: 0.5rem;
+            }
+        }
+        .Collapsible__contentOuter {
+            .Collapsible__contentInner {
+                padding: 0.5rem;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 0.6rem;
+                transition: 0.2s ease-in-out;
+                background: $container-dark;
+                border-bottom-right-radius: 0.5rem;
+                border-bottom-left-radius: 0.5rem;
+            }
+        }
+    }
 }
 
 .file {

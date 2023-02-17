@@ -2,7 +2,7 @@ import React from 'react'
 import '../scss/window.scss'
 import { toast } from 'react-toastify'
 
-export default function Header({ title, r, saveFunc, uploadFunc }) {
+export default function Header({ title, saveFunc, uploadFunc, uploadType }) {
     // function close() {
     //     // remove the window
     //     if (confirm("Are you sure you want to close this window?") == false) { return }
@@ -44,8 +44,8 @@ export default function Header({ title, r, saveFunc, uploadFunc }) {
             <div className="buttons">
                 {saveFunc ? <button className="button" onClick={() => { save(saveFunc) }} ><i className='bx bx-save'></i></button> : <></>}
                 {uploadFunc ? <>
-                    <label className="button" htmlFor="uploadPictureForm" title="Upload your file"><i className='bx bx-cloud-upload'></i></label>
-                    <input style={{display: "none"}} type="file" id="uploadPictureForm" accept="image/*" onChange={uploadFunc} multiple />
+                    <label className="button" htmlFor="uploadForm" title="Upload your file"><i className='bx bx-cloud-upload'></i></label>
+                    <input style={{display: "none"}} type="file" id="uploadForm" accept={uploadType} onChange={uploadFunc} multiple />
                 </> : <></>}
                 {/* <button className="button" onClick={() => { close() }} ><i className='bx bx-x'></i></button> */}
             </div>

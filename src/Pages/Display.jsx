@@ -22,7 +22,7 @@ export default function Display({ refs }) {
 
     return (
         <>
-        <Header title="Display" r={refs.window.display} saveFunc={save}/>
+        <Header title="Display" saveFunc={save}/>
         <div className="display content" ref={refs.window.display}>
             <Checkbox label="Show Stamina" r={refs.input.display.showStamina} id="showStamina" />
             <Checkbox label="Show Ability" r={refs.input.display.showAbility} id="showAbility" />
