@@ -10,6 +10,28 @@
     }
     input {
         padding: 0.8rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        background: $container-dark;
+        color: $text-color;
+        border: none;
+        border-radius: 0.5rem;
+    }
+}
+
+.select {
+    display: flex;
+    flex-direction: column;
+    label {
+        padding-left: 0.2rem;
+        .required {
+            color: $accent-color;
+        }
+    }
+    select {
+        padding: 0.8rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
         background: $container-dark;
         color: $text-color;
         border: none;

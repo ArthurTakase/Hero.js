@@ -21,3 +21,14 @@ export function Checkbox({ label, r, id, onChange }) {
         </div>
     )
 }
+
+export function Select({ label, r, options, onChange }) {
+    return (
+        <div className="select">
+            <label>{label}</label>
+            <select ref={r} onChange={onChange}>
+                {options}
+            </select>
+        </div>
+    )
+}

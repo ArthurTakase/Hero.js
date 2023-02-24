@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 import Grid from './Components/Grid'
@@ -18,6 +18,38 @@ export const data = {
     data: {
         pictures: {},
         sounds: {},
+    },
+    player: {
+        allObjects: {},
+        inventory: [],
+        variables: {},
+    }
+}
+
+export function notif(func) {
+    const ret = func()
+    if (ret.value == "success") {
+        toast.success(ret.msg, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        })
+    } else {
+        toast.error(ret.msg, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+        })
     }
 }
 
@@ -27,6 +59,7 @@ export default function App() {
             general: useRef(null),
             display: useRef(null),
             assets: useRef(null),
+            player: useRef(null),
         },
         input: {
             general: {
@@ -37,11 +70,21 @@ export default function App() {
                 MaxSkill: useRef(null),
             },
             display: {
-                showStamina: useRef(null),
-                showAbility: useRef(null),
-                showSkills: useRef(null),
-                showGold: useRef(null),
+                showVar: useRef(null),
                 showInventory: useRef(null),
+            },
+            player: {
+                allObjects: {
+                    name: useRef(null),
+                    description: useRef(null),
+                },
+                variables: {
+                    name: useRef(null),
+                    value: useRef(null),
+                },
+                inventory: {
+                    select: useRef(null),
+                }
             }
         }
     }
@@ -52,11 +95,11 @@ export default function App() {
     const states = {
         set: {
             setOpen: setOpen,
-            setModalContent: setModalContent
+            setModalContent: setModalContent,
         },
         get: {
             open: open,
-            modalContent: modalContent
+            modalContent: modalContent,
         }
     }
 

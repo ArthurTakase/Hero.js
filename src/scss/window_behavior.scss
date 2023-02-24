@@ -1,64 +1,9 @@
 @import "variables";
-.general {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    padding-bottom: 1rem;
-}
-
-.display {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    padding-bottom: 1rem;
-}
-
-.picture {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    .Collapsible {
-        width: 100%;
-        .Collapsible__trigger {
-            display: flex;
-            width: calc(100% - 0.5rem);
-            background: darken($accent-color, 10%);
-            border-top-right-radius: 0.5rem;
-            border-top-left-radius: 0.5rem;
-            padding-left: 0.5rem;
-            padding-top: 0.2rem;
-            padding-bottom: 0.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s ease-in-out;
-            &.is-closed {
-                border-bottom-right-radius: 0.5rem;
-                border-bottom-left-radius: 0.5rem;
-            }
-        }
-        .Collapsible__contentOuter {
-            .Collapsible__contentInner {
-                padding: 0.5rem;
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 0.6rem;
-                transition: 0.2s ease-in-out;
-                background: $container-dark;
-                border-bottom-right-radius: 0.5rem;
-                border-bottom-left-radius: 0.5rem;
-            }
-        }
-    }
-}
-
 .file {
-    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 0.6rem;
     padding-top: 0 !important;
     min-height: calc(100%) !important;
     padding-left: 0.5rem !important;
@@ -80,6 +25,72 @@
         &:hover {
             scale: 1.05;
             font-weight: bold;
+        }
+    }
+}
+
+.player {
+    .Collapsible__contentInner {
+        flex-direction: column !important;
+        gap: 0.2rem !important;
+    }
+    .inputZone {
+        gap: 0.6rem;
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 0.4rem;
+        .input,
+        .select {
+            flex: 1;
+            min-width: unset !important;
+            // gap: 0.6rem;
+            input {
+                width: calc(100% - 1.5rem);
+                background: $navbar-collapse-color;
+                // padding-top: 0.3rem;
+                // padding-bottom: 0.3rem;
+            }
+            select {
+                background: $navbar-collapse-color;
+            }
+        }
+        button {
+            background: $accent-color;
+            color: $text-color;
+            border: none;
+            border-radius: 0.4rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+            padding-left: 0.3rem;
+            padding-right: 0.3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover {
+                // font-size: 1.2rem;
+                scale: 1.05;
+                font-weight: bold;
+                background: darken($accent-color, 10%);
+            }
+        }
+    }
+    .object {
+        // border: solid red;
+        display: flex;
+        flex-direction: row;
+        gap: 0.3rem;
+        div {
+            flex: 1;
+            width: 50%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: center;
+        }
+        &:hover {
+            background: $navbar-collapse-color;
+            border-radius: 0.4rem;
         }
     }
 }
