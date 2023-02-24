@@ -13,7 +13,6 @@ export default function Header({ title, saveFunc, uploadFunc, uploadType }) {
                     <label className="button" htmlFor="uploadForm" title="Upload your file"><i className='bx bx-image-add'></i></label>
                     <input style={{display: "none"}} type="file" id="uploadForm" accept={uploadType} onChange={uploadFunc} multiple />
                 </> : <></>}
-                {/* <button className="button" onClick={() => { close() }} ><i className='bx bx-x'></i></button> */}
             </div>
         </div>
         </>

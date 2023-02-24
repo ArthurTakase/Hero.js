@@ -22,7 +22,8 @@
         min-width: fit-content;
         flex: 1;
         height: 1.45rem;
-        &:hover {
+        &:hover,
+        &:focus {
             scale: 1.05;
             font-weight: bold;
         }
@@ -43,12 +44,9 @@
         .select {
             flex: 1;
             min-width: unset !important;
-            // gap: 0.6rem;
             input {
                 width: calc(100% - 1.5rem);
                 background: $navbar-collapse-color;
-                // padding-top: 0.3rem;
-                // padding-bottom: 0.3rem;
             }
             select {
                 background: $navbar-collapse-color;
@@ -67,8 +65,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            &:hover {
-                // font-size: 1.2rem;
+            &:hover,
+            &:focus {
                 scale: 1.05;
                 font-weight: bold;
                 background: darken($accent-color, 10%);
@@ -76,7 +74,6 @@
         }
     }
     .object {
-        // border: solid red;
         display: flex;
         flex-direction: row;
         gap: 0.3rem;
@@ -88,7 +85,8 @@
             white-space: nowrap;
             text-align: center;
         }
-        &:hover {
+        &:hover,
+        &:focus {
             background: $navbar-collapse-color;
             border-radius: 0.4rem;
         }

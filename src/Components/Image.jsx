@@ -1,4 +1,5 @@
 import '../scss/image.scss'
+import '../scss/modal.scss'
 
 export default function Image({ pictureUrl, pictureName, states }) {    
     function setModal() {
