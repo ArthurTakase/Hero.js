@@ -1,7 +1,9 @@
 import '../scss/image.scss'
 import '../scss/modal.scss'
 
-export default function Image({ pictureUrl, pictureName, states }) {    
+import { states } from '../App'
+
+export default function Image({ pictureUrl, pictureName }) {    
     function setModal() {
         states.set.setModalContent(
         <>

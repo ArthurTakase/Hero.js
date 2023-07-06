@@ -1,11 +1,9 @@
 import Header from '../Components/Header'
 import { Input } from '../Components/Input'
-import { data, lang } from '../App'
+import { data, txt } from '../App'
 import '../scss/window_behavior.scss'
 
 export default function General({ refs }) {
-    const txt = lang[localStorage.getItem("lang")]
-
     function save() {
         try {
             if (refs.input.general.gameTitle.current.value == "") { return { value: "error", msg: `"${txt.gameTitle}" ${txt.required}` } }
@@ -16,8 +14,6 @@ export default function General({ refs }) {
             data.gameInfos.defeatNumber = parseInt(refs.input.general.defeatDialogID.current.value)
             data.gameInfos.MaxDice = parseInt(refs.input.general.MaxDice.current.value)
             data.gameInfos.MaxSkills = parseInt(refs.input.general.MaxSkill.current.value)
-
-            return { value: "success", msg: txt.successSave }
         }
         catch (e) {
             return { value: "error", msg: txt.errorSave }

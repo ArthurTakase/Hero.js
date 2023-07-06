@@ -1,6 +1,9 @@
 import '../scss/image.scss'
 
-export default function Audio({ audioUrl, audioName, states }) {    
+import { states } from '../App'
+import audio from '../assets/audio.jpg'
+
+export default function Audio({ audioUrl, audioName }) {    
     function setModal() {
         states.set.setModalContent(
         <>
@@ -14,7 +17,7 @@ export default function Audio({ audioUrl, audioName, states }) {
     return (
     <div className="audio pic" onClick={setModal}>
         <p>{audioName}</p>
-        <img src="assets/audio.jpg" />
+        <img src={audio} />
     </div>
     )
 }

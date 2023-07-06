@@ -4,6 +4,8 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import Grid from './Components/Grid'
 import Modal from './Components/Modal'
+import './Tools/IndexedDB'
+import './Tools/Shortcuts'
 
 import en_translate from "./Translate/en.json"
 import fr_translate from "./Translate/fr.json"
@@ -12,6 +14,10 @@ export const lang = {
     en: en_translate,
     fr: fr_translate
 }
+
+export const txt = lang[localStorage.getItem("lang")]
+
+export const states = {}
 
 export const data = {
     gameInfos: {},
@@ -28,6 +34,7 @@ export const data = {
 
 export function notif(func) {
     const ret = func()
+    if (ret === undefined) return
     if (ret.value == "success") {
         toast.success(ret.msg, {
             position: "top-right",
@@ -69,10 +76,6 @@ export default function App() {
                 MaxDice: useRef(null),
                 MaxSkill: useRef(null),
             },
-            display: {
-                showVar: useRef(null),
-                showInventory: useRef(null),
-            },
             player: {
                 allObjects: {
                     name: useRef(null),
@@ -81,9 +84,11 @@ export default function App() {
                 variables: {
                     name: useRef(null),
                     value: useRef(null),
+                    display: useRef(null),
                 },
                 inventory: {
                     select: useRef(null),
+                    quantity: useRef(null),
                 }
             }
         }
@@ -92,15 +97,13 @@ export default function App() {
     const [open, setOpen] = useState(false);
     const [modalContent, setModalContent] = useState(<></>);
 
-    const states = {
-        set: {
-            setOpen: setOpen,
-            setModalContent: setModalContent,
-        },
-        get: {
-            open: open,
-            modalContent: modalContent,
-        }
+    states['set'] = {
+        setOpen: setOpen,
+        setModalContent: setModalContent,
+    }
+    states['get'] = {
+        open: open,
+        modalContent: modalContent,
     }
 
     return (
@@ -117,7 +120,7 @@ export default function App() {
                 pauseOnHover
                 theme="dark"
             />
-            <Grid refs={refs} data={data} states={states} />
+            <Grid refs={refs} data={data} />
             <Modal states={states}  />
         </>
     )

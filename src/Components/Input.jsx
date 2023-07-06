@@ -16,7 +16,7 @@ export function Checkbox({ label, r, id, onChange }) {
             <label>{label}</label>
             <div className="toggle-pill-color">
                 <input type="checkbox" id={id} ref={r} onChange={onChange}/>
-                <label htmlFor={id}></label>
+                <label tabIndex={0} htmlFor={id}></label>
             </div>
         </div>
     )

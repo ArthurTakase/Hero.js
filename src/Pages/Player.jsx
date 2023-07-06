@@ -1,14 +1,13 @@
 import Header from '../Components/Header'
-import { data, lang, notif } from '../App'
-import { Input, Select } from '../Components/Input'
+import { data, notif, states } from '../App'
+import { Checkbox, Input, Select } from '../Components/Input'
 import Collapse from '../Components/Collapse'
 
 import { useState } from 'react'
 
 import '../scss/window_behavior.scss'
 
-export default function Player({ refs, states }) {
-    const txt = lang[localStorage.getItem("lang")]
+export default function Player({ refs }) {
     const [objects, setObjects] = useState(<>Empty</>)
     const [variables, setVariables] = useState(<>Empty</>)
     const [inventory, setInventory] = useState(<>Empty</>)
@@ -18,13 +17,13 @@ export default function Player({ refs, states }) {
 
         function saveNewInventory() {
             const name = refs.input.player.inventory.select.current.value
-    
+            const quantity = refs.input.player.inventory.quantity.current.value
+
             if (name === "") return { value: "error", msg: "Name is Empty" }
-    
-            data.player.inventory.push(name)
-    
+            if (quantity === "") return { value: "error", msg: "Quantity is Empty" }
+
+            for (let i = 0; i < quantity; i++) data.player.inventory.push(name)
             updateInventory()
-    
             return { value: "success", msg: "New Object added" }
         }
 
@@ -45,12 +44,16 @@ export default function Player({ refs, states }) {
             states.set.setOpen(false)
         }
 
+        if (Object.keys(data.player.allObjects).length === 0)
+            return { value: "error", msg: "There is no object to add to your player inventory." }
+
         states.set.setModalContent(
             <>
                 <div className="modalContent">
                     <div className="modalTitle">Add Item to Inventory</div>
-                    <Select r={refs.input.player.inventory.select} options={select} />
-                    <button onClick={() => { notif(saveNewInventory) }}><i className='bx bx-plus'></i></button>
+                    <Select label="Item" r={refs.input.player.inventory.select} options={select} />
+                    <Input type="number" label="Quantity" placeholder="Quantity" r={refs.input.player.inventory.quantity} />
+                    <button onClick={() => { notif(saveNewInventory) }} className='marg-top-10'><i className='bx bx-plus'></i></button>
                 </div>
             </>
         )
@@ -67,9 +70,7 @@ export default function Player({ refs, states }) {
             if (description === "") return { value: "error", msg: "Description is Empty" }
     
             data.player.allObjects[name] = { name: name, description: description }
-    
             updateObjects()
-    
             return { value: "success", msg: "New Object added" }
         }
 
@@ -93,9 +94,9 @@ export default function Player({ refs, states }) {
             <>
                 <div className="modalContent">
                     <div className="modalTitle">Add Item to Game</div>
-                    <Input type="text" placeholder="Name" r={refs.input.player.allObjects.name} />
-                    <Input type="text" placeholder="Description" r={refs.input.player.allObjects.description} />
-                    <button onClick={() => { notif(saveNewObject) }}><i className='bx bx-plus'></i></button>
+                    <Input type="text" label="Name" placeholder="Name" r={refs.input.player.allObjects.name} />
+                    <Input type="text" label="Description" placeholder="Description" r={refs.input.player.allObjects.description} />
+                    <button onClick={() => { notif(saveNewObject) }} className='marg-top-10'><i className='bx bx-plus'></i></button>
                 </div>
             </>
         )
@@ -108,14 +109,13 @@ export default function Player({ refs, states }) {
             const name = refs.input.player.variables.name.current.value
             const v = refs.input.player.variables.value.current.value
             const value = parseInt(v)
+            const display = refs.input.player.variables.display.current.checked
     
             if (name === "") return { value: "error", msg: "Name is Empty" }
             if (isNaN(value)) return { value: "error", msg: "Value is NaN" }
     
-            data.player.variables[name] = { name: name, value: value }
-    
+            data.player.variables[name] = { name, value, display }
             updateVariables()
-    
             return { value: "success", msg: "New Variable added" }
         }
 
@@ -126,19 +126,26 @@ export default function Player({ refs, states }) {
                     <div className="object" key={i}>
                         <div className="name">{v.name}</div>
                         <div className="value">{v.value}</div>
+                        <div className="display">{v.display ? "Show" : "Hidden"}</div>
                     </div>
                 )
             }))
             states.set.setOpen(false)
+            refs.input.player.variables.name.current.value = ""
+            refs.input.player.variables.value.current.value = ""
+            refs.input.player.variables.display.current.checked = true
         }
 
         states.set.setModalContent(
             <>
                 <div className="modalContent">
                     <div className="modalTitle">Add Variable to Player</div>
-                    <Input type="text" placeholder="Name" r={refs.input.player.variables.name} />
-                    <Input type="number" placeholder="Value" r={refs.input.player.variables.value} />
-                    <button onClick={() => { notif(saveNewVariable) }}><i className='bx bx-plus'></i></button>
+                    <Input type="text" label="Name" placeholder="Name" r={refs.input.player.variables.name} />
+                    <Input type="number" max="9007199254740991" label="Default value" placeholder="Default value" r={refs.input.player.variables.value} />
+                    <div className='pad-left-5 pad-right-5 pad-top-5'>
+                        <Checkbox label="Display in game" r={refs.input.player.variables.display} id="displayInGame" />
+                    </div>
+                    <button onClick={() => { notif(saveNewVariable) }} className='marg-top-10'><i className='bx bx-plus'></i></button>
                 </div>
             </>
         )
@@ -152,7 +159,7 @@ export default function Player({ refs, states }) {
             <Collapse name="All Objects" header={<button onClick={modalObjects}><i className='bx bx-plus'></i></button>}>
                 {objects}
             </Collapse>
-            <Collapse name="Inventory" header={<button onClick={modalInventory}><i className='bx bx-plus'></i></button>}>
+            <Collapse name="Inventory" header={<button onClick={() => notif(modalInventory)}><i className='bx bx-plus'></i></button>}>
                 {inventory}
             </Collapse>
             <Collapse name="Variables" header={<button onClick={modalVariables}><i className='bx bx-plus'></i></button>}>

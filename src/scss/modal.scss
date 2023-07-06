@@ -1,9 +1,10 @@
 @import "variables";
 .modal {
     .modalContent {
+        max-height: 100vh;
+        overflow-y: scroll;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         gap: 0.5rem;
         padding: 0.5rem;
         padding-top: 1rem;
