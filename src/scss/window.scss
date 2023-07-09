@@ -1,58 +1,58 @@
 @import "variables";
 .header {
-    background: $accent-color;
+  background: $accent-color;
+  display: flex;
+  height: 1.7rem;
+  top: 0;
+  position: fixed;
+  z-index: 5;
+  width: 100%;
+  box-shadow: 0rem 0rem 1rem 0.5rem rgba(0, 0, 0, 0.1);
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  .title {
+    padding-left: 0.5rem;
+    font-weight: bold;
+  }
+  .buttons {
+    border-radius: 0.5rem;
     display: flex;
+    position: absolute;
+    right: 0.2rem;
     height: 1.7rem;
-    top: 0;
-    position: fixed;
-    z-index: 5;
-    width: 100%;
-    box-shadow: 0rem 0rem 1rem 0.5rem rgba(0, 0, 0, 0.1);
-    border-top-right-radius: 0.5rem;
-    border-top-left-radius: 0.5rem;
-    .title {
-        padding-left: 0.5rem;
-        font-weight: bold;
-    }
-    .buttons {
-        border-radius: 0.5rem;
-        display: flex;
-        position: absolute;
-        right: 0.2rem;
-        height: 1.7rem;
-        .button {
-            border-radius: 0.5rem;
-            border: none;
-            background: none;
-            color: $text-color;
-            font-size: 1rem;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            height: auto;
-            font-size: 1.1rem;
-            i {
-                padding: 0.1rem;
-                border-radius: 50%;
-                &:hover,
-                &:focus {
-                    background: darken($accent-color, 10%);
-                }
-            }
+    .button {
+      border-radius: 0.5rem;
+      border: none;
+      background: none;
+      color: $text-color;
+      font-size: 1rem;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      height: auto;
+      font-size: 1.1rem;
+      i {
+        padding: 0.1rem;
+        border-radius: 50%;
+        &:hover,
+        &:focus {
+          background: darken($accent-color, 10%);
         }
+      }
     }
+  }
 }
 
 .content {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-        display: none;
-    }
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    padding-bottom: 1rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding-bottom: 1rem;
 }

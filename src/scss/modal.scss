@@ -1,69 +1,69 @@
 @import "variables";
 .modal {
-    .modalContent {
-        max-height: 100vh;
-        overflow-y: scroll;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 0.5rem;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        border-radius: 0.5rem;
-        background: $navbar-collapse-color;
-        button {
-            border-radius: 0.4rem;
-            text-align: center;
-            background: $accent-color;
-            color: $text-color;
-            border: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: 0.1s ease-in-out;
-            padding: 0.3rem;
-            display: flex;
-            justify-content: center;
-            &:hover,
-            &:focus {
-                background: darken($accent-color, 10%);
-                font-weight: bold;
-            }
-        }
-        .modalTitle {
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-align: center;
-        }
+  .modalContent {
+    max-height: 100vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 0.5rem;
+    background: $navbar-collapse-color;
+    button {
+      border-radius: 0.4rem;
+      text-align: center;
+      background: $accent-color;
+      color: $text-color;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.1s ease-in-out;
+      padding: 0.3rem;
+      display: flex;
+      justify-content: center;
+      &:hover,
+      &:focus {
+        background: darken($accent-color, 10%);
+        font-weight: bold;
+      }
     }
+    .modalTitle {
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+  }
 }
 
 .modal {
+  background: rgba(0, 0, 0, 0.397);
+  backdrop-filter: blur(10px);
+  width: 100% !important;
+  height: 100% !important;
+  .ModalTitle {
+    text-align: center;
+    font-weight: bold;
+  }
+  audio {
+    border-radius: 0.5rem;
+  }
+  .rodal-dialog {
+    width: unset !important;
+    height: unset !important;
     background: rgba(0, 0, 0, 0.397);
-    backdrop-filter: blur(10px);
-    width: 100% !important;
-    height: 100% !important;
-    .ModalTitle {
-        text-align: center;
-        font-weight: bold;
-    }
-    audio {
-        border-radius: 0.5rem;
-    }
-    .rodal-dialog {
-        width: unset !important;
-        height: unset !important;
-        background: rgba(0, 0, 0, 0.397);
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border-radius: 0.5rem;
-    }
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        border-radius: 0.5rem;
-    }
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 0.5rem;
+  }
 }

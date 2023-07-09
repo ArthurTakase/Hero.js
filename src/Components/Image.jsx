@@ -4,20 +4,20 @@ import '../scss/modal.scss'
 import { states } from '../App'
 
 export default function Image({ pictureUrl, pictureName }) {    
-    function setModal() {
-        states.set.setModalContent(
+  function setModal() {
+    states.set.setModalContent(
         <>
-        <img src={pictureUrl} />
-        <p className="ModalTitle">{pictureName}</p>
+          <img src={pictureUrl} />
+          <p className="ModalTitle">{pictureName}</p>
         </>
-        )
-        states.set.setOpen(true)
-    }
+      )
+    states.set.setOpen(true)
+  }
 
-    return (
+  return (
     <div className="pic" onClick={setModal}>
-        <p>{pictureName}</p>
-        <img src={pictureUrl} />
+      <p>{pictureName}</p>
+      <img src={pictureUrl} />
     </div>
-    )
+  )
 }

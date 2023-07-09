@@ -1,17 +1,17 @@
 @import "variables";
 .layout {
-    height: calc(100% - 2rem);
+  height: calc(100% - 2rem);
 }
 
 .gidDiv {
-    border-radius: 0.3rem;
-    background: $navbar-collapse-color;
-    height: fit-content;
-    overflow: hidden;
-    .content {
-        max-height: calc(100% - 3rem);
-        overflow-y: scroll;
-        padding: 0.5rem;
-        padding-top: 2.3rem;
-    }
+  border-radius: 0.3rem;
+  background: $navbar-collapse-color;
+  height: fit-content;
+  overflow: hidden;
+  .content {
+    max-height: calc(100% - 3rem);
+    overflow-y: scroll;
+    padding: 0.5rem;
+    padding-top: 2.3rem;
+  }
 }

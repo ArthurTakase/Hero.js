@@ -1,41 +1,41 @@
 .localGames {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }
 
 .localGame {
-    min-width: 100px;
-    max-width: 200px;
+  min-width: 100px;
+  max-width: 200px;
+  width: 100%;
+  height: 120px;
+  border-radius: 0.5rem;
+  background: #26272f;
+  transition: scale 0.1s ease-in-out;
+  position: relative;
+  border: none;
+  &:hover {
+    cursor: pointer;
+    scale: 1.05;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  img {
     width: 100%;
-    height: 120px;
-    border-radius: 0.5rem;
-    background: #26272f;
-    transition: scale 0.1s ease-in-out;
-    position: relative;
-    border: none;
-    &:hover {
-        cursor: pointer;
-        scale: 1.05;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    }
-    img {
-        width: 100%;
-        object-fit: cover;
-    }
-    div {
-        background-color: rgba(0, 0, 0, 0.562);
-        backdrop-filter: blur(10px);
-        text-align: center;
-        padding: 0.5rem;
-        width: calc(100% - 1rem);
-        border-bottom-left-radius: 0.5rem;
-        border-bottom-right-radius: 0.5rem;
-        position: absolute;
-        bottom: 0;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+    object-fit: cover;
+  }
+  div {
+    background-color: rgba(0, 0, 0, 0.562);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    padding: 0.5rem;
+    width: calc(100% - 1rem);
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    position: absolute;
+    bottom: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }

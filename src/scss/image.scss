@@ -1,44 +1,44 @@
 @import "variables";
 .pic {
-    flex: 1;
-    height: 6.5rem;
-    min-width: 6.5rem;
-    max-width: 8.5rem;
-    border-radius: 0.5rem;
-    position: relative;
-    transition: 0.2s ease-in-out;
+  flex: 1;
+  height: 6.5rem;
+  min-width: 6.5rem;
+  max-width: 8.5rem;
+  border-radius: 0.5rem;
+  position: relative;
+  transition: 0.2s ease-in-out;
+  overflow: hidden;
+  p {
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    position: absolute;
+    font-size: 0.9rem;
+    bottom: 0;
+    padding: 0.2rem;
+    margin: 0;
+    width: calc(100% - 0.4rem);
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    backdrop-filter: blur(10px);
+    white-space: nowrap;
+    text-overflow: ellipsis;
     overflow: hidden;
-    p {
-        padding-left: 0.2rem;
-        padding-right: 0.2rem;
-        position: absolute;
-        font-size: 0.9rem;
-        bottom: 0;
-        padding: 0.2rem;
-        margin: 0;
-        width: calc(100% - 0.4rem);
-        background: rgba(0, 0, 0, 0.5);
-        text-align: center;
-        backdrop-filter: blur(10px);
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        z-index: 2;
-        transition: 0.2s ease-in-out;
-    }
+    z-index: 2;
+    transition: 0.2s ease-in-out;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: 0.3s ease-in-out;
+    z-index: 1;
+  }
+  &:hover,
+  &:focus {
+    cursor: pointer;
     img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 0.5rem;
-        transition: 0.3s ease-in-out;
-        z-index: 1;
+      scale: 1.1;
     }
-    &:hover,
-    &:focus {
-        cursor: pointer;
-        img {
-            scale: 1.1;
-        }
-    }
+  }
 }
