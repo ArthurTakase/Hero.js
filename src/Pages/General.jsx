@@ -1,9 +1,9 @@
 import Header from '../Components/Header'
 import { Input } from '../Components/Input'
-import { data, txt } from '../App'
+import { data, txt, refs } from '../App'
 import '../scss/window_behavior.scss'
 
-export default function General({ refs }) {
+export default function General() {
     function save() {
         try {
             if (refs.input.general.gameTitle.current.value == "") { return { value: "error", msg: `"${txt.gameTitle}" ${txt.required}` } }

@@ -3,13 +3,12 @@ import General from '../Pages/General'
 import Assets from '../Pages/Assets'
 import File from '../Pages/File'
 import Player from '../Pages/Player'
-import { states } from '../App'
 
 import '../scss/grid.scss'
 import '/node_modules/react-grid-layout/css/styles.css'
 import '/node_modules/react-resizable/css/styles.css'
 
-export default function Grid({ refs, data })
+export default function Grid()
 {
     const layout = [
         { i: "file", x: 0, y: 0, w: 15, h: 2 },
@@ -31,25 +30,25 @@ export default function Grid({ refs, data })
             width={1920}
         >
             <div className="gidDiv" key="file" >
-                <File refs={refs} data={data} />
+                <File />
             </div>
             <div className="gidDiv" key="general" >
-                <General refs={refs} data={data} />
+                <General />
             </div>
             <div className="gidDiv" key="assets" >
-                <Assets refs={refs} data={data} />
+                <Assets />
             </div>
             <div className="gidDiv" key="player" >
-                <Player refs={refs} data={data} />
+                <Player />
             </div>
             {/* <div className="gidDiv" key="data" >
-                <Picture refs={refs} data={data} />
+                <Picture />
             </div>
             <div className="gidDiv" key="create" >
-                <Picture refs={refs} data={data} />
+                <Picture />
             </div>
             <div className="gidDiv" key="map" >
-                <Picture refs={refs} data={data} />
+                <Picture />
             </div> */}
         </GridLayout>
         </>

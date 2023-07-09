@@ -14,11 +14,9 @@ export const lang = {
     en: en_translate,
     fr: fr_translate
 }
-
 export const txt = lang[localStorage.getItem("lang")]
-
 export const states = {}
-
+export const refs = {}
 export const data = {
     gameInfos: {},
     data: {
@@ -61,41 +59,39 @@ export function notif(func) {
 }
 
 export default function App() {
-    const refs = {
-        window: {
-            general: useRef(null),
-            display: useRef(null),
-            assets: useRef(null),
-            player: useRef(null),
+    refs.window = {
+        general: useRef(null),
+        display: useRef(null),
+        assets: useRef(null),
+        player: useRef(null),
+    },
+    refs.input = {
+        general: {
+            gameTitle: useRef(null),
+            firstDialogID: useRef(null),
+            defeatDialogID: useRef(null),
+            MaxDice: useRef(null),
+            MaxSkill: useRef(null),
         },
-        input: {
-            general: {
-                gameTitle: useRef(null),
-                firstDialogID: useRef(null),
-                defeatDialogID: useRef(null),
-                MaxDice: useRef(null),
-                MaxSkill: useRef(null),
+        player: {
+            allObjects: {
+                name: useRef(null),
+                description: useRef(null),
             },
-            player: {
-                allObjects: {
-                    name: useRef(null),
-                    description: useRef(null),
-                },
-                variables: {
-                    name: useRef(null),
-                    value: useRef(null),
-                    display: useRef(null),
-                },
-                inventory: {
-                    select: useRef(null),
-                    quantity: useRef(null),
-                }
+            variables: {
+                name: useRef(null),
+                value: useRef(null),
+                display: useRef(null),
+            },
+            inventory: {
+                select: useRef(null),
+                quantity: useRef(null),
             }
         }
     }
 
-    const [open, setOpen] = useState(false);
-    const [modalContent, setModalContent] = useState(<></>);
+    const [open, setOpen] = useState(false)
+    const [modalContent, setModalContent] = useState(<></>)
 
     states['set'] = {
         setOpen: setOpen,
@@ -120,8 +116,8 @@ export default function App() {
                 pauseOnHover
                 theme="dark"
             />
-            <Grid refs={refs} data={data} />
-            <Modal states={states}  />
+            <Grid />
+            <Modal />
         </>
     )
 }

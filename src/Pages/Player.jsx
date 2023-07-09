@@ -1,5 +1,5 @@
 import Header from '../Components/Header'
-import { data, notif, states } from '../App'
+import { data, notif, states, refs } from '../App'
 import { Checkbox, Input, Select } from '../Components/Input'
 import Collapse from '../Components/Collapse'
 
@@ -7,11 +7,86 @@ import { useState } from 'react'
 
 import '../scss/window_behavior.scss'
 
-export default function Player({ refs }) {
+export function reload_inventory() {
+    const invCount = data.player.inventory.reduce((acc, cur) => {
+        acc[cur] = (acc[cur] || 0) + 1
+        return acc
+    }, {})
+
+    if (Object.keys(invCount).length === 0) {
+        states.set.inventory(<>Empty</>)
+        return
+    }
+
+    states.set.inventory(Object.keys(invCount).map((obj, i) => {
+        return (
+            <div className="object" key={i}>
+                <div className="name">{obj}</div>
+                <div className="count">{invCount[obj]}</div>
+            </div>
+        )
+    }))
+}
+
+export function reload_variables() {
+    const vars = Object.values(data.player.variables)
+
+    if (vars.length === 0) {
+        states.set.variables(<>Empty</>)
+        return
+    }
+
+    states.set.variables(vars.map((v, i) => {
+        return (
+            <div className="object" key={i}>
+                <div className="name">{v.name}</div>
+                <div className="value">{v.value}</div>
+                <div className="display">{v.display ? "Show" : "Hidden"}</div>
+            </div>
+        )
+    }))
+
+    try {
+        refs.input.player.variables.name.current.value = ""
+        refs.input.player.variables.value.current.value = ""
+        refs.input.player.variables.display.current.checked = true
+    } catch (e) { }
+}
+
+export function reload_objects() {
+    const objs = Object.values(data.player.allObjects)
+
+    if (objs.length === 0) {
+        states.set.objects(<>Empty</>)
+        return
+    }
+
+    states.set.objects(objs.map((obj, i) => {
+        return (
+            <div className="object" key={i}>
+                <div className="name">{obj.name}</div>
+                <div className="description">{obj.description}</div>
+            </div>
+        )
+    }))
+    states.set.select(objs.map((obj, i) => {
+        return ( <option value={obj.name} key={i}>{obj.name}</option> )
+    }))
+}
+
+export default function Player() {
     const [objects, setObjects] = useState(<>Empty</>)
     const [variables, setVariables] = useState(<>Empty</>)
     const [inventory, setInventory] = useState(<>Empty</>)
     const [select, setSelect] = useState(<></>)
+
+    states.set.objects = setObjects
+    states.set.variables = setVariables
+    states.set.inventory = setInventory
+    states.set.select = setSelect
+    states.get.objects = objects
+    states.get.variables = variables
+    states.get.inventory = inventory
 
     function modalInventory() {
 
@@ -23,25 +98,9 @@ export default function Player({ refs }) {
             if (quantity === "") return { value: "error", msg: "Quantity is Empty" }
 
             for (let i = 0; i < quantity; i++) data.player.inventory.push(name)
-            updateInventory()
-            return { value: "success", msg: "New Object added" }
-        }
-
-        function updateInventory() {
-            const invCount = data.player.inventory.reduce((acc, cur) => {
-                acc[cur] = (acc[cur] || 0) + 1
-                return acc
-            }, {})
-
-            setInventory(Object.keys(invCount).map((obj, i) => {
-                return (
-                    <div className="object" key={i}>
-                        <div className="name">{obj}</div>
-                        <div className="count">{invCount[obj]}</div>
-                    </div>
-                )
-            }))
+            reload_inventory()
             states.set.setOpen(false)
+            return { value: "success", msg: "New Object added" }
         }
 
         if (Object.keys(data.player.allObjects).length === 0)
@@ -70,24 +129,9 @@ export default function Player({ refs }) {
             if (description === "") return { value: "error", msg: "Description is Empty" }
     
             data.player.allObjects[name] = { name: name, description: description }
-            updateObjects()
-            return { value: "success", msg: "New Object added" }
-        }
-
-        function updateObjects() {
-            const objs = Object.values(data.player.allObjects)
-            setObjects(objs.map((obj, i) => {
-                return (
-                    <div className="object" key={i}>
-                        <div className="name">{obj.name}</div>
-                        <div className="description">{obj.description}</div>
-                    </div>
-                )
-            }))
-            setSelect(objs.map((obj, i) => {
-                return ( <option value={obj.name} key={i}>{obj.name}</option> )
-            }))
+            reload_objects()
             states.set.setOpen(false)
+            return { value: "success", msg: "New Object added" }
         }
 
         states.set.setModalContent(
@@ -115,25 +159,9 @@ export default function Player({ refs }) {
             if (isNaN(value)) return { value: "error", msg: "Value is NaN" }
     
             data.player.variables[name] = { name, value, display }
-            updateVariables()
-            return { value: "success", msg: "New Variable added" }
-        }
-
-        function updateVariables() {
-            const vars = Object.values(data.player.variables)
-            setVariables(vars.map((v, i) => {
-                return (
-                    <div className="object" key={i}>
-                        <div className="name">{v.name}</div>
-                        <div className="value">{v.value}</div>
-                        <div className="display">{v.display ? "Show" : "Hidden"}</div>
-                    </div>
-                )
-            }))
+            reload_variables()
             states.set.setOpen(false)
-            refs.input.player.variables.name.current.value = ""
-            refs.input.player.variables.value.current.value = ""
-            refs.input.player.variables.display.current.checked = true
+            return { value: "success", msg: "New Variable added" }
         }
 
         states.set.setModalContent(
