@@ -1,0 +1,63 @@
+{
+  "misc": {
+    "required": "is required",
+    "is_empty": "is empty",
+    "is_nan": "is NaN",
+    "empty": "Empty",
+    "upload_file": "Upload your files",
+    "show": "Show",
+    "hidden": "Hidden"
+  },
+  "error": {
+    "onSave": "Error while saving the project",
+    "newObject": "There is no object to add to your player inventory.",
+    "export": "Error while exporting the project",
+    "import": "Error while importing the project"
+  },
+  "success": {
+    "onSave": "Project saved successfully!",
+    "newObject": "New object added!",
+    "newVariable": "New variable added!",
+    "export": "Project exported successfully!",
+    "import": "Project imported successfully!"
+  },
+  "general": {
+    "title": "About",
+    "gameTitle": "Game title",
+    "firstDialogID": "First dialog ID",
+    "defeatDialogID": "Defeat dialog ID",
+    "maxDiceValue": "Maximum dice value",
+    "maxSkill": "Maximum skill for player"
+  },
+  "assets": {
+    "title": "Assets",
+    "pictures": "Pictures",
+    "sounds": "Sounds"
+  },
+  "files": {
+    "new": "New",
+    "save": "Save",
+    "browse": "Browse projects",
+    "export": "Export",
+    "upload": "Import",
+    "theme": "Change theme",
+    "language": "Translate to french 🇫🇷",
+    "no_local_games": "No local saved project",
+    "load_local_game": "Load local project"
+  },
+  "player": {
+    "title": "Player",
+    "name": "Name",
+    "quantity": "Quantity",
+    "description": "Description",
+    "item": "Item",
+    "value": "Default value",
+    "addItem": "Add Item to Inventory",
+    "addItemToGame": "Add Item to Game",
+    "addVariable": "Add Variable to Player",
+    "displayInGame": "Display in game",
+    "allObjects": "Objects",
+    "inventory": "Inventory",
+    "variables": "Variables"
+  }
+}

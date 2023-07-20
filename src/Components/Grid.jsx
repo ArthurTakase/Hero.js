@@ -29,27 +29,15 @@ export default function Grid()
       rowHeight={15}
       width={1920}
     >
-      <div className="gidDiv" key="file" >
-        <File />
-      </div>
-      <div className="gidDiv" key="general" >
-        <General />
-      </div>
-      <div className="gidDiv" key="assets" >
-        <Assets />
-      </div>
-      <div className="gidDiv" key="player" >
-        <Player />
-      </div>
-      {/* <div className="gidDiv" key="data" >
-        <Picture />
-      </div>
-      <div className="gidDiv" key="create" >
-        <Picture />
-      </div>
-      <div className="gidDiv" key="map" >
-        <Picture />
-      </div> */}
+      <div className="gidDiv" key="file" ><File /></div>
+      <div className="gidDiv" key="general" ><General /></div>
+      <div className="gidDiv" key="assets" ><Assets /></div>
+      <div className="gidDiv" key="player" ><Player /></div>
+      {/*
+      <div className="gidDiv" key="data" ><Picture /></div>
+      <div className="gidDiv" key="create" ><Picture /></div>
+      <div className="gidDiv" key="map" ><Picture /></div>
+      */}
     </GridLayout>
     </>
   )

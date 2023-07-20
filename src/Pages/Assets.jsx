@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import '../scss/window_behavior.scss'
 
-import { data, refs, states } from '../App'
+import { data, refs, states, txt } from '../App'
 import { uploadFile } from '../Tools/UploadFile'
 import Image from '../Components/Image'
 import Audio from '../Components/Audio'
@@ -13,7 +13,7 @@ export function reload_pictures() {
   const pictures = Object.keys(data.data.pictures)
 
   if (pictures.length === 0) {
-    states.set.pictures(<>Empty</>)
+    states.set.pictures(<>{txt('misc.empty')}</>)
     return
   }
   
@@ -27,7 +27,7 @@ export function reload_sounds() {
   const sounds = Object.keys(data.data.sounds)
 
   if (sounds.length === 0) {
-    states.set.sounds(<>Empty</>)
+    states.set.sounds(<>{txt('misc.empty')}</>)
     return
   }
 
@@ -38,8 +38,8 @@ export function reload_sounds() {
 }
 
 export default function Assets() {
-  const [pictures, setPictures] = useState(<>Empty</>)
-  const [sounds, setSounds] = useState(<>Empty</>)
+  const [pictures, setPictures] = useState(<>{txt('misc.empty')}</>)
+  const [sounds, setSounds] = useState(<>{txt('misc.empty')}</>)
 
   states.set.pictures = setPictures
   states.set.sounds = setSounds
@@ -67,12 +67,12 @@ export default function Assets() {
 
   return (
     <>
-      <Header title="Assets" uploadFunc={handleChange} uploadType="image/*,audio/*" />
+      <Header title={txt('assets.title')} uploadFunc={handleChange} uploadType="image/*,audio/*" />
       <div className="picture content" ref={refs.window.assets}>
-        <Collapse name="Pictures">
+        <Collapse name={txt('assets.pictures')}>
           {pictures}
         </Collapse>
-        <Collapse name="Sounds">
+        <Collapse name={txt('assets.sounds')}>
           {sounds}
         </Collapse>
       </div>

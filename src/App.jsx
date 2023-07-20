@@ -1,20 +1,14 @@
 import React, { useRef, useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { useTranslation } from "react-i18next";
 
 import Grid from './Components/Grid'
 import Modal from './Components/Modal'
 import './Tools/IndexedDB'
 import './Tools/Shortcuts'
 
-import en_translate from "./Translate/en.json"
-import fr_translate from "./Translate/fr.json"
-
-export const lang = {
-  en: en_translate,
-  fr: fr_translate
-}
-export const txt = lang[localStorage.getItem("lang")]
+export let txt = undefined
 export const states = {}
 export const refs = {}
 export const data = {
@@ -59,6 +53,10 @@ export function notif(func) {
 }
 
 export default function App() {
+  const { t, i18n } = useTranslation();
+  if (i18n.language !== localStorage.getItem('lang')) i18n.changeLanguage(localStorage.getItem('lang'))
+  txt = t
+
   refs.window = {
     general: useRef(null),
     display: useRef(null),

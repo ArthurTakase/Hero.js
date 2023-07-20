@@ -1,4 +1,4 @@
-import { states, refs, data, notif } from '../App'
+import { states, refs, data, notif, txt } from '../App'
 import { reload_pictures, reload_sounds } from '../Pages/Assets'
 import { reload_inventory, reload_objects, reload_variables } from '../Pages/Player'
 
@@ -25,9 +25,9 @@ export default function importGame(load_data) {
 
     states.set.setOpen(false)
 
-    notif(() => { return { value: "success", msg: "Game imported" } })
+    notif(() => { return { value: "success", msg: txt('success.import') } })
   } catch (e) {
-    notif(() => { return { value: "error", msg: "Error while importing game" } })
+    notif(() => { return { value: "error", msg: txt('error.import') } })
     console.log(e)
   }
 }

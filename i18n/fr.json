@@ -1,0 +1,63 @@
+{
+  "misc": {
+    "required": "est requis",
+    "is_empty": "est vide",
+    "is_nan": "est invalide",
+    "empty": "Vide",
+    "upload_file": "Importer vos fichiers",
+    "show": "Visible",
+    "hidden": "Masqué"
+  },
+  "error": {
+    "onSave": "Erreur lors de la sauvegarde",
+    "newObject": "Il n'y a pas d'objet à ajouter à votre inventaire",
+    "export": "Erreur lors de l'export",
+    "import": "Erreur lors de l'import"
+  },
+  "success": {
+    "onSave": "Sauvegarde effectuée avec succès !",
+    "newObject": "Objet ajouté à votre inventaire",
+    "newVariable": "Variable ajoutée",
+    "export": "Export effectué avec succès !",
+    "import": "Import effectué avec succès !"
+  },
+  "general": {
+    "title": "A propos",
+    "gameTitle": "Titre du jeu",
+    "firstDialogID": "ID du premier dialogue",
+    "defeatDialogID": "ID du dialogue de défaite",
+    "maxDiceValue": "Valeur max du dé",
+    "maxSkill": "Nombre max de compétences"
+  },
+  "assets": {
+    "title": "Assets",
+    "pictures": "Images",
+    "sounds": "Sons"
+  },
+  "files": {
+    "new": "Nouveau",
+    "save": "Sauvegarder",
+    "browse": "Parcourir les projets",
+    "export": "Exporter",
+    "upload": "Importer",
+    "theme": "Changer le thème",
+    "language": "Traduire en anglais 🇬🇧",
+    "no_local_games": "Aucun projet en local",
+    "load_local_game": "Charger un projet local"
+  },
+  "player": {
+    "title": "Personnage",
+    "name": "Nom",
+    "quantity": "Quantité",
+    "description": "Description",
+    "item": "Objet",
+    "value": "Valeur initiale",
+    "addItem": "Ajout d'un objet à l'inventaire",
+    "addItemToGame": "Ajout d'un objet au jeu",
+    "addVariable": "Ajout d'une variable au personnage",
+    "displayInGame": "Affiché en jeu",
+    "allObjects": "Objets",
+    "inventory": "Inventaire",
+    "variables": "Variables"
+  }
+}

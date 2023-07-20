@@ -1,5 +1,5 @@
 import Header from '../Components/Header'
-import { data, notif, states, refs } from '../App'
+import { data, notif, states, refs, txt } from '../App'
 import { Checkbox, Input, Select } from '../Components/Input'
 import Collapse from '../Components/Collapse'
 
@@ -14,7 +14,7 @@ export function reload_inventory() {
   }, {})
 
   if (Object.keys(invCount).length === 0) {
-    states.set.inventory(<>Empty</>)
+    states.set.inventory(<>{txt('misc.empty')}</>)
     return
   }
 
@@ -32,7 +32,7 @@ export function reload_variables() {
   const vars = Object.values(data.player.variables)
 
   if (vars.length === 0) {
-    states.set.variables(<>Empty</>)
+    states.set.variables(<>{txt('misc.empty')}</>)
     return
   }
 
@@ -41,7 +41,7 @@ export function reload_variables() {
       <div className="object" key={i}>
         <div className="name">{v.name}</div>
         <div className="value">{v.value}</div>
-        <div className="display">{v.display ? "Show" : "Hidden"}</div>
+        <div className="display">{v.display ? txt('misc.show') : txt('misc.hidden')}</div>
       </div>
     )
   }))
@@ -57,7 +57,7 @@ export function reload_objects() {
   const objs = Object.values(data.player.allObjects)
 
   if (objs.length === 0) {
-    states.set.objects(<>Empty</>)
+    states.set.objects(<>{txt('misc.empty')}</>)
     return
   }
 
@@ -75,9 +75,9 @@ export function reload_objects() {
 }
 
 export default function Player() {
-  const [objects, setObjects] = useState(<>Empty</>)
-  const [variables, setVariables] = useState(<>Empty</>)
-  const [inventory, setInventory] = useState(<>Empty</>)
+  const [objects, setObjects] = useState(<>{txt('misc.empty')}</>)
+  const [variables, setVariables] = useState(<>{txt('misc.empty')}</>)
+  const [inventory, setInventory] = useState(<>{txt('misc.empty')}</>)
   const [select, setSelect] = useState(<></>)
 
   states.set.objects = setObjects
@@ -94,24 +94,24 @@ export default function Player() {
       const name = refs.input.player.inventory.select.current.value
       const quantity = refs.input.player.inventory.quantity.current.value
 
-      if (name === "") return { value: "error", msg: "Name is Empty" }
-      if (quantity === "") return { value: "error", msg: "Quantity is Empty" }
+      if (name === "") return { value: "error", msg: `${txt('player.name')} ${txt('misc.is_empty')}` }
+      if (quantity === "") return { value: "error", msg: `${txt('player.quantity')} ${txt('misc.is_empty')}` }
 
       for (let i = 0; i < quantity; i++) data.player.inventory.push(name)
       reload_inventory()
       states.set.setOpen(false)
-      return { value: "success", msg: "New Object added" }
+      return { value: "success", msg: txt('success.newObject') }
     }
 
     if (Object.keys(data.player.allObjects).length === 0)
-        return { value: "error", msg: "There is no object to add to your player inventory." }
+        return { value: "error", msg: txt('error.newObject') }
 
     states.set.setModalContent(
       <>
         <div className="modalContent">
-          <div className="modalTitle">Add Item to Inventory</div>
-          <Select label="Item" r={refs.input.player.inventory.select} options={select} />
-          <Input type="number" label="Quantity" placeholder="Quantity" r={refs.input.player.inventory.quantity} />
+          <div className="modalTitle">{txt('player.addItem')}</div>
+          <Select label={txt('player.item')} r={refs.input.player.inventory.select} options={select} />
+          <Input type="number" label={txt('player.quantity')} placeholder={txt('player.quantity')} r={refs.input.player.inventory.quantity} />
           <button onClick={() => { notif(saveNewInventory) }} className='marg-top-10'><i className='bx bx-plus'></i></button>
         </div>
       </>
@@ -125,21 +125,21 @@ export default function Player() {
       const name = refs.input.player.allObjects.name.current.value
       const description = refs.input.player.allObjects.description.current.value
 
-      if (name === "") return { value: "error", msg: "Name is Empty" }
-      if (description === "") return { value: "error", msg: "Description is Empty" }
+      if (name === "") return { value: "error", msg: `${txt('player.name')} ${txt('misc.is_empty')}` }
+      if (description === "") return { value: "error", msg: `${txt('player.description')} ${txt('misc.is_empty')}` }
 
       data.player.allObjects[name] = { name: name, description: description }
       reload_objects()
       states.set.setOpen(false)
-      return { value: "success", msg: "New Object added" }
+      return { value: "success", msg: txt('success.newObject') }
     }
 
     states.set.setModalContent(
       <>
         <div className="modalContent">
-          <div className="modalTitle">Add Item to Game</div>
-          <Input type="text" label="Name" placeholder="Name" r={refs.input.player.allObjects.name} />
-          <Input type="text" label="Description" placeholder="Description" r={refs.input.player.allObjects.description} />
+          <div className="modalTitle">{txt('player.addItemToGame')}</div>
+          <Input type="text" label={txt('player.name')} placeholder={txt('player.name')} r={refs.input.player.allObjects.name} />
+          <Input type="text" label={txt('player.description')} placeholder={txt('player.description')} r={refs.input.player.allObjects.description} />
           <button onClick={() => { notif(saveNewObject) }} className='marg-top-10'><i className='bx bx-plus'></i></button>
         </div>
       </>
@@ -155,23 +155,23 @@ export default function Player() {
       const value = parseInt(v)
       const display = refs.input.player.variables.display.current.checked
 
-      if (name === "") return { value: "error", msg: "Name is Empty" }
-      if (isNaN(value)) return { value: "error", msg: "Value is NaN" }
+      if (name === "") return { value: "error", msg: `${txt('player.name')} ${txt('misc.is_empty')}` }
+      if (isNaN(value)) return { value: "error", msg: `${txt('player.value')} ${txt('misc.is_nan')}` }
 
       data.player.variables[name] = { name, value, display }
       reload_variables()
       states.set.setOpen(false)
-      return { value: "success", msg: "New Variable added" }
+      return { value: "success", msg: txt('success.newVariable') }
     }
 
     states.set.setModalContent(
       <>
         <div className="modalContent">
-          <div className="modalTitle">Add Variable to Player</div>
-          <Input type="text" label="Name" placeholder="Name" r={refs.input.player.variables.name} />
-          <Input type="number" max="9007199254740991" label="Default value" placeholder="Default value" r={refs.input.player.variables.value} />
+          <div className="modalTitle">{txt('player.addVariable')}</div>
+          <Input type="text" label={txt('player.name')} placeholder={txt('player.name')} r={refs.input.player.variables.name} />
+          <Input type="number" max="9007199254740991" label={txt('player.value')} placeholder={txt('player.value')} r={refs.input.player.variables.value} />
           <div className='pad-left-5 pad-right-5 pad-top-5'>
-            <Checkbox label="Display in game" r={refs.input.player.variables.display} id="displayInGame" />
+            <Checkbox label={txt('player.displayInGame')} r={refs.input.player.variables.display} id="displayInGame" />
           </div>
           <button onClick={() => { notif(saveNewVariable) }} className='marg-top-10'><i className='bx bx-plus'></i></button>
         </div>
@@ -182,15 +182,15 @@ export default function Player() {
 
   return (
   <>
-    <Header title="Player" />
+    <Header title={txt('player.title')} />
     <div className="player content" ref={refs.window.player}>
-      <Collapse name="All Objects" header={<button onClick={modalObjects}><i className='bx bx-plus'></i></button>}>
+      <Collapse name={txt('player.allObjects')} header={<button onClick={modalObjects}><i className='bx bx-plus'></i></button>}>
         {objects}
       </Collapse>
-      <Collapse name="Inventory" header={<button onClick={() => notif(modalInventory)}><i className='bx bx-plus'></i></button>}>
+      <Collapse name={txt('player.inventory')} header={<button onClick={() => notif(modalInventory)}><i className='bx bx-plus'></i></button>}>
         {inventory}
       </Collapse>
-      <Collapse name="Variables" header={<button onClick={modalVariables}><i className='bx bx-plus'></i></button>}>
+      <Collapse name={txt('player.variables')} header={<button onClick={modalVariables}><i className='bx bx-plus'></i></button>}>
         {variables}
       </Collapse>
     </div>

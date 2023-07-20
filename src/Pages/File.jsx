@@ -1,6 +1,9 @@
 import '../scss/window_behavior.scss'
 import '../scss/local_game.scss'
 
+import { useTranslation } from "react-i18next";
+import ReactCountryFlag from "react-country-flag";
+
 import { txt, states, refs } from '../App'
 import { exportJSON } from "../Tools/Export"
 import { save } from "../Tools/Export"
@@ -16,7 +19,7 @@ export default function File() {
     states.set.setModalContent(
       <>
         <div className="modalContent">
-          <div className="modalTitle">Load local saved project</div>
+          <div className="modalTitle">{txt('files.load_local_game')}</div>
           <div className="localGames">
             {
             games.map((game, index) => {
@@ -31,7 +34,7 @@ export default function File() {
               )
             })
             }
-            { games.length === 0 ? <div>No local saved project</div> : null }
+            { games.length === 0 ? <div>{txt('files.no_local_games')}</div> : null }
           </div>
         </div>
       </>
@@ -47,19 +50,30 @@ export default function File() {
   })
   }
 
+  const { i18n } = useTranslation();
+
+  function changeLanguage() {
+    localStorage.getItem("lang") === "gb" ? localStorage.setItem("lang", "fr") : localStorage.setItem("lang", "gb")
+    i18n.changeLanguage(localStorage.getItem("lang"))
+  }
+
   return (
     <>
     <div className="file content" ref={refs.window.general}>
-      <button className="WIP" title={txt.new}><i className='bx bxs-file-plus'></i></button>
-      <button title={txt.save} onClick={async () => await save()}><i className='bx bx-save'></i></button>
-      <button title={txt.browser_projects} onClick={async () => await localImport()}><i className='bx bx-cloud'></i></button>
-      <button title={txt.export} onClick={() => { exportJSON() }}><i className='bx bx-export'></i></button>
-      <label className="button" htmlFor="uploadGame" title="Upload your game"><i className='bx bx-import'></i></label>
+      <button className="WIP" title={txt('files.new')}><i className='bx bxs-file-plus'></i></button>
+      <button title={txt('files.save')} onClick={async () => await save()}><i className='bx bx-save'></i></button>
+      <button title={txt('files.browse')} onClick={async () => await localImport()}><i className='bx bx-cloud'></i></button>
+      <button title={txt('files.export')} onClick={() => { exportJSON() }}><i className='bx bx-export'></i></button>
+      <label className="button" htmlFor="uploadGame" title={txt('files.upload')}><i className='bx bx-import'></i></label>
       <input style={{display: "none"}} type="file" id="uploadGame" accept=".json" onChange={fileImport} />
-      <button className="WIP" title={txt.theme}><i className='bx bxs-palette'></i></button>
-      {/* <button onClick={changeLanguage} title={txt.language}>{
-          localStorage.getItem("lang") === "en" ? "🇫🇷" : "🇬🇧"
-      }</button> */}
+      <button className="WIP" title={txt('files.theme')}><i className='bx bxs-palette'></i></button>
+      <button onClick={changeLanguage} title={txt('files.language')}>
+        <ReactCountryFlag countryCode={localStorage.getItem("lang").toUpperCase()} svg style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}/>
+      </button>
     </div>
     </>
   )
