@@ -60,14 +60,14 @@ export default function File() {
   return (
     <>
     <div className="file content" ref={refs.window.general}>
-      <button className="WIP" title={txt('files.new')}><i className='bx bxs-file-plus'></i></button>
-      <button title={txt('files.save')} onClick={async () => await save()}><i className='bx bx-save'></i></button>
-      <button title={txt('files.browse')} onClick={async () => await localImport()}><i className='bx bx-cloud'></i></button>
-      <button title={txt('files.export')} onClick={() => { exportJSON() }}><i className='bx bx-export'></i></button>
-      <label className="button" htmlFor="uploadGame" title={txt('files.upload')}><i className='bx bx-import'></i></label>
+      <button className="WIP" data-tooltip={txt('files.new')}><i className='bx bxs-file-plus'></i></button>
+      <button data-tooltip={txt('files.save')} onClick={async () => await save()}><i className='bx bx-save'></i></button>
+      <button data-tooltip={txt('files.browse')} onClick={async () => await localImport()}><i className='bx bx-cloud'></i></button>
+      <button data-tooltip={txt('files.export')} onClick={() => { exportJSON() }}><i className='bx bx-export'></i></button>
+      <label className="button" htmlFor="uploadGame" data-tooltip={txt('files.upload')}><i className='bx bx-import'></i></label>
       <input style={{display: "none"}} type="file" id="uploadGame" accept=".json" onChange={fileImport} />
-      <button className="WIP" title={txt('files.theme')}><i className='bx bxs-palette'></i></button>
-      <button onClick={changeLanguage} title={txt('files.language')}>
+      <button className="WIP" data-tooltip={txt('files.theme')}><i className='bx bxs-palette'></i></button>
+      <button onClick={changeLanguage} data-tooltip={txt('files.language')}>
         <ReactCountryFlag countryCode={localStorage.getItem("lang").toUpperCase()} svg style={{
           display: 'flex',
           alignItems: 'center',

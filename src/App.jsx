@@ -114,6 +114,7 @@ export default function App() {
         pauseOnHover
         theme="dark"
       />
+      <div id="tooltip"></div>
       <Grid />
       <Modal />
     </>

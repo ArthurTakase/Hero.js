@@ -184,13 +184,13 @@ export default function Player() {
   <>
     <Header title={txt('player.title')} />
     <div className="player content" ref={refs.window.player}>
-      <Collapse name={txt('player.allObjects')} header={<button onClick={modalObjects}><i className='bx bx-plus'></i></button>}>
+      <Collapse name={txt('player.allObjects')} header={<button data-tooltip={txt('player.addItemToGameAction')} onClick={modalObjects}><i className='bx bx-plus'></i></button>}>
         {objects}
       </Collapse>
-      <Collapse name={txt('player.inventory')} header={<button onClick={() => notif(modalInventory)}><i className='bx bx-plus'></i></button>}>
+      <Collapse name={txt('player.inventory')} header={<button data-tooltip={txt('player.addItemAction')} onClick={() => notif(modalInventory)}><i className='bx bx-plus'></i></button>}>
         {inventory}
       </Collapse>
-      <Collapse name={txt('player.variables')} header={<button onClick={modalVariables}><i className='bx bx-plus'></i></button>}>
+      <Collapse name={txt('player.variables')} header={<button data-tooltip={txt('player.addVariableAction')} onClick={modalVariables}><i className='bx bx-plus'></i></button>}>
         {variables}
       </Collapse>
     </div>
