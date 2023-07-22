@@ -59,5 +59,11 @@
     "allObjects": "Objects",
     "inventory": "Inventory",
     "variables": "Variables"
+  },
+  "map": {
+    "title": "Dialogs map"
+  },
+  "dialog": {
+    "title": "Create new dialog"
   }
 }

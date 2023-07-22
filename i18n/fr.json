@@ -62,5 +62,11 @@
     "allObjects": "Objets",
     "inventory": "Inventaire",
     "variables": "Variables"
+  },
+  "map": {
+    "title": "Carte des dialogues"
+  },
+  "dialog": {
+    "title": "Nouveau dialogue"
   }
 }
