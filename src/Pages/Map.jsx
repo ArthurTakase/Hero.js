@@ -6,7 +6,7 @@ export default function Map() {
   return (
     <>
     <Header title={txt('map.title')} />
-    <div className="general content" ref={refs.window.general}>
+    <div className="map content" ref={refs.window.map}>
     </div>
     </>
   )

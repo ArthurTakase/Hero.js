@@ -6,7 +6,8 @@
     "empty": "Vide",
     "upload_file": "Importer vos fichiers",
     "show": "Visible",
-    "hidden": "Masqué"
+    "hidden": "Masqué",
+    "pleaseSelect": "Séléctionnez un élément"
   },
   "error": {
     "onSave": "Erreur lors de la sauvegarde",

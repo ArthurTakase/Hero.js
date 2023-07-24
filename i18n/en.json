@@ -6,7 +6,8 @@
     "empty": "Empty",
     "upload_file": "Upload your files",
     "show": "Show",
-    "hidden": "Hidden"
+    "hidden": "Hidden",
+    "pleaseSelect": "Select one element"
   },
   "error": {
     "onSave": "Error while saving the project",

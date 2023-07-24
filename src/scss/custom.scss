@@ -29,3 +29,20 @@
 .hidden {
   display: none !important;
 }
+
+.select_element {
+  min-width: 100px;
+  max-width: 200px;
+  width: 100%;
+  height: 120px;
+  padding: unset !important;
+  transition: scale 0.2s ease-in-out !important;
+  &:hover {
+    scale: 1.03;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

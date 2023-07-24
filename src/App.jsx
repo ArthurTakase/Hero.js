@@ -62,6 +62,8 @@ export default function App() {
     display: useRef(null),
     assets: useRef(null),
     player: useRef(null),
+    dialog: useRef(null),
+    map: useRef(null),
   },
   refs.input = {
     general: {

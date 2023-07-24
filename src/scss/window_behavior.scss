@@ -10,7 +10,7 @@
   padding-right: 0.5rem !important;
   button,
   .button {
-    border-radius: 0.4rem;
+    border-radius: 0.5rem;
     text-align: center;
     background: $accent-color;
     color: $text-color;
@@ -57,7 +57,7 @@
       background: $accent-color;
       color: $text-color;
       border: none;
-      border-radius: 0.4rem;
+      border-radius: 0.5rem;
       font-size: 1.2rem;
       cursor: pointer;
       transition: 0.2s ease-in-out;
@@ -90,7 +90,15 @@
     &:hover,
     &:focus {
       background: $navbar-collapse-color;
-      border-radius: 0.4rem;
+      border-radius: 0.5rem;
     }
   }
+}
+
+.dialog {
+
+}
+
+.map {
+  
 }
