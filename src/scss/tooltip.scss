@@ -8,12 +8,12 @@
   padding-left: 5px;
   padding-right: 5px;
   border-radius: 5px;
-  background-color: rgba($accent-color, 0.2);
+  background-color: rgba($accent-color, 0.6);
   backdrop-filter: blur(10px);
   text-align: center;
   font-size: 12px;
   z-index: 99999;
-  border: solid 2px rgba($accent-color, 0.5);
+  border: solid 2px rgba($accent-color, 0.8);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
   white-space: nowrap;
 }
