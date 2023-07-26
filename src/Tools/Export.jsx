@@ -1,4 +1,5 @@
 import { data, txt, notif } from "../App"
+import { HeroDB } from './IndexedDB'
 
 function check(success, error) {
   try {
@@ -9,7 +10,7 @@ function check(success, error) {
     return { value: "success", msg: success }
   }
   catch (e) {
-    return { value: "error", msg: error }
+    return { value: "error", msg: e }
   }
 }
 
@@ -22,6 +23,11 @@ function saveAll() {
 
 export async function save() {
   saveAll()
+  try {
+    await HeroDB.addToDB(data.gameInfos.title, data)
+  } catch (e) {
+    return notif(() => {return { value: "error", msg: txt('error.onSave') }})
+  }
   notif(() => check(txt('success.onSave'), txt('error.onSave')))
 }
 

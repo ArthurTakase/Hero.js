@@ -15,3 +15,25 @@ body {
   cursor: not-allowed !important;
   opacity: 0.2 !important;
 }
+
+// set scrollbar width to 5px if horizontal and height to 5px if vertical
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: rgb(46, 51, 58);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(black, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+::-webkit-scrollbar-thumb {
+  background: $accent-color;
+  border-radius: 6px;
+  &:hover {
+    background: darken($accent-color, 10%);
+    cursor: pointer;
+  }
+}

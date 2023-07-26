@@ -5,6 +5,10 @@ import '../scss/window_behavior.scss'
 
 import { useState, useEffect } from 'react'
 
+export function resetDialog() {
+  states.set.background(<></>) // ! Erreur ici ?
+}
+
 export default function Dialog() {
   const [background, setBackground] = useState(<></>)
   const [btnBackground, setBtnBackground] = useState(

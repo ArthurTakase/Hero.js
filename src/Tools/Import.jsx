@@ -1,6 +1,7 @@
 import { states, refs, data, notif, txt } from '../App'
 import { reload_pictures, reload_sounds } from '../Pages/Assets'
 import { reload_inventory, reload_objects, reload_variables } from '../Pages/Player'
+import { resetDialog } from '../Pages/Dialog'
 
 export default function importGame(load_data) {
   try {
@@ -22,6 +23,9 @@ export default function importGame(load_data) {
     reload_inventory()
     reload_objects()
     reload_variables()
+
+    // set dialog
+    resetDialog()
 
     states.set.setOpen(false)
 
