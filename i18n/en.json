@@ -67,6 +67,7 @@
   },
   "dialog": {
     "title": "Create new dialog",
-    "setBackground": "Click to set the background"
+    "setBackground": "Click to set the background",
+    "addCharacter": "Click to add a character"
   }
 }

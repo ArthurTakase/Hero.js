@@ -14,18 +14,23 @@ document.addEventListener('DOMContentLoaded', () => {
             let tooltipRect = tooltip.getBoundingClientRect()
             const elementRect = element.getBoundingClientRect()
 
-            tooltip.style.top = `${elementRect.y + tooltipRect.height}px`
+            console.log(elementRect)
+
+            tooltip.style.top = `${elementRect.bottom + 5}px`
             tooltip.style.left = `${elementRect.x + elementRect.width / 2 - tooltipRect.width / 2}px`
 
             // if the tooltip is out of the screen, move it back in
             tooltipRect = tooltip.getBoundingClientRect()
-            if (tooltipRect.bottom > window.innerHeight - tooltipRect.height - 5) tooltip.style.top = `${elementRect.y - tooltipRect.height - 5}px`
             if (tooltipRect.right > window.innerWidth) {
-                tooltip.style.right = `0px`
+                tooltip.style.right = `5px`
                 tooltip.style.left = 'unset'
             }
-            if (tooltipRect.left < 0) tooltip.style.left = `0px`
-            if (tooltipRect.top < 0) tooltip.style.top = '0px'
+            if (tooltipRect.left < 0) tooltip.style.left = `5px`
+            if (tooltipRect.bottom > window.innerHeight - tooltipRect.height - 5) tooltip.style.top = `${elementRect.y - tooltipRect.height - 5}px`
+            tooltipRect = tooltip.getBoundingClientRect()
+            if (tooltipRect.top < 0) tooltip.style.top = '5px'
+
+            console.log(tooltipRect)
         })
         element.addEventListener('mouseleave', () => {
             tooltip.style.display = 'none'
