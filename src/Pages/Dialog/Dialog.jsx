@@ -4,10 +4,14 @@ import '../../scss/window_behavior.scss'
 import Background from './Background'
 import Characters from './Characters'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 export function resetDialog() {
   states.set.background(<></>)
+  states.set.leftCharacter(<></>)
+  states.set.rightCharacter(<></>)
+  states.set.character(<></>)
+  // supprimer les boutons show/hide des personnages
 }
 
 export default function Dialog() {
@@ -22,24 +26,27 @@ export default function Dialog() {
   const [leftCharacter, setLeftCharacter] = useState(<></>)
   states.get.leftCharacter = leftCharacter
   states.set.leftCharacter = setLeftCharacter
+  refs.leftCharacter = useRef(null)
 
-  const [btnLeftCharacter, setBtnLeftCharacter] = useState(<Characters position="left" setCharacter={setLeftCharacter} />)
+  const [btnLeftCharacter, setBtnLeftCharacter] = useState(<Characters position="left" setCharacter={setLeftCharacter} character={refs.leftCharacter} />)
   states.get.btnLeftCharacter = btnLeftCharacter
   states.set.btnLeftCharacter = setBtnLeftCharacter
 
   const [rightCharacter, setRightCharacter] = useState(<></>)
   states.get.rightCharacter = rightCharacter
   states.set.rightCharacter = setRightCharacter
+  refs.rightCharacter = useRef(null)
 
-  const [btnRightCharacter, setBtnRightCharacter] = useState(<Characters position="right" setCharacter={setRightCharacter} />)
+  const [btnRightCharacter, setBtnRightCharacter] = useState(<Characters position="right" setCharacter={setRightCharacter} character={refs.rightCharacter} />)
   states.get.btnRightCharacter = btnRightCharacter
   states.set.btnRightCharacter = setBtnRightCharacter
 
   const [character, setCharacter] = useState(<></>)
   states.get.character = character
   states.set.character = setCharacter
+  refs.character = useRef(null)
 
-  const [btnCharacter, setBtnCharacter] = useState(<Characters position="center" setCharacter={setCharacter} />)
+  const [btnCharacter, setBtnCharacter] = useState(<Characters position="center" setCharacter={setCharacter} character={refs.character} />)
   states.get.btnCharacter = btnCharacter
   states.set.btnCharacter = setBtnCharacter
 

@@ -121,12 +121,17 @@
     z-index: -1;
   }
   .addCharacter {
+    z-index: 10;
     position: absolute;
     top: 60%;
     opacity: 0.5;
     transform: translate(-50%, -50%);
     cursor: pointer;
     transition: opacity 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     &:hover {
       opacity: 1;
     }
@@ -137,10 +142,15 @@
       left: 50%;
     }
     &.right {
-      left: 80%
+      left: 80%;
     }
   }
-  .addCharacterBtn {
+  .subZoneDialogBtn {
+    display: flex;
+    scale: 0.5;
+    transform: translate(0, -50%);
+  }
+  .dialogBtn {
     background: unset;
     border: solid $text-color 2px;
     color: $text-color;
@@ -168,14 +178,24 @@
     pointer-events: none;
     display: flex;
     justify-content: center;
-    &.left { left: 0; }
+    &.left {
+      left: 0;
+    }
     &.center {
       left: 50%;
       transform: translateX(-50%);
     }
-    &.right { right: 0; }
+    &.right {
+      right: 0;
+    }
     img {
       object-fit: contain;
+      z-index: 2;
+      transition: filter 0.2s linear;
+      &.disable {
+        z-index: -1;
+        filter: brightness(0.3);
+      }
     }
   }
 }
