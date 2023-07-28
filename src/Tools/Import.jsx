@@ -1,7 +1,7 @@
 import { states, refs, data, notif, txt } from '../App'
 import { reload_pictures, reload_sounds } from '../Pages/Assets'
 import { reload_inventory, reload_objects, reload_variables } from '../Pages/Player'
-import { resetDialog } from '../Pages/Dialog'
+import { resetDialog } from '../Pages/Dialog/Dialog'
 
 export default function importGame(load_data) {
   try {
@@ -28,6 +28,8 @@ export default function importGame(load_data) {
     resetDialog()
 
     states.set.setOpen(false)
+
+    console.log(data)
 
     notif(() => { return { value: "success", msg: txt('success.import') } })
   } catch (e) {

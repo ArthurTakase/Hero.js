@@ -3,7 +3,7 @@ import General from '../Pages/General'
 import Assets from '../Pages/Assets'
 import File from '../Pages/File'
 import Player from '../Pages/Player'
-import Dialog from '../Pages/Dialog'
+import Dialog from '../Pages/Dialog/Dialog'
 import Map from '../Pages/Map'
 
 import '../scss/grid.scss'
