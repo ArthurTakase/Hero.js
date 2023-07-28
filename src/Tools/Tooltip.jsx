@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (element.classList.contains('WIP')) return
 
             const dataTooltip = element.getAttribute('data-tooltip')
+            tooltip.classList.remove('fadeTop')
+            tooltip.offsetHeight
+            tooltip.classList.add('fadeTop')
             tooltip.style.display = 'block'
             tooltip.innerText = dataTooltip
 

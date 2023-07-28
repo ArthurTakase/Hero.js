@@ -99,7 +99,7 @@
   .btnBackground {
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 25px);
     background: unset;
     top: 25px;
     left: 0;
