@@ -118,13 +118,27 @@
     height: 100%;
     object-fit: cover;
     align-self: center;
+    z-index: -1;
   }
   .addCharacter {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 60%;
+    opacity: 0.5;
     transform: translate(-50%, -50%);
     cursor: pointer;
+    transition: opacity 0.2s ease-in-out;
+    &:hover {
+      opacity: 1;
+    }
+    &.left {
+      left: 20%;
+    }
+    &.center {
+      left: 50%;
+    }
+    &.right {
+      left: 80%
+    }
   }
   .addCharacterBtn {
     background: unset;
@@ -142,6 +156,26 @@
     border-radius: 6px;
     &:hover {
       background: lighten($navbar-collapse-color, 30%);
+    }
+  }
+  .character {
+    position: absolute;
+    top: 25px;
+    height: 100%;
+    max-height: 80%;
+    max-width: calc(110% / 3);
+    width: 100%;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    &.left { left: 0; }
+    &.center {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &.right { right: 0; }
+    img {
+      object-fit: contain;
     }
   }
 }

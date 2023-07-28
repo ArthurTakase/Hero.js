@@ -19,11 +19,27 @@ export default function Dialog() {
   states.get.btnBackground = btnBackground
   states.set.btnBackground = setBtnBackground
 
+  const [leftCharacter, setLeftCharacter] = useState(<></>)
+  states.get.leftCharacter = leftCharacter
+  states.set.leftCharacter = setLeftCharacter
+
+  const [btnLeftCharacter, setBtnLeftCharacter] = useState(<Characters position="left" setCharacter={setLeftCharacter} />)
+  states.get.btnLeftCharacter = btnLeftCharacter
+  states.set.btnLeftCharacter = setBtnLeftCharacter
+
+  const [rightCharacter, setRightCharacter] = useState(<></>)
+  states.get.rightCharacter = rightCharacter
+  states.set.rightCharacter = setRightCharacter
+
+  const [btnRightCharacter, setBtnRightCharacter] = useState(<Characters position="right" setCharacter={setRightCharacter} />)
+  states.get.btnRightCharacter = btnRightCharacter
+  states.set.btnRightCharacter = setBtnRightCharacter
+
   const [character, setCharacter] = useState(<></>)
   states.get.character = character
   states.set.character = setCharacter
 
-  const [btnCharacter, setBtnCharacter] = useState(<Characters />)
+  const [btnCharacter, setBtnCharacter] = useState(<Characters position="center" setCharacter={setCharacter} />)
   states.get.btnCharacter = btnCharacter
   states.set.btnCharacter = setBtnCharacter
 
@@ -33,8 +49,12 @@ export default function Dialog() {
     <div className="dialog content" ref={refs.window.dialog}>
       {background}
       {btnBackground}
+      {leftCharacter}
+      {btnLeftCharacter}
       {character}
       {btnCharacter}
+      {rightCharacter}
+      {btnRightCharacter}
     </div>
     </>
   )

@@ -1,18 +1,23 @@
 import FullpageSelect from '../../Components/Select'
 import { data, txt, states } from '../../App'
 
-export default function Characters() {
+export default function Characters({ position, setCharacter }) {
   return (
-    <div className="addCharacter" data-tooltip={txt('dialog.addCharacter')}>
+    <div className={`addCharacter ${position}`} data-tooltip={txt('dialog.addCharacter')}>
       <button className="addCharacterBtn"
-        onClick={() => FullpageSelect(data.data.pictures, 'img', (element) => {
+        onClick={() => FullpageSelect(data.data.pictures, 'img', true, (element) => {
           // TODO: Mettre à jour les data du dialog
           console.log(element)
-          // append le nouveau personnage dans le dialog (à gauche)
+          if (element === null) setCharacter(<></>)
+          else setCharacter(
+            <div className={`character ${position}`}>
+              <img src={element[1]} alt={element[0]} />
+            </div>
+          )
+          // Ajouter un bouton pour mettre en avant ou non le personnage
+          states.set.setOpen(false)
         })}
       >+</button>
     </div>
   )
 }
-
-// Ouvrir une seconde modale pour choisir la position de l'image et si elle doit être mise en avant ou non -> dans une prochaine maj

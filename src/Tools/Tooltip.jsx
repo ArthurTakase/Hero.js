@@ -17,8 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
             let tooltipRect = tooltip.getBoundingClientRect()
             const elementRect = element.getBoundingClientRect()
 
-            console.log(elementRect)
-
             tooltip.style.top = `${elementRect.bottom + 5}px`
             tooltip.style.left = `${elementRect.x + elementRect.width / 2 - tooltipRect.width / 2}px`
 
@@ -32,8 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (tooltipRect.bottom > window.innerHeight - tooltipRect.height - 5) tooltip.style.top = `${elementRect.y - tooltipRect.height - 5}px`
             tooltipRect = tooltip.getBoundingClientRect()
             if (tooltipRect.top < 0) tooltip.style.top = '5px'
-
-            console.log(tooltipRect)
         })
         element.addEventListener('mouseleave', () => {
             tooltip.style.display = 'none'

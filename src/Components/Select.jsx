@@ -1,6 +1,6 @@
 import { states, txt } from '../App'
 
-export default function FullpageSelect(props, type, onClick_callback) {
+export default function FullpageSelect(props, type, remove, onClick_callback) {
   const elementLength = Object.entries(props).length
   const elements = Object.entries(props).map((element, index) => {
     return (
@@ -16,9 +16,11 @@ export default function FullpageSelect(props, type, onClick_callback) {
       <div className="localGames">
         {elementLength ? 
         <>
-          <button onClick={() => onClick_callback(null)} className='select_element'>
-            {txt('misc.remove')}
-          </button>
+          {remove ?
+            <button onClick={() => onClick_callback(null)} className='select_element'>
+              {txt('misc.remove')}
+            </button>
+          : <></>}
           {elements}
         </>
         : txt('misc.is_empty')}
