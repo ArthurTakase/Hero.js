@@ -1,6 +1,8 @@
 @import "variables";
 .layout {
   height: calc(100% - 2rem);
+  width: calc(100% - 2rem);
+  width: 100%;
 }
 
 .gidDiv {
@@ -8,6 +10,9 @@
   background: $navbar-collapse-color;
   height: fit-content;
   overflow: hidden;
+  border: solid 1px darken($text-color, 70%);
+  box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
   .content {
     max-height: calc(100% - 3rem);
     overflow-y: scroll;

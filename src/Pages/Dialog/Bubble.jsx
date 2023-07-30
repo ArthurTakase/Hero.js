@@ -15,7 +15,7 @@ export default function Bubble() {
         <Input type="text" placeholder={txt('dialog.bubble.title')} r={refs.input.dialog.title} />
       </div>
       <div className="bubbleContent">
-        <i class='bx bxs-down-arrow'></i>
+        <i className='bx bxs-down-arrow'></i>
         <TextArea placeholder={txt('dialog.bubble.content')} r={refs.input.dialog.content} />
       </div>
     </div>

@@ -14,11 +14,11 @@ export default function Grid()
 {
   const layout = [
     { i: "file", x: 0, y: 0, w: 15, h: 2 },
-    { i: "general", x: 0, y: 1, w: 15, h: 8 },
-    { i: "player", x: 0, y: 2, w: 15, h: 26 },
+    { i: "general", x: 0, y: 2, w: 15, h: 8 },
+    { i: "player", x: 0, y: 10, w: 15, h: 26 },
     { i: "create", x: 15, y: 0, w: 55, h: 36 },
-    { i: "map", x: 70, y: 0, w: 30, h: 17 },
-    { i: "assets", x: 70, y: 1, w: 30, h: 19 },
+    { i: "assets", x: 70, y: 0, w: 30, h: 17 },
+    { i: "map", x: 70, y: 17, w: 30, h: 19 },
   ];
 
   return (
@@ -26,9 +26,12 @@ export default function Grid()
     <GridLayout
       className="layout"
       layout={layout}
-      cols={100}
+      cols={200}
       rowHeight={15}
-      width={1920}
+      width={3840}
+      verticalCompact={false}
+      preventCollision={true}
+      allowOverlap={true}
     >
       <div className="gidDiv" key="file"><File /></div>
       <div className="gidDiv" key="general"><General /></div>
