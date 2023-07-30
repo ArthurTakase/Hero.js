@@ -32,6 +32,7 @@ export default function Grid()
       verticalCompact={false}
       preventCollision={true}
       allowOverlap={true}
+      resizeHandles={["s", "e", "se", "ne"]}
     >
       <div className="gidDiv" key="file"><File /></div>
       <div className="gidDiv" key="general"><General /></div>

@@ -25,10 +25,7 @@
   "general": {
     "title": "A propos",
     "gameTitle": "Titre du jeu",
-    "firstDialogID": "ID du premier dialogue",
-    "defeatDialogID": "ID du dialogue de défaite",
-    "maxDiceValue": "Valeur max du dé",
-    "maxSkill": "Nombre max de compétences"
+    "firstDialogID": "ID du premier dialogue"
   },
   "assets": {
     "title": "Assets",
@@ -68,6 +65,10 @@
     "title": "Carte des dialogues"
   },
   "dialog": {
-    "title": "Nouveau dialogue"
+    "title": "Nouveau dialogue",
+    "bubble": {
+      "title": "Nom (non obligatoire)",
+      "content": "Contenu du dialogue (non obligatoire)"
+    }
   }
 }

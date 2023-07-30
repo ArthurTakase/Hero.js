@@ -13,9 +13,6 @@ export default function importGame(load_data) {
     // set inputs
     refs.input.general.gameTitle.current.value = data.gameInfos.title
     refs.input.general.firstDialogID.current.value = data.gameInfos.startNumber
-    refs.input.general.defeatDialogID.current.value = data.gameInfos.defeatNumber
-    refs.input.general.MaxDice.current.value = data.gameInfos.MaxDice
-    refs.input.general.MaxSkill.current.value = data.gameInfos.MaxSkills
 
     // set interface
     reload_pictures()

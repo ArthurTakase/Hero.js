@@ -26,10 +26,7 @@
   "general": {
     "title": "About",
     "gameTitle": "Game title",
-    "firstDialogID": "First dialog ID",
-    "defeatDialogID": "Defeat dialog ID",
-    "maxDiceValue": "Maximum dice value",
-    "maxSkill": "Maximum skill for player"
+    "firstDialogID": "First dialog ID"
   },
   "assets": {
     "title": "Assets",
@@ -70,6 +67,10 @@
     "setBackground": "Click to select a background",
     "addCharacter": "Click to select a character",
     "changeLayout": "Change character z-index",
-    "addBubble": "Add a dialog bubble"
+    "addBubble": "Add a dialog bubble",
+    "bubble": {
+      "title": "Character name (not required)",
+      "content": "Dialog content (not required)"
+    }
   }
 }

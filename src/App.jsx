@@ -69,9 +69,6 @@ export default function App() {
     general: {
       gameTitle: useRef(null),
       firstDialogID: useRef(null),
-      defeatDialogID: useRef(null),
-      MaxDice: useRef(null),
-      MaxSkill: useRef(null),
     },
     player: {
       allObjects: {
