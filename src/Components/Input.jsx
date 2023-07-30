@@ -10,6 +10,15 @@ export function Input({ type, placeholder, label, r, required, value }) {
   )
 }
 
+export function TextArea({ placeholder, label, r, required, value }) {
+  return (
+    <div className="input">
+      <label>{label}<span className="required">{required ? " *" : ""}</span></label>
+      <textarea ref={r} placeholder={placeholder} defaultValue={value} />
+    </div>
+  )
+}
+
 export function Checkbox({ label, r, id, onChange }) {
   return (
     <div className='check'>

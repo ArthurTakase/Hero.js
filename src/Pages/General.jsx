@@ -26,9 +26,10 @@ export default function General() {
     <div className="general content" ref={refs.window.general}>
       <Input type="text" placeholder={txt('general.gameTitle')} label={txt('general.gameTitle')} r={refs.input.general.gameTitle} required={true} />
       <Input type="number" placeholder={txt('general.firstDialogID')} label={txt('general.firstDialogID')} r={refs.input.general.firstDialogID} required={true} value={0} />
-      <Input type="number" placeholder={txt('general.defeatDialogID')} label={txt('general.defeatDialogID')} r={refs.input.general.defeatDialogID} />
-      <Input type="number" placeholder={txt('general.maxDiceValue')} label={txt('general.maxDiceValue')} r={refs.input.general.MaxDice} />
-      <Input type="number" placeholder={txt('general.maxSkill')} label={txt('general.maxSkill')} r={refs.input.general.MaxSkill} />
+      {/* TODO
+        - Mettre les deux inputs dans un sous groupe
+        - Ajouter un sous groupe pour personnaliser le css (met à jour en temps réel sur la preview) 
+      */}
     </div>
     </>
   )

@@ -3,6 +3,7 @@ import { data, txt, refs, states } from '../../App'
 import '../../scss/window_behavior.scss'
 import Background from './Background'
 import Characters from './Characters'
+import Bubble from './Bubble'
 
 import { useState, useRef } from 'react'
 
@@ -50,6 +51,10 @@ export default function Dialog() {
   states.get.btnCharacter = btnCharacter
   states.set.btnCharacter = setBtnCharacter
 
+  const [bubble, setBubble] = useState(<Bubble/>)
+  states.get.bubble = bubble
+  states.set.bubble = setBubble
+
   return (
     <>
     <Header title={txt('dialog.title')} />
@@ -62,6 +67,7 @@ export default function Dialog() {
       {btnCharacter}
       {rightCharacter}
       {btnRightCharacter}
+      {bubble}
     </div>
     </>
   )

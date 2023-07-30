@@ -14,11 +14,11 @@ export default function Grid()
 {
   const layout = [
     { i: "file", x: 0, y: 0, w: 15, h: 2 },
-    { i: "general", x: 0, y: 1, w: 15, h: 16 },
-    { i: "player", x: 0, y: 2, w: 15, h: 21 },
-    { i: "create", x: 15, y: 0, w: 55, h: 39 },
+    { i: "general", x: 0, y: 1, w: 15, h: 8 },
+    { i: "player", x: 0, y: 2, w: 15, h: 26 },
+    { i: "create", x: 15, y: 0, w: 55, h: 36 },
     { i: "map", x: 70, y: 0, w: 30, h: 17 },
-    { i: "assets", x: 70, y: 1, w: 30, h: 22 },
+    { i: "assets", x: 70, y: 1, w: 30, h: 19 },
   ];
 
   return (

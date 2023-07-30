@@ -69,6 +69,7 @@
     "title": "Create new dialog",
     "setBackground": "Click to select a background",
     "addCharacter": "Click to select a character",
-    "changeLayout": "Change character z-index"
+    "changeLayout": "Change character z-index",
+    "addBubble": "Add a dialog bubble"
   }
 }

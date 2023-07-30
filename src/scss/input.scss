@@ -8,7 +8,8 @@
       color: $accent-color;
     }
   }
-  input {
+  input,
+  textarea {
     padding: 0.8rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -16,6 +17,9 @@
     color: $text-color;
     border: none;
     border-radius: 0.5rem;
+  }
+  textarea {
+    resize: none;
   }
 }
 

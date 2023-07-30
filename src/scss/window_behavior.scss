@@ -198,4 +198,54 @@
       }
     }
   }
+  .bubble {
+    position: absolute;
+    left: 0;
+    bottom: 2rem;
+    margin: 1rem;
+    z-index: 15;
+    width: calc(100% - 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    .bubbleTitle {
+      width: 30%;
+      min-width: 13rem;
+      position: absolute;
+      top: -30px;
+      left: 10px;
+      input {
+        border: solid $accent-color 2px;
+        background: darken($accent-color, 15%);
+        font-weight: bold;
+        font-size: 1rem;
+      }
+    }
+    .bubbleContent {
+      i {
+        position: absolute;
+        bottom: 0.5rem;
+        right: 0.6rem;
+        font-size: 1.2rem;
+        // animation: float 1.5s linear infinite;
+        // @keyframes float {
+        //   0% {
+        //     transform: translateY(0);
+        //   }
+        //   50% {
+        //     transform: translateY(-0.3rem);
+        //   }
+        //   100% {
+        //     transform: translateY(0);
+        //   }
+        // }
+      }
+      textarea {
+        font-size: 1rem;
+        padding-top: 20px;
+        border: solid $accent-color 2px;
+        height: 6rem;
+      }
+    }
+  }
 }
