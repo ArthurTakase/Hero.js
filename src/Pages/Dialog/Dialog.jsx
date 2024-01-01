@@ -12,6 +12,7 @@ export function resetDialog() {
   states.set.leftCharacter(<></>)
   states.set.rightCharacter(<></>)
   states.set.character(<></>)
+  states.set.bubble(<></>)
   // supprimer les boutons show/hide des personnages
 }
 

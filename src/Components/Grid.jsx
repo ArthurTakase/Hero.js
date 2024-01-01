@@ -5,6 +5,7 @@ import File from '../Pages/File'
 import Player from '../Pages/Player'
 import Dialog from '../Pages/Dialog/Dialog'
 import Map from '../Pages/Map'
+import Options from "../Pages/Options";
 
 import '../scss/grid.scss'
 import '/node_modules/react-grid-layout/css/styles.css'
@@ -16,9 +17,10 @@ export default function Grid()
     { i: "file", x: 0, y: 0, w: 15, h: 2 },
     { i: "general", x: 0, y: 2, w: 15, h: 8 },
     { i: "player", x: 0, y: 10, w: 15, h: 26 },
-    { i: "create", x: 15, y: 0, w: 55, h: 36 },
+    { i: "create", x: 15, y: 0, w: 55, h: 26 },
     { i: "assets", x: 70, y: 0, w: 30, h: 17 },
     { i: "map", x: 70, y: 17, w: 30, h: 19 },
+    { i: "options", x: 15, y: 26, w: 55, h: 10}
   ];
 
   return (
@@ -29,7 +31,7 @@ export default function Grid()
       cols={200}
       rowHeight={15}
       width={3840}
-      verticalCompact={false}
+      compactType={null}
       preventCollision={true}
       allowOverlap={true}
       resizeHandles={["s", "e", "se", "ne"]}
@@ -40,6 +42,7 @@ export default function Grid()
       <div className="gidDiv" key="player"><Player /></div>
       <div className="gidDiv" key="create" ><Dialog /></div>
       <div className="gidDiv" key="map" ><Map /></div>
+      <div className="gidDiv" key="options" ><Options /></div>
     </GridLayout>
     </>
   )
