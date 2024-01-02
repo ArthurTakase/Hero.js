@@ -8,7 +8,8 @@
     "show": "Show",
     "hidden": "Hidden",
     "pleaseSelect": "Select one element",
-    "remove": "Remove"
+    "remove": "Remove",
+    "add": "Add"
   },
   "error": {
     "onSave": "Error while saving the project",

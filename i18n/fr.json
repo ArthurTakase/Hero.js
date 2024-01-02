@@ -7,7 +7,8 @@
     "upload_file": "Importer vos fichiers",
     "show": "Visible",
     "hidden": "Masqué",
-    "pleaseSelect": "Séléctionnez un élément"
+    "pleaseSelect": "Séléctionnez un élément",
+    "Add": "Ajouter"
   },
   "error": {
     "onSave": "Erreur lors de la sauvegarde",

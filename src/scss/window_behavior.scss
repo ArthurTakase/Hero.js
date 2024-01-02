@@ -239,8 +239,23 @@
 }
 
 .options {
-  border: solid red;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   .option {
-    border: solid blue;
+    flex: 1;
+    border-radius: 6px;
+    border: solid $accent-color 2px;
+    background: $accent-color-50;
+    padding: 0.5rem;
+    display: flex;
+    color: $text-color;
+    cursor: pointer;
+    min-width: 10rem;
+    transition: scale width 0.2s ease-in-out;
+    &:hover {
+      scale: 1.01;
+    }
   }
 }

@@ -7,6 +7,30 @@ import '../scss/window_behavior.scss'
 
 export const optionsList = []
 
+/*
+
+ELEMENTS DE CHAQUE OPTION
+
+Button Body (texte de l'option)
+Go to (ID de la prochaine page), par défaut, la page suivante
+Effet sonore (nom du son à jouer) (volume)
+
+Ajoute une condition
+VARIABLE (nom de la variable) (opérateur > <) (valeur)
+INVENTORY (nom de l'objet) (possède / ne possède pas)
+INPUT (valeur attendue)
+
+Ajouter un effet
+VARIABLE (nom de la variable) (opérateur + - / =) (valeur)
+INVENTORY (nom de l'objet) (ajouter / retirer)
+RESTART (recommencer le dialogue)
+
+Notifications
+Texte (texte à afficher)
+Enable (toggle)
+
+*/
+
 export function Option({optionID})
 {
     const optionInfos = optionsList[optionID]
@@ -25,7 +49,7 @@ export function Option({optionID})
 }
 
 export default function Options({}) {
-    const [options, setOptions] = useState(<>Vide</>)
+    const [options, setOptions] = useState(<>{txt("misc.empty")}</>)
     states.get.options = options
     states.set.options = setOptions
 

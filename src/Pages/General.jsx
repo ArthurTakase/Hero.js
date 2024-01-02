@@ -11,9 +11,6 @@ export default function General() {
       
       data.gameInfos.title = refs.input.general.gameTitle.current.value
       data.gameInfos.startNumber = parseInt(refs.input.general.firstDialogID.current.value)
-      data.gameInfos.defeatNumber = parseInt(refs.input.general.defeatDialogID.current.value)
-      data.gameInfos.MaxDice = parseInt(refs.input.general.MaxDice.current.value)
-      data.gameInfos.MaxSkills = parseInt(refs.input.general.MaxSkill.current.value)
     }
     catch (e) {
       return { value: "error", msg: txt('error.onSave') }
